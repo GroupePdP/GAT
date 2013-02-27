@@ -1,6 +1,6 @@
 package linguistique;
 
-public class ConceptAtomique extends ConceptImpl {
+public class ConceptAtomique extends ConceptAbstract {
 	
 	private String sqlTable;
 	private String sqlColonne;
