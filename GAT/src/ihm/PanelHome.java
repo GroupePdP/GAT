@@ -36,19 +36,23 @@ public class PanelHome extends JPanel {
 		content.setPreferredSize(PaneSize);
 		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
 		
-		JPanel UsrButtPain = new CenteredButton("Utilisateur", new UsrBoutonListener() );
-		JPanel AdminButtPain = new CenteredButton("Administrateur", new UsrBoutonListener() );
+		JPanel UsrButtPain = new CenteredButton("Utilisateur", new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				PanelHomeUser phu = new PanelHomeUser(currentFrame, thisPane);
+				currentFrame.setPane(phu);
+				
+			}
+		});
+		JPanel AdminButtPain = new CenteredButton("Administrateur", new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				PanelHomeUser phu = new PanelHomeUser(currentFrame, thisPane);
+				currentFrame.setPane(phu);
+				
+			}
+		});
 		
-		/*JButton UsrButton = new JButton("Utilisateur");
-		JPanel UsrButtPain = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		UsrButton.setPreferredSize(ButtSize);
-		UsrButton.addActionListener(new UsrBoutonListener());
-		UsrButtPain.add(UsrButton);
-		
-		JButton AdminButton = new JButton("Administrateur");
-		JPanel AdminButtPain = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		AdminButton.setPreferredSize(ButtSize);
-		AdminButtPain.add(AdminButton);*/
 		
 		content.add(UsrButtPain);
 		content.add(AdminButtPain);
@@ -61,7 +65,7 @@ public class PanelHome extends JPanel {
 		this.add(global, BorderLayout.CENTER);
 	}
 	
-	class UsrBoutonListener implements ActionListener
+/*	class UsrBoutonListener implements ActionListener
 	{
 		
 		public void actionPerformed(ActionEvent arg0) 
@@ -71,5 +75,5 @@ public class PanelHome extends JPanel {
 			
 		}
 	}
-	
+	*/
 }	

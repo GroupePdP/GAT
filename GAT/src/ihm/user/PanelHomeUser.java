@@ -2,6 +2,7 @@ package ihm.user;
 
 import ihm.MainFrame;
 import ihm.PanelHome;
+import ihm.tools.CenteredButton;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,13 +21,14 @@ public class PanelHomeUser extends JPanel {
 	
 	MainFrame currentFrame;
 	PanelHome previous;
+	PanelHomeUser thisPane;
 	
 	
-	public PanelHomeUser(MainFrame mf, PanelHome previous)
+	public PanelHomeUser(MainFrame mf, PanelHome prev)
 	{
 		this.setLayout(new BorderLayout());
-		
-		this.previous = previous;
+		this.thisPane = this;
+		this.previous = prev;
 		this.currentFrame = mf;
 		
 		JPanel global = new JPanel(new GridBagLayout());
@@ -38,25 +40,32 @@ public class PanelHomeUser extends JPanel {
 		content.setPreferredSize(PaneSize);
 		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
 		
-		Dimension ButtSize = new Dimension(200,50);
+		JPanel SEButtPain = new CenteredButton("Scenarios Existants", new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				PanelExistingScenario pes = new PanelExistingScenario(currentFrame, thisPane);
+				currentFrame.setPane(pes);
+			}
+		});
 		
-		JButton SEButton = new JButton("Scenarios Existants");
-		JPanel SEButtPain = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		SEButton.setPreferredSize(ButtSize);
-		SEButtPain.add(SEButton);
 		content.add(SEButtPain);
 		
-		JButton SPButton = new JButton("Scenario Personnalise");
-		JPanel SPButtPain = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		SPButton.setPreferredSize(ButtSize);
-		SPButtPain.add(SPButton);
+		JPanel SPButtPain = new CenteredButton("Scenario Personnalise", new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				currentFrame.setPane(previous);
+			}
+		});	
+		
 		content.add(SPButtPain);
 		
-		JButton BackButton = new JButton("Retour");
-		JPanel BackButtPain = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		BackButton.setPreferredSize(ButtSize);
-		BackButton.addActionListener(new BoutonListener());
-		BackButtPain.add(BackButton);
+		JPanel BackButtPain = new CenteredButton("Retour", new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				currentFrame.setPane(previous);
+			}
+		});	
+		
 		content.add(BackButtPain);
 		
 		global.add(content,gbc);
@@ -66,14 +75,5 @@ public class PanelHomeUser extends JPanel {
 		
 		
 		
-	}
-	
-	class BoutonListener implements ActionListener
-	{
-		
-		public void actionPerformed(ActionEvent arg0) 
-		{
-			currentFrame.setPane(previous);
-		}
 	}
 }
