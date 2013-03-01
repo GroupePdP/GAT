@@ -16,6 +16,8 @@ public class ConceptComplex extends ConceptAbstract {
 		this.arguments = args;
 	}
 	
+	// Accesseurs
+	
 	public int getNumberArguments(){
 		return arguments.size();
 	}
@@ -23,6 +25,8 @@ public class ConceptComplex extends ConceptAbstract {
 	public List<Type> getArguments(){
 		return this.arguments;
 	}
+	
+	// Autres méthodes
 
 	@Override
 	public String syntoxGeneration() {

@@ -8,7 +8,6 @@ package linguistic;
 
 public class ConceptSimple extends ConceptAbstract 
 {
-	
 	private String sqlTable;
 	private String sqlColumn;
 	
@@ -18,15 +17,11 @@ public class ConceptSimple extends ConceptAbstract
 		this.sqlTable = sqlTable;
 		this.sqlColumn = sqlColumn;
 	}
-
-	@Override
-	public String syntoxGeneration()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	// Accesseurs 
 	
 	public String getSqlColumn()
+	{
 
 		return this.sqlColumn;
 	}
@@ -34,5 +29,14 @@ public class ConceptSimple extends ConceptAbstract
 	public String getSqlTable()
 	{
 		return this.sqlTable;
+	}
+	
+	// Autres méthodes
+	
+	@Override
+	public String syntoxGeneration()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
