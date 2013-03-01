@@ -1,5 +1,8 @@
 package ihm;
 
+import ihm.tools.CenteredButton;
+import ihm.user.PanelHomeUser;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -33,9 +36,10 @@ public class PanelHome extends JPanel {
 		content.setPreferredSize(PaneSize);
 		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
 		
-		Dimension ButtSize = new Dimension(200,50);
+		JPanel UsrButtPain = new CenteredButton("Utilisateur", new UsrBoutonListener() );
+		JPanel AdminButtPain = new CenteredButton("Administrateur", new UsrBoutonListener() );
 		
-		JButton UsrButton = new JButton("Utilisateur");
+		/*JButton UsrButton = new JButton("Utilisateur");
 		JPanel UsrButtPain = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		UsrButton.setPreferredSize(ButtSize);
 		UsrButton.addActionListener(new UsrBoutonListener());
@@ -44,7 +48,7 @@ public class PanelHome extends JPanel {
 		JButton AdminButton = new JButton("Administrateur");
 		JPanel AdminButtPain = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		AdminButton.setPreferredSize(ButtSize);
-		AdminButtPain.add(AdminButton);
+		AdminButtPain.add(AdminButton);*/
 		
 		content.add(UsrButtPain);
 		content.add(AdminButtPain);

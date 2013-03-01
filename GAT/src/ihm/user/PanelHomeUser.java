@@ -1,4 +1,7 @@
-package ihm;
+package ihm.user;
+
+import ihm.MainFrame;
+import ihm.PanelHome;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
