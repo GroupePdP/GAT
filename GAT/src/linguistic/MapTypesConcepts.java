@@ -1,25 +1,36 @@
+/* 
+ * 
+ * 
+ */
+
 package linguistic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class MapTypesConcepts {
 
-	private static Map<Type, List<Concept>> map; 
+	private Map<Type, List<Concept>> map; 
 	
 	public MapTypesConcepts(){
 		this.map = new HashMap<Type, List<Concept>>();
 	}
 	
-	static public List<Concept> addConcept(Concept c){
+	public void addConcept(Concept c){
 		Type typeC = c.getType();
 		List<Concept> list = map.get(typeC);
-		list.add(c); // vérifier ce qu'il se passe si la key typeC n'existe pas dans la map !
-		return map.put(typeC, list);
+		if (list == null)
+		{
+			List<Concept> newList = new ArrayList<Concept>();
+			newList.add(c);
+			map.put(typeC, newList);
+		}
+		list.add(c);
 	}
 	
-	static public List<Concept> getListConcept(Type t){
+	public List<Concept> getListConcept(Type t){
 		return map.get(t);
 	}
 }

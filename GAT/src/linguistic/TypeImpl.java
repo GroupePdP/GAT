@@ -1,4 +1,4 @@
-/* Classe TypeImpl, implémente Type.
+/* Classe TypeImpl, implemente Type.
  * 
  */
 
@@ -14,6 +14,10 @@ public class TypeImpl implements Type {
 		this.surtype = surtype;
 	}
 
+	public TypeImpl(String name){
+		this(name, null);
+	}
+	
 	public Type getSurtype() {
 		return this.surtype;
 	}
