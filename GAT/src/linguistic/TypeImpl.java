@@ -15,7 +15,8 @@ public class TypeImpl implements Type {
 	}
 
 	public TypeImpl(String name){
-		this(name, null);
+		this.name = name;
+		this.surtype = null;
 	}
 	
 	public Type getSurtype() {

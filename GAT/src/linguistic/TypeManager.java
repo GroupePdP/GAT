@@ -10,12 +10,14 @@ public class TypeManager {
 	
 	public Type makeType(String name, Type surtype){
 		Type t = new TypeImpl(name, surtype);
-		
+		tree.addType(t);
 		return t;
 	}
 	
 	public Type makeType(String name){
-		return new TypeImpl(name);
+		Type t = new TypeImpl(name, tree.getRoot().getType());
+		tree.addType(t);
+		return t;
 	}
 
 	public TypeTree getTypeTree(){

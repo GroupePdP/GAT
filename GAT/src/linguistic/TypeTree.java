@@ -12,6 +12,10 @@ public class TypeTree {
 		this.root = new TypeTreeNode(new TypeImpl("object"));
 		this.nodeMap = new HashMap<Type, TypeTreeNode>();
 	}
+	
+	public TypeTreeNode getRoot(){
+		return this.root;
+	}
 		
 	public TypeTreeNode addType(Type t){
 		TypeTreeNode parent = nodeMap.get(t.getSurtype());
