@@ -47,9 +47,7 @@ public class PanelHome extends JPanel {
 		JPanel AdminButtPain = new CenteredButton("Administrateur", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				PanelHomeUser phu = new PanelHomeUser(currentFrame, thisPane);
-				currentFrame.setPane(phu);
-				
+				;
 			}
 		});
 		
@@ -65,15 +63,4 @@ public class PanelHome extends JPanel {
 		this.add(global, BorderLayout.CENTER);
 	}
 	
-/*	class UsrBoutonListener implements ActionListener
-	{
-		
-		public void actionPerformed(ActionEvent arg0) 
-		{
-			PanelHomeUser phu = new PanelHomeUser(currentFrame, thisPane);
-			currentFrame.setPane(phu);
-			
-		}
-	}
-	*/
 }	

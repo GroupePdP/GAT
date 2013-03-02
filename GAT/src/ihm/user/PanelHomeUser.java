@@ -53,7 +53,7 @@ public class PanelHomeUser extends JPanel {
 		JPanel SPButtPain = new CenteredButton("Scenario Personnalise", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				currentFrame.setPane(previous);
+				;
 			}
 		});	
 		

@@ -13,7 +13,9 @@ public class MainFrame extends JFrame{
 		PanelHome home = new PanelHome(this);
 		this.getContentPane().setLayout(new BorderLayout());
 		Dimension FrameSize = new Dimension(1280,720);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(FrameSize);
+		this.setResizable(false);
 		this.setPane(home);
 		
 		
