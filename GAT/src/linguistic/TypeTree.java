@@ -1,3 +1,8 @@
+/* Classe TypeTree
+ * contient une HashMap des Type et des noeuds de l'arbre de types
+ * gere l'ajout d'un type ou d'un concept dans l'arbre
+ */
+
 package linguistic;
 
 import java.util.HashMap;
@@ -9,13 +14,18 @@ public class TypeTree {
 	private Map<Type, TypeTreeNode> nodeMap;
 	
 	public TypeTree(){
-		this.root = new TypeTreeNode(new TypeImpl("object"));
+		Type rootType = new TypeImpl("object"); // Type "racine"
+		this.root = new TypeTreeNode(rootType);
 		this.nodeMap = new HashMap<Type, TypeTreeNode>();
 	}
+	
+	// Accesseurs
 	
 	public TypeTreeNode getRoot(){
 		return this.root;
 	}
+	
+	// Autres methodes
 		
 	public TypeTreeNode addType(Type t){
 		TypeTreeNode parent = nodeMap.get(t.getSurtype());

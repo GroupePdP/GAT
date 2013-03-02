@@ -1,4 +1,4 @@
-/* Classe abstraite ConceptAbstract, implémente Concept.
+/* Classe abstraite ConceptAbstract, implemente Concept.
  * 
  */
 
@@ -15,6 +15,8 @@ public abstract class ConceptAbstract implements Concept
 		this.name = name;
 		this.type = type;
 	}
+	
+	// Accesseurs
 
 	public String getName()
 	{

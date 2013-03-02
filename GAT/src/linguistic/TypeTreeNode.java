@@ -1,6 +1,5 @@
 /* Classe TypeTreeNode
- * 
- * Permet une implémentation d'un arbre de types
+ * implemente les noeuds de l'arbre de types
  */
 
 package linguistic;

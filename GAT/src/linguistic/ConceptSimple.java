@@ -1,7 +1,7 @@
-/* Classe ConceptSimple (hérite de ConceptAbstract)
+/* Classe ConceptSimple (herite de ConceptAbstract)
  * 
  * Un concept atomique ne contient pas d'arguments
- * ne contient qu'une référence à une ligne / colonne de la bdd.
+ * ne contient qu'une reference a une ligne / colonne de la bdd.
  */
 
 package linguistic;
@@ -31,7 +31,7 @@ public class ConceptSimple extends ConceptAbstract
 		return this.sqlTable;
 	}
 	
-	// Autres méthodes
+	// Autres methodes
 	
 	@Override
 	public String syntoxGeneration()

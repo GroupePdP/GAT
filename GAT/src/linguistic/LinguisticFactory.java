@@ -1,3 +1,8 @@
+/* Classe LinguisticFactory
+ * fait partie du pattern AbstractFactory
+ * delegue la creation a TypeManager
+ */
+
 package linguistic;
 
 public class LinguisticFactory implements AbstractFactory {

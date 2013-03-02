@@ -1,6 +1,6 @@
-/* Classe ConceptComplex (hérite de ConceptAbstract)
+/* Classe ConceptComplex (herite de ConceptAbstract)
  * 
- * Un ConceptComplex a des arguments, présentés par leur type.
+ * Un ConceptComplex a des arguments, qui sont des Types.
  */
 
 package linguistic;
@@ -26,7 +26,7 @@ public class ConceptComplex extends ConceptAbstract {
 		return this.arguments;
 	}
 	
-	// Autres méthodes
+	// Autres methodes
 
 	@Override
 	public String syntoxGeneration() {

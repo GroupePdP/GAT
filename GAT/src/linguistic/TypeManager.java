@@ -1,3 +1,7 @@
+/* Classe TypeManager
+ * gere la creation des types, leur ajout dans l'arbre de types
+ */
+
 package linguistic;
 
 public class TypeManager {
@@ -7,6 +11,8 @@ public class TypeManager {
 	public TypeManager(){
 		this.tree = new TypeTree();
 	}
+	
+	// Creation des types
 	
 	public Type makeType(String name, Type surtype){
 		Type t = new TypeImpl(name, surtype);

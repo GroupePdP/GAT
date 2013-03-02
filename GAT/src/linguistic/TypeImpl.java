@@ -1,5 +1,4 @@
 /* Classe TypeImpl, implemente Type.
- * 
  */
 
 package linguistic;
@@ -8,6 +7,8 @@ public class TypeImpl implements Type {
 	
 	private String name;
 	private Type surtype;
+	
+	// Constructeurs
 	
 	public TypeImpl(String name, Type surtype){
 		this.name = name;
@@ -18,6 +19,8 @@ public class TypeImpl implements Type {
 		this.name = name;
 		this.surtype = null;
 	}
+	
+	// Accesseurs
 	
 	public Type getSurtype() {
 		return this.surtype;
