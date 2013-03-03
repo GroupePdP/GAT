@@ -23,12 +23,12 @@ public class MainFrame extends JFrame{
 	
 	public void setPane(JPanel newPane)
 	{
-		/*Passage de la confition en ligne [À TESTER]
+		//Passage de la confition en ligne [À TESTER]
 		if(this.currentPane != null)
 			this.currentPane.setVisible(false);
-		*/
 		
-		(this.currentPane != null) ? this.currentPane.setVisible(false);
+		
+		//(this.currentPane != null) ? this.currentPane.setVisible(false);
 		this.currentPane = newPane;
 		this.getContentPane().add(newPane, BorderLayout.CENTER);
 		newPane.setVisible(true);

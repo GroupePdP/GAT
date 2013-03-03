@@ -13,8 +13,8 @@ public class CenteredButton extends JPanel{
 		JButton usrButton = new JButton(buttname);
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));
 		Dimension buttSize = new Dimension(200,50);
-		UsrButton.setPreferredSize(buttSize);
-		UsrButton.addActionListener(listener);
+		usrButton.setPreferredSize(buttSize);
+		usrButton.addActionListener(listener);
 		this.add(usrButton);
 	}
 }

@@ -36,7 +36,7 @@ public class PanelResult extends JPanel{
 		JPanel southPane = new JPanel();
 		southPane.setLayout(new BoxLayout(southPane, BoxLayout.X_AXIS));
 		
-		centeredButton returnPanel = new CenteredButton("Retour", new ActionListener(){
+		CenteredButton returnPanel = new CenteredButton("Retour", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(previous);
