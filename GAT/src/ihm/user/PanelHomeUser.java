@@ -36,11 +36,11 @@ public class PanelHomeUser extends JPanel {
 		gbc.gridx = gbc.gridy = 1;
 		
 		JPanel content = new JPanel();
-		Dimension PaneSize = new Dimension(200, 200);
-		content.setPreferredSize(PaneSize);
+		Dimension panelSize = new Dimension(200, 200);
+		content.setPreferredSize(panelSize);
 		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
 		
-		JPanel SEButtPain = new CenteredButton("Scenarios Existants", new ActionListener(){ // pk "pain" ?
+		JPanel scExisButtPanel = new CenteredButton("Scenarios Existants", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				PanelExistingScenario pes = new PanelExistingScenario(currentFrame, thisPane);
@@ -48,25 +48,25 @@ public class PanelHomeUser extends JPanel {
 			}
 		});
 		
-		content.add(SEButtPain);
+		content.add(scExisButtPanel);
 		
-		JPanel SPButtPain = new CenteredButton("Scenario Personnalise", new ActionListener(){ // mm question
+		JPanel scPersButtPanel = new CenteredButton("Scenario Personnalise", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				;
 			}
 		});	
 		
-		content.add(SPButtPain);
+		content.add(scPersButtPanel);
 		
-		JPanel BackButtPain = new CenteredButton("Retour", new ActionListener(){ // mm question
+		JPanel backButtPanel = new CenteredButton("Retour", new ActionListener(){ 
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(previous);
 			}
 		});	
 		
-		content.add(BackButtPain);
+		content.add(backButtPanel);
 		global.add(content,gbc);
 		this.add(global, BorderLayout.CENTER);
 	}
