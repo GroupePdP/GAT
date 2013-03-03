@@ -33,66 +33,64 @@ public class PanelResult extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 		
-		JPanel SouthPane = new JPanel();
-		SouthPane.setLayout(new BoxLayout(SouthPane, BoxLayout.X_AXIS));
+		JPanel southPane = new JPanel();
+		southPane.setLayout(new BoxLayout(southPane, BoxLayout.X_AXIS));
 		
-		CenteredButton Return = new CenteredButton("Retour", new ActionListener(){
+		centeredButton returnPanel = new CenteredButton("Retour", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(previous);
 			}
 		});
-		SouthPane.add(Return);
+		southPane.add(returnPanel);
 		
-		CenteredButton Menu = new CenteredButton("Menu", new ActionListener(){
+		CenteredButton menuPanel = new CenteredButton("Menu", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(menuUser);
 			}
 		});
-		SouthPane.add(Menu);
+		southPane.add(menuPanel);
 		
-		CenteredButton Save = new CenteredButton("Sauvegarder", new ActionListener(){
+		CenteredButton savePanel = new CenteredButton("Sauvegarder", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				;
 			}
 		});
-		SouthPane.add(Save);
+		southPane.add(savePanel);
 		
-		JPanel CenterPanel = new JPanel();
-		CenterPanel.setLayout(new BoxLayout(CenterPanel, BoxLayout.Y_AXIS));
+		JPanel centerPanel = new JPanel();
+		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 		
-		JPanel DAD = new JPanel(); // Pas de variables seulement en capitales !!
-		DAD.setLayout(new BorderLayout());
+		JPanel subCenterPanel = new JPanel();
+		subCenterPanel.setLayout(new BorderLayout());
 		
-		JPanel tmp1 = new JPanel();
-		tmp1.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JLabel GeneratedText = new JLabel("Texte g�n�r� :");
-		tmp1.add(GeneratedText);
+		JPanel northSubCenterP = new JPanel();
+		northSubCenterP.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JLabel generatedLabel = new JLabel("Texte g�n�r� :");
+		northSubCenterP.add(generatedLabel);
 		
-		JPanel tmp2 = new JPanel();
-		tmp2.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JTextArea TextArea = new JTextArea();
-		TextArea.setText("Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens, odorandi vias periculorum occultas perquam sagax. is in Brittanniam missus ut militares quosdam perduceret ausos conspirasse Magnentio, cum reniti non possent, iussa licentius supergressus fluminis modo fortunis conplurium sese repentinus infudit et ferebatur per strages multiplices ac ruinas, vinculis membra ingenuorum adfligens et quosdam obterens manicis, crimina scilicet multa consarcinando a veritate longe discreta. unde admissum est facinus impium, quod Constanti tempus nota inusserat sempiterna.");
-		TextArea.setLineWrap(true);
-		TextArea.setEditable(false);
-		JScrollPane DescrScroll = new JScrollPane(TextArea);
-		DescrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		DescrScroll.setPreferredSize(new Dimension(currentFrame.getWidth()/100*80,500));
-		tmp2.add(DescrScroll);
+		JPanel centerSubCenterP = new JPanel();
+		centerSubCenterP.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JTextArea generatedTArea = new JTextArea();
+		generatedTArea.setText("Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens, odorandi vias periculorum occultas perquam sagax. is in Brittanniam missus ut militares quosdam perduceret ausos conspirasse Magnentio, cum reniti non possent, iussa licentius supergressus fluminis modo fortunis conplurium sese repentinus infudit et ferebatur per strages multiplices ac ruinas, vinculis membra ingenuorum adfligens et quosdam obterens manicis, crimina scilicet multa consarcinando a veritate longe discreta. unde admissum est facinus impium, quod Constanti tempus nota inusserat sempiterna.");
+		generatedTArea.setLineWrap(true);
+		generatedTArea.setEditable(false);
+		JScrollPane descrScroll = new JScrollPane(generatedTArea);
+		descrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		descrScroll.setPreferredSize(new Dimension(currentFrame.getWidth()/100*80,500));
+		centerSubCenterP.add(descrScroll);
 		
-		DAD.add(tmp1, BorderLayout.NORTH);
-		DAD.add(tmp2, BorderLayout.CENTER);
-		JPanel BIGDADDY = new JPanel(new FlowLayout(FlowLayout.CENTER)); // Meme remarque qu'au dessus !
-		BIGDADDY.add(DAD);
-		Border cpd = BorderFactory.createEmptyBorder(30,0,0,0); // cpd n'est pas un nom tres comprehensible !
-		BIGDADDY.setBorder(cpd);
-		CenterPanel.add(BIGDADDY);
+		subCenterPanel.add(northSubCenterP, BorderLayout.NORTH);
+		subCenterPanel.add(centerSubCenterP, BorderLayout.CENTER);
+		JPanel containsCenterPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); 
+		containsCenterPanel.add(subCenterPanel);
+		Border borderP = BorderFactory.createEmptyBorder(30,0,0,0);
+		containsCenterPanel.setBorder(borderP);
 		
 		
-		SouthPane.setPreferredSize(new Dimension(currentFrame.getWidth(), currentFrame.getHeight()/100*13));
-		this.add(CenterPanel, BorderLayout.CENTER);
-		this.add(SouthPane, BorderLayout.SOUTH);
+		southPane.setPreferredSize(new Dimension(currentFrame.getWidth(), currentFrame.getHeight()/100*13));
+		this.add(centerPanel, BorderLayout.CENTER);
+		this.add(southPane, BorderLayout.SOUTH);
 	}
-}
