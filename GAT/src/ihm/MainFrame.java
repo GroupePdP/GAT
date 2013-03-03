@@ -12,7 +12,7 @@ public class MainFrame extends JFrame{
 	{
 		PanelHome home = new PanelHome(this);
 		this.getContentPane().setLayout(new BorderLayout());
-		Dimension FrameSize = new Dimension(1280,720); // attention a la casse des noms de variables ! frameSize et pas FrameSize
+		Dimension frameSize = new Dimension(1280,720);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(FrameSize);
 		this.setResizable(false);
@@ -23,8 +23,12 @@ public class MainFrame extends JFrame{
 	
 	public void setPane(JPanel newPane)
 	{
+		/*Passage de la confition en ligne [À TESTER]
 		if(this.currentPane != null)
 			this.currentPane.setVisible(false);
+		*/
+		
+		(this.currentPane != null) ? this.currentPane.setVisible(false);
 		this.currentPane = newPane;
 		this.getContentPane().add(newPane, BorderLayout.CENTER);
 		newPane.setVisible(true);
