@@ -118,8 +118,8 @@ public class PanelExistingScenario extends JPanel{
 		containsLeftPanel.add(leftPanel);
 		
 		Border borderPanel = BorderFactory.createEmptyBorder(30,120,0,0);
-		containsRightPanel.setBorder(borderPanel);
-		containsLeftPanel.setBorder(borderPanel);
+		containsRightPanel.setBorder(borderP);
+		containsLeftPanel.setBorder(borderP);
 		
 		centerPanel.add(containsRightPanel);
 		centerPanel.add(containsLeftPanel);
