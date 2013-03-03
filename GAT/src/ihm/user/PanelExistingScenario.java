@@ -42,14 +42,14 @@ public class PanelExistingScenario extends JPanel{
 		JPanel southPanel = new JPanel();
 		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.X_AXIS));
 		
-		JPanel returnButt = new CenteredButton("Retour", new ActionListener(){
+		JPanel returnPanel = new CenteredButton("Retour", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(previous);
 			}
 		});
 		
-		JPanel nextButt = new CenteredButton("Valider", new ActionListener(){
+		JPanel nextPanel = new CenteredButton("Valider", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				PanelResult pr = new PanelResult(currentFrame, thisPane, previous);
@@ -58,8 +58,8 @@ public class PanelExistingScenario extends JPanel{
 		});
 		
 		
-		southPanel.add(returnButt);
-		southPanel.add(nextButt);
+		southPanel.add(returnPanel);
+		southPanel.add(nextPanel);
 		
 		southPanel.setPreferredSize(new Dimension(currentFrame.getWidth(), currentFrame.getHeight()/100*13));
 		
