@@ -1,7 +1,3 @@
-/* Attention aux casses des noms de variables ! Ils doivent commencer par une minuscule...
- * 
- */
-
 package ihm;
 
 import ihm.tools.CenteredButton;
@@ -35,11 +31,11 @@ public class PanelHome extends JPanel {
 		gbc.gridx = gbc.gridy = 1; 
 		
 		JPanel content = new JPanel();
-		Dimension PaneSize = new Dimension(200, 200);
-		content.setPreferredSize(PaneSize);
+		Dimension paneSize = new Dimension(200, 200);
+		content.setPreferredSize(paneSize);
 		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
 		
-		JPanel UsrButtPain = new CenteredButton("Utilisateur", new ActionListener(){
+		JPanel usrButtPain = new CenteredButton("Utilisateur", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				PanelHomeUser phu = new PanelHomeUser(currentFrame, thisPane);
@@ -47,7 +43,7 @@ public class PanelHome extends JPanel {
 				
 			}
 		});
-		JPanel AdminButtPain = new CenteredButton("Administrateur", new ActionListener(){
+		JPanel adminButtPain = new CenteredButton("Administrateur", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				;
@@ -55,8 +51,8 @@ public class PanelHome extends JPanel {
 		});
 		
 		
-		content.add(UsrButtPain);
-		content.add(AdminButtPain);
+		content.add(usrButtPain);
+		content.add(adminButtPain);
 		
 		
 		
