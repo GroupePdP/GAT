@@ -94,3 +94,4 @@ public class PanelResult extends JPanel{
 		this.add(centerPanel, BorderLayout.CENTER);
 		this.add(southPane, BorderLayout.SOUTH);
 	}
+}
