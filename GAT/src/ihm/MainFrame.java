@@ -14,7 +14,7 @@ public class MainFrame extends JFrame{
 		this.getContentPane().setLayout(new BorderLayout());
 		Dimension frameSize = new Dimension(1280,720);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(FrameSize);
+		this.setSize(frameSize);
 		this.setResizable(false);
 		this.setPane(home);
 		
