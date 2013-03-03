@@ -31,11 +31,11 @@ public class PanelHome extends JPanel {
 		gbc.gridx = gbc.gridy = 1; 
 		
 		JPanel content = new JPanel();
-		Dimension paneSize = new Dimension(200, 200);
-		content.setPreferredSize(paneSize);
+		Dimension panelSize = new Dimension(200, 200);
+		content.setPreferredSize(panelSize);
 		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
 		
-		JPanel usrButtPain = new CenteredButton("Utilisateur", new ActionListener(){
+		JPanel usrPanel = new CenteredButton("Utilisateur", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				PanelHomeUser phu = new PanelHomeUser(currentFrame, thisPane);
@@ -43,7 +43,7 @@ public class PanelHome extends JPanel {
 				
 			}
 		});
-		JPanel adminButtPain = new CenteredButton("Administrateur", new ActionListener(){
+		JPanel adminPanel = new CenteredButton("Administrateur", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				;
@@ -51,8 +51,8 @@ public class PanelHome extends JPanel {
 		});
 		
 		
-		content.add(usrButtPain);
-		content.add(adminButtPain);
+		content.add(usrPanel);
+		content.add(adminPanel);
 		
 		
 		
