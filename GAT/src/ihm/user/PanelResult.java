@@ -44,8 +44,6 @@ public class PanelResult extends JPanel{
 		});
 		SouthPane.add(Return);
 		
-		
-		
 		CenteredButton Menu = new CenteredButton("Menu", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -65,12 +63,12 @@ public class PanelResult extends JPanel{
 		JPanel CenterPanel = new JPanel();
 		CenterPanel.setLayout(new BoxLayout(CenterPanel, BoxLayout.Y_AXIS));
 		
-		JPanel DAD = new JPanel();
+		JPanel DAD = new JPanel(); // Pas de variables seulement en capitales !!
 		DAD.setLayout(new BorderLayout());
 		
 		JPanel tmp1 = new JPanel();
 		tmp1.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JLabel GeneratedText = new JLabel("Texte généré :");
+		JLabel GeneratedText = new JLabel("Texte gï¿½nï¿½rï¿½ :");
 		tmp1.add(GeneratedText);
 		
 		JPanel tmp2 = new JPanel();
@@ -86,9 +84,9 @@ public class PanelResult extends JPanel{
 		
 		DAD.add(tmp1, BorderLayout.NORTH);
 		DAD.add(tmp2, BorderLayout.CENTER);
-		JPanel BIGDADDY = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		JPanel BIGDADDY = new JPanel(new FlowLayout(FlowLayout.CENTER)); // Meme remarque qu'au dessus !
 		BIGDADDY.add(DAD);
-		Border cpd = BorderFactory.createEmptyBorder(30,0,0,0);
+		Border cpd = BorderFactory.createEmptyBorder(30,0,0,0); // cpd n'est pas un nom tres comprehensible !
 		BIGDADDY.setBorder(cpd);
 		CenterPanel.add(BIGDADDY);
 		

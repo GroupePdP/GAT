@@ -27,7 +27,7 @@ public class PanelHomeUser extends JPanel {
 	public PanelHomeUser(MainFrame mf, PanelHome prev)
 	{
 		this.setLayout(new BorderLayout());
-		this.thisPane = this;
+		this.thisPane = this; // bizarre, cette ligne de code...
 		this.previous = prev;
 		this.currentFrame = mf;
 		
@@ -40,7 +40,7 @@ public class PanelHomeUser extends JPanel {
 		content.setPreferredSize(PaneSize);
 		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
 		
-		JPanel SEButtPain = new CenteredButton("Scenarios Existants", new ActionListener(){
+		JPanel SEButtPain = new CenteredButton("Scenarios Existants", new ActionListener(){ // pk "pain" ?
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				PanelExistingScenario pes = new PanelExistingScenario(currentFrame, thisPane);
@@ -50,7 +50,7 @@ public class PanelHomeUser extends JPanel {
 		
 		content.add(SEButtPain);
 		
-		JPanel SPButtPain = new CenteredButton("Scenario Personnalise", new ActionListener(){
+		JPanel SPButtPain = new CenteredButton("Scenario Personnalise", new ActionListener(){ // mm question
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				;
@@ -59,7 +59,7 @@ public class PanelHomeUser extends JPanel {
 		
 		content.add(SPButtPain);
 		
-		JPanel BackButtPain = new CenteredButton("Retour", new ActionListener(){
+		JPanel BackButtPain = new CenteredButton("Retour", new ActionListener(){ // mm question
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(previous);
@@ -67,13 +67,7 @@ public class PanelHomeUser extends JPanel {
 		});	
 		
 		content.add(BackButtPain);
-		
 		global.add(content,gbc);
-		
 		this.add(global, BorderLayout.CENTER);
-		
-		
-		
-		
 	}
 }

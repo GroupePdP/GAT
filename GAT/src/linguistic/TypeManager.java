@@ -4,6 +4,7 @@
 
 package linguistic;
 
+
 public class TypeManager {
 	
 	private TypeTree tree;
@@ -28,6 +29,6 @@ public class TypeManager {
 
 	public TypeTree getTypeTree(){
 		return this.tree;
-	} 
+	}
 	
 }

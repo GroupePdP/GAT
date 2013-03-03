@@ -1,3 +1,7 @@
+/* Attention aux casses des noms de variables ! Ils doivent commencer par une minuscule...
+ * 
+ */
+
 package ihm;
 
 import ihm.tools.CenteredButton;
@@ -28,8 +32,7 @@ public class PanelHome extends JPanel {
 		
 		JPanel global = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = gbc.gridy = 1;
-		
+		gbc.gridx = gbc.gridy = 1; 
 		
 		JPanel content = new JPanel();
 		Dimension PaneSize = new Dimension(200, 200);

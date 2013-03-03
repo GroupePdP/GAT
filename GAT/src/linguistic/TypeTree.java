@@ -5,7 +5,9 @@
 
 package linguistic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TypeTree {
@@ -41,5 +43,27 @@ public class TypeTree {
 	public void addConcept(Concept c){
 		TypeTreeNode node = nodeMap.get(c.getType());
 		node.addConcept(c);
-	}	
+	}
+	
+	public List<Concept> getConceptsForType(Type t){ // On recupere les concepts du type t et de ses sous-types
+		TypeTreeNode node = nodeMap.get(t);
+		if (node == null)
+		{
+			return new ArrayList<Concept>();
+		}
+		List<Concept> list = new ArrayList<Concept>();
+		for (Concept c : node.getConceptList())
+		{
+			list.add(c);
+		}
+		for (TypeTreeNode child : node.getChildrenList())
+		{
+			for(Concept c : getConceptsForType(child.getType()))
+			{
+				list.add(c);
+			}
+		}
+		return list;
+	}
+	
 }

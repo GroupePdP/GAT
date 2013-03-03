@@ -1,3 +1,7 @@
+/* Attention aux noms de variables ! doivent commencer par une minuscule et etre explicites
+ * 
+ */
+
 package ihm.user;
 
 import ihm.MainFrame;
@@ -61,29 +65,24 @@ public class PanelExistingScenario extends JPanel{
 		SouthPanel.add(ReturnButt);
 		SouthPanel.add(NextButt);
 		
-		
-		
 		SouthPanel.setPreferredSize(new Dimension(currentFrame.getWidth(), currentFrame.getHeight()/100*13));
 		
 		this.add(SouthPanel, BorderLayout.SOUTH);
 		
-		
-		JPanel CenterPanel = new JPanel();
+		JPanel CenterPanel = new JPanel(); // attention, centerPanel et pas CenterPanel
 		CenterPanel.setLayout(new BoxLayout(CenterPanel, BoxLayout.X_AXIS));
 		
-		
-		JPanel RightPanel = new JPanel();
+		JPanel RightPanel = new JPanel(); // attention, rightPanel et pas RightPanel
 		RightPanel.setLayout(new BorderLayout());
 		RightPanel.setPreferredSize(new Dimension((currentFrame.getWidth()/100)*45,currentFrame.getHeight()/100*87));
 		
-		
 		JPanel tmp1 = new JPanel();
 		tmp1.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JLabel scenario = new JLabel("Scénario :");
+		JLabel scenario = new JLabel("Scï¿½nario :");
 		tmp1.add(scenario);
 		
 		JPanel tmp2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JList ScenarioList = new JList();
+		JList ScenarioList = new JList(); // Et attention a la creation
 		JScrollPane ScrollPane = new JScrollPane(ScenarioList);
 		ScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		ScrollPane.setPreferredSize(new Dimension(400,500));
@@ -92,10 +91,8 @@ public class PanelExistingScenario extends JPanel{
 		RightPanel.add(tmp1, BorderLayout.NORTH);
 		RightPanel.add(tmp2, BorderLayout.CENTER);
 		
-		JPanel BIGRightPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		JPanel BIGRightPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); // attention a la casse des noms de variables
 		BIGRightPanel.add(RightPanel);
-		
-		
 		
 		JPanel LeftPanel = new JPanel();
 		LeftPanel.setLayout(new BorderLayout());
@@ -119,17 +116,16 @@ public class PanelExistingScenario extends JPanel{
 		LeftPanel.add(tmp3, BorderLayout.NORTH);
 		LeftPanel.add(tmp4, BorderLayout.CENTER);
 		
-		JPanel BIGLeftPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		JPanel BIGLeftPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); // mm remarque qu'au dessus
 		BIGLeftPanel.add(LeftPanel);
 		
-		Border cpd = BorderFactory.createEmptyBorder(30,120,0,0);
+		Border cpd = BorderFactory.createEmptyBorder(30,120,0,0); // pk cpd ?
 		BIGRightPanel.setBorder(cpd);
 		BIGLeftPanel.setBorder(cpd);
 		
 		CenterPanel.add(BIGRightPanel);
 		CenterPanel.add(BIGLeftPanel);
 		
-	
 		this.add(CenterPanel, BorderLayout.CENTER);
 	}
 	
