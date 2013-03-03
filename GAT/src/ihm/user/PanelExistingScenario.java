@@ -1,7 +1,3 @@
-/* Attention aux noms de variables ! doivent commencer par une minuscule et etre explicites
- * 
- */
-
 package ihm.user;
 
 import ihm.MainFrame;
@@ -43,17 +39,17 @@ public class PanelExistingScenario extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 		
-		JPanel SouthPanel = new JPanel();
-		SouthPanel.setLayout(new BoxLayout(SouthPanel, BoxLayout.X_AXIS));
+		JPanel southPanel = new JPanel();
+		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.X_AXIS));
 		
-		JPanel ReturnButt = new CenteredButton("Retour", new ActionListener(){
+		JPanel returnButt = new CenteredButton("Retour", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(previous);
 			}
 		});
 		
-		JPanel NextButt = new CenteredButton("Valider", new ActionListener(){
+		JPanel nextButt = new CenteredButton("Valider", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				PanelResult pr = new PanelResult(currentFrame, thisPane, previous);
@@ -62,71 +58,73 @@ public class PanelExistingScenario extends JPanel{
 		});
 		
 		
-		SouthPanel.add(ReturnButt);
-		SouthPanel.add(NextButt);
+		southPanel.add(returnButt);
+		southPanel.add(nextButt);
 		
-		SouthPanel.setPreferredSize(new Dimension(currentFrame.getWidth(), currentFrame.getHeight()/100*13));
+		southPanel.setPreferredSize(new Dimension(currentFrame.getWidth(), currentFrame.getHeight()/100*13));
 		
-		this.add(SouthPanel, BorderLayout.SOUTH);
+		this.add(southPanel, BorderLayout.SOUTH);
 		
-		JPanel CenterPanel = new JPanel(); // attention, centerPanel et pas CenterPanel
-		CenterPanel.setLayout(new BoxLayout(CenterPanel, BoxLayout.X_AXIS));
+		JPanel centerPanel = new JPanel();
+		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.X_AXIS));
 		
-		JPanel RightPanel = new JPanel(); // attention, rightPanel et pas RightPanel
-		RightPanel.setLayout(new BorderLayout());
-		RightPanel.setPreferredSize(new Dimension((currentFrame.getWidth()/100)*45,currentFrame.getHeight()/100*87));
+		JPanel rightPanel = new JPanel();
+		rightPanel.setLayout(new BorderLayout());
+		rightPanel.setPreferredSize(new Dimension((currentFrame.getWidth()/100)*45,currentFrame.getHeight()/100*87));
 		
-		JPanel tmp1 = new JPanel();
-		tmp1.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JPanel northSubRightP = new JPanel();
+		northSubRightP.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JLabel scenario = new JLabel("Sc�nario :");
-		tmp1.add(scenario);
+		northSubRightP.add(scenario);
 		
-		JPanel tmp2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JList ScenarioList = new JList(); // Et attention a la creation
-		JScrollPane ScrollPane = new JScrollPane(ScenarioList);
-		ScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		ScrollPane.setPreferredSize(new Dimension(400,500));
-		tmp2.add(ScrollPane);
+		JPanel centerSubRightP = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		// Création de la liste à faire.
+		JList scenarioList = new JList(); 
+		JScrollPane scrollPane = new JScrollPane(scenarioList);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setPreferredSize(new Dimension(400,500));
+		centerSubRightP.add(scrollPane);
 		
-		RightPanel.add(tmp1, BorderLayout.NORTH);
-		RightPanel.add(tmp2, BorderLayout.CENTER);
+		rightPanel.add(northSubRightP, BorderLayout.NORTH);
+		rightPanel.add(centerSubRightP, BorderLayout.CENTER);
 		
-		JPanel BIGRightPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); // attention a la casse des noms de variables
-		BIGRightPanel.add(RightPanel);
+		JPanel containsRightPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		containsRightPanel.add(rightPanel);
 		
-		JPanel LeftPanel = new JPanel();
-		LeftPanel.setLayout(new BorderLayout());
-		LeftPanel.setPreferredSize(new Dimension((currentFrame.getWidth()/100)*55,currentFrame.getHeight()/100*87));
 		
-		JPanel tmp3 = new JPanel();
-		tmp3.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JPanel leftPanel = new JPanel();
+		leftPanel.setLayout(new BorderLayout());
+		leftPanel.setPreferredSize(new Dimension((currentFrame.getWidth()/100)*55,currentFrame.getHeight()/100*87));
+		
+		JPanel northSubLeftP = new JPanel();
+		northSubLeftP.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JLabel description = new JLabel("Description :");
-		tmp3.add(description);
+		northSubLeftP.add(description);
 		
-		JPanel tmp4 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JTextArea DescrField = new JTextArea();
-		DescrField.setText("Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens, odorandi vias periculorum occultas perquam sagax. is in Brittanniam missus ut militares quosdam perduceret ausos conspirasse Magnentio, cum reniti non possent, iussa licentius supergressus fluminis modo fortunis conplurium sese repentinus infudit et ferebatur per strages multiplices ac ruinas, vinculis membra ingenuorum adfligens et quosdam obterens manicis, crimina scilicet multa consarcinando a veritate longe discreta. unde admissum est facinus impium, quod Constanti tempus nota inusserat sempiterna.");
-		DescrField.setLineWrap(true);
-		DescrField.setEditable(false);
-		JScrollPane DescrScroll = new JScrollPane(DescrField);
-		DescrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		DescrScroll.setPreferredSize(new Dimension(500,500));
-		tmp4.add(DescrScroll);
+		JPanel centerSubLeftP = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JTextArea descrTArea = new JTextArea();
+		descrTArea.setText("Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens, odorandi vias periculorum occultas perquam sagax. is in Brittanniam missus ut militares quosdam perduceret ausos conspirasse Magnentio, cum reniti non possent, iussa licentius supergressus fluminis modo fortunis conplurium sese repentinus infudit et ferebatur per strages multiplices ac ruinas, vinculis membra ingenuorum adfligens et quosdam obterens manicis, crimina scilicet multa consarcinando a veritate longe discreta. unde admissum est facinus impium, quod Constanti tempus nota inusserat sempiterna.");
+		descrTArea.setLineWrap(true);
+		descrTArea.setEditable(false);
+		JScrollPane descrScroll = new JScrollPane(descrTArea);
+		descrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		descrScroll.setPreferredSize(new Dimension(500,500));
+		centerSubLeftP.add(descrScroll);
 		
-		LeftPanel.add(tmp3, BorderLayout.NORTH);
-		LeftPanel.add(tmp4, BorderLayout.CENTER);
+		leftPanel.add(northSubLeftP, BorderLayout.NORTH);
+		leftPanel.add(centerSubLeftP, BorderLayout.CENTER);
 		
-		JPanel BIGLeftPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); // mm remarque qu'au dessus
-		BIGLeftPanel.add(LeftPanel);
+		JPanel containsLeftPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		containsLeftPanel.add(leftPanel);
 		
-		Border cpd = BorderFactory.createEmptyBorder(30,120,0,0); // pk cpd ?
-		BIGRightPanel.setBorder(cpd);
-		BIGLeftPanel.setBorder(cpd);
+		Border borderPanel = BorderFactory.createEmptyBorder(30,120,0,0);
+		containsRightPanel.setBorder(borderPanel);
+		containsLeftPanel.setBorder(borderPanel);
 		
-		CenterPanel.add(BIGRightPanel);
-		CenterPanel.add(BIGLeftPanel);
+		centerPanel.add(containsRightPanel);
+		centerPanel.add(containsLeftPanel);
 		
-		this.add(CenterPanel, BorderLayout.CENTER);
+		this.add(centerPanel, BorderLayout.CENTER);
 	}
 	
 }
