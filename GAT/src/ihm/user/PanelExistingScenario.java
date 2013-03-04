@@ -2,7 +2,7 @@ package ihm.user;
 
 import ihm.MainFrame;
 import ihm.PanelHome;
-import ihm.tools.CenteredButton;
+import ihm.tools.PanelCenteredButton;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -42,14 +42,14 @@ public class PanelExistingScenario extends JPanel{
 		JPanel southPanel = new JPanel();
 		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.X_AXIS));
 		
-		JPanel returnPanel = new CenteredButton("Retour", new ActionListener(){
+		JPanel returnPanel = new PanelCenteredButton("Retour", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(previous);
 			}
 		});
 		
-		JPanel nextPanel = new CenteredButton("Valider", new ActionListener(){
+		JPanel nextPanel = new PanelCenteredButton("Valider", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				PanelResult pr = new PanelResult(currentFrame, thisPane, previous);
@@ -74,7 +74,7 @@ public class PanelExistingScenario extends JPanel{
 		
 		JPanel northSubRightP = new JPanel();
 		northSubRightP.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JLabel scenario = new JLabel("Scï¿½nario :");
+		JLabel scenario = new JLabel("Scénario :");
 		northSubRightP.add(scenario);
 		
 		JPanel centerSubRightP = new JPanel(new FlowLayout(FlowLayout.LEFT));
