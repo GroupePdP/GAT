@@ -6,6 +6,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -19,14 +21,17 @@ import javax.swing.border.TitledBorder;
 
 public class DialogInitNewScenario extends JDialog{
 
+	JDialog thisDiag = this;
+	
 	public DialogInitNewScenario(MainFrame mf)
 	{
 		this.setTitle("Création d'un nouveau scénario");
 		this.setSize(new Dimension(250,150));
+		this.setResizable(false);
+		this.setModal(true);
 		this.setLocationRelativeTo(mf);
 		this.setLocation(mf.getWidth()/2-125, mf.getHeight()/2-75);
 		JPanel overGlobal = new JPanel(new BorderLayout());
-		this.setBackground(Color.ORANGE);
 		
 		
 		JPanel centerPane = new JPanel(new BorderLayout());
@@ -59,6 +64,13 @@ public class DialogInitNewScenario extends JDialog{
 		
 		JPanel retPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		JButton ret = new JButton("Retour");
+		ret.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent arg0) {
+				thisDiag.dispose();
+			}
+			
+		});
 		ret.setPreferredSize(buttSize);
 		retPanel.add(ret);
 		JPanel okPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
