@@ -1,17 +1,79 @@
 package ihm.user;
 
+import ihm.MainFrame;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 
 public class DialogInitNewScenario extends JDialog{
 
-	public DialogInitNewScenario()
+	public DialogInitNewScenario(MainFrame mf)
 	{
 		this.setTitle("Création d'un nouveau scénario");
+		this.setSize(new Dimension(250,150));
+		this.setLocationRelativeTo(mf);
+		this.setLocation(mf.getWidth()/2-125, mf.getHeight()/2-75);
+		JPanel overGlobal = new JPanel(new BorderLayout());
+		this.setBackground(Color.ORANGE);
 		
-		JPanel globalPane = new JPanel();
-		globalPane.setLayout(new BoxLayout(globalPane, BoxLayout.Y_AXIS));
+		
+		JPanel centerPane = new JPanel(new BorderLayout());
+		
+		JPanel centSub = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		
+		JPanel subGlobalPane = new JPanel();
+		subGlobalPane.setLayout(new BoxLayout(subGlobalPane, BoxLayout.Y_AXIS));
+		
+		JPanel newScenarioLabelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JLabel newScenarioLabel = new JLabel("Nom du nouveau scénario :");
+		newScenarioLabelPanel.add(newScenarioLabel);
+		
+		JPanel newScenarioTextAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JTextArea newScenarioTextArea = new JTextArea(1,16);
+		newScenarioTextArea.setBorder(BorderFactory.createLoweredBevelBorder());
+		newScenarioTextAreaPanel.add(newScenarioTextArea);
+		
+		subGlobalPane.add(newScenarioLabelPanel);
+		subGlobalPane.add(newScenarioTextAreaPanel);
+		centSub.add(subGlobalPane);
+		
+		JPanel buttons = new JPanel();
+		
+		JPanel southPanel = new JPanel();
+		southPanel.setLayout(new BorderLayout());
+		
+		JPanel coucoulol = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		Dimension buttSize = new Dimension(100,20);
+		
+		JPanel retPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		JButton ret = new JButton("Retour");
+		ret.setPreferredSize(buttSize);
+		retPanel.add(ret);
+		JPanel okPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		JButton ok = new JButton("Valider");
+		ok.setPreferredSize(buttSize);
+		retPanel.add(ok);
+		
+		coucoulol.add(retPanel);
+		coucoulol.add(okPanel);
+		southPanel.add(coucoulol);
+		centerPane.add(centSub, BorderLayout.CENTER);
+		
+		overGlobal.add(southPanel, BorderLayout.SOUTH);
+		overGlobal.add(centerPane,BorderLayout.CENTER);
+		this.add(overGlobal);
 	}
 	
 }
