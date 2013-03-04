@@ -1,21 +1,39 @@
-/* Classe LinguisticFactory
+/** Classe LinguisticFactory (c'est un Singleton)
  * fait partie du pattern AbstractFactory
  * delegue la creation a TypeManager
  */
 
 package linguistic;
 
-public class LinguisticFactory implements AbstractFactory {
+public final class LinguisticFactory implements AbstractFactory{
 	
+	private static volatile LinguisticFactory instance = null;
 	private TypeManager tm;
+	
+	private LinguisticFactory(){
+		this.tm = new TypeManager();
+	}
+	
+	public static LinguisticFactory getInstance(){
+		if (LinguisticFactory.instance == null)
+		{
+			synchronized(LinguisticFactory.class){
+				if (LinguisticFactory.instance == null)
+				{
+					LinguisticFactory.instance = new LinguisticFactory();
+				}
+			}
+		}
+		return LinguisticFactory.instance;
+	}
 
 	@Override
-	public Type makeType(String name, Type surtype) {
+	public Type makeType(String name, Type surtype){
 		return tm.makeType(name, surtype);
 	}
 
 	@Override
-	public Type makeType(String name) {
+	public Type makeType(String name){
 		return tm.makeType(name);
 	}
 

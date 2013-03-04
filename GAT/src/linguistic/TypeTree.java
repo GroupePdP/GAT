@@ -1,4 +1,4 @@
-/* Classe TypeTree
+/** Classe TypeTree
  * contient une HashMap des Type et des noeuds de l'arbre de types
  * gere l'ajout d'un type ou d'un concept dans l'arbre
  */
@@ -45,7 +45,8 @@ public class TypeTree {
 		node.addConcept(c);
 	}
 	
-	public List<Concept> getConceptsForType(Type t){ // On recupere les concepts du type t et de ses sous-types
+	public List<Concept> getConceptsForType(Type t){ // On recupere les concepts du type t 
+													// et de ses sous-types
 		TypeTreeNode node = nodeMap.get(t);
 		if (node == null)
 		{
