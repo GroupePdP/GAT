@@ -1,6 +1,6 @@
 package ihm;
 
-import ihm.tools.CenteredButton;
+import ihm.tools.PanelCenteredButton;
 import ihm.user.PanelHomeUser;
 
 import java.awt.BorderLayout;
@@ -35,7 +35,7 @@ public class PanelHome extends JPanel {
 		content.setPreferredSize(panelSize);
 		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
 		
-		JPanel usrPanel = new CenteredButton("Utilisateur", new ActionListener(){
+		JPanel usrPanel = new PanelCenteredButton("Utilisateur", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				PanelHomeUser phu = new PanelHomeUser(currentFrame, thisPane);
@@ -43,7 +43,7 @@ public class PanelHome extends JPanel {
 				
 			}
 		});
-		JPanel adminPanel = new CenteredButton("Administrateur", new ActionListener(){
+		JPanel adminPanel = new PanelCenteredButton("Administrateur", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				;

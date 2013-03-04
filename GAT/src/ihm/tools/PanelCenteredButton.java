@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class CenteredButton extends JPanel{
+public class PanelCenteredButton extends JPanel{
 	
-	public CenteredButton(String buttname, ActionListener listener){
+	public PanelCenteredButton(String buttname, ActionListener listener){
 		JButton usrButton = new JButton(buttname);
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));
 		Dimension buttSize = new Dimension(200,50);
