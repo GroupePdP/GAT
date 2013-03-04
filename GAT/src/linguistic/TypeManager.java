@@ -1,12 +1,11 @@
-/* Classe TypeManager
+/** Classe TypeManager (implemente le pattern Singleton)
  * gere la creation des types, leur ajout dans l'arbre de types
  */
 
 package linguistic;
 
-
 public class TypeManager {
-	
+
 	private TypeTree tree;
 	
 	public TypeManager(){

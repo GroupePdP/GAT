@@ -1,4 +1,4 @@
-/* Interface Type
+/** Interface Type
  * 
  */
 
