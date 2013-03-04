@@ -2,7 +2,7 @@ package ihm.user;
 
 import ihm.MainFrame;
 import ihm.PanelHome;
-import ihm.tools.CenteredButton;
+import ihm.tools.PanelCenteredButton;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -40,7 +40,7 @@ public class PanelHomeUser extends JPanel {
 		content.setPreferredSize(panelSize);
 		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
 		
-		JPanel scExisPanel = new CenteredButton("Scenarios Existants", new ActionListener(){
+		JPanel scExisPanel = new PanelCenteredButton("Scenarios Existants", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				PanelExistingScenario pes = new PanelExistingScenario(currentFrame, thisPane);
@@ -50,7 +50,7 @@ public class PanelHomeUser extends JPanel {
 		
 		content.add(scExisPanel);
 		
-		JPanel scPersPanel = new CenteredButton("Scenario Personnalise", new ActionListener(){
+		JPanel scPersPanel = new PanelCenteredButton("Scenario Personnalise", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				;
@@ -59,7 +59,7 @@ public class PanelHomeUser extends JPanel {
 		
 		content.add(scPersPanel);
 		
-		JPanel backPanel = new CenteredButton("Retour", new ActionListener(){ 
+		JPanel backPanel = new PanelCenteredButton("Retour", new ActionListener(){ 
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(previous);

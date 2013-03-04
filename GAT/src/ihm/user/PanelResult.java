@@ -17,7 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 import ihm.MainFrame;
-import ihm.tools.CenteredButton;
+import ihm.tools.PanelCenteredButton;
 
 public class PanelResult extends JPanel{
 
@@ -36,7 +36,7 @@ public class PanelResult extends JPanel{
 		JPanel southPane = new JPanel();
 		southPane.setLayout(new BoxLayout(southPane, BoxLayout.X_AXIS));
 		
-		CenteredButton returnPanel = new CenteredButton("Retour", new ActionListener(){
+		PanelCenteredButton returnPanel = new PanelCenteredButton("Retour", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(previous);
@@ -44,7 +44,7 @@ public class PanelResult extends JPanel{
 		});
 		southPane.add(returnPanel);
 		
-		CenteredButton menuPanel = new CenteredButton("Menu", new ActionListener(){
+		PanelCenteredButton menuPanel = new PanelCenteredButton("Menu", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(menuUser);
@@ -52,7 +52,7 @@ public class PanelResult extends JPanel{
 		});
 		southPane.add(menuPanel);
 		
-		CenteredButton savePanel = new CenteredButton("Sauvegarder", new ActionListener(){
+		PanelCenteredButton savePanel = new PanelCenteredButton("Sauvegarder", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				;
@@ -68,7 +68,7 @@ public class PanelResult extends JPanel{
 		
 		JPanel northSubCenterP = new JPanel();
 		northSubCenterP.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JLabel generatedLabel = new JLabel("Texte gï¿½nï¿½rï¿½ :");
+		JLabel generatedLabel = new JLabel("Texte généré :");
 		northSubCenterP.add(generatedLabel);
 		
 		JPanel centerSubCenterP = new JPanel();
@@ -88,6 +88,7 @@ public class PanelResult extends JPanel{
 		containsCenterPanel.add(subCenterPanel);
 		Border borderP = BorderFactory.createEmptyBorder(30,0,0,0);
 		containsCenterPanel.setBorder(borderP);
+		centerPanel.add(containsCenterPanel);
 		
 		
 		southPane.setPreferredSize(new Dimension(currentFrame.getWidth(), currentFrame.getHeight()/100*13));
