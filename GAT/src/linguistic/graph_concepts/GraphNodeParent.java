@@ -3,8 +3,8 @@ package linguistic.graph_concepts;
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.Concept;
-import linguistic.ConceptComplex;
+import linguistic.concepts.Concept;
+import linguistic.concepts.ConceptComplex;
 
 public class GraphNodeParent implements GraphNode {
 	

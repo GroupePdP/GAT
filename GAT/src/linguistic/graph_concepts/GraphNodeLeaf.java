@@ -1,7 +1,7 @@
 package linguistic.graph_concepts;
 
-import linguistic.Concept;
-import linguistic.ConceptSimple;
+import linguistic.concepts.Concept;
+import linguistic.concepts.ConceptSimple;
 
 public class GraphNodeLeaf implements GraphNode {
 	

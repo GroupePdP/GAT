@@ -7,6 +7,8 @@ package linguistic;
 import java.util.ArrayList;
 import java.util.List;
 
+import linguistic.concepts.Concept;
+
 public class TypeTreeNode {
 
 	private Type type;

@@ -1,6 +1,6 @@
 package linguistic.graph_concepts;
 
-import linguistic.Concept;
+import linguistic.concepts.Concept;
 
 public interface GraphNode {
 
