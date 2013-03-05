@@ -74,7 +74,7 @@ public class PanelExistingScenario extends JPanel{
 		
 		JPanel northSubRightP = new JPanel();
 		northSubRightP.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JLabel scenario = new JLabel("Scénario :");
+		JLabel scenario = new JLabel("Scï¿½nario :");
 		northSubRightP.add(scenario);
 		
 		JPanel centerSubRightP = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -126,5 +126,7 @@ public class PanelExistingScenario extends JPanel{
 		
 		this.add(centerPanel, BorderLayout.CENTER);
 	}
+	
+	
 	
 }
