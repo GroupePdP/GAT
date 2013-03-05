@@ -22,9 +22,11 @@ import javax.swing.border.TitledBorder;
 public class DialogInitNewScenario extends JDialog{
 
 	JDialog thisDiag = this;
+	MainFrame currentFrame;
 	
 	public DialogInitNewScenario(MainFrame mf)
 	{
+		this.currentFrame = mf;
 		this.setTitle("Création d'un nouveau scénario");
 		this.setSize(new Dimension(250,150));
 		this.setResizable(false);
@@ -75,6 +77,15 @@ public class DialogInitNewScenario extends JDialog{
 		retPanel.add(ret);
 		JPanel okPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		JButton ok = new JButton("Valider");
+		ok.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				PanelNewScenario pns = new PanelNewScenario(currentFrame);
+				currentFrame.setPane(pns);
+				thisDiag.dispose();
+			}
+			
+		});
 		ok.setPreferredSize(buttSize);
 		retPanel.add(ok);
 		
