@@ -16,9 +16,4 @@ public class GraphNodeLeaf implements GraphNode {
 		return this.concept;
 	}
 
-	@Override
-	public GraphNode arboriser() {
-		return this;
-	}
-
 }
