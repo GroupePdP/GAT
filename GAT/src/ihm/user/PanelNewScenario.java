@@ -112,7 +112,7 @@ public class PanelNewScenario extends JPanel{
 	{
 		JPanel right = new JPanel(new BorderLayout());
 		right.setPreferredSize(new Dimension(currentFrame.getWidth()/4,currentFrame.getHeight()));
-		
+		right.setBackground(Color.RED);
 		this.thisPane.add(right, BorderLayout.EAST);
 	}
 	
