@@ -1,7 +1,7 @@
 package linguistic.graph_concepts;
 
-import linguistic.Concept;
-import linguistic.ConceptSimple;
+import linguistic.concepts.Concept;
+import linguistic.concepts.ConceptSimple;
 
 public class GraphNodeLeaf implements GraphNode {
 	
@@ -14,11 +14,6 @@ public class GraphNodeLeaf implements GraphNode {
 	@Override
 	public Concept getConcept() {
 		return this.concept;
-	}
-
-	@Override
-	public GraphNode arboriser() {
-		return this;
 	}
 
 }

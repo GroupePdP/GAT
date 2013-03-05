@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import linguistic.concepts.Concept;
+
 public class TypeTree {
 
 	private TypeTreeNode root;

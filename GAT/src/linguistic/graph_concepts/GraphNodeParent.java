@@ -3,8 +3,8 @@ package linguistic.graph_concepts;
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.Concept;
-import linguistic.ConceptComplex;
+import linguistic.concepts.Concept;
+import linguistic.concepts.ConceptComplex;
 
 public class GraphNodeParent implements GraphNode {
 	
@@ -25,10 +25,7 @@ public class GraphNodeParent implements GraphNode {
 	public List<GraphNode> getChildrenList(){
 		return this.childrenList;
 	}
-
-	@Override
-	public GraphNode arboriser() {
-		return null; // a implementer !! reflechir comment faire !!
-	}
+	
+	// fonction pour ajouter un child, en verifiant la compatibilité des types
 
 }
