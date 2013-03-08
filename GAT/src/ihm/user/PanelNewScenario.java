@@ -2,7 +2,7 @@ package ihm.user;
 
 import ihm.MainFrame;
 import ihm.tools.PanelCenteredButton;
-import ihm.tools.PanelColumn;
+import ihm.tools.PanelColumnScenario;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -74,8 +74,7 @@ public class PanelNewScenario extends JPanel{
 		this.colcont= columnContainer;
 		
 		
-		JPanel global = new JPanel();
-		global.setLayout(new BorderLayout());
+		JPanel global = new JPanel(new BorderLayout());
 		global.setBackground(Color.green);
 		global.add(columnContainer, BorderLayout.CENTER);
 		
@@ -126,7 +125,7 @@ public class PanelNewScenario extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				colSubCont.add(new PanelColumn(columnSize));
+				colSubCont.add(new PanelColumnScenario(columnSize));
 				colSubCont.revalidate();
 			}
 			

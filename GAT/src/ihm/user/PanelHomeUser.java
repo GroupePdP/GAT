@@ -2,6 +2,7 @@ package ihm.user;
 
 import ihm.MainFrame;
 import ihm.PanelHome;
+import ihm.tools.PanelBasicMenu;
 import ihm.tools.PanelCenteredButton;
 
 import java.awt.BorderLayout;
@@ -31,15 +32,6 @@ public class PanelHomeUser extends JPanel {
 		this.previous = prev;
 		this.currentFrame = mf;
 		
-		JPanel global = new JPanel(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = gbc.gridy = 1;
-		
-		JPanel content = new JPanel();
-		Dimension panelSize = new Dimension(200, 200);
-		content.setPreferredSize(panelSize);
-		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
-		
 		JPanel scExisPanel = new PanelCenteredButton("Scenarios Existants", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -47,8 +39,6 @@ public class PanelHomeUser extends JPanel {
 				currentFrame.setPane(pes);
 			}
 		});
-		
-		content.add(scExisPanel);
 		
 		JPanel scPersPanel = new PanelCenteredButton("Scenario Personnalise", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
@@ -58,8 +48,6 @@ public class PanelHomeUser extends JPanel {
 			}
 		});	
 		
-		content.add(scPersPanel);
-		
 		JPanel backPanel = new PanelCenteredButton("Retour", new ActionListener(){ 
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -67,8 +55,8 @@ public class PanelHomeUser extends JPanel {
 			}
 		});	
 		
-		content.add(backPanel);
-		global.add(content,gbc);
-		this.add(global, BorderLayout.CENTER);
+		PanelBasicMenu menu = new PanelBasicMenu(new JPanel[]{scExisPanel, scPersPanel, backPanel});
+		
+		this.add(menu, BorderLayout.CENTER);
 	}
 }
