@@ -1,0 +1,123 @@
+package ihm.tools;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Vector;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import linguistic.Concept;
+
+public class PanelColumnScenario extends JPanel{
+	
+	String[] conceptsList;
+	Vector<String> concepts = new Vector();
+	
+	JComboBox combo;
+	JButton validateButton = new JButton("Valider");
+	JButton addConceptButton = new JButton("Ajouter Concept");
+	JList conceptListTest;
+	JScrollPane test;
+	
+	
+	JPanel thisPane;
+	
+	
+	
+	JPanel columnMenu = new JPanel(new BorderLayout());
+
+	public PanelColumnScenario(Dimension columnSize)
+	{
+		this.thisPane = this;
+		this.conceptsList= new String[]{"Concept1","Concept2","Concept3","Concept4","Concept5","Concept6","Concept7","Concept2","Concept3","Concept4","Concept5","Concept6","Concept7","Concept2","Concept3","Concept4","Concept5","Concept6","Concept7","Concept2","Concept3","Concept4","Concept5","Concept6","Concept7","Concept2","Concept3","Concept4","Concept5","Concept6","Concept7"};
+		
+		
+		this.setLayout(new BorderLayout());
+		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
+		
+		JPanel overNewCol = new JPanel(new BorderLayout());
+		
+		JPanel newCol = new JPanel(new BorderLayout());
+
+		this.concepts.add("test");
+		this.conceptListTest=new JList(this.concepts);
+		
+		conceptListTest.setFixedCellWidth((int)columnSize.getWidth());
+		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();
+		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+		conceptListTest.setCellRenderer(centerRenderer);
+		
+		JScrollPane conceptScroll = new JScrollPane(conceptListTest);
+		conceptScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		this.test = conceptScroll;
+		newCol.add(conceptScroll, BorderLayout.CENTER);
+		
+		this.addConceptButton.setPreferredSize(new Dimension(200,30));
+		this.addConceptButton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				addConceptButton.setVisible(false);
+				validateButton.setVisible(true);
+				combo.setVisible(true);
+				columnMenu.repaint();
+			}
+			
+		});
+		this.validateButton.setPreferredSize(new Dimension(200,30));
+		this.validateButton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				addConceptButton.setVisible(true);
+				validateButton.setVisible(false);
+				combo.setVisible(false);
+				addConcept("CONCEPT1");
+				
+				
+				columnMenu.repaint();
+			}
+			
+		});
+		this.validateButton.setVisible(false);
+		
+		this.combo = new JComboBox(this.conceptsList);
+		this.combo.setVisible(false);
+		
+		
+		this.columnMenu.add(this.addConceptButton, BorderLayout.SOUTH);
+		this.columnMenu.add(this.validateButton, BorderLayout.CENTER);
+		this.columnMenu.add(this.combo, BorderLayout.NORTH);
+		
+		
+		
+		overNewCol.add(newCol, BorderLayout.CENTER);
+		
+		
+		overNewCol.add(this.columnMenu, BorderLayout.SOUTH);
+		this.add(overNewCol, BorderLayout.WEST);
+	}
+	
+	private void addConcept(String concept)
+	{
+		this.concepts.add(concept);
+		
+		this.conceptListTest = new JList(this.concepts);
+		this.test.repaint();
+		this.thisPane.revalidate();
+	}
+}
