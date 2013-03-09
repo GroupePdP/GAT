@@ -6,7 +6,7 @@
 package linguistic.types_gestion;
 
 
-public final class LinguisticFactory implements AbstractFactory{
+public final class LinguisticFactory implements Factory{
 	
 	private static volatile LinguisticFactory instance = null;
 	private TypeManager tm;
@@ -28,6 +28,10 @@ public final class LinguisticFactory implements AbstractFactory{
 		return LinguisticFactory.instance;
 	}
 
+	public TypeManager getTypeManager(){
+		return this.tm;
+	}
+	
 	@Override
 	public Type makeType(String name, Type surtype){
 		return tm.makeType(name, surtype);

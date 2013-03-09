@@ -12,5 +12,6 @@ public interface Concept {
 	public String generateSyntox(); // a implementer !
 	public Type getType();
 	public String getName();
+	public int getNumberArguments();
 	
 }

@@ -22,6 +22,7 @@ public class TypeTree {
 		Type rootType = new TypeImpl("object"); // Type "racine"
 		this.root = new TypeTreeNode(rootType);
 		this.nodeMap = new HashMap<Type, TypeTreeNode>();
+		nodeMap.put(rootType, root);
 	}
 	
 	// Accesseurs

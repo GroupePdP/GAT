@@ -5,16 +5,17 @@ import java.util.List;
 
 import linguistic.concepts_gestion.Concept;
 import linguistic.concepts_gestion.ConceptComplex;
+import linguistic.types_gestion.LinguisticFactory;
+import linguistic.types_gestion.Type;
 
 public class GraphNodeParent implements GraphNode {
 	
-	private Concept concept;
+	private ConceptComplex concept;
 	private List<GraphNode> childrenList;
 
-	public GraphNodeParent(ConceptComplex c){ // verifier que c est un ConceptComplex dans le parametre 
-		// ou dans la fonction ??
-		this.concept = c;
-		this.childrenList = new ArrayList<GraphNode>(c.getNumberArguments());
+	public GraphNodeParent(ConceptComplex c2){ 
+		this.concept = c2;
+		this.childrenList = new ArrayList<GraphNode>(c2.getNumberArguments());
 	}
 	
 	@Override
@@ -26,6 +27,12 @@ public class GraphNodeParent implements GraphNode {
 		return this.childrenList;
 	}
 	
-	// fonction pour ajouter un child, en verifiant la compatibilité des types
+	public void addChild(GraphNode child){ // XXXXX
+		List<Type> list = this.concept.getArguments();
+		Concept c = child.getConcept();
+		Type tChild = c.getType();
+		// if (LinguisticFactory.getInstance().getTypeManager().isCompatible(tChild,t))
+				childrenList.add(child); // rajouter la verification des types !! et lever une exception si pas le cas
+	}
 
 }

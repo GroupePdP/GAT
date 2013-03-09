@@ -24,7 +24,4 @@ public class GraphConcepts {
 	public int getNumberOfNodes(){
 		return this.nodes.size();
 	}
-	
-	// coder une fonction qui ajoute un noeud en verifiant la compatibilite des types
-
 }
