@@ -1,27 +1,27 @@
 package linguistic.graph_concepts_gestion;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class GraphConcepts {
+public class GraphConcepts implements GraphConceptsInterface{
 	
 	private GraphNode root;
-	private List<GraphNode> nodes;
 	
 	public GraphConcepts(GraphNode root){
 		this.root = root;
-		this.nodes = new ArrayList<GraphNode>();
 	}
 	
+	@Override
 	public GraphNode getRoot(){
 		return this.root;
 	}
-	
-	public List<GraphNode> getNodes(){
-		return this.nodes;
+
+	@Override
+	public List<GraphNode> getListNodes(){
+		return root.getListNodes();
 	}
-	
+
+	@Override
 	public int getNumberOfNodes(){
-		return this.nodes.size();
+		return root.getListNodes().size();
 	}
 }

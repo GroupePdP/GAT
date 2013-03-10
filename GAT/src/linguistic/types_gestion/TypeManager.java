@@ -32,7 +32,7 @@ public class TypeManager {
 	}
 	
 	public boolean isCompatible(Type t1, Type t2){ // retourne true si t1 est compatible avec t2
-		while(t1.getSurtype()!=null || t1.getSurtype()!=t2){
+		while(t1!=null && t1!=t2){
 			t1 = t1.getSurtype();
 		}
 		return (t1 == t2);
