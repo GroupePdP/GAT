@@ -1,0 +1,57 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Pr\IeC {\'e}sentation du sujet}{2}
+\contentsline {section}{\numberline {1.1}Pr\IeC {\'e}sentation du projet}{2}
+\contentsline {chapter}{\numberline {2}Etude de l'existant et bibliographie}{5}
+\contentsline {section}{\numberline {2.1}El\IeC {\'e}ments bibliographiques}{5}
+\contentsline {subsection}{\numberline {2.1.1}EasyText}{6}
+\contentsline {section}{\numberline {2.2}Etude de l'existant}{6}
+\contentsline {subsection}{\numberline {2.2.1}Projet GAT-2}{6}
+\contentsline {subsection}{\numberline {2.2.2}Syntox}{7}
+\contentsline {chapter}{\numberline {3}Analyse pr\IeC {\'e}liminaire des besoins}{8}
+\contentsline {section}{\numberline {3.1}Sc\IeC {\'e}narios d'utilisation}{8}
+\contentsline {subsection}{\numberline {3.1.1}Sc\IeC {\'e}narios utilisateur}{8}
+\contentsline {subsubsection}{Sc\IeC {\'e}nario 1}{8}
+\contentsline {subsubsection}{Sc\IeC {\'e}nario 2}{8}
+\contentsline {subsection}{\numberline {3.1.2}Sc\IeC {\'e}narios administrateur}{9}
+\contentsline {subsubsection}{Sc\IeC {\'e}nario 1}{9}
+\contentsline {subsubsection}{Sc\IeC {\'e}nario 2}{9}
+\contentsline {section}{\numberline {3.2}Besoins fonctionnels}{9}
+\contentsline {subsection}{\numberline {3.2.1}Besoins utilisateur}{9}
+\contentsline {subsection}{\numberline {3.2.2}Besoins administrateur}{10}
+\contentsline {subsubsection}{Besoins g\IeC {\'e}n\IeC {\'e}raux}{10}
+\contentsline {subsubsection}{Besoins li\IeC {\'e}s \IeC {\`a} la base de donn\IeC {\'e}es}{10}
+\contentsline {subsubsection}{Besoins li\IeC {\'e}s aux concepts et aux sc\IeC {\'e}narios}{10}
+\contentsline {subsection}{\numberline {3.2.3}Besoins syst\IeC {\`e}me}{11}
+\contentsline {subsubsection}{Interface graphique}{11}
+\contentsline {subsubsection}{G\IeC {\'e}n\IeC {\'e}ration de requ\IeC {\^e}tes SQL}{11}
+\contentsline {subsubsection}{Base de donn\IeC {\'e}es}{11}
+\contentsline {subsubsection}{Cr\IeC {\'e}ation du graphe conceptuel}{12}
+\contentsline {subsubsection}{Cr\IeC {\'e}ation de la requ\IeC {\^e}te pour Syntox}{12}
+\contentsline {subsubsection}{G\IeC {\'e}n\IeC {\'e}ration de phrases}{12}
+\contentsline {section}{\numberline {3.3}Besoins non-fonctionnels}{12}
+\contentsline {subsection}{\numberline {3.3.1}G\IeC {\'e}n\IeC {\'e}ration d'une entr\IeC {\'e}e Syntox}{12}
+\contentsline {subsection}{\numberline {3.3.2}Facilit\IeC {\'e} d'utilisation}{13}
+\contentsline {subsection}{\numberline {3.3.3}Portabilit\IeC {\'e}}{13}
+\contentsline {subsection}{\numberline {3.3.4}Besoins relatifs aux bases de donn\IeC {\'e}es utilis\IeC {\'e}es}{13}
+\contentsline {section}{\numberline {3.4}Diagrammes et sch\IeC {\'e}mas}{14}
+\contentsline {subsection}{\numberline {3.4.1}Diagramme de cas d'utilisation}{14}
+\contentsline {subsection}{\numberline {3.4.2}Sch\IeC {\'e}mas de fonctionnement}{15}
+\contentsline {subsubsection}{Sch\IeC {\'e}ma de fonctionnement - Utilisateur}{15}
+\contentsline {subsubsection}{Sch\IeC {\'e}ma de fonctionnement - Administrateur}{16}
+\contentsline {subsection}{\numberline {3.4.3}Diagramme de s\IeC {\'e}quence}{17}
+\contentsline {section}{\numberline {3.5}Tests}{17}
+\contentsline {subsection}{\numberline {3.5.1}Base de donn\IeC {\'e}es}{17}
+\contentsline {subsection}{\numberline {3.5.2}Interface graphique}{18}
+\contentsline {subsection}{\numberline {3.5.3}Interactions ext\IeC {\'e}rieures}{18}
+\contentsline {section}{\numberline {3.6}Annexe}{18}
+\contentsline {chapter}{\numberline {4}Algorithmique et structures de donn\IeC {\'e}es}{26}
+\contentsline {chapter}{\numberline {5}Architecture}{27}
+\contentsline {section}{\numberline {5.1}Architecture}{27}
+\contentsline {subsection}{\numberline {5.1.1}Diagramme de packages}{27}
+\contentsline {subsection}{\numberline {5.1.2}Diagrammes de classes}{27}
+\contentsline {subsection}{\numberline {5.1.3}Diagrammes de s\IeC {\'e}quence}{32}
+\contentsline {section}{\numberline {5.2}Justifications}{35}
+\contentsline {chapter}{\numberline {6}Impl\IeC {\'e}mentation}{37}
+\contentsline {chapter}{\numberline {7}Tests et r\IeC {\'e}sultats}{38}
+\contentsline {chapter}{\numberline {8}Produit final}{39}
+\contentsline {chapter}{\numberline {9}Conclusion}{40}
