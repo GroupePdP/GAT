@@ -32,6 +32,8 @@ public class PanelNewScenario extends JPanel{
 	
 	JPanel colcont;
 	
+	Scenario scenario;
+	
 	private Dimension columnSize;
 	
 	private JMenuBar menuBar = new JMenuBar();
@@ -44,6 +46,10 @@ public class PanelNewScenario extends JPanel{
 	public PanelNewScenario(MainFrame mf,Scenario s)
 	{
 		this.currentFrame = mf;
+		
+		this.currentFrame.setTitle(s.getName());
+		
+		this.scenario = s;
 		
 		this.setLayout(new BorderLayout());
 		
@@ -101,7 +107,7 @@ public class PanelNewScenario extends JPanel{
 		left.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
 		this.columnSize=new Dimension(200, left.getHeight());
 		
-		
+		colSubContainer.add(new PanelColumnScenario(columnSize, colSubContainer, this.scenario));
 		
 		left.add(millerGlobal,BorderLayout.CENTER);
 		left.add(setBottMenu(colSubContainer), BorderLayout.SOUTH);
@@ -127,7 +133,7 @@ public class PanelNewScenario extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				colSubCont.add(new PanelColumnScenario(columnSize));
+				colSubCont.add(new PanelColumnScenario(columnSize, colSubCont,scenario));
 				colSubCont.revalidate();
 			}
 			

@@ -12,6 +12,7 @@ import java.util.Vector;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListCellRenderer;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -19,14 +20,25 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
+import linguistic.Scenario;
 import linguistic.concepts_gestion.Concept;
 import linguistic.concepts_gestion.ConceptSimple;
 import linguistic.types_gestion.TypeImpl;
 
 public class PanelColumnScenario extends JPanel{
 	
-	String[] conceptsList;
+	JPanel thisPane;
+	JPanel currentPanel;
+	Dimension thisColumnSize;
+	Scenario scenario;
+	
+	List<Concept> conceptsList = new ArrayList<Concept>();
+	Vector vecConceptList = new Vector(conceptsList);
+	
 	List<Concept> concepts = new ArrayList<Concept>();
 	Vector vec = new Vector(concepts);
 	
@@ -34,19 +46,23 @@ public class PanelColumnScenario extends JPanel{
 	JButton validateButton = new JButton("Valider");
 	JButton addConceptButton = new JButton("Ajouter Concept");
 	JList conceptListTest;
-	JScrollPane test;
-	
-	
-	JPanel thisPane;
-	
-	
-	
+	JScrollPane main;
 	JPanel columnMenu = new JPanel(new BorderLayout());
+	
+	
 
-	public PanelColumnScenario(Dimension columnSize)
+	public PanelColumnScenario(Dimension columnSize, JPanel curr, Scenario s)
 	{
 		this.thisPane = this;
-		this.conceptsList= new String[]{"Concept1","Concept2","Concept3","Concept4","Concept5","Concept6","Concept7","Concept2","Concept3","Concept4","Concept5","Concept6","Concept7","Concept2","Concept3","Concept4","Concept5","Concept6","Concept7","Concept2","Concept3","Concept4","Concept5","Concept6","Concept7","Concept2","Concept3","Concept4","Concept5","Concept6","Concept7"};
+		this.currentPanel=curr;
+		this.thisColumnSize= columnSize;
+		
+		this.scenario = s;
+		
+		vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 1" ,new TypeImpl("randomshit")));
+		vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 2" ,new TypeImpl("randomshit")));
+		vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 3" ,new TypeImpl("randomshit")));
+		vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 4" ,new TypeImpl("randomshit")));
 		
 		
 		this.setLayout(new BorderLayout());
@@ -56,12 +72,20 @@ public class PanelColumnScenario extends JPanel{
 		
 		JPanel newCol = new JPanel(new BorderLayout());
 		
-		ConceptSimple test = new ConceptSimple("coucou", "caymoi", "Test" ,new TypeImpl("randomshit"));
-		ConceptSimple test2 = new ConceptSimple("coucou", "caymoi", "COUCOULOL" ,new TypeImpl("randomshit"));
-		
-		this.vec.add(test);
-		this.vec.add(test2);
 		this.conceptListTest=new JList(vec);
+		this.conceptListTest.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.conceptListTest.addListSelectionListener(new ListSelectionListener(){
+
+			@Override
+			public void valueChanged(ListSelectionEvent arg0) {
+				// TODO Auto-generated method stub
+				PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,(Concept)conceptListTest.getSelectedValue());
+				currentPanel.add(newCol);
+				currentPanel.revalidate();
+				
+			}
+			
+		});
 		
 		conceptListTest.setFixedCellWidth((int)columnSize.getWidth());
 		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();
@@ -70,7 +94,7 @@ public class PanelColumnScenario extends JPanel{
 		
 		JScrollPane conceptScroll = new JScrollPane(conceptListTest);
 		conceptScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		this.test = conceptScroll;
+		this.main = conceptScroll;
 		newCol.add(conceptScroll, BorderLayout.CENTER);
 		
 		this.addConceptButton.setPreferredSize(new Dimension(200,30));
@@ -95,7 +119,8 @@ public class PanelColumnScenario extends JPanel{
 				addConceptButton.setVisible(true);
 				validateButton.setVisible(false);
 				combo.setVisible(false);
-				addConcept("CONCEPT1");
+				Concept c = (Concept)combo.getSelectedItem();
+				addConcept(c);
 				
 				
 				columnMenu.repaint();
@@ -104,7 +129,7 @@ public class PanelColumnScenario extends JPanel{
 		});
 		this.validateButton.setVisible(false);
 		
-		this.combo = new JComboBox(this.conceptsList);
+		this.combo = new JComboBox(this.vecConceptList);
 		this.combo.setVisible(false);
 		
 		
@@ -121,12 +146,12 @@ public class PanelColumnScenario extends JPanel{
 		this.add(overNewCol, BorderLayout.WEST);
 	}
 	
-	private void addConcept(String concept)
+	private void addConcept(Concept concept)
 	{
-		/*this.concepts.add(concept);
+		this.vec.add(concept);
 		
-		this.conceptListTest = new JList(this.concepts);
-		this.test.repaint();
-		this.thisPane.revalidate();*/
+		this.conceptListTest.setModel(new DefaultListModel());
+		this.conceptListTest.setListData(this.vec);
+		this.main.repaint();
 	}
 }
