@@ -16,11 +16,13 @@ import java.awt.event.AdjustmentListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 import linguistic.Scenario;
@@ -118,8 +120,18 @@ public class PanelNewScenario extends JPanel{
 	private void setDescrPane()
 	{
 		JPanel right = new JPanel(new BorderLayout());
+		
+		JLabel description = new JLabel("Description :");
+		JTextArea descrTArea = new JTextArea();
+		descrTArea.setText("Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens, odorandi vias periculorum occultas perquam sagax. is in Brittanniam missus ut militares quosdam perduceret ausos conspirasse Magnentio, cum reniti non possent, iussa licentius supergressus fluminis modo fortunis conplurium sese repentinus infudit et ferebatur per strages multiplices ac ruinas, vinculis membra ingenuorum adfligens et quosdam obterens manicis, crimina scilicet multa consarcinando a veritate longe discreta. unde admissum est facinus impium, quod Constanti tempus nota inusserat sempiterna.");
+		descrTArea.setLineWrap(true);
+		descrTArea.setEditable(false);
+		
 		right.setPreferredSize(new Dimension(currentFrame.getWidth()/4,currentFrame.getHeight()));
-		right.setBackground(Color.RED);
+		right.add(description, BorderLayout.NORTH);
+		right.add(descrTArea, BorderLayout.CENTER);
+		right.setBorder(BorderFactory.createEmptyBorder(20,20,60,20));
+		
 		this.thisPane.add(right, BorderLayout.EAST);
 	}
 	

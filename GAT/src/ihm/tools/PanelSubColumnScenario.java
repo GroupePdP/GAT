@@ -41,25 +41,17 @@ public class PanelSubColumnScenario extends JPanel{
 	public PanelSubColumnScenario(Dimension columnSize, JPanel curr, Concept toto, LinguisticFactory lf)
 	{
 		colList.setLayout(new BoxLayout(colList, BoxLayout.Y_AXIS));
-		colList.setMaximumSize(new Dimension((int)columnSize.getWidth(), curr.getHeight()));
+		colList.setPreferredSize(new Dimension((int)columnSize.getWidth(), curr.getHeight()));
 		this.owner = toto;
 		
 		if(owner instanceof ConceptComplex)
 		{
 			for(Type t : ((ConceptComplex)owner).getArguments())
 			{
-				//Vector tmpVec = new Vector(lf.getTypeManager().getTypeTree().getConceptsForType(t));
-				Vector tmpVec=new Vector();
-				tmpVec.add("lol");
+				Vector tmpVec = new Vector(lf.getTypeManager().getTypeTree().getConceptsForType(t));
 				
-				
-			/*	for(Concept c : lf.getTypeManager().getTypeTree().getConceptsForType(t))
-				{
-					tmpVec.add("lol");
-				}
-			*/	
 				JComboBox tmp = new JComboBox(tmpVec);
-				tmp.setPreferredSize(new Dimension((int)columnSize.getWidth(),20));
+				tmp.setMaximumSize(new Dimension((int)columnSize.getWidth(),20));
 				
 				colList.add(tmp);
 			}
@@ -78,7 +70,7 @@ public class PanelSubColumnScenario extends JPanel{
 		//conceptScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		this.main = conceptScroll;
 		
-		this.add(conceptScroll, BorderLayout.NORTH);
+		this.add(conceptScroll, BorderLayout.CENTER);
 		
 		
 	}
