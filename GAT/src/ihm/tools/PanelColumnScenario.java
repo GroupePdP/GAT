@@ -26,7 +26,10 @@ import javax.swing.event.ListSelectionListener;
 
 import linguistic.Scenario;
 import linguistic.concepts_gestion.Concept;
+import linguistic.concepts_gestion.ConceptComplex;
 import linguistic.concepts_gestion.ConceptSimple;
+import linguistic.types_gestion.LinguisticFactory;
+import linguistic.types_gestion.Type;
 import linguistic.types_gestion.TypeImpl;
 
 public class PanelColumnScenario extends JPanel{
@@ -59,11 +62,26 @@ public class PanelColumnScenario extends JPanel{
 		
 		this.scenario = s;
 		
-		vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 1" ,new TypeImpl("randomshit")));
-		vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 2" ,new TypeImpl("randomshit")));
-		vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 3" ,new TypeImpl("randomshit")));
-		vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 4" ,new TypeImpl("randomshit")));
+		// vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 1" ,new TypeImpl("randomshit")));
+		// vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 2" ,new TypeImpl("randomshit")));
+		// vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 3" ,new TypeImpl("randomshit")));
+		// vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 4" ,new TypeImpl("randomshit")));
 		
+		LinguisticFactory lf = LinguisticFactory.getInstance();
+		Type t1 = lf.getTypeManager().makeType("personne");
+		Type t2 = lf.getTypeManager().makeType("joueur", t1);
+		Type t3 = lf.getTypeManager().makeType("gain_de_match");
+		Type t4 = lf.getTypeManager().makeType("match");
+		
+		ConceptSimple c1 = new ConceptSimple("table1","line3","Joueur1",t2);
+		ConceptSimple c2 = new ConceptSimple("table2", "line5","Match 2",t4);
+		List<Type> l = new ArrayList<Type>();
+		l.add(t2); l.add(t4);
+		ConceptComplex c3 = new ConceptComplex("gagner",t3,l); // concept (gagner(joueur, match))
+		
+		vecConceptList.add(c1);
+		vecConceptList.add(c2);
+		vecConceptList.add(c3);
 		
 		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
