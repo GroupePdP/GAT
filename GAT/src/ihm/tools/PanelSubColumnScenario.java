@@ -15,6 +15,9 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
 import linguistic.concepts_gestion.Concept;
+import linguistic.concepts_gestion.ConceptComplex;
+import linguistic.types_gestion.Type;
+import linguistic.types_gestion.TypeTree;
 
 public class PanelSubColumnScenario extends JPanel{
 
@@ -25,14 +28,21 @@ public class PanelSubColumnScenario extends JPanel{
 	JPanel currentPanel;
 	
 	
-	//Vector<PanelSubColumnScenario> colList = new Vector<PanelSubColumnScenario>();
+	Vector<PanelSubColumnScenario> colList = new Vector<PanelSubColumnScenario>();
 	
 	JList conceptList;
 	JScrollPane main;
 	
-	public PanelSubColumnScenario(Dimension columnSize, JPanel curr, Concept owner)
+	public PanelSubColumnScenario(Dimension columnSize, JPanel curr, Concept toto)
 	{
-		this.owner = owner;
+		if(owner instanceof ConceptComplex)
+		{
+			for(Type t : ((ConceptComplex)owner).getArguments())
+			{
+				colList.add(this);
+			}
+		}
+		this.owner = toto;
 		this.thisPane = this;
 		this.currentPanel=curr;
 		this.thisColumnSize= columnSize;
@@ -40,8 +50,7 @@ public class PanelSubColumnScenario extends JPanel{
 		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
 		
-		String[] test = new String[]{"SUB"};
-		this.conceptList=new JList(test);
+		this.conceptList=new JList(colList);
 		this.conceptList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.conceptList.setFixedCellWidth((int)columnSize.getWidth());
 		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();

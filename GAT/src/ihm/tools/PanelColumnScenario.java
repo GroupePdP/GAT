@@ -79,9 +79,13 @@ public class PanelColumnScenario extends JPanel{
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) {
 				// TODO Auto-generated method stub
-				PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,(Concept)conceptListTest.getSelectedValue());
-				currentPanel.add(newCol);
-				currentPanel.revalidate();
+				if(arg0.getValueIsAdjusting())
+			      {
+					PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,(Concept)conceptListTest.getSelectedValue());
+					currentPanel.add(newCol);
+					currentPanel.revalidate();
+			      }
+				
 				
 			}
 			
