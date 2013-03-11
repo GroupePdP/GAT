@@ -24,6 +24,16 @@ public class Test {
 		l.add(t2); l.add(t4);
 		ConceptComplex c3 = new ConceptComplex("gagner",t3,l); // concept (gagner(joueur, match))
 		
+		lf.getTypeManager().getTypeTree().addConcept(c1);
+		lf.getTypeManager().getTypeTree().addConcept(c2);
+		lf.getTypeManager().getTypeTree().addConcept(c3);
+		
+		List<Concept> list = lf.getTypeManager().getTypeTree().getConceptsForType(t1);
+
+		for (Concept c : list){
+			System.out.println(c.getName());
+		}
+		
 		GraphNodeParent root = new GraphNodeParent(c3);
 		try{
 			root.addChild(g.makeNode(c1),0);
