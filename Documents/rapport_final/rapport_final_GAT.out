@@ -1,0 +1,41 @@
+\BOOKMARK [0][-]{chapter.1}{Pr\351sentation du sujet}{}
+\BOOKMARK [1][-]{section.1.1}{Pr\351sentation du projet}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{Etude de l'existant et bibliographie}{}
+\BOOKMARK [1][-]{section.2.1}{El\351ments bibliographiques}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.1.1}{EasyText}{section.2.1}
+\BOOKMARK [1][-]{section.2.2}{Etude de l'existant}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.2.1}{Projet GAT-2}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.2}{Syntox}{section.2.2}
+\BOOKMARK [0][-]{chapter.3}{Analyse pr\351liminaire des besoins}{}
+\BOOKMARK [1][-]{section.3.1}{Sc\351narios d'utilisation}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.1.1}{Sc\351narios utilisateur}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.2}{Sc\351narios administrateur}{section.3.1}
+\BOOKMARK [1][-]{section.3.2}{Besoins fonctionnels}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.2.1}{Besoins utilisateur}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{Besoins administrateur}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.3}{Besoins syst\350me}{section.3.2}
+\BOOKMARK [1][-]{section.3.3}{Besoins non-fonctionnels}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.3.1}{G\351n\351ration d'une entr\351e Syntox}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.2}{Facilit\351 d'utilisation}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.3}{Portabilit\351}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.4}{Besoins relatifs aux bases de donn\351es utilis\351es}{section.3.3}
+\BOOKMARK [1][-]{section.3.4}{Diagrammes et sch\351mas}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.4.1}{Diagramme de cas d'utilisation}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.2}{Sch\351mas de fonctionnement}{section.3.4}
+\BOOKMARK [2][-]{subsection.3.4.3}{Diagramme de s\351quence}{section.3.4}
+\BOOKMARK [1][-]{section.3.5}{Tests}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.5.1}{Base de donn\351es}{section.3.5}
+\BOOKMARK [2][-]{subsection.3.5.2}{Interface graphique}{section.3.5}
+\BOOKMARK [2][-]{subsection.3.5.3}{Interactions ext\351rieures}{section.3.5}
+\BOOKMARK [1][-]{section.3.6}{Annexe}{chapter.3}
+\BOOKMARK [0][-]{chapter.4}{Algorithmique et structures de donn\351es}{}
+\BOOKMARK [0][-]{chapter.5}{Architecture}{}
+\BOOKMARK [1][-]{section.5.1}{Architecture}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.1.1}{Diagramme de packages}{section.5.1}
+\BOOKMARK [2][-]{subsection.5.1.2}{Diagrammes de classes}{section.5.1}
+\BOOKMARK [2][-]{subsection.5.1.3}{Diagrammes de s\351quence}{section.5.1}
+\BOOKMARK [1][-]{section.5.2}{Justifications}{chapter.5}
+\BOOKMARK [0][-]{chapter.6}{Impl\351mentation}{}
+\BOOKMARK [0][-]{chapter.7}{Tests et r\351sultats}{}
+\BOOKMARK [0][-]{chapter.8}{Produit final}{}
+\BOOKMARK [0][-]{chapter.9}{Conclusion}{}

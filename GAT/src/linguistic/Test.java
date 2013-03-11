@@ -37,5 +37,4 @@ public class Test {
 		Scenario s = new Scenario("test");
 		s.addGraphConcepts(gc);
 	}
-
 }
