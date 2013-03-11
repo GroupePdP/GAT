@@ -14,9 +14,9 @@ public class GraphNodeParent implements GraphNode {
 	private ConceptComplex concept;
 	private List<GraphNode> childrenList;
 
-	public GraphNodeParent(ConceptComplex c2){ 
-		this.concept = c2;
-		this.childrenList = new ArrayList<GraphNode>(c2.getNumberArguments());
+	public GraphNodeParent(ConceptComplex c){
+		this.concept = c;
+		this.childrenList = new ArrayList<GraphNode>(c.getNumberArguments());
 	}
 	
 	@Override
