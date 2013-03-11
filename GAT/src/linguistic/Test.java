@@ -12,7 +12,7 @@ public class Test {
 	public static void main(String[] args) {
 		
 		LinguisticFactory lf = LinguisticFactory.getInstance();
-		GraphFactory g = new GraphFactory();
+		GraphNodeFactory g = new GraphNodeFactory();
 		Type t1 = lf.getTypeManager().makeType("personne");
 		Type t2 = lf.getTypeManager().makeType("joueur", t1);
 		Type t3 = lf.getTypeManager().makeType("gain_de_match");
@@ -37,5 +37,4 @@ public class Test {
 		Scenario s = new Scenario("test");
 		s.addGraphConcepts(gc);
 	}
-
 }

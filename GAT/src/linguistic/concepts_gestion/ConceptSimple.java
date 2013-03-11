@@ -6,9 +6,6 @@
 
 package linguistic.concepts_gestion;
 
-import java.util.Collection;
-
-import linguistic.graph_concepts_gestion.GraphNode;
 import linguistic.types_gestion.Type;
 
 public class ConceptSimple extends ConceptAbstract 
