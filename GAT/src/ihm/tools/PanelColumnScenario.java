@@ -79,6 +79,10 @@ public class PanelColumnScenario extends JPanel{
 		l.add(t2); l.add(t4);
 		ConceptComplex c3 = new ConceptComplex("gagner",t3,l); // concept (gagner(joueur, match))
 		
+		lf.getTypeManager().getTypeTree().addConcept(c1);
+		lf.getTypeManager().getTypeTree().addConcept(c2);
+		lf.getTypeManager().getTypeTree().addConcept(c3);
+		
 		vecConceptList.add(c1);
 		vecConceptList.add(c2);
 		vecConceptList.add(c3);

@@ -39,7 +39,8 @@ public class TypeTree {
 		{
 			parent = addType(t.getSurtype());
 		}
-		TypeTreeNode node = new TypeTreeNode(t); 
+		TypeTreeNode node = new TypeTreeNode(t);
+		nodeMap.put(t,node);
 		parent.addChild(node);
 		return node;
 	}
@@ -57,7 +58,8 @@ public class TypeTree {
 			return new ArrayList<Concept>();
 		}
 		List<Concept> list = new ArrayList<Concept>();
-		for (Concept c : node.getConceptList())
+		List<Concept> list2 = node.getConceptList(); //*****
+		for (Concept c : list2)
 		{
 			list.add(c);
 		}
