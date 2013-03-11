@@ -49,4 +49,6 @@ public class ConceptSimple extends ConceptAbstract
 	public int getNumberArguments() {
 		return 0;
 	}
+	
+	
 }

@@ -23,6 +23,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.Border;
 
+import linguistic.Scenario;
+
 public class PanelNewScenario extends JPanel{
 
 	MainFrame currentFrame;
@@ -39,7 +41,7 @@ public class PanelNewScenario extends JPanel{
 	private JMenuItem item2 = new JMenuItem("Enregistrer");
 	private JMenuItem item3 = new JMenuItem("Quitter");
 	
-	public PanelNewScenario(MainFrame mf)
+	public PanelNewScenario(MainFrame mf,Scenario s)
 	{
 		this.currentFrame = mf;
 		

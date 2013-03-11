@@ -3,6 +3,7 @@ package ihm.tools;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -17,13 +18,17 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ListModel;
 
-import linguistic.Concept;
+import linguistic.concepts_gestion.Concept;
+import linguistic.concepts_gestion.ConceptSimple;
+import linguistic.types_gestion.TypeImpl;
 
 public class PanelColumnScenario extends JPanel{
 	
 	String[] conceptsList;
-	Vector<String> concepts = new Vector();
+	List<Concept> concepts = new ArrayList<Concept>();
+	Vector vec = new Vector(concepts);
 	
 	JComboBox combo;
 	JButton validateButton = new JButton("Valider");
@@ -50,9 +55,13 @@ public class PanelColumnScenario extends JPanel{
 		JPanel overNewCol = new JPanel(new BorderLayout());
 		
 		JPanel newCol = new JPanel(new BorderLayout());
-
-		this.concepts.add("test");
-		this.conceptListTest=new JList(this.concepts);
+		
+		ConceptSimple test = new ConceptSimple("coucou", "caymoi", "Test" ,new TypeImpl("randomshit"));
+		ConceptSimple test2 = new ConceptSimple("coucou", "caymoi", "COUCOULOL" ,new TypeImpl("randomshit"));
+		
+		this.vec.add(test);
+		this.vec.add(test2);
+		this.conceptListTest=new JList(vec);
 		
 		conceptListTest.setFixedCellWidth((int)columnSize.getWidth());
 		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();
@@ -114,10 +123,10 @@ public class PanelColumnScenario extends JPanel{
 	
 	private void addConcept(String concept)
 	{
-		this.concepts.add(concept);
+		/*this.concepts.add(concept);
 		
 		this.conceptListTest = new JList(this.concepts);
 		this.test.repaint();
-		this.thisPane.revalidate();
+		this.thisPane.revalidate();*/
 	}
 }

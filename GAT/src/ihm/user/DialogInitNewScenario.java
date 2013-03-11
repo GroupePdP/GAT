@@ -16,13 +16,18 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
+
+import linguistic.Scenario;
 
 public class DialogInitNewScenario extends JDialog{
 
 	JDialog thisDiag = this;
 	MainFrame currentFrame;
+	
+	JTextField newScenarioTextArea = new JTextField(16);
 	
 	public DialogInitNewScenario(MainFrame mf)
 	{
@@ -48,9 +53,8 @@ public class DialogInitNewScenario extends JDialog{
 		newScenarioLabelPanel.add(newScenarioLabel);
 		
 		JPanel newScenarioTextAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JTextArea newScenarioTextArea = new JTextArea(1,16);
-		newScenarioTextArea.setBorder(BorderFactory.createLoweredBevelBorder());
-		newScenarioTextAreaPanel.add(newScenarioTextArea);
+		this.newScenarioTextArea.setBorder(BorderFactory.createLoweredBevelBorder());
+		newScenarioTextAreaPanel.add(this.newScenarioTextArea);
 		
 		subGlobalPane.add(newScenarioLabelPanel);
 		subGlobalPane.add(newScenarioTextAreaPanel);
@@ -80,7 +84,11 @@ public class DialogInitNewScenario extends JDialog{
 		ok.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
-				PanelNewScenario pns = new PanelNewScenario(currentFrame);
+				
+				String scenarioName = newScenarioTextArea.getText();
+				
+				Scenario s = new Scenario(scenarioName);
+				PanelNewScenario pns = new PanelNewScenario(currentFrame,s);
 				currentFrame.setPane(pns);
 				thisDiag.dispose();
 			}
