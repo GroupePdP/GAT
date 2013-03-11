@@ -67,7 +67,7 @@ public class PanelColumnScenario extends JPanel{
 		// vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 3" ,new TypeImpl("randomshit")));
 		// vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 4" ,new TypeImpl("randomshit")));
 		
-		LinguisticFactory lf = LinguisticFactory.getInstance();
+		final LinguisticFactory lf = LinguisticFactory.getInstance();
 		Type t1 = lf.getTypeManager().makeType("personne");
 		Type t2 = lf.getTypeManager().makeType("joueur", t1);
 		Type t3 = lf.getTypeManager().makeType("gain_de_match");
@@ -99,7 +99,7 @@ public class PanelColumnScenario extends JPanel{
 				// TODO Auto-generated method stub
 				if(arg0.getValueIsAdjusting())
 			      {
-					PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,(Concept)conceptListTest.getSelectedValue());
+					PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,(Concept)conceptListTest.getSelectedValue(),lf);
 					currentPanel.add(newCol);
 					currentPanel.revalidate();
 			      }
