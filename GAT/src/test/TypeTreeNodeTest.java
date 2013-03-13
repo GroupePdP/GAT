@@ -3,16 +3,16 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.*;
+import junit.framework.TestCase;
 
-import linguistic.Concept;
-import linguistic.ConceptSimple;
-import linguistic.Type;
-import linguistic.TypeImpl;
-import linguistic.TypeTreeNode;
+import linguistic.concepts_gestion.Concept;
+import linguistic.concepts_gestion.ConceptSimple;
+import linguistic.types_gestion.Type;
+import linguistic.types_gestion.TypeImpl;
+import linguistic.types_gestion.TypeTreeNode;
 
 
-public class TypeTreeNodeTest {
+public class TypeTreeNodeTest extends TestCase{
 
 	public void testAddChild() { 		
 		Type type1 = new TypeImpl("Réussir");
@@ -24,18 +24,10 @@ public class TypeTreeNodeTest {
 		
 		treeNode1.addChild(treeNode2);
 		
-		/* Une première façon de faire que j'ai trouvée
-		assertEquals(list, treeNode1.getChildrenList());
-		*/
-		
-		/* Une seconde façon de faire que j'ai trouvée
-		Object[] array1 = treeNode1.getChildrenList().toArray();
-		Object[] array2 = list.toArray();
-		for(int i=0; i < array1.length; i++)
-			assertEquals((String) array1[i],(String) array2[i]);
-		*/		
+		assertEquals(list, treeNode1.getChildrenList());	
 	}
 	
+
 	public void testAddConcept() {
 		Concept concept = new ConceptSimple(null, null, "Réussir", new TypeImpl("Réussite"));
 		TypeTreeNode treeNode = new TypeTreeNode(new TypeImpl("Réussite"));
@@ -45,7 +37,7 @@ public class TypeTreeNodeTest {
 		
 		treeNode.addConcept(concept);
 		
-		//assertEquals(childList, treeNode.getConceptList());		
+		assertEquals(childList, treeNode.getConceptList());		
 	}
 
 }
