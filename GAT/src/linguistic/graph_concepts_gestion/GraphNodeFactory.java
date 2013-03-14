@@ -23,8 +23,8 @@ public final class GraphNodeFactory{
 		return GraphNodeFactory.instance;
 	}
 
-	public GraphNodeDefault makeNode(Concept c){
-		return new GraphNode((ConceptComplex)c);
+	public GraphNode makeNode(Concept c){
+		return new GraphNodeDefault((ConceptComplex)c);
 	}
 
 }

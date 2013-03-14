@@ -30,7 +30,7 @@ public class Test {
 			System.out.println(c.getName());
 		}
 		
-		GraphNodeDefault root = g.makeNode(c3);
+		GraphNode root = g.makeNode(c3);
 		try{
 			root.addChild(g.makeNode(c1),0);
 			root.addChild(g.makeNode(c2),1);

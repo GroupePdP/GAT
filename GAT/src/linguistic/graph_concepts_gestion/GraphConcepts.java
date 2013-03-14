@@ -4,24 +4,28 @@ import java.util.List;
 
 public class GraphConcepts implements GraphConceptsInterface{
 	
-	private GraphNodeDefault root;
+	private GraphNode root;
 	
-	public GraphConcepts(GraphNodeDefault root){
+	public GraphConcepts(GraphNode root){
 		this.root = root;
 	}
 	
 	@Override
-	public GraphNodeDefault getRoot(){
+	public GraphNode getRoot(){
 		return this.root;
 	}
 
 	@Override
-	public List<GraphNodeDefault> getListNodes(){
+	public List<GraphNode> getListNodes(){
 		return root.getListNodes();
 	}
 
 	@Override
 	public int getNumberOfNodes(){
 		return root.getListNodes().size();
+	}
+	
+	public GraphConcepts toTree(){
+		return new GraphConcepts(root.toTree());
 	}
 }

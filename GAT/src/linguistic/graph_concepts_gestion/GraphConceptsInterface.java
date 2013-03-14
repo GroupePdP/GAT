@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface GraphConceptsInterface {
 
-	public GraphNodeDefault getRoot();
-	public List<GraphNodeDefault> getListNodes();
+	public GraphNode getRoot();
+	public List<GraphNode> getListNodes();
 	public int getNumberOfNodes();
 
 }
