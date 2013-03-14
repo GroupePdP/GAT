@@ -6,6 +6,9 @@
 
 package linguistic.concepts_gestion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import linguistic.types_gestion.Type;
 
 public class ConceptSimple extends ConceptAbstract 
@@ -20,19 +23,6 @@ public class ConceptSimple extends ConceptAbstract
 		this.sqlColumn = sqlColumn;
 	}
 	
-	// Accesseurs 
-	
-	public String getSqlColumn()
-	{
-
-		return this.sqlColumn;
-	}
-	
-	public String getSqlTable()
-	{
-		return this.sqlTable;
-	}
-	
 	// Autres methodes
 	
 	@Override
@@ -41,11 +31,15 @@ public class ConceptSimple extends ConceptAbstract
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public List<Type> getArguments(){
+		return new ArrayList<Type>();
+	}
 
 	@Override
 	public int getNumberArguments() {
 		return 0;
 	}
-	
 	
 }
