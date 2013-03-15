@@ -62,11 +62,6 @@ public class PanelColumnScenario extends JPanel{
 		
 		this.scenario = s;
 		
-		// vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 1" ,new TypeImpl("randomshit")));
-		// vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 2" ,new TypeImpl("randomshit")));
-		// vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 3" ,new TypeImpl("randomshit")));
-		// vecConceptList.add(new ConceptSimple("coucou", "caymoi", "Concept 4" ,new TypeImpl("randomshit")));
-		
 		final LinguisticFactory lf = LinguisticFactory.getInstance();
 		Type t1 = lf.getTypeManager().makeType("personne");
 		Type t2 = lf.getTypeManager().makeType("joueur", t1);

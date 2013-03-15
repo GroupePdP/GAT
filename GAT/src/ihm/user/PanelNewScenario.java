@@ -3,6 +3,7 @@ package ihm.user;
 import ihm.MainFrame;
 import ihm.tools.PanelCenteredButton;
 import ihm.tools.PanelColumnScenario;
+import ihm.tools.PanelSubColumnScenario;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -35,6 +36,8 @@ public class PanelNewScenario extends JPanel{
 	JPanel colcont;
 	
 	Scenario scenario;
+	
+	public PanelSubColumnScenario[] tab;
 	
 	private Dimension columnSize;
 	
@@ -126,10 +129,12 @@ public class PanelNewScenario extends JPanel{
 		descrTArea.setText("Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens, odorandi vias periculorum occultas perquam sagax. is in Brittanniam missus ut militares quosdam perduceret ausos conspirasse Magnentio, cum reniti non possent, iussa licentius supergressus fluminis modo fortunis conplurium sese repentinus infudit et ferebatur per strages multiplices ac ruinas, vinculis membra ingenuorum adfligens et quosdam obterens manicis, crimina scilicet multa consarcinando a veritate longe discreta. unde admissum est facinus impium, quod Constanti tempus nota inusserat sempiterna.");
 		descrTArea.setLineWrap(true);
 		descrTArea.setEditable(false);
+		JScrollPane descrScroll = new JScrollPane(descrTArea);
+		descrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		right.setPreferredSize(new Dimension(currentFrame.getWidth()/4,currentFrame.getHeight()));
 		right.add(description, BorderLayout.NORTH);
-		right.add(descrTArea, BorderLayout.CENTER);
+		right.add(descrScroll, BorderLayout.CENTER);
 		right.setBorder(BorderFactory.createEmptyBorder(20,20,60,20));
 		
 		this.thisPane.add(right, BorderLayout.EAST);
