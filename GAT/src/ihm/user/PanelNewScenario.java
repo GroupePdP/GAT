@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -27,6 +29,10 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 import linguistic.Scenario;
+import linguistic.concepts_gestion.ConceptComplex;
+import linguistic.concepts_gestion.ConceptSimple;
+import linguistic.types_gestion.LinguisticFactory;
+import linguistic.types_gestion.Type;
 
 public class PanelNewScenario extends JPanel{
 
@@ -58,9 +64,27 @@ public class PanelNewScenario extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 		
+		LinguisticFactory lf = LinguisticFactory.getInstance();
+		Type t1 = lf.getTypeManager().makeType("personne");
+		Type t2 = lf.getTypeManager().makeType("joueur", t1);
+		Type t3 = lf.getTypeManager().makeType("gain_de_match");
+		Type t4 = lf.getTypeManager().makeType("match");
+		
+		ConceptSimple c1 = new ConceptSimple("table1","line3","Joueur1",t2);
+		ConceptSimple c2 = new ConceptSimple("table2", "line5","Match 2",t4);
+		List<Type> l = new ArrayList<Type>();
+		l.add(t2); l.add(t4);
+		ConceptComplex c3 = new ConceptComplex("gagner",t3,l); // concept (gagner(joueur, match))
+		
+		lf.getTypeManager().getTypeTree().addConcept(c1);
+		lf.getTypeManager().getTypeTree().addConcept(c2);
+		lf.getTypeManager().getTypeTree().addConcept(c3);
+		
+		
+		
 		setMenuBar();
 		setDescrPane();
-		setMillerPane();
+		this.add(new PanelMiller(this.scenario/*, lf*/), BorderLayout.CENTER);
 		
 	}
 	
@@ -75,51 +99,7 @@ public class PanelNewScenario extends JPanel{
 		
 		this.thisPane.add(menuBar, BorderLayout.NORTH);
 	}
-	
-	private void setMillerPane()
-	{
-		final JPanel colSubContainer = new JPanel();
-		colSubContainer.setLayout(new BoxLayout(colSubContainer, BoxLayout.X_AXIS));
-		
-		final JPanel columnContainer = new JPanel(new BorderLayout());
-		columnContainer.setBackground(Color.orange);
-		columnContainer.add(colSubContainer, BorderLayout.WEST);
-		this.colcont= columnContainer;
-		
-		
-		JPanel global = new JPanel(new BorderLayout());
-		global.setBackground(Color.green);
-		global.add(columnContainer, BorderLayout.CENTER);
-		
-		final JScrollPane scrollPane = new JScrollPane(global);
-		scrollPane.getHorizontalScrollBar().addAdjustmentListener(new AdjustmentListener(){
 
-			@Override
-			public void adjustmentValueChanged(AdjustmentEvent e) {
-				
-				columnContainer.repaint();
-				
-			}
-			
-		});
-		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		
-		JPanel millerGlobal = new JPanel(new BorderLayout());
-		millerGlobal.setBackground(Color.blue);
-		millerGlobal.add(scrollPane);
-		
-		JPanel left = new JPanel(new BorderLayout());
-		left.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
-		this.columnSize=new Dimension(200, left.getHeight());
-		
-		colSubContainer.add(new PanelColumnScenario(columnSize, colSubContainer, this.scenario));
-		
-		left.add(millerGlobal,BorderLayout.CENTER);
-		left.add(setBottMenu(colSubContainer), BorderLayout.SOUTH);
-		
-		this.add(left, BorderLayout.CENTER);
-	}
-	
 	private void setDescrPane()
 	{
 		JPanel right = new JPanel(new BorderLayout());
@@ -135,43 +115,11 @@ public class PanelNewScenario extends JPanel{
 		right.setPreferredSize(new Dimension(currentFrame.getWidth()/4,currentFrame.getHeight()));
 		right.add(description, BorderLayout.NORTH);
 		right.add(descrScroll, BorderLayout.CENTER);
-		right.setBorder(BorderFactory.createEmptyBorder(20,20,60,20));
+		right.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
 		
 		this.thisPane.add(right, BorderLayout.EAST);
 	}
 	
 
-	private JPanel setBottMenu(final JPanel colSubCont)
-	{
-		JPanel global= new JPanel();
-		
-		JPanel addColPane= new PanelCenteredButton("Add Column", new ActionListener(){
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				colSubCont.add(new PanelColumnScenario(columnSize, colSubCont,scenario));
-				colSubCont.revalidate();
-			}
-			
-		});
-		
-		JPanel removeColPane= new PanelCenteredButton("Remove Column", new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				colSubCont.removeAll();
-				colSubCont.revalidate();
-			}
-			
-		});
-		
-		global.setLayout(new FlowLayout());
-		
-		global.add(addColPane);
-		global.add(removeColPane);
-		
-		return global;
-	}
 }

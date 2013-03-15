@@ -1,5 +1,7 @@
 package ihm.tools;
 
+import ihm.user.PanelMiller;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -7,6 +9,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -35,7 +38,7 @@ import linguistic.types_gestion.TypeImpl;
 public class PanelColumnScenario extends JPanel{
 	
 	JPanel thisPane;
-	JPanel currentPanel;
+	PanelMiller currentPanel;
 	Dimension thisColumnSize;
 	Scenario scenario;
 	
@@ -52,9 +55,9 @@ public class PanelColumnScenario extends JPanel{
 	JScrollPane main;
 	JPanel columnMenu = new JPanel(new BorderLayout());
 	
-	
+	ArrayList<PanelSubColumnScenario> list = new ArrayList<PanelSubColumnScenario>();
 
-	public PanelColumnScenario(Dimension columnSize, JPanel curr, Scenario s)
+	public PanelColumnScenario(Dimension columnSize, PanelMiller curr, Scenario s)
 	{
 		this.thisPane = this;
 		this.currentPanel=curr;
@@ -67,20 +70,33 @@ public class PanelColumnScenario extends JPanel{
 		Type t2 = lf.getTypeManager().makeType("joueur", t1);
 		Type t3 = lf.getTypeManager().makeType("gain_de_match");
 		Type t4 = lf.getTypeManager().makeType("match");
+		Type t5 = lf.getTypeManager().makeType("relation_event");
+		Type t6 = lf.getTypeManager().makeType("etre_vainqueur");
+		Type t7 = lf.getTypeManager().makeType("competition");
 		
-		ConceptSimple c1 = new ConceptSimple("table1","line3","Joueur1",t2);
-		ConceptSimple c2 = new ConceptSimple("table2", "line5","Match 2",t4);
+		Concept c1 = lf.makeConcept("table1","line3","Joueur1",t2);
+		Concept c2 = lf.makeConcept("table2", "line5","Match 2",t4);
+		Concept c6 = lf.makeConcept("table2", "line5","Competition 1",t7);
+		
 		List<Type> l = new ArrayList<Type>();
 		l.add(t2); l.add(t4);
-		ConceptComplex c3 = new ConceptComplex("gagner",t3,l); // concept (gagner(joueur, match))
+		Concept c3 = lf.makeConcept("gagner",t3,l); // concept (gagner(joueur, match))
 		
-		lf.getTypeManager().getTypeTree().addConcept(c1);
-		lf.getTypeManager().getTypeTree().addConcept(c2);
-		lf.getTypeManager().getTypeTree().addConcept(c3);
+		List<Type> l2 = new ArrayList<Type>();
+		l2.add(t2); l2.add(t7);
+		Concept c4 = lf.makeConcept("etre_vainqueur",t6,l2); // concept (etre_vainqueur(joueur, competition))
+		
+		List<Type> l3 = new ArrayList<Type>();
+		l3.add(t3); l3.add(t6);
+		Concept c5 = lf.makeConcept("cause",t5,l3); // concept (cause(gagner, etre_vainqueur))
+		
 		
 		vecConceptList.add(c1);
 		vecConceptList.add(c2);
 		vecConceptList.add(c3);
+		vecConceptList.add(c4);
+		vecConceptList.add(c5);
+		vecConceptList.add(c6);
 		
 		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
@@ -98,9 +114,23 @@ public class PanelColumnScenario extends JPanel{
 				// TODO Auto-generated method stub
 				if(arg0.getValueIsAdjusting())
 			      {
-					PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,(Concept)conceptListTest.getSelectedValue(),lf);
-					currentPanel.add(newCol);
-					currentPanel.revalidate();
+					Concept tmp = (Concept)conceptListTest.getSelectedValue();
+					
+					if(tmp instanceof ConceptComplex)
+					{
+						Iterator it = list.iterator();
+						
+						for(;it.hasNext();)
+						{
+							PanelSubColumnScenario tmpCol = (PanelSubColumnScenario) it.next();
+							tmpCol.setVisibleAll(false);
+						}
+						
+						
+						
+						
+						list.get(conceptListTest.getSelectedIndex()).setVisible(true);
+					}
 			      }
 				
 				
@@ -141,6 +171,12 @@ public class PanelColumnScenario extends JPanel{
 				validateButton.setVisible(false);
 				combo.setVisible(false);
 				Concept c = (Concept)combo.getSelectedItem();
+				PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,c,lf);
+				newCol.setVisible(false);
+				currentPanel.addColumn(newCol);
+				list.add(newCol);
+				
+				
 				addConcept(c);
 				
 				
