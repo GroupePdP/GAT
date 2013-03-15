@@ -18,15 +18,11 @@ public class Test {
 		Type t3 = lf.getTypeManager().makeType("gain_de_match");
 		Type t4 = lf.getTypeManager().makeType("match");
 		
-		ConceptSimple c1 = new ConceptSimple("table1","line3","Joueur1",t2);
-		ConceptSimple c2 = new ConceptSimple("table2", "line5","Match 2",t4);
+		Concept c1 = lf.makeConcept("table1","line3","Joueur1",t2);
+		Concept c2 = lf.makeConcept("table2", "line5","Match 2",t4);
 		List<Type> l = new ArrayList<Type>();
 		l.add(t2); l.add(t4);
-		ConceptComplex c3 = new ConceptComplex("gagner",t3,l); // concept (gagner(joueur, match))
-		
-		lf.getTypeManager().getTypeTree().addConcept(c1);
-		lf.getTypeManager().getTypeTree().addConcept(c2);
-		lf.getTypeManager().getTypeTree().addConcept(c3);
+		Concept c3 = lf.makeConcept("gagner",t3,l); // concept (gagner(joueur, match))
 		
 		List<Concept> list = lf.getTypeManager().getTypeTree().getConceptsForType(t1);
 
@@ -34,7 +30,7 @@ public class Test {
 			System.out.println(c.getName());
 		}
 		
-		GraphNodeParent root = new GraphNodeParent(c3);
+		GraphNode root = g.makeNode(c3);
 		try{
 			root.addChild(g.makeNode(c1),0);
 			root.addChild(g.makeNode(c2),1);

@@ -5,6 +5,12 @@
 
 package linguistic.types_gestion;
 
+import java.util.List;
+
+import linguistic.concepts_gestion.Concept;
+import linguistic.concepts_gestion.ConceptComplex;
+import linguistic.concepts_gestion.ConceptSimple;
+
 
 public final class LinguisticFactory implements Factory{
 	
@@ -40,6 +46,21 @@ public final class LinguisticFactory implements Factory{
 	@Override
 	public Type makeType(String name){
 		return tm.makeType(name);
+	}
+
+	@Override
+	public ConceptComplex makeConcept(String name, Type type, List<Type> args) {
+		Concept c = new ConceptComplex(name, type, args);
+		tm.getTypeTree().addConcept(c);
+		return (ConceptComplex) c;
+	}
+
+	@Override
+	public ConceptSimple makeConcept(String sqlColumn, String sqlTable, String name,
+			Type type) {
+		Concept c = new ConceptSimple(sqlColumn, sqlTable, name, type);
+		tm.getTypeTree().addConcept(c);
+		return (ConceptSimple) c;
 	}
 
 }

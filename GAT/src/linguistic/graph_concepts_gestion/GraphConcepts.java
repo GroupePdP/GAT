@@ -24,4 +24,8 @@ public class GraphConcepts implements GraphConceptsInterface{
 	public int getNumberOfNodes(){
 		return root.getListNodes().size();
 	}
+	
+	public GraphConcepts toTree(){
+		return new GraphConcepts(root.toTree());
+	}
 }
