@@ -16,7 +16,7 @@ import linguistic.types_gestion.TypeTree;
 import linguistic.types_gestion.TypeTreeNode;
 
 public class TypeTreeTest extends TestCase{
-  
+	
 	Concept c1, c2, c3, c4;
 	Map<Type, TypeTreeNode> nodeMap;
 	Type rootType, childType1, childType2, childType3, childType4;

@@ -12,6 +12,7 @@ public class TypeTest extends TestCase{
 		TypeImpl type1 = new TypeImpl(nameType1, surType1);
 		
 		assertEquals(nameType1, type1.getName());
-		assertEquals(surType1, type1.getSurtype());		
+		assertEquals(nameType1, type1.toString());
+		assertEquals(surType1, type1.getSurtype());					
 	}
 }

@@ -10,7 +10,7 @@ import linguistic.types_gestion.TypeImpl;
 import linguistic.types_gestion.TypeManager;
 
 public class TypeManagerTest {
-  
+	
 	Type type1, rootType;
 	TypeManager typeManager;
 	
