@@ -73,47 +73,34 @@ public class PanelSubColumnScenario extends JPanel{
 				
 				final PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,(Concept)tmp.getSelectedItem(),lf);
 				newCol.setVisible(false);
-				currentPanel.addColumn(newCol);
 				list.add(newCol);
 				tmpArrow.addActionListener(new ActionListener(){
 
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						// TODO Auto-generated method stub
-						/*Iterator it = list.iterator();
 						
-						for(;it.hasNext();)
+						if(tmp.getSelectedItem() instanceof ConceptComplex)
 						{
-							PanelSubColumnScenario tmp = (PanelSubColumnScenario) it.next();
-							tmp.setVisible(false);
-						}*/
-						
-						thisPane.setVisibleAll(false);
-						thisPane.setVisible(true);
-						newCol.setVisible(true);
+							currentPanel.addColumn(newCol);
+							thisPane.setVisibleAll(false);
+							thisPane.setVisible(true);
+							newCol.setVisible(true);
+						}
 					}
 					
 				});
 				tmpArrow.setMaximumSize(new Dimension(20,20));
 				
 				tmpPane.add(tmp, BorderLayout.CENTER);
-				tmpPane.add(tmpArrow, BorderLayout.EAST);
+				
+				if(tmp.getSelectedItem() instanceof ConceptComplex)
+					tmpPane.add(tmpArrow, BorderLayout.EAST);
 				
 				colList.add(tmpPane);
 			}
 		}
 		
-		/*if(owner instanceof ConceptSimple)
-		{
-			JPanel tmp = new JPanel();
-			JLabel coucou = new JLabel(owner.toString());
-			tmp.add(coucou);
-			
-			colList.add(tmp);
-			list.add(tmp);
-		}
-		
-		*/
 		
 		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));

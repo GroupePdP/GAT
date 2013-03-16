@@ -38,7 +38,7 @@ public class PanelHomeUser extends JPanel {
 		JPanel scPersPanel = new PanelCenteredButton("Scenario Personnalise", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				DialogInitNewScenario dins = new DialogInitNewScenario(currentFrame);
+				DialogInitNewScenario dins = new DialogInitNewScenario(currentFrame, thisPane);
 				dins.setVisible(true);
 			}
 		});	

@@ -73,8 +73,10 @@ public class PanelColumnScenario extends JPanel{
 		Type t5 = lf.getTypeManager().makeType("relation_event");
 		Type t6 = lf.getTypeManager().makeType("etre_vainqueur");
 		Type t7 = lf.getTypeManager().makeType("competition");
+		Type t8 = lf.getTypeManager().makeType("_test_");
 		
 		Concept c1 = lf.makeConcept("table1","line3","Joueur1",t2);
+		Concept c8 = lf.makeConcept("table1","line3","Joueur2",t2);
 		Concept c2 = lf.makeConcept("table2", "line5","Match 2",t4);
 		Concept c6 = lf.makeConcept("table2", "line5","Competition 1",t7);
 		
@@ -90,6 +92,9 @@ public class PanelColumnScenario extends JPanel{
 		l3.add(t3); l3.add(t6);
 		Concept c5 = lf.makeConcept("cause",t5,l3); // concept (cause(gagner, etre_vainqueur))
 		
+		List<Type> l4 = new ArrayList<Type>();
+		l4.add(t5); l4.add(t1);
+		Concept c7 = lf.makeConcept("test",t8,l4); // concept (cause(gagner, etre_vainqueur))
 		
 		vecConceptList.add(c1);
 		vecConceptList.add(c2);
@@ -97,6 +102,8 @@ public class PanelColumnScenario extends JPanel{
 		vecConceptList.add(c4);
 		vecConceptList.add(c5);
 		vecConceptList.add(c6);
+		vecConceptList.add(c7);
+		vecConceptList.add(c8);
 		
 		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
