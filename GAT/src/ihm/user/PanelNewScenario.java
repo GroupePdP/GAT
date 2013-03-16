@@ -38,7 +38,7 @@ public class PanelNewScenario extends JPanel{
 
 	MainFrame currentFrame;
 	JPanel thisPane=this;
-	
+	JPanel previous;
 	JPanel colcont;
 	
 	Scenario scenario;
@@ -54,9 +54,10 @@ public class PanelNewScenario extends JPanel{
 	private JMenuItem item2 = new JMenuItem("Enregistrer");
 	private JMenuItem item3 = new JMenuItem("Quitter");
 	
-	public PanelNewScenario(MainFrame mf,Scenario s)
+	public PanelNewScenario(MainFrame mf,Scenario s, JPanel prev)
 	{
 		this.currentFrame = mf;
+		this.previous = prev;
 		
 		this.currentFrame.setTitle(s.getName());
 		
@@ -90,7 +91,34 @@ public class PanelNewScenario extends JPanel{
 	
 	private void setMenuBar()
 	{
+		item1.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 		
+		item2.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		item3.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				currentFrame.setPane(previous);
+			}
+		});
 		test1.add(item1);
 		test1.add(item2);
 		test1.add(item3);

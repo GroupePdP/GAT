@@ -29,7 +29,7 @@ public class DialogInitNewScenario extends JDialog{
 	
 	JTextField newScenarioTextArea = new JTextField(16);
 	
-	public DialogInitNewScenario(MainFrame mf)
+	public DialogInitNewScenario(MainFrame mf, final JPanel prev)
 	{
 		this.currentFrame = mf;
 		this.setTitle("Création d'un nouveau scénario");
@@ -88,7 +88,7 @@ public class DialogInitNewScenario extends JDialog{
 				String scenarioName = newScenarioTextArea.getText();
 				
 				Scenario s = new Scenario(scenarioName);
-				PanelNewScenario pns = new PanelNewScenario(currentFrame,s);
+				PanelNewScenario pns = new PanelNewScenario(currentFrame,s,prev);
 				currentFrame.setPane(pns);
 				thisDiag.dispose();
 			}
