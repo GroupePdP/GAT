@@ -149,7 +149,7 @@ public class DialogInitNewProject extends JDialog{
 				
 				if(projectName.length() != 0)
 				{
-					PanelNewProject pnp = new PanelNewProject();
+					PanelNewProject pnp = new PanelNewProject(currentFrame, prev);
 					currentFrame.setPane(pnp);
 					thisDiag.dispose();
 				}
