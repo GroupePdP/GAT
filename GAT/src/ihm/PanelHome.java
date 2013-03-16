@@ -1,5 +1,6 @@
 package ihm;
 
+import ihm.admin.PanelHomeAdmin;
 import ihm.tools.PanelBasicMenu;
 import ihm.tools.PanelCenteredButton;
 import ihm.user.PanelHomeUser;
@@ -38,7 +39,8 @@ public class PanelHome extends JPanel {
 		JPanel adminPanel = new PanelCenteredButton("Administrateur", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				;
+				PanelHomeAdmin pha = new PanelHomeAdmin(currentFrame, thisPane);
+				currentFrame.setPane(pha);
 			}
 		});
 		

@@ -65,24 +65,6 @@ public class PanelNewScenario extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 		
-		LinguisticFactory lf = LinguisticFactory.getInstance();
-		Type t1 = lf.getTypeManager().makeType("personne");
-		Type t2 = lf.getTypeManager().makeType("joueur", t1);
-		Type t3 = lf.getTypeManager().makeType("gain_de_match");
-		Type t4 = lf.getTypeManager().makeType("match");
-		
-		ConceptSimple c1 = new ConceptSimple("table1","line3","Joueur1",t2);
-		ConceptSimple c2 = new ConceptSimple("table2", "line5","Match 2",t4);
-		List<Type> l = new ArrayList<Type>();
-		l.add(t2); l.add(t4);
-		ConceptComplex c3 = new ConceptComplex("gagner",t3,l); // concept (gagner(joueur, match))
-		
-		lf.getTypeManager().getTypeTree().addConcept(c1);
-		lf.getTypeManager().getTypeTree().addConcept(c2);
-		lf.getTypeManager().getTypeTree().addConcept(c3);
-		
-		
-		
 		setMenuBar();
 		setDescrPane();
 		this.add(new PanelMiller(this.scenario/*, lf*/), BorderLayout.CENTER);

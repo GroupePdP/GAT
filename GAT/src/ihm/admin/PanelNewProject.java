@@ -1,5 +1,7 @@
 package ihm.admin;
 
-public class PanelNewProject {
+import javax.swing.JPanel;
+
+public class PanelNewProject extends JPanel{
 
 }
