@@ -4,7 +4,6 @@ import java.sql.Connection;
 
 public interface DBConnection {
 	
-	public Connection connection();
-	public Connection deconnection();
-
-}
+	public boolean connection();
+	public boolean disconnection();
+	public ResultSet selectquery(String query);
