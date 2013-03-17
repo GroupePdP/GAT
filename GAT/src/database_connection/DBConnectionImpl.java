@@ -11,6 +11,7 @@ public class DBConnectionImpl implements DBConnection
 
 	private static volatile DBConnectionImpl instance = null;
 	private Connection connection;
+	private ResultSet resultset;
 	private Statement statement;
 	private String url ;
 	private String user;
@@ -55,7 +56,7 @@ public class DBConnectionImpl implements DBConnection
 		if(connection ==null)
 		try{
 			this.connection = DriverManager.getConnection(url, user, pwd);
-			this.statement = connexion.createStatement();
+			this.statement = connection.createStatement();
 			success = true;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -70,12 +71,12 @@ public class DBConnectionImpl implements DBConnection
 		boolean success = false;
 		if ( connection != null )
         try {
-            this.connexion.close();
+            this.connection.close();
             this.connection = null;
             this.statement = null;
-            succcess = true;
+            success = true;
         } catch ( SQLException ignore ) {
-            e.printStackTrace();
+            ignore.printStackTrace();
         }	
 		return success;
 	}
@@ -86,7 +87,12 @@ public class DBConnectionImpl implements DBConnection
 		
 		if(statement != null)
 		{
+			try{
 		 	resultset = this.statement.executeQuery(query);
+			}
+			catch(Exception e){
+				
+			}
 		}
 		
 		return resultset;

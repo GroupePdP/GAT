@@ -73,4 +73,7 @@ public class TypeTree {
 		return list;
 	}
 	
+	public boolean equals(TypeTree t) {
+		return (this.root.equals(t.getRoot()));
+	}
 }

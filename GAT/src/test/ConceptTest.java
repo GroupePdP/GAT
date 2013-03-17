@@ -44,7 +44,7 @@ public class ConceptTest {
 		assertEquals(num, c1.getNumberArguments());
 		assertEquals(args, c1.getArguments());
 		
-		assertEquals(null, c2.getNumberArguments());
+		assertEquals(0, c2.getNumberArguments());
 		assertEquals(new ArrayList<Type> (), c2.getArguments());
 	}
 	

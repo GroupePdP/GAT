@@ -1,4 +1,4 @@
-plinkkage core;
+package core;
 
 public class InfoDb {
  
@@ -16,7 +16,7 @@ public class InfoDb {
 		this.passwordEncrypted = pe;
 	}
 	
-	public InfoDb (String link, String tdb,String user; String pe)
+	public InfoDb (String link, String tdb, String user, String pe)
 	{
 		this.initBase(link, tdb, user, pe);
 	}

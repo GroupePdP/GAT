@@ -37,11 +37,6 @@ public class GraphNodeDefaultTest {
 	}
 	
 	@Test
-	public void testGetReference() {
-			assertEquals(false, graphND.getReference());
-	}
-	
-	@Test
 	public void testGetIsTagged() {
 		assertEquals(false, graphND.isTagged());
 	}
