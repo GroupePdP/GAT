@@ -1,17 +1,17 @@
-package test;
+package src.test;
 
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptComplex;
-import linguistic.concepts_gestion.ConceptSimple;
-import linguistic.types_gestion.LinguisticFactory;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
-import linguistic.types_gestion.TypeManager;
+import src.linguistic.concepts_gestion.Concept;
+import src.linguistic.concepts_gestion.ConceptComplex;
+import src.linguistic.concepts_gestion.ConceptSimple;
+import src.linguistic.types_gestion.LinguisticFactory;
+import src.linguistic.types_gestion.Type;
+import src.linguistic.types_gestion.TypeImpl;
+import src.linguistic.types_gestion.TypeManager;
 
 import org.junit.Before;
 import org.junit.Test;

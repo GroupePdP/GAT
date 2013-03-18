@@ -1,12 +1,12 @@
-package ihm.admin;
+package src.ihm.admin;
 
-import ihm.MainFrame;
-import ihm.PanelHome;
-import ihm.tools.PanelBasicMenu;
-import ihm.tools.PanelCenteredButton;
-import ihm.user.DialogInitNewScenario;
-import ihm.user.PanelExistingScenario;
-import ihm.user.PanelHomeUser;
+import src.ihm.MainFrame;
+import src.ihm.PanelHome;
+import src.ihm.tools.PanelBasicMenu;
+import src.ihm.tools.PanelCenteredButton;
+import src.ihm.user.DialogInitNewScenario;
+import src.ihm.user.PanelExistingScenario;
+import src.ihm.user.PanelHomeUser;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;

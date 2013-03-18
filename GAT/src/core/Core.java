@@ -1,7 +1,7 @@
-package core;
+package src.core;
 
-import database_connection.DBConnection;
-import ihm.MainFrame;
+import src.database_connection.DBConnection;
+import src.ihm.MainFrame;
 
 public class Core {
 	

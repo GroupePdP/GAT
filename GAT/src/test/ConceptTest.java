@@ -1,13 +1,13 @@
-package test;
+package src.test;
 
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.concepts_gestion.*;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
+import src.linguistic.concepts_gestion.*;
+import src.linguistic.types_gestion.Type;
+import src.linguistic.types_gestion.TypeImpl;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,7 +1,7 @@
 /* Classe TypeImpl, implemente Type.
  */
 
-package linguistic.types_gestion;
+package src.linguistic.types_gestion;
 
 
 public class TypeImpl implements Type {

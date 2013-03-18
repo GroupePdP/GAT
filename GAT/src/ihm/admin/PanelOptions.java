@@ -1,4 +1,4 @@
-package ihm.admin;
+package src.ihm.admin;
 
 public class PanelOptions {
 

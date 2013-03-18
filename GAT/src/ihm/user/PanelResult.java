@@ -1,4 +1,4 @@
-package ihm.user;
+package src.ihm.user;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,8 +16,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
-import ihm.MainFrame;
-import ihm.tools.PanelCenteredButton;
+import src.ihm.MainFrame;
+import src.ihm.tools.PanelCenteredButton;
 
 public class PanelResult extends JPanel{
 

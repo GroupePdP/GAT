@@ -1,9 +1,9 @@
-package linguistic;
+package src.linguistic;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.graph_concepts_gestion.GraphConcepts;
+import src.linguistic.graph_concepts_gestion.GraphConcepts;
 
 public class Scenario {
 

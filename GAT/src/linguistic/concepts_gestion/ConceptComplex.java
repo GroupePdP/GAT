@@ -3,11 +3,11 @@
  * Un ConceptComplex a des arguments, qui sont des Types.
  */
 
-package linguistic.concepts_gestion;
+package src.linguistic.concepts_gestion;
 
 import java.util.List;
 
-import linguistic.types_gestion.Type;
+import src.linguistic.types_gestion.Type;
 
 public class ConceptComplex extends ConceptAbstract {
 	

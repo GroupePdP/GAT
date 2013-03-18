@@ -2,7 +2,7 @@
  * 
  */
 
-package linguistic.types_gestion;
+package src.linguistic.types_gestion;
 
 public interface Type {
 	

@@ -1,9 +1,9 @@
-package ihm.user;
+package src.ihm.user;
 
-import ihm.MainFrame;
-import ihm.tools.PanelCenteredButton;
-import ihm.tools.PanelColumnScenario;
-import ihm.tools.PanelSubColumnScenario;
+import src.ihm.MainFrame;
+import src.ihm.tools.PanelCenteredButton;
+import src.ihm.tools.PanelColumnScenario;
+import src.ihm.tools.PanelSubColumnScenario;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -28,11 +28,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
-import linguistic.Scenario;
-import linguistic.concepts_gestion.ConceptComplex;
-import linguistic.concepts_gestion.ConceptSimple;
-import linguistic.types_gestion.LinguisticFactory;
-import linguistic.types_gestion.Type;
+import src.linguistic.Scenario;
+import src.linguistic.concepts_gestion.ConceptComplex;
+import src.linguistic.concepts_gestion.ConceptSimple;
+import src.linguistic.types_gestion.LinguisticFactory;
+import src.linguistic.types_gestion.Type;
 
 public class PanelNewScenario extends JPanel{
 

@@ -1,7 +1,7 @@
-package ihm.admin;
+package src.ihm.admin;
 
-import ihm.MainFrame;
-import ihm.user.PanelNewScenario;
+import src.ihm.MainFrame;
+import src.ihm.user.PanelNewScenario;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import linguistic.Scenario;
+import src.linguistic.Scenario;
 
 public class DialogInitNewProject extends JDialog{
 	JDialog thisDiag = this;

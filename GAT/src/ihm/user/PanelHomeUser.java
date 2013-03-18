@@ -1,9 +1,9 @@
-package ihm.user;
+package src.ihm.user;
 
-import ihm.MainFrame;
-import ihm.PanelHome;
-import ihm.tools.PanelBasicMenu;
-import ihm.tools.PanelCenteredButton;
+import src.ihm.MainFrame;
+import src.ihm.PanelHome;
+import src.ihm.tools.PanelBasicMenu;
+import src.ihm.tools.PanelCenteredButton;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-import ihm.user.*;
+import src.ihm.user.*;
 
 public class PanelHomeUser extends JPanel {
 	

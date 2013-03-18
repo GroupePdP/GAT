@@ -1,6 +1,6 @@
-package ihm.user;
+package src.ihm.user;
 
-import ihm.MainFrame;
+import src.ihm.MainFrame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,7 +22,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import linguistic.Scenario;
+import src.linguistic.Scenario;
 
 public class DialogInitNewScenario extends JDialog{
 

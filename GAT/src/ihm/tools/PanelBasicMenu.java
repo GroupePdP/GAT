@@ -1,4 +1,4 @@
-package ihm.tools;
+package src.ihm.tools;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;

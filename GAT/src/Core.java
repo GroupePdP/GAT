@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.concepts_gestion.ConceptComplex;
-import linguistic.concepts_gestion.ConceptSimple;
-import linguistic.graph_concepts_gestion.GraphNodeFactory;
-import linguistic.types_gestion.LinguisticFactory;
-import linguistic.types_gestion.Type;
-import ihm.*;
+import src.linguistic.concepts_gestion.ConceptComplex;
+import src.linguistic.concepts_gestion.ConceptSimple;
+import src.linguistic.graph_concepts_gestion.GraphNodeFactory;
+import src.linguistic.types_gestion.LinguisticFactory;
+import src.linguistic.types_gestion.Type;
+import src.ihm.*;
 
 public class Core {
 	public static void main(String[] args){

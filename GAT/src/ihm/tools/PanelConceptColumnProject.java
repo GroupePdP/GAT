@@ -1,4 +1,4 @@
-package ihm.tools;
+package src.ihm.tools;
 
 public class PanelConceptColumnProject {
 

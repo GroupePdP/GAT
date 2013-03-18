@@ -1,6 +1,6 @@
-package ihm.tools;
+package src.ihm.tools;
 
-import ihm.user.PanelMiller;
+import src.ihm.user.PanelMiller;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -28,13 +28,13 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import linguistic.Scenario;
-import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptComplex;
-import linguistic.concepts_gestion.ConceptSimple;
-import linguistic.types_gestion.LinguisticFactory;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
+import src.linguistic.Scenario;
+import src.linguistic.concepts_gestion.Concept;
+import src.linguistic.concepts_gestion.ConceptComplex;
+import src.linguistic.concepts_gestion.ConceptSimple;
+import src.linguistic.types_gestion.LinguisticFactory;
+import src.linguistic.types_gestion.Type;
+import src.linguistic.types_gestion.TypeImpl;
 
 public class PanelColumnScenario extends JPanel{
 	

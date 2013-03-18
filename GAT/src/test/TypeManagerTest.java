@@ -1,13 +1,13 @@
-package test;
+package src.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
-import linguistic.types_gestion.TypeManager;
+import src.linguistic.types_gestion.Type;
+import src.linguistic.types_gestion.TypeImpl;
+import src.linguistic.types_gestion.TypeManager;
 
 public class TypeManagerTest {
 	

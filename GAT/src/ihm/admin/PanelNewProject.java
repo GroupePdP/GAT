@@ -1,6 +1,6 @@
-package ihm.admin;
+package src.ihm.admin;
 
-import ihm.MainFrame;
+import src.ihm.MainFrame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

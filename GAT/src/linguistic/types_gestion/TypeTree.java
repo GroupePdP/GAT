@@ -3,7 +3,7 @@
  * gere l'ajout d'un type ou d'un concept dans l'arbre
  */
 
-package linguistic.types_gestion;
+package src.linguistic.types_gestion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 
-import linguistic.concepts_gestion.Concept;
+import src.linguistic.concepts_gestion.Concept;
 
 public class TypeTree {
 

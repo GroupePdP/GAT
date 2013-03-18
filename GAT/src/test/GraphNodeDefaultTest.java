@@ -1,15 +1,15 @@
-package test;
+package src.test;
 
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptComplex;
-import linguistic.graph_concepts_gestion.GraphNodeDefault;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
+import src.linguistic.concepts_gestion.Concept;
+import src.linguistic.concepts_gestion.ConceptComplex;
+import src.linguistic.graph_concepts_gestion.GraphNodeDefault;
+import src.linguistic.types_gestion.Type;
+import src.linguistic.types_gestion.TypeImpl;
 
 import org.junit.Before;
 import org.junit.Test;

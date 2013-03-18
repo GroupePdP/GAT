@@ -1,7 +1,7 @@
-package linguistic.graph_concepts_gestion;
+package src.linguistic.graph_concepts_gestion;
 
-import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptComplex;
+import src.linguistic.concepts_gestion.Concept;
+import src.linguistic.concepts_gestion.ConceptComplex;
 
 public final class GraphNodeFactory{
 		
