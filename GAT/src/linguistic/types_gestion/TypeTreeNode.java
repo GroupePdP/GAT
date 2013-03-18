@@ -46,4 +46,9 @@ public class TypeTreeNode {
 		childrenList.add(child);
 	}
 	
+	public boolean equals(TypeTreeNode t) {
+		return (this.type.equals(t.getType()) && this.childrenList.equals(t.getChildrenList()) 
+				&& this.conceptList.equals(t.getConceptList()));		
+	}
+	
 }

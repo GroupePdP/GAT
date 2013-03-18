@@ -35,5 +35,9 @@ public class TypeImpl implements Type {
 	public String toString() {
 		return this.name;
 	}
+	
+	public boolean equals(TypeImpl t) {
+		return (this.name.equals(t.getName()) && this.surtype.equals(t.getSurtype()));
+	}
 
 }
