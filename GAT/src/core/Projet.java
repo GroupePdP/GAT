@@ -1,11 +1,11 @@
-package src.core;
+package core;
 
 import java.util.ArrayList;
 
-import src.database_connection.DBConnection;
+import database_connection.DBConnection;
 
-import src.linguistic.types_gestion.TypeTree;
-import src.linguistic.*;
+import linguistic.types_gestion.TypeTree;
+import linguistic.*;
 
 public class Projet {
 	

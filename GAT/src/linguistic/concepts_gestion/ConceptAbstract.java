@@ -2,9 +2,9 @@
  * 
  */
 
-package src.linguistic.concepts_gestion;
+package linguistic.concepts_gestion;
 
-import src.linguistic.types_gestion.Type;
+import linguistic.types_gestion.Type;
 
 public abstract class ConceptAbstract implements Concept
 {

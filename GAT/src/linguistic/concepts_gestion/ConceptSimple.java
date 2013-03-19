@@ -4,12 +4,12 @@
  * ne contient qu'une reference a une ligne / colonne de la bdd.
  */
 
-package src.linguistic.concepts_gestion;
+package linguistic.concepts_gestion;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import src.linguistic.types_gestion.Type;
+import linguistic.types_gestion.Type;
 
 public class ConceptSimple extends ConceptAbstract 
 {

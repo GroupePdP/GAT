@@ -3,11 +3,11 @@
  * Sera implémentée par une classe abstraite
  */
 
-package src.linguistic.concepts_gestion;
+package linguistic.concepts_gestion;
 
 import java.util.List;
 
-import src.linguistic.types_gestion.Type;
+import linguistic.types_gestion.Type;
 
 public interface Concept {
 

@@ -1,12 +1,12 @@
-package src.ihm.admin;
+package ihm.admin;
 
-import src.ihm.MainFrame;
-import src.ihm.PanelHome;
-import src.ihm.tools.PanelBasicMenu;
-import src.ihm.tools.PanelCenteredButton;
-import src.ihm.user.DialogInitNewScenario;
-import src.ihm.user.PanelExistingScenario;
-import src.ihm.user.PanelHomeUser;
+import ihm.MainFrame;
+import ihm.PanelHome;
+import ihm.tools.PanelBasicMenu;
+import ihm.tools.PanelCenteredButton;
+import ihm.user.DialogInitNewScenario;
+import ihm.user.PanelExistingScenario;
+import ihm.user.PanelHomeUser;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -28,7 +28,7 @@ public class PanelHomeAdmin extends JPanel{
 		this.previous = prev;
 		this.currentFrame = mf;
 		
-		JPanel createProjectPanel = new PanelCenteredButton("Créer Projet", new ActionListener(){
+		JPanel createProjectPanel = new PanelCenteredButton("Crï¿½er Projet", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				DialogInitNewProject dinp = new DialogInitNewProject(currentFrame, thisPane);

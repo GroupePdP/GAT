@@ -1,7 +1,7 @@
-package src.ihm.user;
+package ihm.user;
 
-import src.ihm.tools.PanelColumnScenario;
-import src.ihm.tools.PanelSubColumnScenario;
+import ihm.tools.PanelColumnScenario;
+import ihm.tools.PanelSubColumnScenario;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,8 +14,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import src.linguistic.Scenario;
-import src.linguistic.types_gestion.LinguisticFactory;
+import linguistic.Scenario;
+import linguistic.types_gestion.LinguisticFactory;
 
 public class PanelMiller extends JPanel{
 	

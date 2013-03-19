@@ -2,13 +2,13 @@
  * implemente les noeuds de l'arbre de types
  */
 
-package src.linguistic.types_gestion;
+package linguistic.types_gestion;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-import src.linguistic.concepts_gestion.Concept;
+import linguistic.concepts_gestion.Concept;
 
 public class TypeTreeNode {
 

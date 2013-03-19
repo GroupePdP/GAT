@@ -1,4 +1,4 @@
-package src.ihm.admin;
+package ihm.admin;
 
 public class DialogChoseProject {
 

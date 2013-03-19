@@ -1,4 +1,4 @@
-package src.ihm.user;
+package ihm.user;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,8 +16,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
-import src.ihm.MainFrame;
-import src.ihm.tools.PanelCenteredButton;
+import ihm.MainFrame;
+import ihm.tools.PanelCenteredButton;
 
 public class PanelResult extends JPanel{
 
@@ -68,7 +68,7 @@ public class PanelResult extends JPanel{
 		
 		JPanel northSubCenterP = new JPanel();
 		northSubCenterP.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JLabel generatedLabel = new JLabel("Texte généré :");
+		JLabel generatedLabel = new JLabel("Texte gï¿½nï¿½rï¿½ :");
 		northSubCenterP.add(generatedLabel);
 		
 		JPanel centerSubCenterP = new JPanel();

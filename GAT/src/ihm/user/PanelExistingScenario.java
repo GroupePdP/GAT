@@ -1,8 +1,8 @@
-package src.ihm.user;
+package ihm.user;
 
-import src.ihm.MainFrame;
-import src.ihm.PanelHome;
-import src.ihm.tools.PanelCenteredButton;
+import ihm.MainFrame;
+import ihm.PanelHome;
+import ihm.tools.PanelCenteredButton;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

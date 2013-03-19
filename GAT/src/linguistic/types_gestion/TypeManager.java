@@ -2,7 +2,7 @@
  * gere la creation des types, leur ajout dans l'arbre de types
  */
 
-package src.linguistic.types_gestion;
+package linguistic.types_gestion;
 
 
 public class TypeManager {

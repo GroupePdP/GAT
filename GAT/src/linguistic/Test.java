@@ -1,11 +1,11 @@
-package src.linguistic;
+package linguistic;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import src.linguistic.concepts_gestion.*;
-import src.linguistic.types_gestion.*;
-import src.linguistic.graph_concepts_gestion.*;
+import linguistic.concepts_gestion.*;
+import linguistic.types_gestion.*;
+import linguistic.graph_concepts_gestion.*;
 
 public class Test {
 	

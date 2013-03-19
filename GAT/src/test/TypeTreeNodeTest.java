@@ -1,15 +1,15 @@
-package src.test;
+package test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
 
-import src.linguistic.concepts_gestion.Concept;
-import src.linguistic.concepts_gestion.ConceptSimple;
-import src.linguistic.types_gestion.Type;
-import src.linguistic.types_gestion.TypeImpl;
-import src.linguistic.types_gestion.TypeTreeNode;
+import linguistic.concepts_gestion.Concept;
+import linguistic.concepts_gestion.ConceptSimple;
+import linguistic.types_gestion.Type;
+import linguistic.types_gestion.TypeImpl;
+import linguistic.types_gestion.TypeTreeNode;
 
 
 public class TypeTreeNodeTest extends TestCase{
