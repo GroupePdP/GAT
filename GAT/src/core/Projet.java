@@ -9,34 +9,32 @@ import linguistic.*;
 
 public class Projet {
 	
-	private TypeTree type_tree;
-	private ArrayList<Scenario> list_scenario;
-	private DBConnection db_connection;
+	private TypeTree typeTree;
+	private ArrayList<Scenario> listScenario;
+	private DBConnection dbConnection;
 	
 
 
 	public TypeTree getType_tree() {
-		return type_tree;
+		return typeTree;
 	}
 
-	public void setType_tree(TypeTree type_tree) {
-		this.type_tree = type_tree;
-	}
+
 
 	public ArrayList<Scenario> getList_scenario() {
-		return list_scenario;
+		return listScenario;
 	}
 
 	public void setList_scenario(ArrayList<Scenario> list_scenario) {
-		this.list_scenario = list_scenario;
+		this.listScenario = list_scenario;
 	}
 
 	public DBConnection getDb_connection() {
-		return db_connection;
+		return dbConnection;
 	}
 
 	public void setDb_connection(DBConnection db_connection) {
-		this.db_connection = db_connection;
+		this.dbConnection = db_connection;
 	}
 	
 	

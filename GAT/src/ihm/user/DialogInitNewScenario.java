@@ -31,12 +31,12 @@ public class DialogInitNewScenario extends JDialog{
 	
 	JTextField newScenarioTextArea = new JTextField(16);
 	
-	JLabel error = new JLabel("Nom de scénario incorrect");
+	JLabel error = new JLabel("Nom de scï¿½nario incorrect");
 	
 	public DialogInitNewScenario(MainFrame mf, final JPanel prev)
 	{
 		this.currentFrame = mf;
-		this.setTitle("Création d'un nouveau scénario");
+		this.setTitle("Crï¿½ation d'un nouveau scï¿½nario");
 		this.setSize(new Dimension(250,150));
 		this.setResizable(false);
 		this.setModal(true);
@@ -53,7 +53,7 @@ public class DialogInitNewScenario extends JDialog{
 		subGlobalPane.setLayout(new BoxLayout(subGlobalPane, BoxLayout.Y_AXIS));
 		
 		JPanel newScenarioLabelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JLabel newScenarioLabel = new JLabel("Nom du nouveau scénario :");
+		JLabel newScenarioLabel = new JLabel("Nom du nouveau scï¿½nario :");
 		newScenarioLabelPanel.add(newScenarioLabel);
 		
 		JPanel newScenarioTextAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));

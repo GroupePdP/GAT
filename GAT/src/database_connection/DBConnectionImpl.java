@@ -26,7 +26,7 @@ public class DBConnectionImpl implements DBConnection
 		this.pwd = pwd;
 	}
 	
-	public static boolean setInstance( String url, String user, String pwd)
+	public static boolean resetInstance( String url, String user, String pwd)
 	{
 		boolean set =false;
 		if (DBConnectionImpl.instance == null || DBConnectionImpl.instance.connection == null)
@@ -48,55 +48,44 @@ public class DBConnectionImpl implements DBConnection
 		return DBConnectionImpl.instance;
 	}
 	
-	//TODO void *** trows
 	@Override
-	public boolean connection() 
+	public boolean connection() throws SQLException 
 	{
 		boolean success = false;
 		if(connection ==null)
-		try{
+		{
 			this.connection = DriverManager.getConnection(url, user, pwd);
 			this.statement = connection.createStatement();
 			success = true;
-		}catch(Exception e){
-			e.printStackTrace();
-		}		
+		}
 		return success ;
 	}
 	
-	//TODO void *** trows
 	@Override
-	public boolean disconnection()
+	public boolean disconnection() throws SQLException
 	{
 		boolean success = false;
+		
 		if ( connection != null )
-        try {
-            this.connection.close();
-            this.connection = null;
-            this.statement = null;
-            success = true;
-        } catch ( SQLException ignore ) {
-            ignore.printStackTrace();
-        }	
+		{
+			this.connection.close();
+			this.connection = null;
+			this.statement = null;
+			success = true;
+		}
 		return success;
 	}
 	
-	public ResultSet selectquery(String query)
+	public ResultSet selectQuery(String query) throws SQLException
 	{
-		resultset = null;
+		ResultSet resultset = null;
 		
 		if(statement != null)
 		{
-			try{
-		 	resultset = this.statement.executeQuery(query);
-			}
-			catch(Exception e){
-				
-			}
+			resultset = this.statement.executeQuery(query);
 		}
-		
 		return resultset;
-			
+
 	}
 
 }

@@ -1,12 +1,11 @@
 package core;
-
 import database_connection.DBConnection;
 import ihm.MainFrame;
 
 public class Core {
 	
 	private Projet projet;
-	private DBConnection db_connection;
+	private DBConnection dbConnection;
 //	private Serialisation serial;
 	
 	public static void main(String[] args){
@@ -33,11 +32,11 @@ public class Core {
 	}
 
 	public DBConnection getDb_connection() {
-		return db_connection;
+		return dbConnection;
 	}
 
 	public void setDb_connection(DBConnection db_connection) {
-		this.db_connection = db_connection;
+		this.dbConnection = db_connection;
 	}
 	
 	

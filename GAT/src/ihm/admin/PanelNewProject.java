@@ -39,7 +39,7 @@ public class PanelNewProject extends JPanel{
 		JMenuBar menuBar = new JMenuBar();
 		JMenu test1 = new JMenu("Fichier");
 		
-		JMenuItem item1 = new JMenuItem("Enregistrer Scénario en cours");
+		JMenuItem item1 = new JMenuItem("Enregistrer Scï¿½nario en cours");
 		JMenuItem item2 = new JMenuItem("Enregistrer");
 		JMenuItem item3 = new JMenuItem("Quitter");
 		
