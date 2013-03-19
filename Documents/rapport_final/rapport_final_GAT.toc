@@ -1,0 +1,58 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Pr\IeC {\'e}sentation du sujet}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Pr\IeC {\'e}sentation du projet}{3}{section.1.1}
+\contentsline {chapter}{\numberline {2}Etude de l'existant et bibliographie}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}El\IeC {\'e}ments bibliographiques}{6}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}EasyText}{7}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Etude de l'existant}{7}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Projet GAT-2}{7}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Syntox}{8}{subsection.2.2.2}
+\contentsline {chapter}{\numberline {3}Cahier des charges}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Sc\IeC {\'e}narios d'utilisation}{9}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Sc\IeC {\'e}narios utilisateur}{9}{subsection.3.1.1}
+\contentsline {subsubsection}{Sc\IeC {\'e}nario 1}{9}{section*.2}
+\contentsline {subsubsection}{Sc\IeC {\'e}nario 2}{9}{section*.3}
+\contentsline {subsection}{\numberline {3.1.2}Sc\IeC {\'e}narios administrateur}{10}{subsection.3.1.2}
+\contentsline {subsubsection}{Sc\IeC {\'e}nario 1}{10}{section*.4}
+\contentsline {subsubsection}{Sc\IeC {\'e}nario 2}{10}{section*.5}
+\contentsline {section}{\numberline {3.2}Besoins fonctionnels}{10}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Besoins utilisateur}{10}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Besoins administrateur}{11}{subsection.3.2.2}
+\contentsline {subsubsection}{Besoins g\IeC {\'e}n\IeC {\'e}raux}{11}{section*.6}
+\contentsline {subsubsection}{Besoins li\IeC {\'e}s \IeC {\`a} la base de donn\IeC {\'e}es}{11}{section*.7}
+\contentsline {subsubsection}{Besoins li\IeC {\'e}s aux concepts et aux sc\IeC {\'e}narios}{11}{section*.8}
+\contentsline {subsection}{\numberline {3.2.3}Besoins syst\IeC {\`e}me}{12}{subsection.3.2.3}
+\contentsline {subsubsection}{Interface graphique}{12}{section*.9}
+\contentsline {subsubsection}{G\IeC {\'e}n\IeC {\'e}ration de requ\IeC {\^e}tes SQL}{12}{section*.10}
+\contentsline {subsubsection}{Base de donn\IeC {\'e}es}{12}{section*.11}
+\contentsline {subsubsection}{Cr\IeC {\'e}ation du graphe conceptuel}{13}{section*.12}
+\contentsline {subsubsection}{Cr\IeC {\'e}ation de la requ\IeC {\^e}te pour Syntox}{13}{section*.13}
+\contentsline {subsubsection}{G\IeC {\'e}n\IeC {\'e}ration de phrases}{13}{section*.14}
+\contentsline {section}{\numberline {3.3}Besoins non-fonctionnels}{13}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}G\IeC {\'e}n\IeC {\'e}ration d'une entr\IeC {\'e}e Syntox}{13}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Facilit\IeC {\'e} d'utilisation}{14}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Portabilit\IeC {\'e}}{14}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Besoins relatifs aux bases de donn\IeC {\'e}es utilis\IeC {\'e}es}{14}{subsection.3.3.4}
+\contentsline {chapter}{\numberline {4}Algorithmique et structures de donn\IeC {\'e}es}{15}{chapter.4}
+\contentsline {chapter}{\numberline {5}Architecture}{16}{chapter.5}
+\contentsline {section}{\numberline {5.1}Diagrammes et sch\IeC {\'e}mas}{16}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Diagramme de cas d'utilisation}{16}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Sch\IeC {\'e}mas de fonctionnement}{19}{subsection.5.1.2}
+\contentsline {subsubsection}{Sch\IeC {\'e}ma de fonctionnement - Utilisateur}{19}{section*.15}
+\contentsline {subsubsection}{Sch\IeC {\'e}ma de fonctionnement - Administrateur}{20}{section*.16}
+\contentsline {subsection}{\numberline {5.1.3}Diagramme de s\IeC {\'e}quence}{21}{subsection.5.1.3}
+\contentsline {section}{\numberline {5.2}Architecture}{21}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Diagramme de packages}{21}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Diagrammes de classes}{21}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Diagrammes de s\IeC {\'e}quence}{26}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}Justifications}{29}{section.5.3}
+\contentsline {chapter}{\numberline {6}Impl\IeC {\'e}mentation}{31}{chapter.6}
+\contentsline {section}{\numberline {6.1}Interface graphique}{31}{section.6.1}
+\contentsline {chapter}{\numberline {7}Tests et r\IeC {\'e}sultats}{39}{chapter.7}
+\contentsline {section}{\numberline {7.1}Tests}{39}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Base de donn\IeC {\'e}es}{39}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}Interface graphique}{39}{subsection.7.1.2}
+\contentsline {subsection}{\numberline {7.1.3}Interactions ext\IeC {\'e}rieures}{40}{subsection.7.1.3}
+\contentsline {chapter}{\numberline {8}Produit final}{41}{chapter.8}
+\contentsline {chapter}{\numberline {9}Conclusion}{42}{chapter.9}
+\contentsline {chapter}{\numberline {10}Annexes}{43}{chapter.10}

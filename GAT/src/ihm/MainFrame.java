@@ -15,7 +15,7 @@ public class MainFrame extends JFrame{
 		Dimension frameSize = new Dimension(1280,720);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(frameSize);
-		this.setResizable(false);
+		this.setResizable(true);
 		this.setPane(home);
 		
 		this.setVisible(true);

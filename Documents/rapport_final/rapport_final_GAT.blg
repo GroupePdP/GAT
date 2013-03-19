@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: rapport_final_GAT.aux
+The style file: plain.bst
+Database file #1: rapport_final_GAT.bib
+Warning--empty chapter and pages in Dan00
+Warning--empty publisher in Dan00
+You've used 6 entries,
+            2118 wiz_defined-function locations,
+            533 strings with 4808 characters,
+and the built_in function-call counts, 1367 in all, are:
+= -- 119
+> -- 46
+< -- 0
++ -- 19
+- -- 13
+* -- 58
+:= -- 247
+add.period$ -- 18
+call.type$ -- 6
+change.case$ -- 24
+chr.to.int$ -- 0
+cite$ -- 8
+duplicate$ -- 71
+empty$ -- 141
+format.name$ -- 13
+if$ -- 285
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 5
+newline$ -- 33
+num.names$ -- 14
+pop$ -- 42
+preamble$ -- 1
+purify$ -- 18
+quote$ -- 0
+skip$ -- 36
+stack$ -- 0
+substring$ -- 30
+swap$ -- 8
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 22
+warning$ -- 2
+while$ -- 13
+width$ -- 7
+write$ -- 62
+(There were 2 warnings)

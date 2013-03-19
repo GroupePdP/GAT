@@ -1,63 +1,135 @@
 package ihm.user;
 
 import ihm.MainFrame;
+import ihm.tools.PanelCenteredButton;
+import ihm.tools.PanelColumnScenario;
+import ihm.tools.PanelSubColumnScenario;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.border.Border;
+
+import linguistic.Scenario;
+import linguistic.concepts_gestion.ConceptComplex;
+import linguistic.concepts_gestion.ConceptSimple;
+import linguistic.types_gestion.LinguisticFactory;
+import linguistic.types_gestion.Type;
 
 public class PanelNewScenario extends JPanel{
 
 	MainFrame currentFrame;
 	JPanel thisPane=this;
+	JPanel previous;
+	JPanel colcont;
+	
+	Scenario scenario;
+	
+	public PanelSubColumnScenario[] tab;
+	
+	private Dimension columnSize;
 	
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu test1 = new JMenu("Fichier");
 	
-	private JMenuItem item1 = new JMenuItem("Enregistrer Scénario en cours");
+	private JMenuItem item1 = new JMenuItem("Enregistrer ScÃ©nario en cours");
 	private JMenuItem item2 = new JMenuItem("Enregistrer");
 	private JMenuItem item3 = new JMenuItem("Quitter");
 	
-	public PanelNewScenario(MainFrame mf)
+	public PanelNewScenario(MainFrame mf,Scenario s, JPanel prev)
 	{
 		this.currentFrame = mf;
+		this.previous = prev;
+		
+		this.currentFrame.setTitle(s.getName());
+		
+		this.scenario = s;
 		
 		this.setLayout(new BorderLayout());
+		
+		setMenuBar();
+		setDescrPane();
+		this.add(new PanelMiller(this.scenario/*, lf*/), BorderLayout.CENTER);
+		
+	}
+	
+	private void setMenuBar()
+	{
+		item1.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		item2.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		item3.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				currentFrame.setPane(previous);
+			}
+		});
 		test1.add(item1);
 		test1.add(item2);
 		test1.add(item3);
 		
 		menuBar.add(test1);
 		
-		this.add(menuBar, BorderLayout.NORTH);
-		
-		
-		JPanel left = new JPanel(new BorderLayout());
-		JPanel millerGlobal = new JPanel(new BorderLayout());
-		millerGlobal.setBackground(Color.RED);
-		
-		millerGlobal.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-		//millerGlobal.setPreferredSize(new Dimension(currentFrame.getWidth()/4*3-60, currentFrame.getHeight()-60));
-		
-		left.add(millerGlobal,BorderLayout.CENTER);
-		Border borderP = BorderFactory.createEmptyBorder(20,20,20,20);
-		left.setBorder(borderP);
-		
-		
-		JPanel right = new JPanel(new BorderLayout());
-		right.setBackground(Color.ORANGE);
-		right.setPreferredSize(new Dimension(currentFrame.getWidth()/4,currentFrame.getHeight()));
-		
-		left.setBackground(Color.GREEN);
-		this.add(right, BorderLayout.EAST);
-		this.add(left, BorderLayout.CENTER);
-		
+		this.thisPane.add(menuBar, BorderLayout.NORTH);
 	}
+
+	private void setDescrPane()
+	{
+		JPanel right = new JPanel(new BorderLayout());
+		
+		JLabel description = new JLabel("Description :");
+		JTextArea descrTArea = new JTextArea();
+		descrTArea.setText("Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens, odorandi vias periculorum occultas perquam sagax. is in Brittanniam missus ut militares quosdam perduceret ausos conspirasse Magnentio, cum reniti non possent, iussa licentius supergressus fluminis modo fortunis conplurium sese repentinus infudit et ferebatur per strages multiplices ac ruinas, vinculis membra ingenuorum adfligens et quosdam obterens manicis, crimina scilicet multa consarcinando a veritate longe discreta. unde admissum est facinus impium, quod Constanti tempus nota inusserat sempiterna.");
+		descrTArea.setLineWrap(true);
+		descrTArea.setEditable(false);
+		JScrollPane descrScroll = new JScrollPane(descrTArea);
+		descrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		
+		right.setPreferredSize(new Dimension(currentFrame.getWidth()/4,currentFrame.getHeight()));
+		right.add(description, BorderLayout.NORTH);
+		right.add(descrScroll, BorderLayout.CENTER);
+		right.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+		
+		this.thisPane.add(right, BorderLayout.EAST);
+	}
+	
+
+
 }

@@ -1,0 +1,38 @@
+\begin{thebibliography}{1}
+
+\bibitem{Bat93}
+John Bateman.
+\newblock Natural {L}anguage {G}eneration : an introduction and open-ended
+  review of the state of the art.
+\newblock
+  \url{http://www.fb10.uni-bremen.de/anglistik/langpro/webspace/jb/info-pages/%
+nlg/ATG01/}, 1993 (dernier accès : 16 janvier 2013).
+
+\bibitem{Clem12}
+Lionel Clément.
+\newblock Synthèse de texte avec le logiciel {S}yntox.
+\newblock In AFCP ATALA, editor, {\em Actes de la conférence conjointe
+  JEP-TALN-RECITAL}, 2012.
+
+\bibitem{Dan11}
+Meunier~F. Combet~V., Danlos~L.
+\newblock Easy{T}ext : an operational {NLG} {S}ystem.
+\newblock In {\em European Workshop on Natural Laguage Generation}, 2011.
+
+\bibitem{Dan10}
+Laurence Danlos.
+\newblock Ecriture automatique.
+\newblock In {\em Les cahiers de l'INRIA}, 2010.
+
+\bibitem{GAT2}
+Mourhri et~al.
+\newblock Générateur automatique de texte.
+\newblock Mémoire de {P}rojet de {P}rogrammation, Université Bordeaux 1,
+  2012.
+
+\bibitem{Dan00}
+Danlos~L. et~Roussarie~L.
+\newblock {\em La génération automatique de textes}.
+\newblock 2000.
+
+\end{thebibliography}

@@ -1,5 +1,7 @@
 package ihm;
 
+import ihm.admin.PanelHomeAdmin;
+import ihm.tools.PanelBasicMenu;
 import ihm.tools.PanelCenteredButton;
 import ihm.user.PanelHomeUser;
 
@@ -26,15 +28,6 @@ public class PanelHome extends JPanel {
 		this.setLayout(new BorderLayout());
 		this.currentFrame = mf;
 		
-		JPanel global = new JPanel(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = gbc.gridy = 1; 
-		
-		JPanel content = new JPanel();
-		Dimension panelSize = new Dimension(200, 200);
-		content.setPreferredSize(panelSize);
-		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
-		
 		JPanel usrPanel = new PanelCenteredButton("Utilisateur", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -46,20 +39,16 @@ public class PanelHome extends JPanel {
 		JPanel adminPanel = new PanelCenteredButton("Administrateur", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				;
+				PanelHomeAdmin pha = new PanelHomeAdmin(currentFrame, thisPane);
+				currentFrame.setPane(pha);
 			}
 		});
 		
 		
-		content.add(usrPanel);
-		content.add(adminPanel);
-		
-		
-		
-		global.add(content,gbc);
+		PanelBasicMenu menu = new PanelBasicMenu(new JPanel[]{usrPanel, adminPanel});
 		
 		this.thisPane = this;
-		this.add(global, BorderLayout.CENTER);
+		this.add(menu, BorderLayout.CENTER);
 	}
 	
 }	
