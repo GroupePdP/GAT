@@ -9,7 +9,6 @@ import java.sql.SQLException;
 public class DBConnectionImpl implements DBConnection 
 {
 
-	private static volatile DBConnectionImpl instance = null;
 	private Connection connection;
 	private ResultSet resultSet;
 	private Statement statement;
@@ -26,27 +25,6 @@ public class DBConnectionImpl implements DBConnection
 		this.pwd = pwd;
 	}
 	
-	public static boolean resetInstance( String url, String user, String pwd)
-	{
-		boolean set =false;
-		if (DBConnectionImpl.instance == null || DBConnectionImpl.instance.connection == null)
-		{
-			synchronized(DBConnectionImpl.class)
-			{
-				if (DBConnectionImpl.instance == null || DBConnectionImpl.instance.connection == null)
-				{
-					DBConnectionImpl.instance = new DBConnectionImpl(url,user,pwd);
-					set =true;
-				}
-			}
-		}
-		return set;
-	}
-	
-	public static DBConnectionImpl getInstance()
-	{
-		return DBConnectionImpl.instance;
-	}
 	
 	@Override
 	public boolean connection() throws SQLException 

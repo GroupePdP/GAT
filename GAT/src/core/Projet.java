@@ -1,9 +1,6 @@
 package core;
 
 import java.util.ArrayList;
-
-import database_connection.DBConnection;
-
 import linguistic.types_gestion.LinguisticFactory;
 import linguistic.*;
 
@@ -12,7 +9,7 @@ public class Projet {
 	private LinguisticFactory linguisticFactory;
 	private ArrayList<Scenario> listScenario;
 	private InfoDb infoDB;
-	private String name = "default_name";
+	private String name;
 	
 	public Projet (Scenario scenario){
 		this.listScenario = new ArrayList<Scenario>();
