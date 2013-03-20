@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import database_connection.DBConnection;
 
 import linguistic.types_gestion.LinguisticFactory;
-import linguistic.types_gestion.TypeTree;
 import linguistic.*;
 
 public class Projet {
 	
 	private LinguisticFactory linguisticFactory;
 	private ArrayList<Scenario> listScenario;
-	private DBConnection dbConnection;
+	private InfoDb infoDB;
 	private String name = "default_name";
 	
 	public Projet (Scenario scenario){
@@ -25,9 +24,9 @@ public class Projet {
 		this.name = nom;
 	}
 	
-	public Projet(DBConnection db, String nom){
+	public Projet(InfoDb db, String nom){
 		this.listScenario = new ArrayList<Scenario>();
-		this.dbConnection = db;
+		this.infoDB = db;
 		this.name = nom;
 	}
 	
@@ -38,7 +37,7 @@ public class Projet {
 	public String toString(){
 		String s = "Projet " + this.name + "\n" + "Scenarios:";
 		for (Scenario i: listScenario)
-			s = s + i.getName() + "\n";
+			s = s + i.toString() + "\n";
 		
 		return s;
 	}
@@ -59,21 +58,22 @@ public class Projet {
 	public void supprimerScenario (Scenario scenario){
 		this.listScenario.remove(scenario);
 	}
+	
 
 	public ArrayList<Scenario> getListScenario() {
 		return listScenario;
 	}
 
-	public void setList_scenario(ArrayList<Scenario> listScenario) {
+	public void setListScenario(ArrayList<Scenario> listScenario) {
 		this.listScenario = listScenario;
 	}
 
-	public DBConnection getDbConnection() {
-		return dbConnection;
+	public InfoDb getInfoDb() {
+		return infoDB;
 	}
 
-	public void setDbConnection(DBConnection dbConnection) {
-		this.dbConnection = dbConnection;
+	public void setInfoDb(InfoDb dbConnection) {
+		this.infoDB = dbConnection;
 	}
 	
 	

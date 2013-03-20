@@ -13,6 +13,7 @@ public class ProjetTest {
 	String emplacement, random;
 	Projet P, P2, P3, P4;
 	Scenario test1, test2;
+	InfoDb db;
 	
 	@Before
 	public void initialize() {
@@ -22,6 +23,8 @@ public class ProjetTest {
 		//Nom de fichier aleatoire
 		random = "test" + Math.random();
 		
+		db = new InfoDb("link","type","user","password");
+		
 		
 		//Creation de 3 projets normalement identiques
 		test1 = new Scenario ("test1");
@@ -29,15 +32,18 @@ public class ProjetTest {
 		P = new Projet(test1);
 		P.ajouterScenario(test2);
 		P.setName("projet");
+		P.setInfoDb(db);
 		
 		P2 = new Projet("projet");
 		P2.ajouterScenario(test1);
 		P2.ajouterScenario(test2);
+		P2.setInfoDb(db);
 
 		P3 = new Projet();
 		P3.setName("projet");
 		P3.ajouterScenario(test1);
 		P3.ajouterScenario(test2);
+		P3.setInfoDb(db);
 		
 		//rajout d'un projet volontairement différent des 3 autres
 		P4 = new Projet("test_icule");

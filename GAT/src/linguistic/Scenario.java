@@ -20,6 +20,10 @@ public class Scenario {
 		this.graphList = new ArrayList<GraphConcepts>();
 	}
 	
+	public String toString(){
+		return this.name + this.graphList.toString();
+	}
+	
 	public String getName(){
 		return this.name;
 	}
