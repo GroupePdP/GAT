@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="src/|lib/xstream/|lib/xstream-hibernate/" kind="src" path=""/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.24-bin.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="lib/xstream-hibernate-1.4.4.jar"/>
-	<classpathentry kind="lib" path="lib/xstream-benchmark-1.4.4.jar"/>
-	<classpathentry kind="lib" path="lib/xstream"/>
-	<classpathentry kind="lib" path="lib/xstream-hibernate"/>
 	<classpathentry kind="lib" path="lib/xstream-1.4.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

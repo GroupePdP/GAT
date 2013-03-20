@@ -69,8 +69,7 @@ public class StockageLocal implements Stockage {
 		String[] out = new String[in.length];
 		int i = 0;
 		while (i < out.length){
-			System.out.println(in[i].length() - 4);
-			out[i] = in[i].substring(0, 4);
+			out[i] = in[i].substring(0, in[i].length() - 4);
 			i ++;
 		}
 		
