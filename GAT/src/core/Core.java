@@ -9,12 +9,16 @@ public class Core {
 	private StockageLocal stockageLocal;
 	private LinguisticFactory linguisticFactory;
 	
-	
+	public Core (String emplacement){
+		this.stockageLocal = new StockageLocal(emplacement);
+	}
 	
 	public Core (String emplacement, Projet p){
 		this.projet = p;
 		this.stockageLocal = new StockageLocal(emplacement);
 	}
+	
+	
 	
 	public void chargerProjet (String name){
 		this.projet = (Projet) this.stockageLocal.charger(name);
@@ -29,8 +33,8 @@ public class Core {
 	}
 	
 	public String toString(){
-		String s = this.projet.toString();
-		return s;
+		return this.projet.toString();
+
 	}
 	
 	
