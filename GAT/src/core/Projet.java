@@ -13,7 +13,12 @@ public class Projet {
 	private ArrayList<Scenario> listScenario;
 	private DBConnection dbConnection;
 	
-
+	public Projet(Scenario scenario){
+		this.listScenario = new ArrayList<Scenario>();
+		this.listScenario.add(scenario);
+	}
+	
+	
 
 	public TypeTree getTypeTree() {
 		return typeTree;

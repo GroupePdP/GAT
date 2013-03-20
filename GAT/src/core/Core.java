@@ -16,10 +16,17 @@ public class Core {
 		
 	}
 	
-	public Core (){
+	
+	public Core (String emplacement, Projet p){
+		this.projet = p;
+		this.stockageLocal = new StockageLocal(emplacement);
 	}
+	
 
-
+	public void sauvegarderProjet (String name){
+		this.stockageLocal.sauvegarde(name, (Object)this.projet);
+	}
+	
 	
 	public String[] getStockageLocal(){
 		return this.stockageLocal.listProjet();

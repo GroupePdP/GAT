@@ -65,8 +65,6 @@ public class StockageLocal implements Stockage {
 					return fileName.endsWith(".xml");
 				}		
 		};
-		
-		
 		String[] in = rep.list(filter);
 		String[] out = new String[in.length];
 		int i = 0;
@@ -82,13 +80,12 @@ public class StockageLocal implements Stockage {
 
 
 	@Override
-	public boolean sauvegarde(Object obj)
+	public boolean sauvegarde(String name, Object obj)
 	{
-		String fichier ="";
+		
+		String fichier =this.repertoireSauvegarde + "\\" + name + ".xml";
 
-		fichier.concat(this.repertoireSauvegarde);
-		fichier.concat(obj.toString());
-		fichier.concat(".xml");
+
 		try {
 			FileWriter fw = new FileWriter(fichier);
 			String xml = this.xstream.toXML(obj);
