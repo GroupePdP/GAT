@@ -31,12 +31,12 @@ public class Core {
 		this.projet = projet;
 	}
 
-	public DBConnection getDb_connection() {
+	public DBConnection getDbConnection() {
 		return dbConnection;
 	}
 
-	public void setDb_connection(DBConnection db_connection) {
-		this.dbConnection = db_connection;
+	public void setDbConnection(DBConnection dbConnection) {
+		this.dbConnection = dbConnection;
 	}
 	
 	

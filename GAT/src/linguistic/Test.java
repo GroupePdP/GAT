@@ -11,7 +11,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		LinguisticFactory lf = LinguisticFactory.getInstance();
+/*		LinguisticFactory lf = LinguisticFactory.getInstance();
 		GraphNodeFactory g = new GraphNodeFactory();
 		Type t1 = lf.getTypeManager().makeType("personne");
 		Type t2 = lf.getTypeManager().makeType("joueur", t1);
@@ -41,6 +41,15 @@ public class Test {
 		GraphConcepts gc = new GraphConcepts(root);
 		
 		Scenario s = new Scenario("test");
-		s.addGraphConcepts(gc);
+		s.addGraphConcepts(gc);*/
+		
+		TypeTree tree = new TypeTree();
+
+		Type childType1 = new TypeImpl("Réussir", tree.getRoot().getType());
+		TypeTreeNode childRoot = new TypeTreeNode(childType1);
+		
+		tree.getRoot().addChild(childRoot);
+		
+		
 	}
 }

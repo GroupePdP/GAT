@@ -11,7 +11,7 @@ public class DBConnectionImpl implements DBConnection
 
 	private static volatile DBConnectionImpl instance = null;
 	private Connection connection;
-	private ResultSet resultset;
+	private ResultSet resultSet;
 	private Statement statement;
 	private String url ;
 	private String user;
@@ -78,13 +78,13 @@ public class DBConnectionImpl implements DBConnection
 	
 	public ResultSet selectQuery(String query) throws SQLException
 	{
-		ResultSet resultset = null;
+		ResultSet resultSet = null;
 		
 		if(statement != null)
 		{
-			resultset = this.statement.executeQuery(query);
+			resultSet = this.statement.executeQuery(query);
 		}
-		return resultset;
+		return resultSet;
 
 	}
 

@@ -27,24 +27,28 @@ public class TypeTreeTest extends TestCase{
 	public void initialize() {
 		tree = new TypeTree();
 		
-		rootType = new TypeImpl("object");
-		root = new TypeTreeNode(rootType);
+		//rootType = new TypeImpl("object"); déjà présent dans le constructeur de TypeTree
+		//root = new TypeTreeNode(rootType);
 				
-		childType1 = new TypeImpl("Réussir", rootType);
+		childType1 = new TypeImpl("Réussir", tree.getRoot().getType());
 		childRoot = new TypeTreeNode(childType1);
 		
-		root.addChild(childRoot);	
+		tree.getRoot().addChild(childRoot);	
 		
-		nodeMap = new HashMap<Type, TypeTreeNode>();
-		nodeMap.put(rootType, root);
+		//nodeMap = new HashMap<Type, TypeTreeNode>(); déjà présent dans le constructeur de TypeTree
+		//nodeMap.put(rootType, root);
 		
-		c1 = new ConceptSimple(null, null, "Réussir", rootType);
+		c1 = new ConceptSimple(null, null, "Réussir",tree.getRoot().getType());
 	}
 	
 	
 	@Test
 	public void testAddType(){	
-		assertEquals(childRoot,tree.addType(childType1));	
+		tree = new TypeTree();
+		childType1 = new TypeImpl("Réussir", tree.getRoot().getType());
+		childRoot = new TypeTreeNode(childType1);
+		TypeTreeNode node = tree.addType(childType1);
+		assertEquals(tree.getRoot().getChildrenList().get(0), node);
 	}
 	
 	
@@ -53,7 +57,7 @@ public class TypeTreeTest extends TestCase{
 		tree.addConcept(c1);
 		root.addConcept(c1);
 		
-		assertEquals(root.getConceptList(),tree.getRoot().getConceptList());
+		assertEquals(root.getConceptList(),tree.getRoot().getConceptList()); // root et tree.getRoot() c'est pareil non ?
 	}
 	
 	@Test

@@ -31,6 +31,10 @@ public class TypeTree {
 		return this.root;
 	}
 	
+	public Map<Type,TypeTreeNode> getMap(){
+		return nodeMap;
+	}
+	
 	// Autres methodes
 		
 	public TypeTreeNode addType(Type t){

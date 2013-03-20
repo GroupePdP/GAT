@@ -15,26 +15,26 @@ public class Projet {
 	
 
 
-	public TypeTree getType_tree() {
+	public TypeTree getTypeTree() {
 		return typeTree;
 	}
 
 
 
-	public ArrayList<Scenario> getList_scenario() {
+	public ArrayList<Scenario> getListScenario() {
 		return listScenario;
 	}
 
-	public void setList_scenario(ArrayList<Scenario> list_scenario) {
-		this.listScenario = list_scenario;
+	public void setList_scenario(ArrayList<Scenario> listScenario) {
+		this.listScenario = listScenario;
 	}
 
-	public DBConnection getDb_connection() {
+	public DBConnection getDbConnection() {
 		return dbConnection;
 	}
 
-	public void setDb_connection(DBConnection db_connection) {
-		this.dbConnection = db_connection;
+	public void setDbConnection(DBConnection dbConnection) {
+		this.dbConnection = dbConnection;
 	}
 	
 	

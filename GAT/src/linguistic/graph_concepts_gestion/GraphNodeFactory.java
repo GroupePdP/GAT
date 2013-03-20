@@ -1,7 +1,6 @@
 package linguistic.graph_concepts_gestion;
 
 import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptComplex;
 
 public final class GraphNodeFactory{
 		
@@ -24,7 +23,7 @@ public final class GraphNodeFactory{
 	}
 
 	public GraphNode makeNode(Concept c){
-		return new GraphNodeDefault((ConceptComplex)c);
+		return new GraphNodeDefault(c);
 	}
 
 }
