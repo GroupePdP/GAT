@@ -65,13 +65,16 @@ public class StockageLocal implements Stockage {
 					return fileName.endsWith(".xml");
 				}		
 		};
-		return rep.list(filter);
-//		String[] out = new String[in.length];
-//		int i = 0;
-//		while (i < out.length){
-//			System.out.println(in[i].length() - 4);
-//			out[i] = in[i].substring(0, 4);
-//		}
+		String[] in = rep.list(filter);
+		String[] out = new String[in.length];
+		int i = 0;
+		while (i < out.length){
+			System.out.println(in[i].length() - 4);
+			out[i] = in[i].substring(0, 4);
+			i ++;
+		}
+		
+		return out;
 
 	}
 
