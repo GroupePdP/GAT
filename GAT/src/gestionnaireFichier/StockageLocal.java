@@ -13,13 +13,17 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 public class StockageLocal implements Stockage {
 
 	private XStream xstream;
-	private String repertoirSauvegarde;
+	private String repertoireSauvegarde;
+	
+	public void setRepertoire (String name){
+		this.repertoireSauvegarde = name;
+	}
 
 	public StockageLocal(String emplacement)
 	{
 
 		//TODO refaire mieux teste si valide
-		this.repertoirSauvegarde = emplacement;
+		this.repertoireSauvegarde = emplacement;
 
 		this.xstream = new XStream (new DomDriver());
 	}
@@ -28,7 +32,7 @@ public class StockageLocal implements Stockage {
 	{
 		String fichier ="";
 
-		fichier.concat(this.repertoirSauvegarde);
+		fichier.concat(this.repertoireSauvegarde);
 		fichier.concat(nom);
 		fichier.concat(".xml");
 		try {
@@ -54,7 +58,7 @@ public class StockageLocal implements Stockage {
 	@Override
 	public String[] listProjet()
 	{
-		File rep = new File(this.repertoirSauvegarde);
+		File rep = new File(this.repertoireSauvegarde);
 		return rep.list();
 	}
 
@@ -63,7 +67,7 @@ public class StockageLocal implements Stockage {
 	{
 		String fichier ="";
 
-		fichier.concat(this.repertoirSauvegarde);
+		fichier.concat(this.repertoireSauvegarde);
 		fichier.concat(obj.toString());
 		fichier.concat(".xml");
 		try {

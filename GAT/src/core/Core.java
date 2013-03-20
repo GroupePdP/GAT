@@ -1,39 +1,39 @@
 package core;
 import database_connection.DBConnection;
-import ihm.MainFrame;
+import gestionnaireFichier.*;
+
 
 public class Core {
 	
 	private Projet projet;
 	private DBConnection dbConnection;
-//	private Serialisation serial;
+	private StockageLocal stockageLocal;
 	
-	public static void main(String[] args){
-        MainFrame mf = new MainFrame();
+	public Core (String emplacement, DBConnection dbConnection, Projet projet){
+		this.stockageLocal = new StockageLocal(emplacement);
+	//	this.dbConnection = new DBConnection();
+	//	this.projet = new Projet();
+		
 	}
+	
+	public Core (){
+	}
+
 
 	
-/*	public Serialisation getSerial() {
-		return serial;
+	public String[] getStockageLocal(){
+		return this.stockageLocal.listProjet();
 	}
 
-
-	public void setSerial(Serialisation serial) {
-		this.serial = serial;
+	public void setStockageLocal(String emplacement) {
+		this.stockageLocal = new StockageLocal(emplacement);
 	}
-*/
 
-	public Projet getProjet() {
-		return projet;
-	}
 
 	public void setProjet(Projet projet) {
 		this.projet = projet;
 	}
 
-	public DBConnection getDbConnection() {
-		return dbConnection;
-	}
 
 	public void setDbConnection(DBConnection dbConnection) {
 		this.dbConnection = dbConnection;
