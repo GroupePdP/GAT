@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.FilenameFilter;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -59,8 +60,22 @@ public class StockageLocal implements Stockage {
 	public String[] listProjet()
 	{
 		File rep = new File(this.repertoireSauvegarde);
-		return rep.list();
+		FilenameFilter filter = new FilenameFilter(){
+				public boolean accept(File rep, String fileName){
+					return fileName.endsWith(".xml");
+				}		
+		};
+		return rep.list(filter);
+//		String[] out = new String[in.length];
+//		int i = 0;
+//		while (i < out.length){
+//			System.out.println(in[i].length() - 4);
+//			out[i] = in[i].substring(0, 4);
+//		}
+
 	}
+
+
 
 	@Override
 	public boolean sauvegarde(Object obj)
