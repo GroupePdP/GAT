@@ -1,20 +1,14 @@
 package core;
-import database_connection.DBConnection;
+import linguistic.types_gestion.LinguisticFactory;
 import gestionnaireFichier.*;
 
 
 public class Core {
 	
 	private Projet projet;
-	private DBConnection dbConnection;
 	private StockageLocal stockageLocal;
+	private LinguisticFactory linguisticFactory;
 	
-	public Core (String emplacement, DBConnection dbConnection, Projet projet){
-		this.stockageLocal = new StockageLocal(emplacement);
-	//	this.dbConnection = new DBConnection();
-	//	this.projet = new Projet();
-		
-	}
 	
 	
 	public Core (String emplacement, Projet p){
@@ -22,10 +16,23 @@ public class Core {
 		this.stockageLocal = new StockageLocal(emplacement);
 	}
 	
+	public void chargerProjet (String name){
+		this.projet = (Projet) this.stockageLocal.charger(name);
+	}
 
 	public void sauvegarderProjet (String name){
 		this.stockageLocal.sauvegarde(name, (Object)this.projet);
 	}
+	
+	public void sauvegarderProjet (){
+		this.stockageLocal.sauvegarde(this.projet.getName(), (Object)this.projet);
+	}
+	
+	public String toString(){
+		String s = this.projet.toString();
+		return s;
+	}
+	
 	
 	
 	public String[] getStockageLocal(){
@@ -37,14 +44,10 @@ public class Core {
 	}
 
 
-	public void setProjet(Projet projet) {
-		this.projet = projet;
+	public void setProjetName(String s) {
+		this.projet.setName(s);
 	}
 
 
-	public void setDbConnection(DBConnection dbConnection) {
-		this.dbConnection = dbConnection;
-	}
-	
 	
 }

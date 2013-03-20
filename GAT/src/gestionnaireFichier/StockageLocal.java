@@ -28,14 +28,13 @@ public class StockageLocal implements Stockage {
 
 		this.xstream = new XStream (new DomDriver());
 	}
+	
+	
 	@Override
 	public Object charger(String nom)
 	{
-		String fichier ="";
-
-		fichier.concat(this.repertoireSauvegarde);
-		fichier.concat(nom);
-		fichier.concat(".xml");
+		
+		String fichier =this.repertoireSauvegarde + "\\" + nom + ".xml";
 		try {
 			FileReader fr = new FileReader(fichier);
 			BufferedReader br = new BufferedReader(fr);
@@ -43,11 +42,12 @@ public class StockageLocal implements Stockage {
 			String xml = "";
 			while (line != null)
 			{
-				xml.concat(line);
+				xml = xml + line;
 				line = br.readLine();
 			}
 
-			br.close();
+			br.close();			
+			
 			return this.xstream.fromXML(xml);
 		}
 		catch(IOException ex) { ex.printStackTrace(); }

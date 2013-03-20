@@ -17,7 +17,7 @@ public class DBConnectionImpl implements DBConnection
 	private String user;
 	private String pwd ;
 	
-	private DBConnectionImpl(String url, String user, String pwd)
+	public DBConnectionImpl(String url, String user, String pwd)
 	{	
 		this.connection = null;
 		this.statement = null;

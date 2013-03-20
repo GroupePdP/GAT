@@ -4,24 +4,52 @@ import java.util.ArrayList;
 
 import database_connection.DBConnection;
 
+import linguistic.types_gestion.LinguisticFactory;
 import linguistic.types_gestion.TypeTree;
 import linguistic.*;
 
 public class Projet {
 	
-	private TypeTree typeTree;
+	private LinguisticFactory linguisticFactory;
 	private ArrayList<Scenario> listScenario;
 	private DBConnection dbConnection;
+	private String name = "default_name";
 	
-	public Projet(Scenario scenario){
+	public Projet (Scenario scenario){
 		this.listScenario = new ArrayList<Scenario>();
 		this.listScenario.add(scenario);
 	}
 	
+	public Projet(String nom){
+		this.listScenario = new ArrayList<Scenario>();
+		this.name = nom;
+	}
 	
+	public Projet(DBConnection db, String nom){
+		this.listScenario = new ArrayList<Scenario>();
+		this.dbConnection = db;
+		this.name = nom;
+	}
+	
+	public Projet(){
+		this.listScenario = new ArrayList<Scenario>();		
+	}
+	
+	public String toString(){
+		String s = "Projet " + this.name + "\n" + "Scenarios:";
+		for (Scenario i: listScenario)
+			s = s + i.getName() + "\n";
+		
+		return s;
+	}
+	
+	
+	public String getName(){
+		return this.name;
+	}
 
-	public TypeTree getTypeTree() {
-		return typeTree;
+	public void setName(String nom){
+		this.name = nom;
 	}
 
 	public void ajouterScenario (Scenario scenario){
