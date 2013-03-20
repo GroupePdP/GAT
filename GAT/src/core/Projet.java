@@ -19,7 +19,13 @@ public class Projet {
 		return typeTree;
 	}
 
-
+	public void ajouterScenario (Scenario scenario){
+		this.listScenario.add(scenario);
+	}
+	
+	public void supprimerScenario (Scenario scenario){
+		this.listScenario.remove(scenario);
+	}
 
 	public ArrayList<Scenario> getListScenario() {
 		return listScenario;
