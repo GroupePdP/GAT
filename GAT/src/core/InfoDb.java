@@ -16,9 +16,9 @@ public class InfoDb {
 		this.passwordEncrypted = pe;
 	}
 	
-	public InfoDb (String link, String tdb, String user, String pe)
+	public InfoDb (String link, String tdb, String user, String password)
 	{
-		this.initBase(link, tdb, user, pe);
+		this.initBase(link, tdb, user, (PasswordManager.encrypt(password)));
 	}
 	public InfoDb (String link, String tdb, String user)
 	{
