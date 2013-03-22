@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import linguistic.Scenario;
-import linguistic.types_gestion.LinguisticFactory;
+import linguistic.typesGestion.LinguisticFactory;
 
 public class PanelMiller extends JPanel{
 	

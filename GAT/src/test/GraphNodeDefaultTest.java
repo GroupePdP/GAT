@@ -5,11 +5,11 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptComplex;
-import linguistic.graph_concepts_gestion.GraphNodeDefault;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
+import linguistic.conceptsGestion.Concept;
+import linguistic.conceptsGestion.ConceptComplex;
+import linguistic.graphConceptsGestion.GraphNodeDefault;
+import linguistic.typesGestion.Type;
+import linguistic.typesGestion.TypeImpl;
 
 import org.junit.Before;
 import org.junit.Test;

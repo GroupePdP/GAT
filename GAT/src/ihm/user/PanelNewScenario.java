@@ -29,10 +29,10 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 import linguistic.Scenario;
-import linguistic.concepts_gestion.ConceptComplex;
-import linguistic.concepts_gestion.ConceptSimple;
-import linguistic.types_gestion.LinguisticFactory;
-import linguistic.types_gestion.Type;
+import linguistic.conceptsGestion.ConceptComplex;
+import linguistic.conceptsGestion.ConceptSimple;
+import linguistic.typesGestion.LinguisticFactory;
+import linguistic.typesGestion.Type;
 
 public class PanelNewScenario extends JPanel{
 

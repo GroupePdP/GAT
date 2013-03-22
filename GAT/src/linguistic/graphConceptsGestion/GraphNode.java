@@ -1,8 +1,8 @@
-package linguistic.graph_concepts_gestion;
+package linguistic.graphConceptsGestion;
 
 import java.util.List;
 
-import linguistic.concepts_gestion.Concept;
+import linguistic.conceptsGestion.Concept;
 
 public interface GraphNode extends GraphConceptsInterface{
 

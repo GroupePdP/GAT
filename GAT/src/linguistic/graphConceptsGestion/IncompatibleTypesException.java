@@ -1,6 +1,6 @@
-package linguistic.graph_concepts_gestion;
+package linguistic.graphConceptsGestion;
 
-import linguistic.types_gestion.Type;
+import linguistic.typesGestion.Type;
 
 public class IncompatibleTypesException extends Exception {
 	

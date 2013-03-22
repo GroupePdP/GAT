@@ -1,4 +1,4 @@
-package database_connection;
+package databaseConnection;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

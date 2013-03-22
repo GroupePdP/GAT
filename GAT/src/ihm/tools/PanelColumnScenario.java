@@ -29,12 +29,12 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import linguistic.Scenario;
-import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptComplex;
-import linguistic.concepts_gestion.ConceptSimple;
-import linguistic.types_gestion.LinguisticFactory;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
+import linguistic.conceptsGestion.Concept;
+import linguistic.conceptsGestion.ConceptComplex;
+import linguistic.conceptsGestion.ConceptSimple;
+import linguistic.typesGestion.LinguisticFactory;
+import linguistic.typesGestion.Type;
+import linguistic.typesGestion.TypeImpl;
 
 public class PanelColumnScenario extends JPanel{
 	

@@ -1,7 +1,7 @@
 package test;
 
 import junit.framework.TestCase;
-import linguistic.types_gestion.*;
+import linguistic.typesGestion.*;
 
 public class TypeTest extends TestCase{
 	

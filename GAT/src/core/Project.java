@@ -1,33 +1,34 @@
 package core;
 
 import java.util.ArrayList;
-import linguistic.types_gestion.LinguisticFactory;
+
+import linguistic.typesGestion.LinguisticFactory;
 import linguistic.*;
 
-public class Projet {
+public class Project {
 	
 	private LinguisticFactory linguisticFactory;
 	private ArrayList<Scenario> listScenario;
 	private InfoDb infoDB;
 	private String name;
 	
-	public Projet (Scenario scenario){
+	public Project (Scenario scenario){
 		this.listScenario = new ArrayList<Scenario>();
 		this.listScenario.add(scenario);
 	}
 	
-	public Projet(String nom){
+	public Project(String name){
 		this.listScenario = new ArrayList<Scenario>();
-		this.name = nom;
+		this.name = name;
 	}
 	
-	public Projet(InfoDb db, String nom){
+	public Project(InfoDb db, String name){
 		this.listScenario = new ArrayList<Scenario>();
 		this.infoDB = db;
-		this.name = nom;
+		this.name = name;
 	}
 	
-	public Projet(){
+	public Project(){
 		this.listScenario = new ArrayList<Scenario>();		
 	}
 	

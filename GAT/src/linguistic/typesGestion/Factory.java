@@ -2,11 +2,11 @@
  * fait partie du pattern du meme nom, pour deleguer la creation de Type
  */
 
-package linguistic.types_gestion;
+package linguistic.typesGestion;
 
 import java.util.List;
 
-import linguistic.concepts_gestion.Concept;
+import linguistic.conceptsGestion.Concept;
 
 
 public interface Factory {

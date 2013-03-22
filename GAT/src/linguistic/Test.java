@@ -3,9 +3,9 @@ package linguistic;
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.concepts_gestion.*;
-import linguistic.types_gestion.*;
-import linguistic.graph_concepts_gestion.*;
+import linguistic.conceptsGestion.*;
+import linguistic.typesGestion.*;
+import linguistic.graphConceptsGestion.*;
 
 public class Test {
 	

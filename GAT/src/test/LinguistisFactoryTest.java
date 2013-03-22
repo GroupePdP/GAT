@@ -5,13 +5,13 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptComplex;
-import linguistic.concepts_gestion.ConceptSimple;
-import linguistic.types_gestion.LinguisticFactory;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
-import linguistic.types_gestion.TypeManager;
+import linguistic.conceptsGestion.Concept;
+import linguistic.conceptsGestion.ConceptComplex;
+import linguistic.conceptsGestion.ConceptSimple;
+import linguistic.typesGestion.LinguisticFactory;
+import linguistic.typesGestion.Type;
+import linguistic.typesGestion.TypeImpl;
+import linguistic.typesGestion.TypeManager;
 
 import org.junit.Before;
 import org.junit.Test;

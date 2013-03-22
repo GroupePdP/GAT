@@ -7,12 +7,12 @@ import java.util.Map;
 import org.junit.*;
 
 import junit.framework.TestCase;
-import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptSimple;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
-import linguistic.types_gestion.TypeTree;
-import linguistic.types_gestion.TypeTreeNode;
+import linguistic.conceptsGestion.Concept;
+import linguistic.conceptsGestion.ConceptSimple;
+import linguistic.typesGestion.Type;
+import linguistic.typesGestion.TypeImpl;
+import linguistic.typesGestion.TypeTree;
+import linguistic.typesGestion.TypeTreeNode;
 
 public class TypeTreeTest extends TestCase{
 	

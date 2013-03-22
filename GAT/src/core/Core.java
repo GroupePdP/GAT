@@ -1,55 +1,55 @@
 package core;
-import linguistic.types_gestion.LinguisticFactory;
-import gestionnaireFichier.*;
+import linguistic.typesGestion.LinguisticFactory;
+import fileManager.*;
 
 
 public class Core {
 	
-	private Projet projet;
-	private StockageLocal stockageLocal;
+	private Project project;
+	private LocalStorage localStorage;
 	private LinguisticFactory linguisticFactory;
 	
-	public Core (String emplacement){
-		this.stockageLocal = new StockageLocal(emplacement);
+	public Core (String location){
+		this.localStorage = new LocalStorage(location);
 	}
 	
-	public Core (String emplacement, Projet p){
-		this.projet = p;
-		this.stockageLocal = new StockageLocal(emplacement);
+	public Core (String location, Project p){
+		this.project = p;
+		this.localStorage = new LocalStorage(location);
 	}
 	
 	
 	
-	public void chargerProjet (String name){
-		this.projet = (Projet) this.stockageLocal.charger(name);
+	public void loadProject (String name){
+		this.project = (Project) this.localStorage.load(name);
 	}
 
-	public void sauvegarderProjet (String name){
-		this.stockageLocal.sauvegarde(name, (Object)this.projet);
+	public void backupProject (String name){
+		this.localStorage.backup(name, (Object)this.project);
 	}
 	
-	public void sauvegarderProjet (){
-		this.stockageLocal.sauvegarde(this.projet.getName(), (Object)this.projet);
+	public void backupProject (){
+		this.localStorage.backup(this.project.getName(), (Object)this.project);
 	}
 	
 	public String toString(){
-		return this.projet.toString();
+		return this.project.toString();
 
 	}
 	
 	
 	
-	public String[] getStockageLocal(){
-		return this.stockageLocal.listProjet();
+	public String[] getLocalStorage(){
+		return this.localStorage.projectsList();
 	}
 
-	public void setStockageLocal(String emplacement) {
-		this.stockageLocal = new StockageLocal(emplacement);
+	public void setLocalStorage(String location) {
+		this.localStorage = new LocalStorage(location);
 	}
 
 
 	public void setProjetName(String s) {
-		this.projet.setName(s);
+		this.project.setName(s);
 	}
 
 

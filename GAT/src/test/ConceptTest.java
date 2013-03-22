@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.concepts_gestion.*;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
+import linguistic.conceptsGestion.*;
+import linguistic.typesGestion.Type;
+import linguistic.typesGestion.TypeImpl;
 
 import org.junit.Before;
 import org.junit.Test;

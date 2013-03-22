@@ -1,4 +1,4 @@
-package gestionnaireFichier;
+package fileManager;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,32 +11,32 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 
-public class StockageLocal implements Stockage {
+public class LocalStorage implements Storage {
 
 	private XStream xstream;
-	private String repertoireSauvegarde;
+	private String backupDirectory;
 	
-	public void setRepertoire (String name){
-		this.repertoireSauvegarde = name;
+	public void setDirectory (String name){
+		this.backupDirectory = name;
 	}
 
-	public StockageLocal(String emplacement)
+	public LocalStorage(String location)
 	{
 
 		//TODO refaire mieux teste si valide
-		this.repertoireSauvegarde = emplacement;
+		this.backupDirectory = location;
 
 		this.xstream = new XStream (new DomDriver());
 	}
 	
 	
 	@Override
-	public Object charger(String nom)
+	public Object load(String name)
 	{
 		
-		String fichier =this.repertoireSauvegarde + "\\" + nom + ".xml";
+		String file =this.backupDirectory + "\\" + name + ".xml";
 		try {
-			FileReader fr = new FileReader(fichier);
+			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
 			String line = br.readLine();
 			String xml = "";
@@ -57,9 +57,9 @@ public class StockageLocal implements Stockage {
 
 	//TODO faire plus propre sans extention de fichier
 	@Override
-	public String[] listProjet()
+	public String[] projectsList()
 	{
-		File rep = new File(this.repertoireSauvegarde);
+		File rep = new File(this.backupDirectory);
 		FilenameFilter filter = new FilenameFilter(){
 				public boolean accept(File rep, String fileName){
 					return fileName.endsWith(".xml");
@@ -80,14 +80,14 @@ public class StockageLocal implements Stockage {
 
 
 	@Override
-	public boolean sauvegarde(String name, Object obj)
+	public boolean backup(String name, Object obj)
 	{
 		
-		String fichier =this.repertoireSauvegarde + "\\" + name + ".xml";
+		String file =this.backupDirectory + "\\" + name + ".xml";
 
 
 		try {
-			FileWriter fw = new FileWriter(fichier);
+			FileWriter fw = new FileWriter(file);
 			String xml = this.xstream.toXML(obj);
 			fw.write(xml);
 			fw.close();

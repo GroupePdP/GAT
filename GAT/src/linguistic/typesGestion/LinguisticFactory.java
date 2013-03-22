@@ -3,13 +3,13 @@
  * delegue la creation a TypeManager
  */
 
-package linguistic.types_gestion;
+package linguistic.typesGestion;
 
 import java.util.List;
 
-import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptComplex;
-import linguistic.concepts_gestion.ConceptSimple;
+import linguistic.conceptsGestion.Concept;
+import linguistic.conceptsGestion.ConceptComplex;
+import linguistic.conceptsGestion.ConceptSimple;
 
 
 public final class LinguisticFactory implements Factory{

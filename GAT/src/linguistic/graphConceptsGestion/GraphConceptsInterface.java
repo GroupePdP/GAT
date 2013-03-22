@@ -1,4 +1,4 @@
-package linguistic.graph_concepts_gestion;
+package linguistic.graphConceptsGestion;
 
 import java.util.List;
 

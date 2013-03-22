@@ -1,12 +1,12 @@
-package linguistic.graph_concepts_gestion;
+package linguistic.graphConceptsGestion;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import linguistic.concepts_gestion.Concept;
-import linguistic.types_gestion.LinguisticFactory;
-import linguistic.types_gestion.Type;
+import linguistic.conceptsGestion.Concept;
+import linguistic.typesGestion.LinguisticFactory;
+import linguistic.typesGestion.Type;
 
 public class GraphNodeDefault implements GraphNode {
 
