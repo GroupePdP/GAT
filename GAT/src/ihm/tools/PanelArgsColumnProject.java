@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
-import linguistic.concepts_gestion.Concept;
+import linguistic.conceptsGestion.Concept;
 
 public class PanelArgsColumnProject extends JPanel{
 
