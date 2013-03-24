@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.SwingUtilities;
+
 import linguistic.concepts_gestion.ConceptComplex;
 import linguistic.concepts_gestion.ConceptSimple;
 import linguistic.graph_concepts_gestion.GraphNodeFactory;
@@ -22,6 +24,13 @@ public class Core {
 		List<Type> l = new ArrayList<Type>();
 		l.add(t2); l.add(t4);
 		ConceptComplex c3 = new ConceptComplex("gagner",t3,l); // concept (gagner(joueur, match))
-        MainFrame mf = new MainFrame();
+		
+		SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+            	MainFrame mf = new MainFrame();
+            }
+        });
       }
 }
