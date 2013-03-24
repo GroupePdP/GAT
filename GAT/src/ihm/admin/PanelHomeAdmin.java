@@ -28,7 +28,7 @@ public class PanelHomeAdmin extends JPanel{
 		this.previous = prev;
 		this.currentFrame = mf;
 		
-		JPanel createProjectPanel = new PanelCenteredButton("Crï¿½er Projet", new ActionListener(){
+		JPanel createProjectPanel = new PanelCenteredButton("Créer Projet", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				DialogInitNewProject dinp = new DialogInitNewProject(currentFrame, thisPane);
