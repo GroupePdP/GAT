@@ -26,9 +26,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import linguistic.conceptsGestion.Concept;
-import linguistic.conceptsGestion.ConceptComplex;
-
 public class PanelConceptColumnProject extends JPanel{
 
 	MainFrame currentFrame;
