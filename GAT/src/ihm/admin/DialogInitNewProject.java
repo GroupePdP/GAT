@@ -32,12 +32,12 @@ public class DialogInitNewProject extends JDialog{
 	JTextField idTextArea = new JTextField(12);
 	JTextField pwTextArea = new JTextField(12);
 	
-	JLabel errorProjectName = new JLabel("Nom de scénario incorrect");
+	JLabel errorProjectName = new JLabel("Nom de scï¿½nario incorrect");
 	
 	public DialogInitNewProject(MainFrame mf, final JPanel prev)
 	{
 		this.currentFrame = mf;
-		this.setTitle("Création d'un nouveau projet");
+		this.setTitle("Crï¿½ation d'un nouveau projet");
 		this.setResizable(false);
 		this.setModal(true);
 		this.setLocationRelativeTo(mf);
@@ -80,7 +80,7 @@ public class DialogInitNewProject extends JDialog{
 		newProjectTextAreaPanel.add(this.newProjectTextArea);
 		
 		JPanel dataBasePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JLabel dataBaseLabel = new JLabel("Base de données :");
+		JLabel dataBaseLabel = new JLabel("Base de donnï¿½es :");
 		dataBasePanel.add(dataBaseLabel);
 		
 		JPanel dataBaseTextAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));

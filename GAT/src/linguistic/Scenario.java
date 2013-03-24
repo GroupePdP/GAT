@@ -3,7 +3,7 @@ package linguistic;
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.graph_concepts_gestion.GraphConcepts;
+import linguistic.graphConceptsGestion.GraphConcepts;
 
 public class Scenario {
 
@@ -18,6 +18,10 @@ public class Scenario {
 	public Scenario(String name){
 		this.name = name;
 		this.graphList = new ArrayList<GraphConcepts>();
+	}
+	
+	public String toString(){
+		return this.name + this.graphList.toString();
 	}
 	
 	public String getName(){

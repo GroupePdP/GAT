@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
-import linguistic.types_gestion.TypeManager;
+import linguistic.typesGestion.Type;
+import linguistic.typesGestion.TypeImpl;
+import linguistic.typesGestion.TypeManager;
 
 public class TypeManagerTest {
 	

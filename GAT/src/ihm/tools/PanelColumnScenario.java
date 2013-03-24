@@ -29,12 +29,12 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import linguistic.Scenario;
-import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptComplex;
-import linguistic.concepts_gestion.ConceptSimple;
-import linguistic.types_gestion.LinguisticFactory;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
+import linguistic.conceptsGestion.Concept;
+import linguistic.conceptsGestion.ConceptComplex;
+import linguistic.conceptsGestion.ConceptSimple;
+import linguistic.typesGestion.LinguisticFactory;
+import linguistic.typesGestion.Type;
+import linguistic.typesGestion.TypeImpl;
 
 public class PanelColumnScenario extends JPanel{
 	
@@ -76,10 +76,10 @@ public class PanelColumnScenario extends JPanel{
 		Type t7 = lf.getTypeManager().makeType("competition");
 		Type t8 = lf.getTypeManager().makeType("_test_");
 		
-		Concept c1 = lf.makeConcept("table1","line3","Joueur1",t2);
-		Concept c8 = lf.makeConcept("table1","line3","Joueur2",t2);
-		Concept c2 = lf.makeConcept("table2", "line5","Match 2",t4);
-		Concept c6 = lf.makeConcept("table2", "line5","Competition 1",t7);
+		Concept c1 = lf.makeConcept("Joueur1",t2);
+		Concept c8 = lf.makeConcept("Joueur2",t2);
+		Concept c2 = lf.makeConcept("Match 2",t4);
+		Concept c6 = lf.makeConcept("Competition 1",t7);
 		
 		List<Type> l = new ArrayList<Type>();
 		l.add(t2); l.add(t4);

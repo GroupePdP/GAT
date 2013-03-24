@@ -168,7 +168,7 @@ A l'heure actuelle, le projet représente deux ans de travail et fait un peu plu
 Son interface utilisateur est faite via un navigateur web pour permettre de porter les efforts sur le programme en lui même et de ne pas perdre du temps à créer des exécutables pour différentes plate-formes. 
 
 
-\chapter{Analyse préliminaire des besoins}
+\chapter{Cahier des charges}
 
 
 \section{Scénarios d'utilisation}
@@ -384,6 +384,16 @@ connexion en tant qu'administrateur.
 En ce qui concerne les besoins interne à notre logiciel, il nous semble
 que l'utilisation d'une base de donnée est superflu.  
 
+
+
+
+	
+
+
+\chapter{Algorithmique et structures de données}
+
+\chapter{Architecture}
+
 \section{Diagrammes et schémas}
 
 Ils schématisent les interactions entre le programme, l'utilisateur et l'administrateur, avec la base de données et Syntox.
@@ -421,125 +431,6 @@ A l'heure actuelle, on ne sait pas encore si le résultat final sera consultable
 
 	\includegraphics[scale=0.4]{diasequence2.png}
 
-\section{Tests}
-
-Le but de ces tests est de prévoir le bon fonctionnement de notre application. Ces prévisions de tests reposent essentiellement sur les besoins et les scénarios précédemment énoncés. Nous pouvons déjà les énumérer de façon regroupée selon le domaine auquel ils se rapportent.
-
-\subsection{Base de données}
-
-Les bases de données sont au coeur de notre projet. Utilisées pour contenir les informations à énoncer ou pour sauvegarder les concepts créés, toute fonctionnalité les manipulant doit être testée.
-Nous devrons donc tester :
-	\begin{itemize}
-	\item La connexion aux différentes bases de données utilisées. 
-	\item Pour les bases de données utilisées pour collecter les informations à énoncer, les requêtes de lecture de la base doivent être correctes (Résultat souhaité égal au résultat obtenu).
-	\item Pour celles sauvegardant les concepts, en plus des requêtes de lecture, les requêtes d'écriture doivent être testées correctes. 
-	\item Les droits d'accès et de manipulation des bases de données. Deux niveaux de privilèges sont utilisés pour notre projet, utilisateur classique et utilisateur administrateur. 
-	\item La déconnexion à toutes bases de données auparavant connectées.
-
-	\end{itemize}
-
-\subsection{Interface graphique}
-
-L'interface graphique comportera différents éléments graphiques en intéraction avec les bases de données ou l'extérieur - Syntox. Nous envisageons donc de nous assurer que les actions suivantes se déroulerons correctement :
-
-	\begin{itemize}
-	
-	\item Fiabilité de l'interface, c'est-à-dire, les éléments qui la composent réalisent correctement leur objectif graphique. Il est question de tester la vraisemblance au niveau de la position des éléments graphiques, de leur visibilité, et de leur possibilité d'intéractions (Sélectionnable, cliquable, déplaçable). 
-	\item Certaines requêtes SQL seront construites à partir de champs sélectionnés au moyen de l'interface graphique. Nous devons nous assurer que l'élément choisi est identique à celui présent dans la réquête.
-	\item Pour la même raison, le graphe créé après validation par l'utilisateur doit correspondre aux choix que l'utilisateur a réalisés. Cela inclut au niveau des éléments: les liens qui les relient, l'ordre dans lequel ils se trouvent, et la correspondance des éléments eux mêmes.
-	\item Le rafraîchissement des éléments résultant d'une requête SQL ou d'une action. Ces derniers sont créés au moment où l'utilisateur sélectionne un élément particulier (Cas par exemple de la sélection d'un concept. Un ensemble précis d'attributs lui est alors proposé).
-
-	\end{itemize}
-
-\subsection{Interactions extérieures}
-
-Pour notre projet nous utiliserons Syntox, le logiciel en ligne du professeur et client Lionel Clément. Syntox sera utilisé pour générer les phrases en fonction de l'entrée qu'on lui fournit. 
-Nous prévoyons donc :
-
-	\begin{itemize}
-	
-	\item S'assurer de la création de la requête Syntox depuis le graphe conceptuel. La syntaxe des requêtes est précise. Elle doit être identique à celle attendu par Syntox pour qu'il n'y est aucun problème de génération de textes.
-	\item Communication entre notre application et la version en ligne de Syntox. Etant en ligne, les requêtes générées par notre application doivent pouvoir être envoyées à Syntox.
-	\item Récupération du texte généré par Syntox. (Identité)
-
-	\end{itemize}
-	
-\section{Annexe}
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_1a.png}
-\caption{Ecran de connexion}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_6a.png}
-\caption{Ecran d'ouverture d'un projet}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_2a.png}
-\caption{Ecran de sélection de scénario existant/personnalisé}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_2b.png}
-\caption{Ecran de sélection de scénario existant}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_4b.png}
-\caption{Ecran affichant le texte généré}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_6b.png}
-\caption{Ecran de création d'un nouveau scénario}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_5b.png}
-\caption{Ecran de connexion à la partie administrateur}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_4a.png}
-\caption{Ecran du menu administrateur}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_3a.png}
-\caption{Ecran de création d'un nouveau projet}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_3b.png}
-\caption{Ecran de paramétrage du projet}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_5a.png}
-\caption{Ecran de choix du projet à modifier}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.25]{Generation.png}
-\caption{Ecran de choix des attributs}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=1]{GANTT.png}
-\caption{Diagramme de Gantt}
-\end{figure}
-
-% Mettre le diagramme de Gantt en annexe
-
-
-\chapter{Algorithmique et structures de données}
-
-\chapter{Architecture}
 
 \section{Architecture}
 Notre programme se composera de cinq packages principaux: BaseDonnées, Structure, GestionnaireFichiers, ConnexionSyntox et Interface graphique, correspondant aux différentes fonctionnalités du programme.
@@ -650,7 +541,7 @@ Il est composé de deux sous-packages, Structurel et Linguistique :
 
 \subsubsection*{Package Structurel}
 \begin{itemize}
-\item Interface Node: Dans cette interface sont présentées les fonctionnalités nécessaire à la réalisation d'un schéma de phrase.
+\item Interface Node: Dans cette interface sont présentées les fonctionnalités nécessaires à la réalisation d'un schéma de phrase.
 
 \item Classe NodeConcret: Implémentation de l'interface Node.
 
@@ -677,11 +568,126 @@ Ce package contiendra tous les éléments de l'interface graphique et des fenêt
 
 \chapter{Implémentation} % à voir !
 
+\section{Interface graphique}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{IHM_1a.png}
+\caption{Ecran de connexion}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{IHM_6a.png}
+\caption{Ecran d'ouverture d'un projet}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{IHM_2a.png}
+\caption{Ecran de sélection de scénario existant/personnalisé}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{IHM_2b.png}
+\caption{Ecran de sélection de scénario existant}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{IHM_4b.png}
+\caption{Ecran affichant le texte généré}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{IHM_6b.png}
+\caption{Ecran de création d'un nouveau scénario}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{IHM_5b.png}
+\caption{Ecran de connexion à la partie administrateur}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{IHM_4a.png}
+\caption{Ecran du menu administrateur}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{IHM_3a.png}
+\caption{Ecran de création d'un nouveau projet}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{IHM_3b.png}
+\caption{Ecran de paramétrage du projet}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{IHM_5a.png}
+\caption{Ecran de choix du projet à modifier}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.25]{Generation.png}
+\caption{Ecran de choix des attributs}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=1]{GANTT.png}
+\caption{Diagramme de Gantt}
+\end{figure}
+
 \chapter{Tests et résultats}
+
+\section{Tests}
+
+Le but de ces tests est de prévoir le bon fonctionnement de notre application. Ces prévisions de tests reposent essentiellement sur les besoins et les scénarios précédemment énoncés. Nous pouvons déjà les énumérer de façon regroupée selon le domaine auquel ils se rapportent.
+
+\subsection{Base de données}
+
+Les bases de données sont au coeur de notre projet. Utilisées pour contenir les informations à énoncer ou pour sauvegarder les concepts créés, toute fonctionnalité les manipulant doit être testée.
+Nous devrons donc tester :
+	\begin{itemize}
+	\item La connexion aux différentes bases de données utilisées. 
+	\item Pour les bases de données utilisées pour collecter les informations à énoncer, les requêtes de lecture de la base doivent être correctes (Résultat souhaité égal au résultat obtenu).
+	\item Pour celles sauvegardant les concepts, en plus des requêtes de lecture, les requêtes d'écriture doivent être testées correctes. 
+	\item Les droits d'accès et de manipulation des bases de données. Deux niveaux de privilèges sont utilisés pour notre projet, utilisateur classique et utilisateur administrateur. 
+	\item La déconnexion à toutes bases de données auparavant connectées.
+
+	\end{itemize}
+
+\subsection{Interface graphique}
+
+L'interface graphique comportera différents éléments graphiques en intéraction avec les bases de données ou l'extérieur - Syntox. Nous envisageons donc de nous assurer que les actions suivantes se déroulerons correctement :
+
+	\begin{itemize}
+	
+	\item Fiabilité de l'interface, c'est-à-dire, les éléments qui la composent réalisent correctement leur objectif graphique. Il est question de tester la vraisemblance au niveau de la position des éléments graphiques, de leur visibilité, et de leur possibilité d'intéractions (Sélectionnable, cliquable, déplaçable). 
+	\item Certaines requêtes SQL seront construites à partir de champs sélectionnés au moyen de l'interface graphique. Nous devons nous assurer que l'élément choisi est identique à celui présent dans la réquête.
+	\item Pour la même raison, le graphe créé après validation par l'utilisateur doit correspondre aux choix que l'utilisateur a réalisés. Cela inclut au niveau des éléments: les liens qui les relient, l'ordre dans lequel ils se trouvent, et la correspondance des éléments eux mêmes.
+	\item Le rafraîchissement des éléments résultant d'une requête SQL ou d'une action. Ces derniers sont créés au moment où l'utilisateur sélectionne un élément particulier (Cas par exemple de la sélection d'un concept. Un ensemble précis d'attributs lui est alors proposé).
+
+	\end{itemize}
+
+\subsection{Interactions extérieures}
+
+Pour notre projet nous utiliserons Syntox, le logiciel en ligne du professeur et client Lionel Clément. Syntox sera utilisé pour générer les phrases en fonction de l'entrée qu'on lui fournit. 
+Nous prévoyons donc :
+
+	\begin{itemize}
+	
+	\item S'assurer de la création de la requête Syntox depuis le graphe conceptuel. La syntaxe des requêtes est précise. Elle doit être identique à celle attendu par Syntox pour qu'il n'y est aucun problème de génération de textes.
+	\item Communication entre notre application et la version en ligne de Syntox. Etant en ligne, les requêtes générées par notre application doivent pouvoir être envoyées à Syntox.
+	\item Récupération du texte généré par Syntox. (Identité)
+
+	\end{itemize}
 
 \chapter{Produit final}
 
 \chapter{Conclusion}
+
+\chapter{Annexes}
 
 \bibliographystyle{plain}
 \bibliography{biblio}

@@ -1,13 +1,15 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.concepts_gestion.*;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
+import linguistic.conceptsGestion.Concept;
+import linguistic.conceptsGestion.ConceptComplex;
+import linguistic.conceptsGestion.ConceptSimple;
+import linguistic.typesGestion.Type;
+import linguistic.typesGestion.TypeImpl;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +33,7 @@ public class ConceptTest {
 		name2 = "RéussirQuart";
 		
 		c1 = new ConceptComplex(name1, type1, args);
-		c2 = new ConceptSimple(null, null, name2 , type1);	
+		c2 = new ConceptSimple(name2 , type1);	
 	}
 	
 	@Test
@@ -44,7 +46,7 @@ public class ConceptTest {
 		assertEquals(num, c1.getNumberArguments());
 		assertEquals(args, c1.getArguments());
 		
-		assertEquals(null, c2.getNumberArguments());
+		assertEquals(0, c2.getNumberArguments());
 		assertEquals(new ArrayList<Type> (), c2.getArguments());
 	}
 	

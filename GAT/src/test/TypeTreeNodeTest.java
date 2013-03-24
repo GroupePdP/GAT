@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
-
-import linguistic.concepts_gestion.Concept;
-import linguistic.concepts_gestion.ConceptSimple;
-import linguistic.types_gestion.Type;
-import linguistic.types_gestion.TypeImpl;
-import linguistic.types_gestion.TypeTreeNode;
+import linguistic.conceptsGestion.Concept;
+import linguistic.conceptsGestion.ConceptSimple;
+import linguistic.typesGestion.Type;
+import linguistic.typesGestion.TypeImpl;
+import linguistic.typesGestion.TypeTreeNode;
 
 
 public class TypeTreeNodeTest extends TestCase{
@@ -29,7 +28,7 @@ public class TypeTreeNodeTest extends TestCase{
 	
 
 	public void testAddConcept() {
-		Concept concept = new ConceptSimple(null, null, "Réussir", new TypeImpl("Réussite"));
+		Concept concept = new ConceptSimple("Réussir", new TypeImpl("Réussite"));
 		TypeTreeNode treeNode = new TypeTreeNode(new TypeImpl("Réussite"));
 		
 		List<Concept> childList = new ArrayList<Concept>();
