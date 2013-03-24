@@ -99,6 +99,8 @@ public class DialogChoseProject extends JDialog{
 		this.ok.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
+				
+				//currentFrame.getCore().loadProject(((Project)combo.getSelectedItem()).toString());
 				PanelHomeUser phu = new PanelHomeUser(currentFrame, previous, (Project)combo.getSelectedItem());
 				currentFrame.setPane(phu);
 				thisDiag.dispose();
