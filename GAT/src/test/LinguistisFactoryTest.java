@@ -34,7 +34,7 @@ public class LinguistisFactoryTest {
 		args = new ArrayList<Type> ();
 		
 		c1 = new ConceptComplex("RéussirMatch", type1, args);
-		c2 = new ConceptSimple(null, null, "RéussirQuart", type1);
+		c2 = new ConceptSimple("RéussirQuart", type1);
 	}
 	
 	@Test
@@ -54,7 +54,7 @@ public class LinguistisFactoryTest {
 	
 	@Test
 	public void testMakeConcept2() {
-		assertEquals(c2, lf.makeConcept(null, null, "RéussirQuart", type1));
+		assertEquals(c2, lf.makeConcept("RéussirQuart", type1));
 	}
 	
 }

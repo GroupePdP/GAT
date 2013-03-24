@@ -29,7 +29,7 @@ public class TypeTreeNodeTest extends TestCase{
 	
 
 	public void testAddConcept() {
-		Concept concept = new ConceptSimple(null, null, "Réussir", new TypeImpl("Réussite"));
+		Concept concept = new ConceptSimple("Réussir", new TypeImpl("Réussite"));
 		TypeTreeNode treeNode = new TypeTreeNode(new TypeImpl("Réussite"));
 		
 		List<Concept> childList = new ArrayList<Concept>();

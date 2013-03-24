@@ -56,9 +56,8 @@ public final class LinguisticFactory implements Factory{
 	}
 
 	@Override
-	public ConceptSimple makeConcept(String sqlColumn, String sqlTable, String name,
-			Type type) {
-		Concept c = new ConceptSimple(sqlColumn, sqlTable, name, type);
+	public ConceptSimple makeConcept(String name, Type type) {
+		Concept c = new ConceptSimple(name, type);
 		tm.getTypeTree().addConcept(c);
 		return (ConceptSimple) c;
 	}

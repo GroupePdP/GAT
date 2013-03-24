@@ -31,7 +31,7 @@ public class ConceptTest {
 		name2 = "RéussirQuart";
 		
 		c1 = new ConceptComplex(name1, type1, args);
-		c2 = new ConceptSimple(null, null, name2 , type1);	
+		c2 = new ConceptSimple(name2 , type1);	
 	}
 	
 	@Test

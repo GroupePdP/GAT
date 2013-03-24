@@ -13,14 +13,9 @@ import linguistic.typesGestion.Type;
 
 public class ConceptSimple extends ConceptAbstract 
 {
-	private String sqlTable;
-	private String sqlColumn;
-	
-	public ConceptSimple(String sqlTable, String sqlColumn, String name, Type type)
+	public ConceptSimple(String name, Type type)
 	{
 		super(name, type);
-		this.sqlTable = sqlTable;
-		this.sqlColumn = sqlColumn;
 	}
 	
 	// Autres methodes

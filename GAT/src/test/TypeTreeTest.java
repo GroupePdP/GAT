@@ -37,7 +37,7 @@ public class TypeTreeTest extends TestCase{
 		//nodeMap = new HashMap<Type, TypeTreeNode>(); déjà présent dans le constructeur de TypeTree
 		//nodeMap.put(rootType, root);
 		
-		c1 = new ConceptSimple(null, null, "Réussir",tree.getRoot().getType());
+		c1 = new ConceptSimple("Réussir",tree.getRoot().getType());
 	}
 	
 	
@@ -67,9 +67,9 @@ public class TypeTreeTest extends TestCase{
 		childType3 = new TypeImpl("RéussirQuart", childType1);
 		childType4 = new TypeImpl("RéussirCoupe", childType1);
 		
-		c2 = new ConceptSimple(null, null, "RéussirMatch", childType1);
-		c3 = new ConceptSimple(null, null, "RéussirQuart", childType1);
-		c4 = new ConceptSimple(null, null, "RéussirCoupe", childType1);
+		c2 = new ConceptSimple("RéussirMatch", childType1);
+		c3 = new ConceptSimple("RéussirQuart", childType1);
+		c4 = new ConceptSimple("RéussirCoupe", childType1);
 		
 		tree.addType(childType2);
 		tree.addType(childType3);

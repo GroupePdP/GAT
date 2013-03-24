@@ -56,10 +56,10 @@ public class Test {
 		Type t7 = lf.getTypeManager().makeType("competition");
 		Type t8 = lf.getTypeManager().makeType("_test_");
 		
-		Concept c1 = lf.makeConcept("table1","line3","Joueur1",t2);
-		Concept c8 = lf.makeConcept("table1","line3","Joueur2",t2);
-		Concept c2 = lf.makeConcept("table2", "line5","Match 2",t4);
-		Concept c6 = lf.makeConcept("table2", "line5","Competition 1",t7);
+		Concept c1 = lf.makeConcept("Joueur1",t2);
+		Concept c8 = lf.makeConcept("Joueur2",t2);
+		Concept c2 = lf.makeConcept("Match 2",t4);
+		Concept c6 = lf.makeConcept("Competition 1",t7);
 		
 		List<Type> l = new ArrayList<Type>();
 		l.add(t2); l.add(t4);
