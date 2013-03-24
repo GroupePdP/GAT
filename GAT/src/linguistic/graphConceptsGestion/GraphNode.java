@@ -7,7 +7,11 @@ import linguistic.conceptsGestion.Concept;
 public interface GraphNode extends GraphConceptsInterface{
 
 	public boolean isTagged();
+	public void setTag(boolean b);
 	public GraphNode getReference();
+	public void setReference(GraphNode child);
+	public boolean getIsReference();
+	public void setIsReference(boolean b);
 	public Concept getConcept();
 	public List<GraphNode> getChildrenList();
 	public List<GraphNode> getListNodes();
@@ -15,6 +19,4 @@ public interface GraphNode extends GraphConceptsInterface{
 	public int getNumberOfNodes();
 	
 	public void addChild(GraphNode child, int index) throws IncompatibleTypesException;
-	public GraphNode toTree();
-	
 }
