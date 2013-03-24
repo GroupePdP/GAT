@@ -58,4 +58,11 @@ public class PanelHomeUser extends JPanel {
 		
 		this.add(menu, BorderLayout.CENTER);
 	}
+
+
+	public Project getCurrentProject() {
+		return currentProject;
+	}
+	
+	
 }

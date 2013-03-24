@@ -43,10 +43,11 @@ public class PanelColumnScenario extends JPanel{
 	PanelMiller currentPanel;
 	Dimension thisColumnSize;
 	Scenario scenario;
+	LinguisticFactory lf;
 	PanelHomeUser currentHome;
 	
-	List<Concept> conceptsList = new ArrayList<Concept>();
-	Vector vecConceptList = new Vector(conceptsList);
+	List<Concept> conceptsList;
+	Vector vecConceptList;
 	
 	List<Concept> concepts = new ArrayList<Concept>();
 	Vector vec = new Vector(concepts);
@@ -58,6 +59,7 @@ public class PanelColumnScenario extends JPanel{
 	JScrollPane main;
 	JPanel columnMenu = new JPanel(new BorderLayout());
 	
+	String conceptName;
 	ArrayList<PanelSubColumnScenario> list = new ArrayList<PanelSubColumnScenario>();
 
 	public PanelColumnScenario(Dimension columnSize, PanelMiller curr, Scenario s, PanelHomeUser p)
@@ -68,17 +70,10 @@ public class PanelColumnScenario extends JPanel{
 		this.currentHome = p;
 		this.scenario = s;
 		
-		/*
-		vecConceptList.add(c1);
-		vecConceptList.add(c2);
-		vecConceptList.add(c3);
-		vecConceptList.add(c4);
-		vecConceptList.add(c5);
-		vecConceptList.add(c6);
-		vecConceptList.add(c7);
-		vecConceptList.add(c8);
-		*/
-		
+		this.lf = currentHome.getCurrentProject().getLinguisticFactory();
+		List<Concept> tmp = this.lf.getTypeManager().getTypeTree().getConceptsForType(this.lf.getTypeManager().getTypeTree().getRoot().getType());
+		this.conceptsList = tmp;
+		this.vecConceptList = new Vector(this.conceptsList);
 		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
 		
@@ -96,7 +91,6 @@ public class PanelColumnScenario extends JPanel{
 				if(arg0.getValueIsAdjusting())
 			      {
 					Concept tmp = (Concept)conceptListTest.getSelectedValue();
-					
 					if(tmp instanceof ConceptComplex)
 					{
 						Iterator it = list.iterator();
@@ -192,4 +186,14 @@ public class PanelColumnScenario extends JPanel{
 		this.conceptListTest.setListData(this.vec);
 		this.main.repaint();
 	}
+
+	public ArrayList<PanelSubColumnScenario> getList() {
+		return list;
+	}
+
+	public String getConceptName() {
+		return conceptName;
+	}
+	
+
 }

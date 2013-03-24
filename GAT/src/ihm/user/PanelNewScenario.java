@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -29,20 +30,29 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 import linguistic.Scenario;
+import linguistic.conceptsGestion.Concept;
 import linguistic.conceptsGestion.ConceptComplex;
 import linguistic.conceptsGestion.ConceptSimple;
+import linguistic.graphConceptsGestion.GraphConcepts;
+import linguistic.graphConceptsGestion.GraphNode;
+import linguistic.graphConceptsGestion.GraphNodeDefault;
+import linguistic.graphConceptsGestion.IncompatibleTypesException;
 import linguistic.typesGestion.LinguisticFactory;
 import linguistic.typesGestion.Type;
 
 public class PanelNewScenario extends JPanel{
 
 	MainFrame currentFrame;
-	JPanel thisPane=this;
+	PanelNewScenario thisPane=this;
 	PanelHomeUser previous;
-	JPanel colcont;
+	//JPanel colcont;
 	
 	Scenario scenario;
 	
+	PanelColumnScenario scenarioRaw;
+
+	
+
 	public PanelSubColumnScenario[] tab;
 	
 	private Dimension columnSize;
@@ -50,7 +60,7 @@ public class PanelNewScenario extends JPanel{
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu test1 = new JMenu("Fichier");
 	
-	private JMenuItem item1 = new JMenuItem("Enregistrer ScÃ©nario en cours");
+	private JMenuItem item1 = new JMenuItem("Enregistrer Scénario en cours");
 	private JMenuItem item2 = new JMenuItem("Enregistrer");
 	private JMenuItem item3 = new JMenuItem("Quitter");
 	
@@ -67,10 +77,14 @@ public class PanelNewScenario extends JPanel{
 		
 		setMenuBar();
 		setDescrPane();
-		this.add(new PanelMiller(this.scenario, this.previous), BorderLayout.CENTER);
+		this.add(new PanelMiller(this.scenario, this.previous, this), BorderLayout.CENTER);
 		
 	}
 	
+	public void setScenarioRaw(PanelColumnScenario scenarioRaw) {
+		this.scenarioRaw = scenarioRaw;
+	}
+
 	private void setMenuBar()
 	{
 		item1.addActionListener(new ActionListener(){
@@ -78,7 +92,9 @@ public class PanelNewScenario extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
+				thisPane.generateScenario();
+				currentFrame.getCore().getProject().getListScenario().add(scenario);
+				currentFrame.getCore().backupProject();
 			}
 			
 		});
@@ -130,6 +146,34 @@ public class PanelNewScenario extends JPanel{
 		this.thisPane.add(right, BorderLayout.EAST);
 	}
 	
-
+	public void generateScenario()
+	{
+		ArrayList<PanelSubColumnScenario> tmp = scenarioRaw.getList();
+		
+		for(PanelSubColumnScenario ps : tmp)
+		{
+			Concept root = ps.getOwner();
+			
+			GraphNode nodeRoot = this.currentFrame.getCore().getGraphNodeFactory().makeNode(root);
+			
+			for(int i = 0 ; i < ps.getList().size(); i++)
+			{
+				GraphNode child = new GraphNodeDefault(ps.getList().get(i).getOwner());
+				try {
+					nodeRoot.addChild(child,i);
+				} catch (IncompatibleTypesException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				ps.getList().get(i).generateGraphConcept(child);
+			}
+			
+			GraphConcepts gc = new GraphConcepts(nodeRoot);
+			this.scenario.addGraphConcepts(gc);
+		}
+		
+		
+	}
 
 }

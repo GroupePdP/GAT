@@ -27,6 +27,9 @@ import javax.swing.ListSelectionModel;
 import linguistic.conceptsGestion.Concept;
 import linguistic.conceptsGestion.ConceptComplex;
 import linguistic.conceptsGestion.ConceptSimple;
+import linguistic.graphConceptsGestion.GraphNode;
+import linguistic.graphConceptsGestion.GraphNodeDefault;
+import linguistic.graphConceptsGestion.IncompatibleTypesException;
 import linguistic.typesGestion.LinguisticFactory;
 import linguistic.typesGestion.Type;
 import linguistic.typesGestion.TypeImpl;
@@ -123,5 +126,33 @@ public class PanelSubColumnScenario extends JPanel{
 		{
 			ps.setVisibleAll(bool);
 		}
+	}
+
+	public Concept getOwner() {
+		return owner;
+	}
+
+	public ArrayList<PanelSubColumnScenario> getList() {
+		return list;
+	}
+
+	public GraphNode generateGraphConcept(GraphNode thisNode)
+	{
+		
+		
+		for(int i = 0 ; i < this.getList().size(); i++)
+		{
+			GraphNode child = new GraphNodeDefault(this.getList().get(i).getOwner());
+			try {
+				thisNode.addChild(child,i);
+			} catch (IncompatibleTypesException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			this.getList().get(i).generateGraphConcept(child);
+		}
+		
+		return thisNode;
 	}
 }

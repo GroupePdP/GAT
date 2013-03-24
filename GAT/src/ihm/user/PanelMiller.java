@@ -27,7 +27,7 @@ public class PanelMiller extends JPanel{
 	
 	private Dimension columnSize;
 	
-	public PanelMiller(Scenario s, PanelHomeUser p)
+	public PanelMiller(Scenario s, PanelHomeUser p, PanelNewScenario scenarioPane)
 	{
 		this.setLayout(new BorderLayout());
 		this.thisPane = this;
@@ -64,7 +64,9 @@ public class PanelMiller extends JPanel{
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		this.columnSize = new Dimension(200, panelContent.getHeight());
 		panelContent.add(leftPane,BorderLayout.CENTER);
-		panelContent.add(new PanelColumnScenario(this.columnSize, this, this.scenario, this.currentHome), BorderLayout.WEST);
+		PanelColumnScenario tmp = new PanelColumnScenario(this.columnSize, this, this.scenario, this.currentHome);
+		scenarioPane.setScenarioRaw(tmp);
+		panelContent.add(tmp, BorderLayout.WEST);
 		this.add(scrollPane, BorderLayout.CENTER);
 	}
 	
