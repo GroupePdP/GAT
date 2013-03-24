@@ -49,7 +49,6 @@ public class ProjetTest {
 		P4 = new Project("test_icule");
 		P4.ajouterScenario(test1);
 
-		
 		core = new Core(emplacement, P);
 		core.backupProject(random);
 		
@@ -63,34 +62,34 @@ public class ProjetTest {
 	//on teste les 3 core pour v�rifier leur correspondance
 	@Test
 	public void testProjet1() {
-		assertEquals(core.toString(),(core2.toString()));
-		assertEquals(core.toString(),(core3.toString()));
-		assertEquals(core2.toString(),(core3.toString()));
+		assertEquals(core.toStringDescr(),(core2.toStringDescr()));
+		assertEquals(core.toStringDescr(),(core3.toStringDescr()));
+		assertEquals(core2.toStringDescr(),(core3.toStringDescr()));
 	}
 		
 	//on compare les 3 core aux projets de test
 	@Test
 	public void testProjet2() {		
-		assertEquals(core.toString(),(P.toString()));
-		assertEquals(core.toString(),(P2.toString()));
-		assertEquals(core.toString(),(P3.toString()));
+		assertEquals(core.toStringDescr(),(P.toStringDescr()));
+		assertEquals(core.toStringDescr(),(P2.toStringDescr()));
+		assertEquals(core.toStringDescr(),(P3.toStringDescr()));
 		
 		
-		assertEquals(core2.toString(),(P.toString()));
-		assertEquals(core2.toString(),(P2.toString()));
-		assertEquals(core2.toString(),(P3.toString()));
+		assertEquals(core2.toStringDescr(),(P.toStringDescr()));
+		assertEquals(core2.toStringDescr(),(P2.toStringDescr()));
+		assertEquals(core2.toStringDescr(),(P3.toStringDescr()));
 
 		
-		assertEquals(core3.toString(),(P.toString()));
-		assertEquals(core3.toString(),(P2.toString()));
-		assertEquals(core3.toString(),(P3.toString()));
+		assertEquals(core3.toStringDescr(),(P.toStringDescr()));
+		assertEquals(core3.toStringDescr(),(P2.toStringDescr()));
+		assertEquals(core3.toStringDescr(),(P3.toStringDescr()));
 	}
 	
 	
 	//on compare un des projets au projet diff�rent
 	@Test
 	public void testProjet_mustfail(){	
-		assertEquals(core.toString(),(P4.toString()));
+		assertEquals(core.toStringDescr(),(P4.toStringDescr()));
 
 	}
 }
