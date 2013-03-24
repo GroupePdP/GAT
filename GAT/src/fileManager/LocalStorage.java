@@ -10,7 +10,6 @@ import java.io.FilenameFilter;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
-
 public class LocalStorage implements Storage {
 
 	private XStream xstream;
@@ -22,10 +21,8 @@ public class LocalStorage implements Storage {
 
 	public LocalStorage(String location)
 	{
-
 		//TODO refaire mieux teste si valide
 		this.backupDirectory = location;
-
 		this.xstream = new XStream (new DomDriver());
 	}
 	
@@ -33,8 +30,7 @@ public class LocalStorage implements Storage {
 	@Override
 	public Object load(String name)
 	{
-		
-		String file =this.backupDirectory + "\\" + name + ".xml";
+		String file = this.backupDirectory + "\\" + name + ".xml";
 		try {
 			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
@@ -45,17 +41,16 @@ public class LocalStorage implements Storage {
 				xml = xml + line;
 				line = br.readLine();
 			}
-
 			br.close();			
-			
 			return this.xstream.fromXML(xml);
 		}
-		catch(IOException ex) { ex.printStackTrace(); }
-
+		catch(IOException ex) {
+			ex.printStackTrace(); 
+			}
 		return null;
 	}
 
-	//TODO faire plus propre sans extention de fichier
+	//TODO faire plus propre sans extension de fichier
 	@Override
 	public String[] projectsList()
 	{
@@ -70,30 +65,24 @@ public class LocalStorage implements Storage {
 		int i = 0;
 		while (i < out.length){
 			out[i] = in[i].substring(0, in[i].length() - 4);
-			i ++;
+			i++;
 		}
-		
 		return out;
-
 	}
-
-
 
 	@Override
 	public boolean backup(String name, Object obj)
 	{
-		
-		String file =this.backupDirectory + "\\" + name + ".xml";
-
-
+		String file = this.backupDirectory + "\\" + name + ".xml";
 		try {
 			FileWriter fw = new FileWriter(file);
 			String xml = this.xstream.toXML(obj);
 			fw.write(xml);
 			fw.close();
 		}
-		catch(IOException ex) { ex.printStackTrace(); }
-
+		catch(IOException ex) { 
+			ex.printStackTrace(); 
+			}
 		return true;
 	}
 
