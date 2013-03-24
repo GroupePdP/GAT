@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
-
 import linguistic.conceptsGestion.Concept;
 import linguistic.conceptsGestion.ConceptSimple;
 import linguistic.typesGestion.Type;

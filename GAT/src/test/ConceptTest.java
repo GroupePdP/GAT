@@ -1,11 +1,13 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import linguistic.conceptsGestion.*;
+import linguistic.conceptsGestion.Concept;
+import linguistic.conceptsGestion.ConceptComplex;
+import linguistic.conceptsGestion.ConceptSimple;
 import linguistic.typesGestion.Type;
 import linguistic.typesGestion.TypeImpl;
 
