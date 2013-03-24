@@ -52,7 +52,7 @@ public class LocalStorage implements Storage {
 
 	//TODO faire plus propre sans extension de fichier
 	@Override
-	public String[] projectsList()
+	public String[] projectsList() // TODO revoir le nom de la fonction !
 	{
 		File rep = new File(this.backupDirectory);
 		FilenameFilter filter = new FilenameFilter(){

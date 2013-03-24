@@ -61,6 +61,5 @@ public class Core {
 	
 	public String toString(){
 		return this.project.toString();
-
 	}	
 }

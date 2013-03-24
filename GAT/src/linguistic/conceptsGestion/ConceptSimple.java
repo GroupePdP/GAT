@@ -18,7 +18,7 @@ public class ConceptSimple extends ConceptAbstract
 		super(name, type);
 	}
 	
-	// Autres methodes
+	/**Autres methodes**/
 	
 	@Override
 	public String generateSyntox()

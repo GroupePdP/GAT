@@ -29,9 +29,11 @@ public class SyntoxConnection {
 		}
 	}
 
-	public void syntoxRequest(String r){
+	public void sendRequestToSyntox(String r){
 		try {
-			requete = "Axiom[PRED:commander, subj:[PRED:pro, person:1, number:sg], obj:[PRED:article, gender:ms, number:sg, def:-, poss:-, dem:-, possnumber:sg, possperson:1], à-obj:[FORM:\"Martin-Duplomb\", number:sg, person:3, gender:ms], diathesis:active, tense:present, pastp:-]";
+			requete = "Axiom[PRED:commander, subj:[PRED:pro, person:1, number:sg], obj:[PRED:article, " +
+					"gender:ms, number:sg, def:-, poss:-, dem:-, possnumber:sg, possperson:1], à-obj:[FORM:\"Martin-Duplomb\", " +
+					"number:sg, person:3, gender:ms], diathesis:active, tense:present, pastp:-]";
 			writer.write(requete);
 			writer.flush();
 			writer.close();
@@ -40,7 +42,7 @@ public class SyntoxConnection {
 		}
 	}
 
-	public String syntoxAnswer(){
+	public String getAnswerFromSyntox(){
 		try {
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			while ((answer = reader.readLine()) != null) {
