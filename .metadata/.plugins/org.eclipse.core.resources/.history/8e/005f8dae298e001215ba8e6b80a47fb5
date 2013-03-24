@@ -1,0 +1,81 @@
+package ihm.tools;
+
+import ihm.MainFrame;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Vector;
+
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import linguistic.concepts_gestion.Concept;
+import linguistic.concepts_gestion.ConceptComplex;
+
+public class PanelConceptColumnProject extends JPanel{
+
+	MainFrame currentFrame;
+	
+	List<Concept> conceptsList = new ArrayList<Concept>();
+	Vector vecConceptList = new Vector(conceptsList);
+	
+	JList conceptsJList;
+	
+	public PanelConceptColumnProject(MainFrame mf)
+	{
+		this.setLayout(new BorderLayout());
+		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
+		this.currentFrame = mf;
+		
+		this.setBackground(Color.ORANGE);
+		Dimension columnSize = new Dimension(500,currentFrame.getHeight());
+		
+		this.setPreferredSize(columnSize);
+		this.conceptsJList=new JList(vecConceptList);
+		this.conceptsJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.conceptsJList.addListSelectionListener(new ListSelectionListener(){
+
+			@Override
+			public void valueChanged(ListSelectionEvent arg0) 
+			{
+				// TODO Auto-generated method stub
+				if(arg0.getValueIsAdjusting())
+			      {
+					/*Concept tmp = (Concept)conceptsJList.getSelectedValue();
+					
+					if(tmp instanceof ConceptComplex)
+					{
+						Iterator it = list.iterator();
+						
+						for(;it.hasNext();)
+						{
+							PanelSubColumnScenario tmpCol = (PanelSubColumnScenario) it.next();
+							tmpCol.setVisibleAll(false);
+						}
+						
+						
+						
+						
+						list.get(conceptsJList.getSelectedIndex()).setVisible(true);
+					}*/
+			      }
+			}
+		});
+		
+		conceptsJList.setFixedCellWidth((int)columnSize.getWidth());
+		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();
+		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+		conceptsJList.setCellRenderer(centerRenderer);
+		
+	}
+}

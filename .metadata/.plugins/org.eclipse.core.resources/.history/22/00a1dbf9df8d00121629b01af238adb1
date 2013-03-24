@@ -1,0 +1,158 @@
+package ihm.admin;
+
+import ihm.MainFrame;
+import ihm.user.PanelNewScenario;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
+import linguistic.Scenario;
+
+public class DialogInitNewProject extends JDialog{
+	JDialog thisDiag = this;
+	MainFrame currentFrame;
+	
+	JTextField newProjectTextArea = new JTextField(16);
+	JTextField dataBaseTextArea = new JTextField(16);
+	
+	JLabel error = new JLabel("Nom de scénario incorrect");
+	
+	public DialogInitNewProject(MainFrame mf, final JPanel prev)
+	{
+		this.currentFrame = mf;
+		this.setTitle("Création d'un nouveau projet");
+		this.setSize(new Dimension(250,300));
+		this.setResizable(false);
+		this.setModal(true);
+		this.setLocationRelativeTo(mf);
+		this.setLocation(mf.getWidth()/2-this.getWidth()/2, mf.getHeight()/2-this.getHeight()/2);
+		JPanel overGlobal = new JPanel(new BorderLayout());
+		
+		
+		JPanel centerPane = new JPanel(new BorderLayout());
+		
+		JPanel centSub = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		
+		JPanel subGlobalPane = new JPanel();
+		subGlobalPane.setLayout(new BoxLayout(subGlobalPane, BoxLayout.Y_AXIS));
+		
+		JPanel newProjectLabelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JLabel newProjectLabel = new JLabel("Nom du nouveau projet :");
+		newProjectLabelPanel.add(newProjectLabel);
+		
+		JPanel newProjectTextAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		this.newProjectTextArea.getDocument().addDocumentListener(new DocumentListener() {
+			
+			@Override
+			public void changedUpdate(DocumentEvent arg0) {
+				// TODO Auto-generated method stub
+				error.setVisible(false);
+			}
+
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				// TODO Auto-generated method stub
+				error.setVisible(false);
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				// TODO Auto-generated method stub
+				error.setVisible(false);
+			}
+		});
+		this.newProjectTextArea.setBorder(BorderFactory.createLoweredBevelBorder());
+		newProjectTextAreaPanel.add(this.newProjectTextArea);
+		
+		JPanel dataBasePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JLabel dataBaseLabel = new JLabel("Base de données :");
+		dataBasePanel.add(dataBaseLabel);
+		
+		JPanel dataBaseTextAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		this.dataBaseTextArea.setBorder(BorderFactory.createLoweredBevelBorder());
+		dataBaseTextAreaPanel.add(this.dataBaseTextArea);
+		
+		this.error.setForeground(Color.RED);
+		this.error.setVisible(false);
+		JPanel errorPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		errorPanel.add(this.error);
+		
+		subGlobalPane.add(newProjectLabelPanel);
+		subGlobalPane.add(newProjectTextAreaPanel);
+		subGlobalPane.add(errorPanel);
+		subGlobalPane.add(dataBasePanel);
+		subGlobalPane.add(dataBaseTextAreaPanel);
+		
+		centSub.add(subGlobalPane);
+		
+		JPanel buttons = new JPanel();
+		
+		JPanel southPanel = new JPanel();
+		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.X_AXIS));
+		
+		JPanel coucoulol = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		Dimension buttSize = new Dimension(100,20);
+		
+		JPanel retPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		JButton ret = new JButton("Retour");
+		ret.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent arg0) {
+				thisDiag.dispose();
+			}
+			
+		});
+		ret.setPreferredSize(buttSize);
+		retPanel.add(ret);
+		JPanel okPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		JButton ok = new JButton("Valider");
+		ok.addActionListener(new ActionListener(){
+
+			public void actionPerformed(ActionEvent e) {
+				
+				String scenarioName = newProjectTextArea.getText();
+				
+				
+				if(scenarioName.length() != 0)
+				{
+					Scenario s = new Scenario(scenarioName);
+					PanelNewScenario pns = new PanelNewScenario(currentFrame,s,prev);
+					currentFrame.setPane(pns);
+					thisDiag.dispose();
+				}
+				
+				else
+				{
+					error.setVisible(true);
+					thisDiag.revalidate();
+				}
+			}
+			
+		});
+		ok.setPreferredSize(buttSize);
+		okPanel.add(ok);
+		
+		coucoulol.add(retPanel);
+		coucoulol.add(okPanel);
+		southPanel.add(coucoulol);
+		centerPane.add(centSub, BorderLayout.CENTER);
+		
+		overGlobal.add(southPanel, BorderLayout.SOUTH);
+		overGlobal.add(centerPane,BorderLayout.CENTER);
+		this.add(overGlobal);
+	}
+}

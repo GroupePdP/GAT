@@ -1,0 +1,7 @@
+package ihm.admin;
+
+import javax.swing.JDialog;
+
+public class DialogModifyProject extends JDialog{
+
+}

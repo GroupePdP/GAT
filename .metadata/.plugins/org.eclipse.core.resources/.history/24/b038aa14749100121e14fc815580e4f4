@@ -1,0 +1,29 @@
+package ihm.tools;
+
+import java.awt.Dimension;
+
+import ihm.MainFrame;
+
+import javax.swing.JPanel;
+
+public class PanelArgsColumnProject extends JPanel{
+
+	MainFrame currentFrame;
+	JPanel thisPane;
+	
+	String conceptName;
+	
+	public PanelArgsColumnProject(MainFrame mf, JPanel currentPane, String name)
+	{
+		this.currentFrame = mf;
+		this.thisPane = currentPane;
+		this.conceptName = name;
+		
+		Dimension columnSize = new Dimension(350,this.thisPane.getHeight());
+		this.setPreferredSize(columnSize);
+	}
+	
+	public String toString() {
+		return this.conceptName;
+	}
+}

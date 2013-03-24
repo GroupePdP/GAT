@@ -1,0 +1,61 @@
+package ihm.user;
+
+import ihm.tools.PanelColumnScenario;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import linguistic.Scenario;
+
+public class PanelMiller extends JPanel{
+	
+	JPanel thisPane;
+	
+	Scenario scenario;
+	
+	private Dimension columnSize;
+	
+	public PanelMiller(Scenario s)
+	{
+		this.setLayout(new BorderLayout());
+		this.thisPane = this;
+		this.scenario = s;
+		this.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+		
+		
+		JPanel panelContent = new JPanel(new BorderLayout());
+		
+		
+		panelContent.setBackground(Color.ORANGE);
+		
+		
+		JScrollPane scrollPane = new JScrollPane(panelContent);
+		scrollPane.getHorizontalScrollBar().addAdjustmentListener(new AdjustmentListener(){
+
+			@Override
+			public void adjustmentValueChanged(AdjustmentEvent e) {
+				
+				thisPane.repaint();
+				
+			}
+			
+		});
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		this.columnSize = new Dimension(200, scrollPane.getHeight());
+		panelContent.add(new PanelColumnScenario(this.columnSize, this, this.scenario), BorderLayout.WEST);
+		this.add(scrollPane, BorderLayout.CENTER);
+	}
+	
+	/*private void initMainColumn()
+	{
+		JPanel mainColumn = new JPanel()
+	}
+	*/
+}

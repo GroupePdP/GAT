@@ -1,0 +1,112 @@
+package ihm.tools;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import ihm.MainFrame;
+import ihm.admin.PanelNewProject;
+
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+
+import linguistic.concepts_gestion.Concept;
+
+public class PanelArgsColumnProject extends JPanel{
+
+	MainFrame currentFrame;
+	PanelNewProject thisPane;
+	
+	String conceptName;
+	
+	JPanel columnMenu = new JPanel(new BorderLayout());
+	JComboBox combo;
+	JButton validateButton = new JButton("Valider");
+	JButton addConceptButton = new JButton("Ajouter Argument");
+	
+	JList argsJList;
+	JScrollPane scrollMain;
+	
+	public PanelArgsColumnProject(MainFrame mf, PanelNewProject currentPane, String name)
+	{
+		this.currentFrame = mf;
+		this.thisPane = currentPane;
+		this.conceptName = name;
+		
+		Dimension columnSize = new Dimension(350,this.thisPane.getConceptColumnPanel().getHeight());
+		this.setPreferredSize(columnSize);
+		this.setBackground(Color.red);
+		JLabel test  = new JLabel(name);
+		this.add(test);
+		
+		this.addConceptButton.setPreferredSize(new Dimension(200,30));
+		this.addConceptButton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				addConceptButton.setVisible(false);
+				validateButton.setVisible(true);
+				combo.setVisible(true);
+				columnMenu.repaint();
+			}
+			
+		});
+		this.validateButton.setPreferredSize(new Dimension(200,30));
+		this.validateButton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				addConceptButton.setVisible(true);
+				validateButton.setVisible(false);
+				combo.setVisible(false);
+				Concept c = (Concept)combo.getSelectedItem();
+				//addConcept(c);
+				
+				
+				columnMenu.repaint();
+			}
+			
+		});
+		this.validateButton.setVisible(false);
+		
+		this.combo = new JComboBox(this.thisPane.getVecConceptList());
+		this.combo.setVisible(false);
+		
+		
+		this.columnMenu.add(this.addConceptButton, BorderLayout.SOUTH);
+		this.columnMenu.add(this.validateButton, BorderLayout.CENTER);
+		this.columnMenu.add(this.combo, BorderLayout.NORTH);
+		
+		this.argsJList=new JList(this.thisPane.getVecConceptList());
+		this.argsJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();
+		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+		this.argsJList.setCellRenderer(centerRenderer);
+		JScrollPane conceptScroll = new JScrollPane(argsJList);
+		conceptScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		this.scrollMain=conceptScroll;
+		
+		
+	}
+	
+	public void addConcept(PanelArgsColumnProject pane)
+	{
+		
+	}
+	
+	
+	public String toString() {
+		return this.conceptName;
+	}
+}

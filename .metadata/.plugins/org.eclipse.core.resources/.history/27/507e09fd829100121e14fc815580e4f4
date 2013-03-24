@@ -1,0 +1,92 @@
+package ihm.tools;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import ihm.MainFrame;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import linguistic.concepts_gestion.Concept;
+
+public class PanelArgsColumnProject extends JPanel{
+
+	MainFrame currentFrame;
+	JPanel thisPane;
+	
+	String conceptName;
+	
+	JPanel columnMenu = new JPanel(new BorderLayout());
+	JComboBox combo;
+	JButton validateButton = new JButton("Valider");
+	JButton addConceptButton = new JButton("Ajouter Argument");
+	
+	public PanelArgsColumnProject(MainFrame mf, JPanel currentPane, String name)
+	{
+		this.currentFrame = mf;
+		this.thisPane = currentPane;
+		this.conceptName = name;
+		
+		Dimension columnSize = new Dimension(350,this.thisPane.getHeight());
+		this.setPreferredSize(columnSize);
+		this.setBackground(Color.red);
+		JLabel test  = new JLabel(name);
+		this.add(test);
+		
+		this.addConceptButton.setPreferredSize(new Dimension(200,30));
+		this.addConceptButton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				addConceptButton.setVisible(false);
+				validateButton.setVisible(true);
+				combo.setVisible(true);
+				columnMenu.repaint();
+			}
+			
+		});
+		this.validateButton.setPreferredSize(new Dimension(200,30));
+		this.validateButton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				addConceptButton.setVisible(true);
+				validateButton.setVisible(false);
+				combo.setVisible(false);
+				Concept c = (Concept)combo.getSelectedItem();
+				//addConcept(c);
+				
+				
+				columnMenu.repaint();
+			}
+			
+		});
+		this.validateButton.setVisible(false);
+		
+		//this.combo = new JComboBox(this.vecConceptList);
+		//this.combo.setVisible(false);
+		
+		
+		this.columnMenu.add(this.addConceptButton, BorderLayout.SOUTH);
+		this.columnMenu.add(this.validateButton, BorderLayout.CENTER);
+		//this.columnMenu.add(this.combo, BorderLayout.NORTH);
+	}
+	
+	public void addConcept(PanelArgsColumnProject pane)
+	{
+		
+	}
+	
+	
+	public String toString() {
+		return this.conceptName;
+	}
+}

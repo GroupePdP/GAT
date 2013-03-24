@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="linguistic.Scenario"/>
+<fullyQualifiedTypeName name="ihm.tools.PanelColumnScenario"/>
+<fullyQualifiedTypeName name="javax.swing.BoxLayout"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="ihm.user.PanelMiller"/>
+<fullyQualifiedTypeName name="linguistic.types_gestion.LinguisticFactory"/>
+<fullyQualifiedTypeName name="linguistic.concepts_gestion.ConceptSimple"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="ihm.tools.PanelSubColumnScenario"/>
+<fullyQualifiedTypeName name="javax.swing.event.DocumentListener"/>
+<fullyQualifiedTypeName name="ihm.admin.PanelHomeAdmin"/>
+<fullyQualifiedTypeName name="java.awt.GridLayout"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.awt.FlowLayout"/>
+<fullyQualifiedTypeName name="ihm.admin.PanelNewProject"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="ihm.MainFrame"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+</qualifiedTypeNameHistroy>

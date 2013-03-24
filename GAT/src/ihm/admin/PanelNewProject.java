@@ -103,24 +103,7 @@ public class PanelNewProject extends JPanel{
 		columnsSubPanel.setLayout(new BoxLayout(columnsSubPanel,BoxLayout.X_AXIS));
 		
 		columnsSubPanel.add(new PanelConceptColumnProject(currentFrame,this));
-
-		/*
-		JScrollPane scrollPane = new JScrollPane(columnsPanel);
-		scrollPane.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener(){
-
-			@Override
-			public void adjustmentValueChanged(AdjustmentEvent e) {
-				
-				thisPane.repaint();
-				
-			}
-			
-		});
-		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		*/
 		
-		
-		//columnsPanel.setBackground(Color.red);
 		globalPanel.add(columnsSubPanel,BorderLayout.WEST);
 		this.thisPane.add(globalPanel, BorderLayout.CENTER);
 	}

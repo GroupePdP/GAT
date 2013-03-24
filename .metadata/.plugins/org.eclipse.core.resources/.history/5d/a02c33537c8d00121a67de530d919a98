@@ -1,0 +1,41 @@
+package ihm.user;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+public class PanelMiller extends JPanel{
+	
+	JPanel thisPane;
+	
+	public PanelMiller()
+	{
+		this.setLayout(new BorderLayout());
+		this.setBackground(Color.ORANGE);
+		
+		JPanel test = new JPanel();
+		
+		test.setBorder(BorderFactory.createEmptyBorder(20,20,60,20));
+		this.add(test, BorderLayout.CENTER);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.getHorizontalScrollBar().addAdjustmentListener(new AdjustmentListener(){
+
+			@Override
+			public void adjustmentValueChanged(AdjustmentEvent e) {
+				
+				thisPane.repaint();
+				
+			}
+			
+		});
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+	}
+	
+
+}
