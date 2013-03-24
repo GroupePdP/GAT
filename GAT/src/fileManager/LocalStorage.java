@@ -30,23 +30,8 @@ public class LocalStorage implements Storage {
 	@Override
 	public Object load(String name)
 	{
-		try {
-			FileReader fr = new FileReader(this.backupDirectory + "\\" + name + ".xml");
-			BufferedReader br = new BufferedReader(fr);
-			String line = br.readLine();
-			String xml = "";
-			while (line != null)
-			{
-				xml = xml + line;
-				line = br.readLine();
-			}
-			br.close();			
-			return this.xstream.fromXML(xml);
-		}
-		catch(IOException ex) {
-			ex.printStackTrace(); 
-			}
-		return null;
+			File f = new File (this.backupDirectory + "\\" + name + ".xml");
+			return this.xstream.fromXML(f);
 	}
 
 	//TODO faire plus propre sans extension de fichier
