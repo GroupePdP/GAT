@@ -7,6 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -175,6 +176,7 @@ public class DialogInitNewProject extends JDialog{
 		overGlobal.add(centerPane,BorderLayout.CENTER);
 		this.add(overGlobal);
 		this.pack();
-		this.setLocation(mf.getWidth()/2-this.getWidth()/2, mf.getHeight()/2-this.getHeight()/2);
+		Point loc = this.currentFrame.getLocationOnScreen();
+		this.setLocation(loc.x+mf.getWidth()/2-this.getWidth()/2, loc.y+mf.getHeight()/2-this.getHeight()/2);
 	}
 }

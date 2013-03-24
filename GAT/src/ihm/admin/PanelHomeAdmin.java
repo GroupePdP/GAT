@@ -39,7 +39,7 @@ public class PanelHomeAdmin extends JPanel{
 		JPanel modifyProjectPanel = new PanelCenteredButton("Modifier Projet", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				DialogInitNewProject dinp = new DialogInitNewProject(currentFrame, thisPane);
+				DialogChoseProject dinp = new DialogChoseProject(currentFrame, thisPane);
 				dinp.setVisible(true);
 			}
 		});	

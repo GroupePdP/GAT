@@ -1,14 +1,20 @@
 package ihm.admin;
 
 import ihm.MainFrame;
+import ihm.tools.PanelArgsColumnProject;
+import ihm.tools.PanelConceptColumnProject;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
+import java.util.Vector;
 
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -22,6 +28,12 @@ public class PanelNewProject extends JPanel{
 	PanelNewProject thisPane;
 	JPanel previous;
 	MainFrame currentFrame;
+	
+	Vector<PanelArgsColumnProject> vecConceptList = new Vector(/*conceptsList*/);
+	
+	JPanel conceptColumnPanel;
+
+	JPanel currentArgs = new JPanel();
 	
 	public PanelNewProject(MainFrame mf, JPanel prev)
 	{
@@ -39,7 +51,7 @@ public class PanelNewProject extends JPanel{
 		JMenuBar menuBar = new JMenuBar();
 		JMenu test1 = new JMenu("Fichier");
 		
-		JMenuItem item1 = new JMenuItem("Enregistrer Scénario en cours");
+		JMenuItem item1 = new JMenuItem("Enregistrer Projet en cours");
 		JMenuItem item2 = new JMenuItem("Enregistrer");
 		JMenuItem item3 = new JMenuItem("Quitter");
 		
@@ -83,12 +95,34 @@ public class PanelNewProject extends JPanel{
 	
 	private void setColumnsPanel()
 	{
-		JPanel columnsPanel = new JPanel(new BorderLayout());
-		columnsPanel.setBorder(BorderFactory.createEmptyBorder((currentFrame.getHeight())/30,20,(currentFrame.getHeight())/30,20));
-		JPanel test = new JPanel();
-		test.setBackground(Color.red);
-		columnsPanel.add(test,BorderLayout.CENTER);
-		this.thisPane.add(columnsPanel, BorderLayout.CENTER);
+		JPanel globalPanel = new JPanel(new BorderLayout());
+		globalPanel.setBorder(BorderFactory.createEmptyBorder((currentFrame.getHeight())/30,20,(currentFrame.getHeight())/30,20));
+		//JPanel columnsPanel = new JPanel(new BorderLayout());
+		JPanel columnsSubPanel = new JPanel();
+		this.conceptColumnPanel = columnsSubPanel;
+		columnsSubPanel.setLayout(new BoxLayout(columnsSubPanel,BoxLayout.X_AXIS));
+		
+		columnsSubPanel.add(new PanelConceptColumnProject(currentFrame,this));
+
+		/*
+		JScrollPane scrollPane = new JScrollPane(columnsPanel);
+		scrollPane.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener(){
+
+			@Override
+			public void adjustmentValueChanged(AdjustmentEvent e) {
+				
+				thisPane.repaint();
+				
+			}
+			
+		});
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		*/
+		
+		
+		//columnsPanel.setBackground(Color.red);
+		globalPanel.add(columnsSubPanel,BorderLayout.WEST);
+		this.thisPane.add(globalPanel, BorderLayout.CENTER);
 	}
 	
 	private void setDescrPanel()
@@ -110,5 +144,21 @@ public class PanelNewProject extends JPanel{
 		
 		this.thisPane.add(right, BorderLayout.EAST);
 	}
+	
+	public void setCurrentArgsPanel(PanelArgsColumnProject pacp){
+		this.currentArgs.setVisible(false);
+		this.currentArgs = pacp;
+		this.currentArgs.setVisible(true);
+	}	
+	
+	public JPanel getConceptColumnPanel() {
+		return conceptColumnPanel;
+	}
+	
+	public Vector<PanelArgsColumnProject> getVecConceptList() {
+		return vecConceptList;
+	}
+
+
 }
 

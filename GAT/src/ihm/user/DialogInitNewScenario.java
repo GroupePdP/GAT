@@ -6,6 +6,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -41,7 +42,8 @@ public class DialogInitNewScenario extends JDialog{
 		this.setResizable(false);
 		this.setModal(true);
 		this.setLocationRelativeTo(mf);
-		this.setLocation(mf.getWidth()/2-125, mf.getHeight()/2-75);
+		Point loc = this.currentFrame.getLocationOnScreen();
+		this.setLocation(loc.x+mf.getWidth()/2-125, loc.y+mf.getHeight()/2-75);
 		JPanel overGlobal = new JPanel(new BorderLayout());
 		
 		
