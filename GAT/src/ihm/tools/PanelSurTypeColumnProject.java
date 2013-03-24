@@ -1,17 +1,15 @@
 package ihm.tools;
 
+import ihm.MainFrame;
+import ihm.admin.PanelNewProject;
+
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
-import ihm.MainFrame;
-import ihm.admin.PanelNewProject;
-
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -22,54 +20,53 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
-public class PanelArgsColumnProject extends JPanel{
-
+public class PanelSurTypeColumnProject extends JPanel{
 	MainFrame currentFrame;
 	PanelNewProject thisPane;
 	
-	String conceptName;
-	Vector<PanelArgsColumnProject> vecArgsList = new Vector();
+	String typeName;
+	Vector<PanelSurTypeColumnProject> vecSurTypeList = new Vector();
 	
 	JPanel columnMenu = new JPanel(new BorderLayout());
 	JComboBox combo;
-	JButton addConceptButton = new JButton("Ajouter Argument");
+	JButton addTypeButton = new JButton("Ajouter Sur-type");
 	JButton validateButton = new JButton("Valider");
 	JButton retButton = new JButton("Annuler");
 	
 	JPanel valRet = new JPanel(new FlowLayout());
 	
-	JList argsJList;
+	JList surTypeJList;
 	JScrollPane scrollMain;
 	
 	
 	
-	public PanelArgsColumnProject(MainFrame mf, PanelNewProject currentPane, String name)
+	public PanelSurTypeColumnProject(MainFrame mf, PanelNewProject currentPane, String name)
 	{
 		this.currentFrame = mf;
 		this.thisPane = currentPane;
-		this.conceptName = name;
+		this.typeName = name;
 		
-		Dimension columnSize = new Dimension(350,this.thisPane.getConceptColumnPanel().getHeight());
+		Dimension columnSize = new Dimension(350,this.thisPane.getTypeColumnPanel().getHeight());
 		this.setPreferredSize(columnSize);
 		this.setLayout(new BorderLayout());
 		
 		//final DefaultComboBoxModel model = new DefaultComboBoxModel(this.thisPane.getVecConceptList());
 		
-		this.combo = new JComboBox(thisPane.getVecConceptList());
+		this.combo = new JComboBox(thisPane.getVecTypeList());
 		this.combo.setSelectedItem(null);
 		this.combo.setVisible(false);
 		
-		this.addConceptButton.setPreferredSize(new Dimension(200,30));
-		this.addConceptButton.addActionListener(new ActionListener(){
+		this.addTypeButton.setPreferredSize(new Dimension(200,30));
+		this.addTypeButton.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				combo = new JComboBox(thisPane.getVecConceptList());
+				combo = new JComboBox(thisPane.getVecTypeList());
 				combo.setSelectedItem(null);
 				columnMenu.add(combo, BorderLayout.NORTH);
 				thisPane.revalidate();
-				addConceptButton.setVisible(false);
+				addTypeButton.setVisible(false);
 				valRet.setVisible(true);
 				combo.setVisible(true);
 				columnMenu.repaint();
@@ -82,11 +79,11 @@ public class PanelArgsColumnProject extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				addConceptButton.setVisible(true);
+				addTypeButton.setVisible(true);
 				valRet.setVisible(false);
 				combo.setVisible(false);
-				PanelArgsColumnProject c = (PanelArgsColumnProject)combo.getSelectedItem();
-				addConcept(c);
+				PanelSurTypeColumnProject c = (PanelSurTypeColumnProject)combo.getSelectedItem();
+				addSurType(c);
 				
 				
 				columnMenu.repaint();
@@ -100,7 +97,7 @@ public class PanelArgsColumnProject extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				thisPane.remove(combo);
-				addConceptButton.setVisible(true);
+				addTypeButton.setVisible(true);
 				valRet.setVisible(false);
 				combo.setVisible(false);
 				columnMenu.repaint();
@@ -112,34 +109,34 @@ public class PanelArgsColumnProject extends JPanel{
 		this.valRet.add(validateButton);
 		this.valRet.setVisible(false);
 		
-		this.columnMenu.add(this.addConceptButton, BorderLayout.SOUTH);
+		this.columnMenu.add(this.addTypeButton, BorderLayout.SOUTH);
 		this.columnMenu.add(this.valRet, BorderLayout.CENTER);
 		this.columnMenu.add(this.combo, BorderLayout.NORTH);
 		
-		this.argsJList=new JList(this.vecArgsList);
-		this.argsJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.surTypeJList=new JList(this.vecSurTypeList);
+		this.surTypeJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
-		this.argsJList.setCellRenderer(centerRenderer);
-		JScrollPane conceptScroll = new JScrollPane(argsJList);
-		conceptScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		this.scrollMain=conceptScroll;
+		this.surTypeJList.setCellRenderer(centerRenderer);
+		JScrollPane surTypeScroll = new JScrollPane(surTypeJList);
+		surTypeScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		this.scrollMain=surTypeScroll;
 		
 		this.add(this.scrollMain, BorderLayout.CENTER);
 		this.add(this.columnMenu, BorderLayout.SOUTH);
 	}
 	
-	public void addConcept(PanelArgsColumnProject pane)
+	public void addSurType(PanelSurTypeColumnProject pane)
 	{
-		this.vecArgsList.add(pane);
-		this.argsJList.setModel(new DefaultListModel());
-		this.argsJList.setListData(this.vecArgsList);
+		this.vecSurTypeList.add(pane);
+		this.surTypeJList.setModel(new DefaultListModel());
+		this.surTypeJList.setListData(this.vecSurTypeList);
 		this.thisPane.repaint();
 	}
 	
 	
 	public String toString() {
-		return this.conceptName;
+		return this.typeName;
 	}
 }

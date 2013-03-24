@@ -15,9 +15,10 @@ public class MainFrame extends JFrame{
 		Dimension frameSize = new Dimension(1280,720);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(frameSize);
-		this.setResizable(true);
+		this.setResizable(false);
 		this.setPane(home);
-		
+		Dimension loc = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation((int)loc.getWidth()/2-this.getWidth()/2, (int)loc.getHeight()/2-this.getHeight()/2);
 		this.setVisible(true);
 	}
 	

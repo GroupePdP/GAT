@@ -3,6 +3,8 @@ package ihm.admin;
 import ihm.MainFrame;
 import ihm.tools.PanelArgsColumnProject;
 import ihm.tools.PanelConceptColumnProject;
+import ihm.tools.PanelSurTypeColumnProject;
+import ihm.tools.PanelTypeColumnProject;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
+import java.awt.event.KeyEvent;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -21,6 +24,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
 public class PanelNewProject extends JPanel{
@@ -30,10 +34,13 @@ public class PanelNewProject extends JPanel{
 	MainFrame currentFrame;
 	
 	Vector<PanelArgsColumnProject> vecConceptList = new Vector(/*conceptsList*/);
+	Vector<PanelSurTypeColumnProject> vecTypeList = new Vector(/*conceptsList*/);
 	
 	JPanel conceptColumnPanel;
+	JPanel typeColumnPanel;
 
 	JPanel currentArgs = new JPanel();
+	JPanel currentSurType = new JPanel();
 	
 	public PanelNewProject(MainFrame mf, JPanel prev)
 	{
@@ -95,17 +102,40 @@ public class PanelNewProject extends JPanel{
 	
 	private void setColumnsPanel()
 	{
-		JPanel globalPanel = new JPanel(new BorderLayout());
-		globalPanel.setBorder(BorderFactory.createEmptyBorder((currentFrame.getHeight())/30,20,(currentFrame.getHeight())/30,20));
-		//JPanel columnsPanel = new JPanel(new BorderLayout());
+		JTabbedPane test = new JTabbedPane();
+		test.setMaximumSize(new Dimension(700, this.thisPane.getHeight()));
+		test.setBorder(BorderFactory.createEmptyBorder((currentFrame.getHeight())/30,20,(currentFrame.getHeight())/30,20));
+		
+		
+		JPanel conceptPanel = new JPanel(new BorderLayout());
+		
 		JPanel columnsSubPanel = new JPanel();
-		this.conceptColumnPanel = columnsSubPanel;
 		columnsSubPanel.setLayout(new BoxLayout(columnsSubPanel,BoxLayout.X_AXIS));
-		
 		columnsSubPanel.add(new PanelConceptColumnProject(currentFrame,this));
+		this.conceptColumnPanel = columnsSubPanel;
 		
-		globalPanel.add(columnsSubPanel,BorderLayout.WEST);
-		this.thisPane.add(globalPanel, BorderLayout.CENTER);
+		conceptPanel.add(this.conceptColumnPanel,BorderLayout.WEST);
+		
+		JPanel typePanel = new JPanel(new BorderLayout());
+		
+		JPanel typeSubPanel = new JPanel();
+		typeSubPanel.setLayout(new BoxLayout(typeSubPanel,BoxLayout.X_AXIS));
+		typeSubPanel.add(new PanelTypeColumnProject(currentFrame,this));
+		this.typeColumnPanel = typeSubPanel;
+		
+		typePanel.add(this.typeColumnPanel,BorderLayout.WEST);
+		
+		
+		
+		
+		
+		test.addTab("Concepts",conceptPanel);
+		test.setMnemonicAt(0, KeyEvent.VK_1);
+		
+		test.addTab("Types",typePanel);
+		test.setMnemonicAt(1, KeyEvent.VK_2);
+
+		this.thisPane.add(test, BorderLayout.WEST);
 	}
 	
 	private void setDescrPanel()
@@ -138,10 +168,22 @@ public class PanelNewProject extends JPanel{
 		return conceptColumnPanel;
 	}
 	
+	public JPanel getTypeColumnPanel() {
+		return typeColumnPanel;
+	}
+	
 	public Vector<PanelArgsColumnProject> getVecConceptList() {
 		return vecConceptList;
 	}
 
+	public Vector<PanelSurTypeColumnProject> getVecTypeList() {
+		return vecTypeList;
+	}
 
+	public void setCurrentSurTypePanel(PanelSurTypeColumnProject pacp){
+		this.currentSurType.setVisible(false);
+		this.currentSurType = pacp;
+		this.currentSurType.setVisible(true);
+	}
 }
 
