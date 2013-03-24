@@ -34,7 +34,7 @@ public class DialogInitNewScenario extends JDialog{
 	
 	JLabel error = new JLabel("Nom de sc�nario incorrect");
 	
-	public DialogInitNewScenario(MainFrame mf, final JPanel prev)
+	public DialogInitNewScenario(MainFrame mf, final PanelHomeUser prev)
 	{
 		this.currentFrame = mf;
 		this.setTitle("Cr�ation d'un nouveau sc�nario");

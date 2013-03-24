@@ -12,7 +12,7 @@ public class Main {
 		System.out.println(PasswordManager.encrypt("testpassword123lolilol"));
 		System.out.println(PasswordManager.decrypt((PasswordManager.encrypt("testpassword123lolilol"))));
 
-		MainFrame mf = new MainFrame();
+		MainFrame mf = new MainFrame(core);
 
 	}
 }

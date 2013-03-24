@@ -70,11 +70,15 @@ public class Project {
 	
 	/** Autres méthodes **/ 
 	
-	public String toString(){
+	public String toStringDescr(){
 		String s = "Projet " + this.name + "\n" + "Scenarios:";
 		for (Scenario i: listScenario)
 			s = s + i.toString() + "\n";
 		return s;
+	}
+	
+	public String toString(){
+		return this.name;
 	}
 	
 	public void ajouterScenario (Scenario scenario){

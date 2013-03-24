@@ -3,6 +3,7 @@ package ihm;
 import ihm.admin.PanelHomeAdmin;
 import ihm.tools.PanelBasicMenu;
 import ihm.tools.PanelCenteredButton;
+import ihm.user.DialogChoseProject;
 import ihm.user.PanelHomeUser;
 
 import java.awt.BorderLayout;
@@ -31,9 +32,8 @@ public class PanelHome extends JPanel {
 		JPanel usrPanel = new PanelCenteredButton("Utilisateur", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				PanelHomeUser phu = new PanelHomeUser(currentFrame, thisPane);
-				currentFrame.setPane(phu);
-				
+				DialogChoseProject tmp = new DialogChoseProject(currentFrame, thisPane);
+				tmp.setVisible(true);
 			}
 		});
 		JPanel adminPanel = new PanelCenteredButton("Administrateur", new ActionListener(){

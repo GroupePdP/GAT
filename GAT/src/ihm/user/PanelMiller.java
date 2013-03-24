@@ -21,16 +21,17 @@ public class PanelMiller extends JPanel{
 	
 	JPanel thisPane;
 	JPanel colPane;
-	
+	PanelHomeUser currentHome;
 	Scenario scenario;
 	LinguisticFactory lf;
 	
 	private Dimension columnSize;
 	
-	public PanelMiller(Scenario s/*, LinguisticFactory lf*/)
+	public PanelMiller(Scenario s, PanelHomeUser p)
 	{
 		this.setLayout(new BorderLayout());
 		this.thisPane = this;
+		this.currentHome = p;
 		this.scenario = s;
 		//this.lf = lf;
 		this.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
@@ -63,7 +64,7 @@ public class PanelMiller extends JPanel{
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		this.columnSize = new Dimension(200, panelContent.getHeight());
 		panelContent.add(leftPane,BorderLayout.CENTER);
-		panelContent.add(new PanelColumnScenario(this.columnSize, this, this.scenario), BorderLayout.WEST);
+		panelContent.add(new PanelColumnScenario(this.columnSize, this, this.scenario, this.currentHome), BorderLayout.WEST);
 		this.add(scrollPane, BorderLayout.CENTER);
 	}
 	

@@ -1,14 +1,19 @@
 package ihm;
 
 import javax.swing.*;
+
+import core.Core;
+
 import java.awt.*;
 
 
 public class MainFrame extends JFrame{
 
 	JPanel currentPane = null;
+	private Core mainCore;
 	
-	public MainFrame()
+	
+	public MainFrame(Core core)
 	{
 		PanelHome home = new PanelHome(this);
 		this.getContentPane().setLayout(new BorderLayout());
@@ -16,6 +21,7 @@ public class MainFrame extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(frameSize);
 		this.setResizable(false);
+		this.mainCore = core;
 		this.setPane(home);
 		Dimension loc = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation((int)loc.getWidth()/2-this.getWidth()/2, (int)loc.getHeight()/2-this.getHeight()/2);
@@ -34,4 +40,9 @@ public class MainFrame extends JFrame{
 		this.getContentPane().add(newPane, BorderLayout.CENTER);
 		newPane.setVisible(true);
 	}
+
+	public Core getCore() {
+		return mainCore;
+	}
+	
 }

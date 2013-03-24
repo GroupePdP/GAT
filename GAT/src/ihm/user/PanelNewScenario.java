@@ -38,7 +38,7 @@ public class PanelNewScenario extends JPanel{
 
 	MainFrame currentFrame;
 	JPanel thisPane=this;
-	JPanel previous;
+	PanelHomeUser previous;
 	JPanel colcont;
 	
 	Scenario scenario;
@@ -54,7 +54,7 @@ public class PanelNewScenario extends JPanel{
 	private JMenuItem item2 = new JMenuItem("Enregistrer");
 	private JMenuItem item3 = new JMenuItem("Quitter");
 	
-	public PanelNewScenario(MainFrame mf,Scenario s, JPanel prev)
+	public PanelNewScenario(MainFrame mf,Scenario s, PanelHomeUser prev)
 	{
 		this.currentFrame = mf;
 		this.previous = prev;
@@ -67,7 +67,7 @@ public class PanelNewScenario extends JPanel{
 		
 		setMenuBar();
 		setDescrPane();
-		this.add(new PanelMiller(this.scenario/*, lf*/), BorderLayout.CENTER);
+		this.add(new PanelMiller(this.scenario, this.previous), BorderLayout.CENTER);
 		
 	}
 	

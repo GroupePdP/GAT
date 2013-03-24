@@ -1,5 +1,6 @@
 package ihm.tools;
 
+import ihm.user.PanelHomeUser;
 import ihm.user.PanelMiller;
 
 import java.awt.BorderLayout;
@@ -42,6 +43,7 @@ public class PanelColumnScenario extends JPanel{
 	PanelMiller currentPanel;
 	Dimension thisColumnSize;
 	Scenario scenario;
+	PanelHomeUser currentHome;
 	
 	List<Concept> conceptsList = new ArrayList<Concept>();
 	Vector vecConceptList = new Vector(conceptsList);
@@ -58,45 +60,15 @@ public class PanelColumnScenario extends JPanel{
 	
 	ArrayList<PanelSubColumnScenario> list = new ArrayList<PanelSubColumnScenario>();
 
-	public PanelColumnScenario(Dimension columnSize, PanelMiller curr, Scenario s)
+	public PanelColumnScenario(Dimension columnSize, PanelMiller curr, Scenario s, PanelHomeUser p)
 	{
 		this.thisPane = this;
 		this.currentPanel=curr;
 		this.thisColumnSize= columnSize;
-		
+		this.currentHome = p;
 		this.scenario = s;
 		
-		final LinguisticFactory lf = LinguisticFactory.getInstance();
-		Type t1 = lf.getTypeManager().makeType("personne");
-		Type t2 = lf.getTypeManager().makeType("joueur", t1);
-		Type t3 = lf.getTypeManager().makeType("gain_de_match");
-		Type t4 = lf.getTypeManager().makeType("match");
-		Type t5 = lf.getTypeManager().makeType("relation_event");
-		Type t6 = lf.getTypeManager().makeType("etre_vainqueur");
-		Type t7 = lf.getTypeManager().makeType("competition");
-		Type t8 = lf.getTypeManager().makeType("_test_");
-		
-		Concept c1 = lf.makeConcept("Joueur1",t2);
-		Concept c8 = lf.makeConcept("Joueur2",t2);
-		Concept c2 = lf.makeConcept("Match 2",t4);
-		Concept c6 = lf.makeConcept("Competition 1",t7);
-		
-		List<Type> l = new ArrayList<Type>();
-		l.add(t2); l.add(t4);
-		Concept c3 = lf.makeConcept("gagner",t3,l); // concept (gagner(joueur, match))
-		
-		List<Type> l2 = new ArrayList<Type>();
-		l2.add(t2); l2.add(t7);
-		Concept c4 = lf.makeConcept("etre_vainqueur",t6,l2); // concept (etre_vainqueur(joueur, competition))
-		
-		List<Type> l3 = new ArrayList<Type>();
-		l3.add(t3); l3.add(t6);
-		Concept c5 = lf.makeConcept("cause",t5,l3); // concept (cause(gagner, etre_vainqueur))
-		
-		List<Type> l4 = new ArrayList<Type>();
-		l4.add(t5); l4.add(t1);
-		Concept c7 = lf.makeConcept("test",t8,l4); // concept (cause(gagner, etre_vainqueur))
-		
+		/*
 		vecConceptList.add(c1);
 		vecConceptList.add(c2);
 		vecConceptList.add(c3);
@@ -105,6 +77,7 @@ public class PanelColumnScenario extends JPanel{
 		vecConceptList.add(c6);
 		vecConceptList.add(c7);
 		vecConceptList.add(c8);
+		*/
 		
 		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
