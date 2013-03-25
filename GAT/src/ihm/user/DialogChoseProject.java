@@ -102,6 +102,7 @@ public class DialogChoseProject extends JDialog{
 				
 				Project p = (Project) currentFrame.getCore().getLocalStorage().load((String) combo.getSelectedItem());
 				currentFrame.getCore().setProject(p);
+				currentFrame.getCore().getProject().setName(p.getName());
 				PanelHomeUser phu = new PanelHomeUser(currentFrame, previous, p);
 				currentFrame.setPane(phu);
 				thisDiag.dispose();

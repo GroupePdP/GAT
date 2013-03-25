@@ -32,7 +32,7 @@ public class LocalStorage implements Storage {
 	@Override	
 	public Object load(String name)
 	{
-			File f = new File (this.backupDirectory + "/" + name + ".xml");
+			File f = new File (this.backupDirectory + File.separator + name + ".xml");
 			return this.xstream.fromXML(f);
 	}
 
@@ -59,7 +59,7 @@ public class LocalStorage implements Storage {
 	public boolean backup(String name, Object obj)
 	{
 		try {
-			FileWriter fw = new FileWriter(this.backupDirectory + "/" + name + ".xml");
+			FileWriter fw = new FileWriter(this.backupDirectory + File.separator + name + ".xml");
 			fw.write(this.xstream.toXML(obj));
 			fw.close();
 		}

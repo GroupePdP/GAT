@@ -31,7 +31,11 @@ public class Core {
 	
 	public void setProject(Project p){
 		this.project = p;
-		
+	}
+	
+	public void newProject(String name){
+		this.project = new Project();
+		this.project.setName(name);
 	}
 	
 	public String[] getLocalStorageProjectList(){

@@ -21,6 +21,9 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import core.InfoDb;
+import core.Project;
+
 import linguistic.Scenario;
 
 public class DialogInitNewProject extends JDialog{
@@ -146,10 +149,14 @@ public class DialogInitNewProject extends JDialog{
 			public void actionPerformed(ActionEvent e) {
 				
 				String projectName = newProjectTextArea.getText();
+				String id = idTextArea.getText();
+				String pwd = pwTextArea.getText();
+				String dataBase = dataBaseTextArea.getText();
 				
 				
 				if(projectName.length() != 0)
 				{
+					currentFrame.getCore().setProject(new Project(new InfoDb(dataBase, "mySQL", id, pwd), projectName));
 					PanelNewProject pnp = new PanelNewProject(currentFrame, prev);
 					currentFrame.setPane(pnp);
 					thisDiag.dispose();
