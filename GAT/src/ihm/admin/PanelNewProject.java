@@ -27,6 +27,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
+import linguistic.conceptsGestion.Concept;
+
 public class PanelNewProject extends JPanel{
 
 	PanelNewProject thisPane;
