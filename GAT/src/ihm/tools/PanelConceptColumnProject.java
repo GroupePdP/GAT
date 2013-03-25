@@ -41,7 +41,10 @@ public class PanelConceptColumnProject extends JPanel{
 	JButton validateButton = new JButton("Valider");
 	JButton addConceptButton = new JButton("Ajouter Concept");
 	JTextField conceptName = new JTextField(16);
+	
 	JComboBox conceptTypeCombo;
+	
+	
 	JScrollPane scrollMain;
 	JPanel menuPanel = new JPanel();
 	JPanel columnMenu = new JPanel(new BorderLayout());
@@ -58,7 +61,7 @@ public class PanelConceptColumnProject extends JPanel{
 		Dimension columnSize = new Dimension(350,this.thisPane.getHeight());
 		this.setPreferredSize(columnSize);
 		
-		this.conceptsJList=new JList(vecConceptList);
+		this.conceptsJList=new JList(this.thisPane.getVecConceptList());
 		this.conceptsJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.conceptsJList.addListSelectionListener(new ListSelectionListener(){
 
@@ -68,7 +71,7 @@ public class PanelConceptColumnProject extends JPanel{
 				// TODO Auto-generated method stub
 				if(arg0.getValueIsAdjusting())
 			      {
-					thisPane.setCurrentArgsPanel(vecConceptList.get(conceptsJList.getSelectedIndex()));
+					thisPane.setCurrentArgsPanel(thisPane.getVecConceptList().get(conceptsJList.getSelectedIndex()));
 			      }
 			}
 		});
@@ -97,9 +100,9 @@ public class PanelConceptColumnProject extends JPanel{
 				addConceptButton.setVisible(true);
 				validateButton.setVisible(false);
 				menuPanel.setVisible(false);
+				PanelSurTypeColumnProject tmpCC = (PanelSurTypeColumnProject)conceptTypeCombo.getSelectedItem();
 				PanelArgsColumnProject tmp = new PanelArgsColumnProject(currentFrame, thisPane,conceptName.getText());
-				System.out.println(((PanelSurTypeColumnProject)conceptTypeCombo.getSelectedItem()).toString());
-				tmp.conceptType = (PanelSurTypeColumnProject)conceptTypeCombo.getSelectedItem();
+				tmp.conceptType = tmpCC;
 				addConcept(tmp);
 				columnMenu.repaint();
 			}
@@ -115,8 +118,8 @@ public class PanelConceptColumnProject extends JPanel{
 		this.menuPanel.add(conceptName);
 		this.menuPanel.add(typeLabel);
 		
-		conceptTypeCombo= new JComboBox(thisPane.getVecTypeList());
-		conceptTypeCombo.setPreferredSize(new Dimension(menuPanel.getWidth(), 20));
+		this.conceptTypeCombo= new JComboBox(this.thisPane.getVecTypeList());
+		this.conceptTypeCombo.setPreferredSize(new Dimension(menuPanel.getWidth(), 20));
 		
 		
 		this.menuPanel.add(conceptTypeCombo);
@@ -143,12 +146,11 @@ public class PanelConceptColumnProject extends JPanel{
 	
 	private void addConcept(PanelArgsColumnProject concept)
 	{
-		this.vecConceptList.add(concept);
+		this.thisPane.getVecConceptList().add(concept);
 		concept.setVisible(false);
 		this.thisPane.getConceptColumnPanel().add(concept);
 		this.conceptsJList.setModel(new DefaultListModel());
-		this.conceptsJList.setListData(this.vecConceptList);
+		this.conceptsJList.setListData(this.thisPane.getVecConceptList());
 		this.thisPane.repaint();
-		//this.scrollMain.repaint();
 	}
 }

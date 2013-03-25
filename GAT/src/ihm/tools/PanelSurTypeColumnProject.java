@@ -54,7 +54,7 @@ public class PanelSurTypeColumnProject extends JPanel{
 		
 		//final DefaultComboBoxModel model = new DefaultComboBoxModel(this.thisPane.getVecConceptList());
 		
-		this.combo = new JComboBox(thisPane.getVecTypeList());
+		this.combo = new JComboBox(this.thisPane.getVecTypeList());
 		this.combo.setSelectedItem(null);
 		this.combo.setVisible(false);
 		
