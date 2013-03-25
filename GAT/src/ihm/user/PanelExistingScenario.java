@@ -2,6 +2,7 @@ package ihm.user;
 
 import ihm.MainFrame;
 import ihm.PanelHome;
+import ihm.tools.PanelArgsColumnProject;
 import ihm.tools.PanelCenteredButton;
 
 import java.awt.BorderLayout;
@@ -14,6 +15,7 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -24,6 +26,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+
+import linguistic.Scenario;
 
 public class PanelExistingScenario extends JPanel{
 	
@@ -89,7 +93,7 @@ public class PanelExistingScenario extends JPanel{
 		
 		JPanel centerSubLeftP = new JPanel(new BorderLayout());
 		JTextArea descrTArea = new JTextArea();
-		descrTArea.setText("Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens, odorandi vias periculorum occultas perquam sagax. is in Brittanniam missus ut militares quosdam perduceret ausos conspirasse Magnentio, cum reniti non possent, iussa licentius supergressus fluminis modo fortunis conplurium sese repentinus infudit et ferebatur per strages multiplices ac ruinas, vinculis membra ingenuorum adfligens et quosdam obterens manicis, crimina scilicet multa consarcinando a veritate longe discreta. unde admissum est facinus impium, quod Constanti tempus nota inusserat sempiterna.");
+		descrTArea.setText("Description");
 		descrTArea.setLineWrap(true);
 		descrTArea.setEditable(false);
 		JScrollPane descrScroll = new JScrollPane(descrTArea);
@@ -117,7 +121,10 @@ public class PanelExistingScenario extends JPanel{
 		
 		JPanel centerSubRightP = new JPanel(new BorderLayout());
 		// Création de la liste à faire.
-		JList scenarioList = new JList(); 
+		
+		Vector<Scenario> vecScenarioList = new Vector<Scenario>(this.currentFrame.getCore().getProject().getListScenario());
+		
+		JList scenarioList = new JList(vecScenarioList); 
 		JScrollPane scrollPane = new JScrollPane(scenarioList);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setSize(centerSubRightP.getWidth(),centerSubRightP.getHeight());
