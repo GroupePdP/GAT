@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -28,6 +31,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
 import linguistic.conceptsGestion.Concept;
+import linguistic.typesGestion.Type;
+import linguistic.typesGestion.TypeImpl;
 
 public class PanelNewProject extends JPanel{
 
@@ -65,15 +70,44 @@ public class PanelNewProject extends JPanel{
 		JMenuItem item3 = new JMenuItem("Quitter");
 		
 		item1.addActionListener(new ActionListener(){
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				for (PanelSurTypeColumnProject type : vecTypeList)
-					currentFrame.getCore().getProject().getLinguisticFactory().makeType(type.toString());
-				for (PanelArgsColumnProject concept : vecConceptList)
-					currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(concept.conceptName, currentFrame.getCore().getProject().getLinguisticFactory().makeType("blergu"), concept.typeList);
+				for (PanelSurTypeColumnProject type : vecTypeList){
+					Iterator it = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getMap().keySet().iterator();
+					boolean tem = false;
+					for(;it.hasNext();)
+					{
+						Type tmpType = (Type)it.next();
+						if(tmpType.getName().equals(type.toString()))
+						{ tem = true; break;}
+					}
+					
+					if (tem == false)
+						currentFrame.getCore().getProject().getLinguisticFactory().makeType(type.toString());
+				}
+				
+				for (PanelArgsColumnProject concept : vecConceptList){
+					Type t = null;
+					Iterator it = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getMap().keySet().iterator();
+					boolean tem = false;
+					for(;it.hasNext();)
+					{
+						Type tmpType = (Type)it.next();
+						if(tmpType.getName().equals(concept.conceptType.toString()))
+						{t = tmpType;
+						List<Concept> list = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getConceptsForType(t);
+						for (Concept c : list){
+							System.out.println(c.getName() + concept.conceptName);
+							if(c.getName().equals(concept.conceptName)){
+								tem = true;}
+							}
+						break;}
+					}
+					if(tem == false)
+						currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(concept.conceptName, t, concept.typeList);
 				currentFrame.getCore().backupProject(currentFrame.getCore().getProject().getName());
 				
+			}
 			}
 			
 		});

@@ -31,8 +31,10 @@ public class PanelArgsColumnProject extends JPanel{
 	
 	public String conceptName;
 	public List<Type> typeList;
-	public Type conceptType;
-	Vector<PanelArgsColumnProject> vecArgsList = new Vector();
+	
+	public PanelSurTypeColumnProject conceptType;
+	
+	Vector<PanelSurTypeColumnProject> vecArgsList = new Vector();
 	
 	JPanel columnMenu = new JPanel(new BorderLayout());
 	JComboBox combo;
@@ -59,7 +61,7 @@ public class PanelArgsColumnProject extends JPanel{
 		
 		//final DefaultComboBoxModel model = new DefaultComboBoxModel(this.thisPane.getVecConceptList());
 		
-		this.combo = new JComboBox(thisPane.getVecConceptList());
+		this.combo = new JComboBox(thisPane.getVecTypeList());
 		this.combo.setSelectedItem(null);
 		this.combo.setVisible(false);
 		
@@ -69,7 +71,7 @@ public class PanelArgsColumnProject extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				combo = new JComboBox(thisPane.getVecConceptList());
+				combo = new JComboBox(thisPane.getVecTypeList());
 				combo.setSelectedItem(null);
 				columnMenu.add(combo, BorderLayout.NORTH);
 				thisPane.revalidate();
@@ -89,7 +91,7 @@ public class PanelArgsColumnProject extends JPanel{
 				addConceptButton.setVisible(true);
 				valRet.setVisible(false);
 				combo.setVisible(false);
-				PanelArgsColumnProject c = (PanelArgsColumnProject)combo.getSelectedItem();
+				PanelSurTypeColumnProject c = (PanelSurTypeColumnProject)combo.getSelectedItem();
 				addConcept(c);
 				
 				
@@ -134,7 +136,7 @@ public class PanelArgsColumnProject extends JPanel{
 		this.add(this.columnMenu, BorderLayout.SOUTH);
 	}
 	
-	public void addConcept(PanelArgsColumnProject pane)
+	public void addConcept(PanelSurTypeColumnProject pane)
 	{
 		this.vecArgsList.add(pane);
 		this.argsJList.setModel(new DefaultListModel());
@@ -144,6 +146,7 @@ public class PanelArgsColumnProject extends JPanel{
 	
 	
 	public String toString() {
-		return this.conceptName;
+		return this.conceptName+"("+this.conceptType.toString()+")";
 	}
+	
 }

@@ -14,9 +14,11 @@ import java.util.List;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -39,7 +41,9 @@ public class PanelConceptColumnProject extends JPanel{
 	JButton validateButton = new JButton("Valider");
 	JButton addConceptButton = new JButton("Ajouter Concept");
 	JTextField conceptName = new JTextField(16);
+	JComboBox conceptTypeCombo;
 	JScrollPane scrollMain;
+	JPanel menuPanel = new JPanel();
 	JPanel columnMenu = new JPanel(new BorderLayout());
 	
 	public PanelConceptColumnProject(MainFrame mf, PanelNewProject pane)
@@ -76,8 +80,10 @@ public class PanelConceptColumnProject extends JPanel{
 				// TODO Auto-generated method stub
 				addConceptButton.setVisible(false);
 				validateButton.setVisible(true);
+				
+				conceptTypeCombo= new JComboBox(thisPane.getVecTypeList());
 				conceptName.setText("");
-				conceptName.setVisible(true);
+				menuPanel.setVisible(true);
 				columnMenu.repaint();
 			}
 			
@@ -90,18 +96,36 @@ public class PanelConceptColumnProject extends JPanel{
 				// TODO Auto-generated method stub
 				addConceptButton.setVisible(true);
 				validateButton.setVisible(false);
-				conceptName.setVisible(false);
+				menuPanel.setVisible(false);
 				PanelArgsColumnProject tmp = new PanelArgsColumnProject(currentFrame, thisPane,conceptName.getText());
+				System.out.println(((PanelSurTypeColumnProject)conceptTypeCombo.getSelectedItem()).toString());
+				tmp.conceptType = (PanelSurTypeColumnProject)conceptTypeCombo.getSelectedItem();
 				addConcept(tmp);
 				columnMenu.repaint();
 			}
 			
 		});
-		this.conceptName.setVisible(false);
+		
+		
+		this.menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
+		JLabel typeLabel = new JLabel("Type: ");
+		JLabel conceptLabel = new JLabel("Concept: ");
+		
+		this.menuPanel.add(conceptLabel);
+		this.menuPanel.add(conceptName);
+		this.menuPanel.add(typeLabel);
+		
+		conceptTypeCombo= new JComboBox(thisPane.getVecTypeList());
+		conceptTypeCombo.setPreferredSize(new Dimension(menuPanel.getWidth(), 20));
+		
+		
+		this.menuPanel.add(conceptTypeCombo);
+		
+		this.menuPanel.setVisible(false);
 		
 		this.columnMenu.add(this.addConceptButton, BorderLayout.SOUTH);
 		this.columnMenu.add(this.validateButton, BorderLayout.CENTER);
-		this.columnMenu.add(this.conceptName, BorderLayout.NORTH);
+		this.columnMenu.add(this.menuPanel, BorderLayout.NORTH);
 		
 		
 		//conceptsJList.setFixedCellWidth((int)columnSize.getWidth());
