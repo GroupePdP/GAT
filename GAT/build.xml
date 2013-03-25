@@ -23,7 +23,8 @@ Projet Générateur Automatique de Texte
     	excludes="**/*est.java"
 	destdir="${bin.dir}" 
     classpath=".:${bin.dir}:${lib.dir}/mysql-connector-java-5.1.24-bin.jar;.:${bin.dir}:${lib.dir}/xstream-1.4.4.jar" 
-	debug="on" />
+	debug="on"
+    source="1.7"/>
     
   </target>
 	
@@ -43,7 +44,12 @@ Projet Générateur Automatique de Texte
        ================================= -->
   <target name="archive" depends="compil" description="cree une archive jar">
   	<mkdir dir="dist"/>
-  	<jar destfile="dist/app.jar" basedir="${bin.dir}"/>
+  	<manifest file="./MANIFEST.MF">
+  	  <attribute name="Main-Class"
+  	             value="core.Main" />
+  	</manifest>
+  	<jar destfile="dist/app.jar" basedir="${bin.dir}"
+  		manifest= "./MANIFEST.MF"/>
 
   </target>
 	
@@ -66,7 +72,7 @@ Projet Générateur Automatique de Texte
        target: clean              
        ================================= -->
   <target name="clean">
-			<delete file="dist/app.jar" />
+			<delete dir="dist" />
 		    <delete dir="${bin.dir}" />
   </target>
 
