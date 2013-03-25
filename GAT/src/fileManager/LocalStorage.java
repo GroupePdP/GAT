@@ -1,8 +1,6 @@
 package fileManager;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.FilenameFilter;
@@ -27,16 +25,19 @@ public class LocalStorage implements Storage {
 	}
 	
 	
-	@Override
+	public String getLocation(){
+		return this.backupDirectory;
+	}
+	
+	@Override	
 	public Object load(String name)
 	{
 			File f = new File (this.backupDirectory + "\\" + name + ".xml");
 			return this.xstream.fromXML(f);
 	}
 
-	//TODO faire plus propre sans extension de fichier
 	@Override
-	public String[] projectsList() // TODO revoir le nom de la fonction !
+	public String[] projectsList()
 	{
 		File rep = new File(this.backupDirectory);
 		FilenameFilter filter = new FilenameFilter(){

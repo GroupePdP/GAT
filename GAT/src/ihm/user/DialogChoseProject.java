@@ -31,7 +31,7 @@ public class DialogChoseProject extends JDialog{
 	JButton ok;
 	JButton ret;
 	
-	Vector<Project> vecProjectList = new Vector();
+	Vector<String> vecProjectList = new Vector();
 	
 	public DialogChoseProject(MainFrame mf, PanelHome prev)
 	{
@@ -43,8 +43,8 @@ public class DialogChoseProject extends JDialog{
 		this.setLocationRelativeTo(mf);
 		JPanel overGlobal = new JPanel(new BorderLayout());
 		
-		this.vecProjectList.add(currentFrame.getCore().getProject());
-		
+		for (String s : currentFrame.getCore().getLocalStorageProjectList())
+			this.vecProjectList.add(s);
 		JPanel centerPane = new JPanel(new BorderLayout());
 		
 		JPanel centSub = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -100,8 +100,8 @@ public class DialogChoseProject extends JDialog{
 
 			public void actionPerformed(ActionEvent e) {
 				
-				//currentFrame.getCore().loadProject(((Project)combo.getSelectedItem()).toString());
-				PanelHomeUser phu = new PanelHomeUser(currentFrame, previous, (Project)combo.getSelectedItem());
+				Project p = (Project) currentFrame.getCore().getLocalStorage().load((String) combo.getSelectedItem());
+				PanelHomeUser phu = new PanelHomeUser(currentFrame, previous, p);
 				currentFrame.setPane(phu);
 				thisDiag.dispose();
 			}
