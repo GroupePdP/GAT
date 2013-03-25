@@ -26,7 +26,7 @@ public class PanelHomeUser extends JPanel {
 	public PanelHomeUser(MainFrame mf, PanelHome prev, Project p)
 	{
 		this.setLayout(new BorderLayout());
-		this.thisPane = this; // bizarre, cette ligne de code...
+		this.thisPane = this; 
 		this.previous = prev;
 		this.currentFrame = mf;
 		this.currentProject = p;

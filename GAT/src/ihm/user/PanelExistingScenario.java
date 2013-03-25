@@ -123,7 +123,7 @@ public class PanelExistingScenario extends JPanel{
 		rightPanel.setBorder(BorderFactory.createEmptyBorder(30,30,30,30));
 		
 		JPanel northSubRightP = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		northSubRightP.add(new JLabel("Scénario :"));
+		northSubRightP.add(new JLabel("Scenario :"));
 		
 		JPanel centerSubRightP = new JPanel(new BorderLayout());
 		// Création de la liste à faire.

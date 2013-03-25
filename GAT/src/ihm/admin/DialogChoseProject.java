@@ -30,7 +30,6 @@ import core.Project;
 
 public class DialogChoseProject extends JDialog{
 
-	
 	JDialog thisDiag = this;
 	MainFrame currentFrame;
 	
@@ -78,10 +77,7 @@ public class DialogChoseProject extends JDialog{
 		combo.setSelectedItem(null);
 		combo.setPreferredSize(new Dimension(200,20));
 		
-		
-		
 		subGlobalPane.add(this.combo);
-		
 		centSub.add(subGlobalPane);
 		
 		JPanel buttons = new JPanel();
@@ -109,35 +105,27 @@ public class DialogChoseProject extends JDialog{
 		this.suppr.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
-				
 				File f = new File(currentFrame.getCore().getLocalStorage().getLocation());
 				f.delete();
-
 			}
 			
 		});
+		
 		this.suppr.setPreferredSize(buttSize);
 		this.suppr.setEnabled(false);
 		supprPanel.add(this.suppr);
-		
-		
+
 		JPanel okPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		this.ok = new JButton("Valider");
 		this.ok.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
-				
 				Project p = (Project) currentFrame.getCore().getLocalStorage().load((String) combo.getSelectedItem());
 				currentFrame.getCore().setProject(p);
-				
-
 			}
-			
 		});
 		this.ok.setPreferredSize(buttSize);
 		okPanel.add(this.ok);
-		
-		
 		
 		buttPanel.add(retPanel);
 		buttPanel.add(supprPanel);
