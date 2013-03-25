@@ -1,4 +1,4 @@
-package connectionSyntox;
+package syntox;
 
 import java.io.BufferedReader;
 import java.io.IOException;
