@@ -23,6 +23,10 @@
       <name>test1</name>
       <graphList/>
     </linguistic.Scenario>
+	<linguistic.Scenario>
+      <name>test2</name>
+      <graphList/>
+    </linguistic.Scenario>
     <linguistic.Scenario>
       <name>test3</name>
       <graphList/>

@@ -117,7 +117,8 @@ public class PanelExistingScenario extends JPanel{
 		
 		JPanel centerSubRightP = new JPanel(new BorderLayout());
 		// Création de la liste à faire.
-		JList scenarioList = new JList(); 
+		JList scenarioList = new JList(currentFrame.getCore().getProject().getListScenario().toArray()); 
+		
 		JScrollPane scrollPane = new JScrollPane(scenarioList);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setSize(centerSubRightP.getWidth(),centerSubRightP.getHeight());

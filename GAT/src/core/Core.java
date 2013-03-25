@@ -29,6 +29,11 @@ public class Core {
 		return this.project;
 	}
 	
+	public void setProject(Project p){
+		this.project = p;
+		
+	}
+	
 	public String[] getLocalStorageProjectList(){
 		return this.localStorage.projectsList();
 	}
