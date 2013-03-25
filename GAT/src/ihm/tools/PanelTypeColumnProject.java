@@ -114,11 +114,12 @@ public class PanelTypeColumnProject extends JPanel{
 	
 	private void addType(PanelSurTypeColumnProject type)
 	{
-		this.thisPane.getVecTypeList().add(type);
+		this.thisPane.addType(type);
 		type.setVisible(false);
 		this.thisPane.getTypeColumnPanel().add(type);
 		this.typesJList.setModel(new DefaultListModel());
 		this.typesJList.setListData(this.thisPane.getVecTypeList());
+		this.thisPane.revalidate();
 		this.thisPane.repaint();
 	}
 }

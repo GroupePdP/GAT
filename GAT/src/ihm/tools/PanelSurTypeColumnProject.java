@@ -4,6 +4,7 @@ import ihm.MainFrame;
 import ihm.admin.PanelNewProject;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -18,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
 import linguistic.typesGestion.Type;
@@ -27,18 +29,22 @@ public class PanelSurTypeColumnProject extends JPanel{
 	PanelNewProject thisPane;
 	
 	String typeName;
-	Vector<PanelSurTypeColumnProject> vecSurTypeList = new Vector(/*conceptsList*/);
+	PanelSurTypeColumnProject type;
+	//Vector<PanelSurTypeColumnProject> vecSurTypeList = new Vector(/*conceptsList*/);
 	
 	JPanel columnMenu = new JPanel(new BorderLayout());
-	JComboBox combo;
+	
+	JComboBox combo = new JComboBox();
+	
 	JButton addTypeButton = new JButton("Ajouter Sur-type");
+	
 	JButton validateButton = new JButton("Valider");
 	JButton retButton = new JButton("Annuler");
-	
 	JPanel valRet = new JPanel(new FlowLayout());
 	
-	JList surTypeJList;
-	JScrollPane scrollMain;
+//	JList surTypeJList;
+	JTextField surType = new JTextField(8);
+//	JScrollPane scrollMain;
 	
 	
 	
@@ -52,10 +58,9 @@ public class PanelSurTypeColumnProject extends JPanel{
 		this.setPreferredSize(columnSize);
 		this.setLayout(new BorderLayout());
 		
-		//final DefaultComboBoxModel model = new DefaultComboBoxModel(this.thisPane.getVecConceptList());
 		
 		this.combo = new JComboBox(this.thisPane.getVecTypeList());
-		this.combo.setSelectedItem(null);
+		//this.combo.setSelectedItem(null);
 		this.combo.setVisible(false);
 		
 		this.addTypeButton.setPreferredSize(new Dimension(200,30));
@@ -64,8 +69,10 @@ public class PanelSurTypeColumnProject extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				thisPane.remove(combo);
 				combo = new JComboBox(thisPane.getVecTypeList());
-				combo.setSelectedItem(null);
+				
+				System.out.println(combo.getItemAt(0).toString());
 				columnMenu.add(combo, BorderLayout.NORTH);
 				thisPane.revalidate();
 				addTypeButton.setVisible(false);
@@ -83,9 +90,12 @@ public class PanelSurTypeColumnProject extends JPanel{
 				// TODO Auto-generated method stub
 				addTypeButton.setVisible(true);
 				valRet.setVisible(false);
+				System.out.println(combo.getItemAt(combo.getSelectedIndex()).toString());
+				PanelSurTypeColumnProject c = (PanelSurTypeColumnProject) combo.getItemAt(combo.getSelectedIndex());
 				combo.setVisible(false);
-				PanelSurTypeColumnProject c = (PanelSurTypeColumnProject)combo.getSelectedItem();
-				addSurType(c);
+				surType.setText(c.toString());
+				type=c;
+				thisPane.revalidate();
 				
 				
 				columnMenu.repaint();
@@ -115,7 +125,7 @@ public class PanelSurTypeColumnProject extends JPanel{
 		this.columnMenu.add(this.valRet, BorderLayout.CENTER);
 		this.columnMenu.add(this.combo, BorderLayout.NORTH);
 		
-		this.surTypeJList=new JList(this.vecSurTypeList);
+/*		this.surTypeJList=new JList(this.vecSurTypeList);
 		this.surTypeJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();
@@ -123,20 +133,27 @@ public class PanelSurTypeColumnProject extends JPanel{
 		this.surTypeJList.setCellRenderer(centerRenderer);
 		JScrollPane surTypeScroll = new JScrollPane(surTypeJList);
 		surTypeScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		this.scrollMain=surTypeScroll;
+		this.scrollMain=surTypeScroll;*/
 		
-		this.add(this.scrollMain, BorderLayout.CENTER);
+		this.surType.setEditable(false);
+		this.setBackground(Color.WHITE);
+		
+		this.add(this.surType, BorderLayout.NORTH);
 		this.add(this.columnMenu, BorderLayout.SOUTH);
 	}
 	
+/*	
 	public void addSurType(PanelSurTypeColumnProject pane)
 	{
 		this.vecSurTypeList.add(pane);
 		this.surTypeJList.setModel(new DefaultListModel());
 		this.surTypeJList.setListData(this.vecSurTypeList);
+		
+		this.surType.setText(t)
 		this.thisPane.repaint();
+		
 	}
-	
+*/	
 	
 	public String toString() {
 		return this.typeName;

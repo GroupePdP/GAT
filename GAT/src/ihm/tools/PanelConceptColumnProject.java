@@ -83,8 +83,10 @@ public class PanelConceptColumnProject extends JPanel{
 				// TODO Auto-generated method stub
 				addConceptButton.setVisible(false);
 				validateButton.setVisible(true);
-				
+				thisPane.remove(conceptTypeCombo);
+				conceptTypeCombo.setVisible(true);
 				conceptTypeCombo= new JComboBox(thisPane.getVecTypeList());
+				
 				conceptName.setText("");
 				menuPanel.setVisible(true);
 				columnMenu.repaint();
@@ -100,7 +102,8 @@ public class PanelConceptColumnProject extends JPanel{
 				addConceptButton.setVisible(true);
 				validateButton.setVisible(false);
 				menuPanel.setVisible(false);
-				PanelSurTypeColumnProject tmpCC = (PanelSurTypeColumnProject)conceptTypeCombo.getSelectedItem();
+				PanelSurTypeColumnProject tmpCC = (PanelSurTypeColumnProject)conceptTypeCombo.getItemAt(conceptTypeCombo.getSelectedIndex());
+				System.out.println(conceptTypeCombo.getItemAt(conceptTypeCombo.getSelectedIndex()).toString());
 				PanelArgsColumnProject tmp = new PanelArgsColumnProject(currentFrame, thisPane,conceptName.getText());
 				tmp.conceptType = tmpCC;
 				addConcept(tmp);

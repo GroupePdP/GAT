@@ -225,5 +225,11 @@ public class PanelNewProject extends JPanel{
 		this.currentSurType = pacp;
 		this.currentSurType.setVisible(true);
 	}
+	
+	public void addType(PanelSurTypeColumnProject type)
+	{
+		System.out.println(type.toString());
+		this.vecTypeList.add(type);
+	}
 }
 
