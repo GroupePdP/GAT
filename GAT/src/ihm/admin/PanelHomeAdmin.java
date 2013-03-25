@@ -16,7 +16,6 @@ public class PanelHomeAdmin extends JPanel{
 	PanelHome previous;
 	PanelHomeAdmin thisPane;
 	
-	
 	public PanelHomeAdmin(MainFrame mf, PanelHome prev)
 	{
 		this.setLayout(new BorderLayout());
@@ -24,7 +23,7 @@ public class PanelHomeAdmin extends JPanel{
 		this.previous = prev;
 		this.currentFrame = mf;
 		
-		JPanel createProjectPanel = new PanelCenteredButton("Cr�er Projet", new ActionListener(){
+		JPanel createProjectPanel = new PanelCenteredButton("Creer Projet", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				DialogInitNewProject dinp = new DialogInitNewProject(currentFrame, thisPane);

@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +64,7 @@ public class TestIhm {
 
 		
 		
-		String emplacement = System.getProperty("user.dir").substring(0, System.getProperty("user.dir").length() -4) + "\\Projets";
+		String emplacement = System.getProperty("user.dir").substring(0, System.getProperty("user.dir").length() -4) + File.separator+"Projets";
 		Core core = new Core(emplacement, tmp);
 		MainFrame mf = new MainFrame(core);
       }

@@ -45,48 +45,34 @@ public class PanelNewScenario extends JPanel{
 	MainFrame currentFrame;
 	PanelNewScenario thisPane=this;
 	PanelHomeUser previous;
-	//JPanel colcont;
-	
 	Scenario scenario;
-	
 	PanelColumnScenario scenarioRaw;
-
-	
 
 	public PanelSubColumnScenario[] tab;
 	
 	private Dimension columnSize;
-	
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu test1 = new JMenu("Fichier");
-	
-	private JMenuItem item1 = new JMenuItem("Enregistrer Scénario en cours");
+	private JMenuItem item1 = new JMenuItem("Enregistrer Scenario en cours");
 	private JMenuItem item2 = new JMenuItem("Enregistrer");
 	private JMenuItem item3 = new JMenuItem("Quitter");
 	
-	public PanelNewScenario(MainFrame mf,Scenario s, PanelHomeUser prev)
-	{
+	public PanelNewScenario(MainFrame mf,Scenario s, PanelHomeUser prev){
 		this.currentFrame = mf;
 		this.previous = prev;
-		
 		this.currentFrame.setTitle(s.getName());
-		
 		this.scenario = s;
-		
 		this.setLayout(new BorderLayout());
-		
 		setMenuBar();
 		setDescrPane();
-		this.add(new PanelMiller(this.scenario, this.previous, this), BorderLayout.CENTER);
-		
+		this.add(new PanelMiller(this.scenario, this.previous, this), BorderLayout.CENTER);	
 	}
 	
-	public void setScenarioRaw(PanelColumnScenario scenarioRaw) {
+	public void setScenarioRaw(PanelColumnScenario scenarioRaw){
 		this.scenarioRaw = scenarioRaw;
 	}
 
-	private void setMenuBar()
-	{
+	private void setMenuBar(){
 		item1.addActionListener(new ActionListener(){
 
 			@Override
@@ -100,17 +86,13 @@ public class PanelNewScenario extends JPanel{
 		});
 		
 		item2.addActionListener(new ActionListener(){
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
 			}
-			
 		});
 		
 		item3.addActionListener(new ActionListener(){
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -120,14 +102,12 @@ public class PanelNewScenario extends JPanel{
 		test1.add(item1);
 		test1.add(item2);
 		test1.add(item3);
-		
 		menuBar.add(test1);
 		
 		this.thisPane.add(menuBar, BorderLayout.NORTH);
 	}
 
-	private void setDescrPane()
-	{
+	private void setDescrPane(){
 		JPanel right = new JPanel(new BorderLayout());
 		
 		JLabel description = new JLabel("Description :");
@@ -146,16 +126,13 @@ public class PanelNewScenario extends JPanel{
 		this.thisPane.add(right, BorderLayout.EAST);
 	}
 	
-	public void generateScenario()
-	{
+	public void generateScenario(){
 		ArrayList<PanelSubColumnScenario> tmp = scenarioRaw.getList();
 		
 		for(PanelSubColumnScenario ps : tmp)
 		{
 			Concept root = ps.getOwner();
-			
 			GraphNode nodeRoot = this.currentFrame.getCore().getGraphNodeFactory().makeNode(root);
-			
 			for(int i = 0 ; i < ps.getList().size(); i++)
 			{
 				GraphNode child = new GraphNodeDefault(ps.getList().get(i).getOwner());
@@ -172,8 +149,6 @@ public class PanelNewScenario extends JPanel{
 			GraphConcepts gc = new GraphConcepts(nodeRoot);
 			this.scenario.addGraphConcepts(gc);
 		}
-		
-		
 	}
 
 }

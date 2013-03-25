@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+29 mars 2013
+Projet Générateur Automatique de Texte  
+====================================================================== -->
+<project name="projet" default="default">
+  <property name="bin.dir" location="bin" />
+  <property name="lib.dir" location="lib" />
+  <property name="src.dir" location="src" />
+  
+  <description>
+    compilation du projet GAT
+  </description>
+  
+  
+  <!-- ================================= 
+       target: compil            
+       ================================= -->
+  <target name="compil" description="compilation du code source">
+    <mkdir dir="${bin.dir}" />
+    <javac 
+	srcdir="${src.dir}"
+    	excludes="**/*est.java"
+	destdir="${bin.dir}" 
+    classpath=".:${bin.dir}:${lib.dir}/mysql-connector-java-5.1.24-bin.jar;.:${bin.dir}:${lib.dir}/xstream-1.4.4.jar" 
+	debug="on" />
+    
+  </target>
+	
+  <!-- ================================= 
+	   target: default              
+	   ================================= -->
+		<target name="default" depends="compil" description="compilation finale">
+		    
+		    <java
+			classname="core.Main"
+			classpath=".:${bin.dir}:${lib.dir}/mysql-connector-java-5.1.24-bin.jar;.:${bin.dir}:${lib.dir}/xstream-1.4.4.jar"
+		    /> 
+		  </target>
+  
+  <!-- =================================
+       target: archive
+       ================================= -->
+  <target name="archive" depends="compil" description="cree une archive jar">
+  	<mkdir dir="dist"/>
+  	<jar destfile="dist/app.jar" basedir="${bin.dir}"/>
+
+  </target>
+	
+	  <!-- =================================
+	       target: run_archive
+	       ================================= -->
+	  <target name="run_archive" depends="archive" description="lance l'archive jar">
+	  	<java jar="dist/app.jar" fork="true"/>
+
+	  </target>
+  
+  <!-- =================================
+	   target: tests
+	   ================================= -->
+	
+	
+
+  
+  <!-- ================================= 
+       target: clean              
+       ================================= -->
+  <target name="clean">
+			<delete file="dist/app.jar" />
+		    <delete dir="${bin.dir}" />
+  </target>
+
+
+  <!-- ==================================
+	   target: javadoc
+	   =================================== -->
+	
+	
+
+</project>

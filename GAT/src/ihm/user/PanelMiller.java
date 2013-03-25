@@ -43,21 +43,16 @@ public class PanelMiller extends JPanel{
 		this.colPane = columnPanel;
 		leftPane.add(this.colPane, BorderLayout.WEST);
 		
-		
 		JPanel panelContent = new JPanel(new BorderLayout());
 		
-		
 		panelContent.setBackground(Color.ORANGE);
-		
 		
 		JScrollPane scrollPane = new JScrollPane(panelContent);
 		scrollPane.getHorizontalScrollBar().addAdjustmentListener(new AdjustmentListener(){
 
 			@Override
 			public void adjustmentValueChanged(AdjustmentEvent e) {
-				
 				thisPane.repaint();
-				
 			}
 			
 		});

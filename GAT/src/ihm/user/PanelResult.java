@@ -68,7 +68,7 @@ public class PanelResult extends JPanel{
 		
 		JPanel northSubCenterP = new JPanel();
 		northSubCenterP.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JLabel generatedLabel = new JLabel("Texte g�n�r� :");
+		JLabel generatedLabel = new JLabel("Texte genere :");
 		northSubCenterP.add(generatedLabel);
 		
 		JPanel centerSubCenterP = new JPanel();
