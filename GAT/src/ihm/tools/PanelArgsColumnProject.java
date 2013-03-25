@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.Vector;
 
 import ihm.MainFrame;
@@ -21,13 +22,16 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import linguistic.typesGestion.Type;
 
 public class PanelArgsColumnProject extends JPanel{
 
 	MainFrame currentFrame;
 	PanelNewProject thisPane;
 	
-	String conceptName;
+	public String conceptName;
+	public List<Type> typeList;
+	public Type conceptType;
 	Vector<PanelArgsColumnProject> vecArgsList = new Vector();
 	
 	JPanel columnMenu = new JPanel(new BorderLayout());

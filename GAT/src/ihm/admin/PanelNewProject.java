@@ -68,7 +68,10 @@ public class PanelNewProject extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				for (PanelSurTypeColumnProject type : vecTypeList)
+					currentFrame.getCore().getProject().getLinguisticFactory().makeType(type.toString());
+				for (PanelArgsColumnProject concept : vecConceptList)
+					currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(concept.conceptName, currentFrame.getCore().getProject().getLinguisticFactory().makeType("blergu"), concept.typeList);
 				currentFrame.getCore().backupProject(currentFrame.getCore().getProject().getName());
 				
 			}
