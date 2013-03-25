@@ -1,0 +1,42 @@
+<core.Project>
+  <linguisticFactory>
+    <tm>
+      <tree>
+        <root>
+          <type class="linguistic.typesGestion.TypeImpl">
+            <name>object</name>
+          </type>
+          <childrenList/>
+          <conceptList/>
+        </root>
+        <nodeMap>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root"/>
+          </entry>
+        </nodeMap>
+      </tree>
+    </tm>
+  </linguisticFactory>
+  <listScenario>
+    <linguistic.Scenario>
+      <name>test1</name>
+      <graphList/>
+    </linguistic.Scenario>
+	<linguistic.Scenario>
+      <name>test2</name>
+      <graphList/>
+    </linguistic.Scenario>
+    <linguistic.Scenario>
+      <name>test3</name>
+      <graphList/>
+    </linguistic.Scenario>
+  </listScenario>
+  <infoDB>
+    <link>link</link>
+    <typeDataBase>type</typeDataBase>
+    <user>user</user>
+    <passwordEncrypted>]dj\O]dpShijUfl`</passwordEncrypted>
+  </infoDB>
+  <name>projet</name>
+</core.Project>

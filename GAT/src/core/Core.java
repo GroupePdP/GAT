@@ -29,9 +29,23 @@ public class Core {
 		return this.project;
 	}
 	
-	public String[] getLocalStorage(){
+	public void setProject(Project p){
+		this.project = p;
+	}
+	
+	public void newProject(String name){
+		this.project = new Project();
+		this.project.setName(name);
+	}
+	
+	public String[] getLocalStorageProjectList(){
 		return this.localStorage.projectsList();
 	}
+	
+	public LocalStorage getLocalStorage(){
+		return this.localStorage;
+	}
+	
 
 	public void setLocalStorage(String location) {
 		this.localStorage = new LocalStorage(location);
@@ -61,5 +75,9 @@ public class Core {
 	
 	public String toString(){
 		return this.project.toString();
+	}	
+	
+	public String toStringDescr(){
+		return this.project.toStringDescr();
 	}	
 }
