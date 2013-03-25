@@ -123,7 +123,6 @@ public class DialogInitNewScenario extends JDialog{
 				if(scenarioName.length() != 0)
 				{
 					Scenario s = new Scenario(scenarioName);
-					currentFrame.getCore().getProject().ajouterScenario(s);
 					PanelNewScenario pns = new PanelNewScenario(currentFrame,s,prev);
 					currentFrame.setPane(pns);
 					thisDiag.dispose();

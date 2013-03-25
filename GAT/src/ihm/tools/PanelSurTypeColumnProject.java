@@ -20,12 +20,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
+import linguistic.typesGestion.Type;
+
 public class PanelSurTypeColumnProject extends JPanel{
 	MainFrame currentFrame;
 	PanelNewProject thisPane;
 	
 	String typeName;
-	Vector<PanelSurTypeColumnProject> vecSurTypeList = new Vector();
+	Vector<PanelSurTypeColumnProject> vecSurTypeList = new Vector(/*conceptsList*/);
 	
 	JPanel columnMenu = new JPanel(new BorderLayout());
 	JComboBox combo;

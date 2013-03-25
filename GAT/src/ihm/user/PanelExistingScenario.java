@@ -13,15 +13,21 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.MenuItem;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -122,9 +128,23 @@ public class PanelExistingScenario extends JPanel{
 		JPanel centerSubRightP = new JPanel(new BorderLayout());
 		// Création de la liste à faire.
 		
-		Vector<Scenario> vecScenarioList = new Vector<Scenario>(this.currentFrame.getCore().getProject().getListScenario());
 		
-		JList scenarioList = new JList(vecScenarioList); 
+		final JList scenarioList = new JList(this.currentFrame.getCore().getProject().getListScenario().toArray());
+		
+		scenarioList.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+		              if (e.getButton() == 3)
+		              {
+		            	  int index = scenarioList.locationToIndex(e.getPoint());
+		            	  scenarioList.setSelectedIndex(index);
+		            	  JPopupMenu popup_desktop = new JPopupMenu("Desktop Menu : ");
+		            	  popup_desktop.add(new JMenuItem("test"));
+		            	  Point tmp = e.getLocationOnScreen();
+		            	  popup_desktop.setLocation(tmp);
+		            	  popup_desktop.setVisible(true);
+		              }
+		        }
+		});
 		JScrollPane scrollPane = new JScrollPane(scenarioList);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setSize(centerSubRightP.getWidth(),centerSubRightP.getHeight());
