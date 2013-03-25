@@ -16,7 +16,6 @@ public class PanelHomeAdmin extends JPanel{
 	PanelHome previous;
 	PanelHomeAdmin thisPane;
 	
-	
 	public PanelHomeAdmin(MainFrame mf, PanelHome prev)
 	{
 		this.setLayout(new BorderLayout());

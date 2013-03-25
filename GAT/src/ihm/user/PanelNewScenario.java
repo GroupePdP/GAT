@@ -60,7 +60,7 @@ public class PanelNewScenario extends JPanel{
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu test1 = new JMenu("Fichier");
 	
-	private JMenuItem item1 = new JMenuItem("Enregistrer Scénario en cours");
+	private JMenuItem item1 = new JMenuItem("Enregistrer Scenario en cours");
 	private JMenuItem item2 = new JMenuItem("Enregistrer");
 	private JMenuItem item3 = new JMenuItem("Quitter");
 	
