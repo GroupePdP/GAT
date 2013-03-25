@@ -27,7 +27,7 @@ public class TestIhm {
         });
         
         */
-		Project tmp = new Project("Projet test");
+		Project tmp = new Project("Projet");
 		LinguisticFactory lf = tmp.getLinguisticFactory();
 		
 		

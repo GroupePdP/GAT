@@ -70,6 +70,7 @@ public class PanelSubColumnScenario extends JPanel{
 				tmpPane.setMaximumSize(new Dimension((int)columnSize.getWidth(),30));
 				
 				final JComboBox tmp = new JComboBox(tmpVec);
+				//tmp.setSelectedItem(null);
 				tmp.setMaximumSize(new Dimension((int)columnSize.getWidth(),30));
 				
 				JButton tmpArrow = new JButton(">");

@@ -21,7 +21,7 @@ public class Scenario {
 	}
 	
 	public String toString(){
-		return this.name + this.graphList.toString();
+		return this.name /*+ this.graphList.toString()*/;
 	}
 	
 	public String getName(){
