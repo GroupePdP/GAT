@@ -166,7 +166,7 @@ public class DialogInitNewProject extends JDialog{
 				{
 					errorProjectName.setVisible(true);
 					thisDiag.pack();
-					thisDiag.revalidate();
+					thisDiag.invalidate();
 				}
 			}
 			

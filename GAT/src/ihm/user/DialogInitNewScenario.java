@@ -131,7 +131,7 @@ public class DialogInitNewScenario extends JDialog{
 				else
 				{
 					error.setVisible(true);
-					thisDiag.revalidate();
+					thisDiag.invalidate();
 				}
 			}
 			
