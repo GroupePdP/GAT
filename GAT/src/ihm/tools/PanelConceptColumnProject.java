@@ -42,7 +42,7 @@ public class PanelConceptColumnProject extends JPanel{
 	JButton addConceptButton = new JButton("Ajouter Concept");
 	JTextField conceptName = new JTextField(16);
 	
-	JComboBox conceptTypeCombo;
+	JComboBox conceptTypeCombo = new JComboBox();
 	
 	
 	JScrollPane scrollMain;
@@ -82,13 +82,16 @@ public class PanelConceptColumnProject extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				addConceptButton.setVisible(false);
-				validateButton.setVisible(true);
-				thisPane.remove(conceptTypeCombo);
-				conceptTypeCombo.setVisible(true);
-				conceptTypeCombo= new JComboBox(thisPane.getVecTypeList());
 				
+				menuPanel.remove(conceptTypeCombo);
+				conceptTypeCombo= new JComboBox(thisPane.getVecTypeList());
+				conceptTypeCombo.setVisible(true);
+				menuPanel.add(conceptTypeCombo);
+				
+				thisPane.revalidate();
 				conceptName.setText("");
 				menuPanel.setVisible(true);
+				validateButton.setVisible(true);
 				columnMenu.repaint();
 			}
 			
