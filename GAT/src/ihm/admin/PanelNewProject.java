@@ -55,6 +55,21 @@ public class PanelNewProject extends JPanel{
 		this.previous = prev;
 		this.currentFrame = mf;
 		this.setLayout(new BorderLayout());
+		
+		setMenuBar();
+		setDescrPanel();
+		setColumnsPanel();
+	}
+
+	public PanelNewProject(MainFrame mf, JPanel prev, Vector<PanelArgsColumnProject> conceptList, Vector<PanelSurTypeColumnProject> typeList)
+	{
+		this.thisPane = this;
+		this.previous = prev;
+		this.currentFrame = mf;
+		this.vecConceptList = conceptList;
+		this.vecTypeList = typeList;
+		this.setLayout(new BorderLayout());
+		
 		setMenuBar();
 		setDescrPanel();
 		setColumnsPanel();

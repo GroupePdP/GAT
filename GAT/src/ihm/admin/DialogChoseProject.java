@@ -2,6 +2,7 @@ package ihm.admin;
 
 import ihm.MainFrame;
 import ihm.tools.PanelArgsColumnProject;
+import ihm.tools.PanelSurTypeColumnProject;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -25,6 +29,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+
+import linguistic.conceptsGestion.Concept;
 
 import core.Project;
 
@@ -122,6 +128,27 @@ public class DialogChoseProject extends JDialog{
 			public void actionPerformed(ActionEvent e) {
 				Project p = (Project) currentFrame.getCore().getLocalStorage().load((String) combo.getSelectedItem());
 				currentFrame.getCore().setProject(p);
+				Vector<PanelSurTypeColumnProject> types = new Vector();
+				Vector<PanelArgsColumnProject> concepts = new Vector();
+				PanelNewProject pnp = new PanelNewProject(currentFrame, prev, concepts, types);
+				
+				Iterator it = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getMap().keySet().iterator();
+				for (;it.hasNext();)
+				{
+					linguistic.typesGestion.Type type = (linguistic.typesGestion.Type) it.next();
+					PanelSurTypeColumnProject pane = new PanelSurTypeColumnProject(currentFrame, pnp, type.getName());
+					types.add(pane);
+					for (Concept c : currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getConceptsForType(type))
+					{
+						PanelArgsColumnProject cons = new PanelArgsColumnProject(currentFrame, pnp, c.getName());
+						cons.conceptType = pane;
+						concepts.add(cons);
+					}
+				}
+
+				
+				currentFrame.setPane(pnp);
+				thisDiag.dispose();
 			}
 		});
 		this.ok.setPreferredSize(buttSize);
