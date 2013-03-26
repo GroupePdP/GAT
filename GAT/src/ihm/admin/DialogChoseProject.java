@@ -131,18 +131,21 @@ public class DialogChoseProject extends JDialog{
 				Vector<PanelSurTypeColumnProject> types = new Vector();
 				Vector<PanelArgsColumnProject> concepts = new Vector();
 				PanelNewProject pnp = new PanelNewProject(currentFrame, prev, concepts, types);
-				
+
 				Iterator it = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getMap().keySet().iterator();
 				for (;it.hasNext();)
 				{
 					linguistic.typesGestion.Type type = (linguistic.typesGestion.Type) it.next();
-					PanelSurTypeColumnProject pane = new PanelSurTypeColumnProject(currentFrame, pnp, type.getName());
-					types.add(pane);
-					for (Concept c : currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getConceptsForType(type))
+					if (! type.getName().equals("object"))
 					{
-						PanelArgsColumnProject cons = new PanelArgsColumnProject(currentFrame, pnp, c.getName());
-						cons.conceptType = pane;
-						concepts.add(cons);
+						PanelSurTypeColumnProject pane = new PanelSurTypeColumnProject(currentFrame, pnp, type.getName());
+						types.add(pane);
+						for (Concept c : currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getConceptsForType(type))
+						{
+							PanelArgsColumnProject cons = new PanelArgsColumnProject(currentFrame, pnp, c.getName());
+							cons.conceptType = pane;
+							concepts.add(cons);
+						}
 					}
 				}
 
