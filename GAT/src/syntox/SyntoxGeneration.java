@@ -5,7 +5,7 @@ import linguistic.graphConceptsGestion.GraphNode;
 
 
 /**	
-  * ATTENTION : EN COURS.
+  * ATTENTION : Modifier par l'insertion de la méthode generateSyntox dans les classes GraphConcepts et GraphNode.
 **/
 
 public class SyntoxGeneration
