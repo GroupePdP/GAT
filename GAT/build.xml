@@ -7,6 +7,8 @@ Projet Générateur Automatique de Texte
   <property name="bin.dir" location="bin" />
   <property name="lib.dir" location="lib" />
   <property name="src.dir" location="src" />
+  <property name="doc.dir" location="doc" />
+  <property name="dist.dir" location="dist" />
 	
 	<path id="projet.classpath">
 	    <fileset dir="${lib.dir}">
@@ -14,16 +16,28 @@ Projet Générateur Automatique de Texte
 	    </fileset>
 	    <pathelement path="${bin.dir}" />
 	  </path>
+	  
+
 	
   <description>
     compilation du projet GAT
   </description>
   
+    <!-- ================================= 
+       target: init            
+       ================================= -->
+       <target name="init" description="initialisation des dossiers">
+         	<mkdir dir="${dist.dir}"/>
+         	<manifestclasspath property="jar.classpath"
+                       jarfile="${dist.dir}/app.jar">
+      		<classpath path=".:lib/xstream-1.4.4.jar:lib/mysql-connector-java-5.1.24-bin.jar" />
+    		</manifestclasspath>
+         </target>
   
   <!-- ================================= 
        target: compil            
        ================================= -->
-  <target name="compil" description="compilation du code source">
+  <target name="compil" depends="init" description="compilation du code source">
     <mkdir dir="${bin.dir}" />
     <javac 
 	srcdir="${src.dir}"
@@ -31,7 +45,7 @@ Projet Générateur Automatique de Texte
 	destdir="${bin.dir}" 
     classpath=".:${bin.dir}:${lib.dir}/mysql-connector-java-5.1.24-bin.jar:${lib.dir}/xstream-1.4.4.jar" 
 	debug="on"
-    source="1.7"/>
+    source="1.6"/>
     
   </target>
 	
@@ -42,7 +56,7 @@ Projet Générateur Automatique de Texte
 		    
 		    <java
 			classname="core.Main"
-			classpath=".:${bin.dir}:${lib.dir}/mysql-connector-java-5.1.24-bin.jar;.:${bin.dir}:${lib.dir}/xstream-1.4.4.jar"
+			classpath=".:${bin.dir}:${lib.dir}/mysql-connector-java-5.1.24-bin.jar:${lib.dir}/xstream-1.4.4.jar"
 		    /> 
 		  </target>
   
@@ -50,26 +64,29 @@ Projet Générateur Automatique de Texte
        target: archive
        ================================= -->
   <target name="archive" depends="compil" description="cree une archive jar">
-  	<mkdir dir="dist"/>
+  	<mkdir dir="${dist.dir}/lib"/>
+  	<copy todir="${dist.dir}/lib">
+    <fileset dir="${lib.dir}"/>
+    </copy>
   	<manifest file="./MANIFEST.MF">
   	  <attribute name="Main-Class"
   	             value="core.Main" />
-  	  <attribute name="Class-Path" value=".:${bin.dir}:${lib.dir}/xstream-1.4.4.jar"/>
+  	  <attribute name="Class-Path" value="${jar.classpath}"/>
+  	 <!-- <attribute name="Class-Path" value=".:lib/xstream-1.4.4.jar:lib/mysql-connector-java-5.1.24-bin.jar"/> -->
   	</manifest>
   	<jar destfile="dist/app.jar" basedir="${bin.dir}"
   		manifest= "./MANIFEST.MF"/>
-		<fileset dir= "${lib.dir}"/> 
   </target>
 	
 	  <!-- =================================
 	       target: run_archive
 	       ================================= -->
 	  <target name="run_archive" depends="archive" description="lance l'archive jar">
-	  	<java jar="dist/app.jar" fork="true">
-	  		<classpath>
+	  	<java jar="dist/app.jar" fork="true" spawn="true">
+<!-- 	  		<classpath>
 	  			<path refid="projet.classpath"/>
-	  			<path location="${jar.dir}/xstream-1.4.4.jar"/>
-	  		</classpath>
+	  			<path location="${jar.dir}/xstream-1.4.4.jar:${lib.dir}/mysql-connector-java-5.1.24-bin.jar"/>
+	  		</classpath> -->
 		</java>
 	  </target>
   
@@ -84,8 +101,9 @@ Projet Générateur Automatique de Texte
        target: clean              
        ================================= -->
   <target name="clean">
-			<delete dir="dist" />
+			<delete dir="${dist.dir}" />
 		    <delete dir="${bin.dir}" />
+		    <delete dir="${doc.dir}"/>
   </target>
 
 
@@ -93,6 +111,9 @@ Projet Générateur Automatique de Texte
 	   target: javadoc
 	   =================================== -->
 	
-	
+<target name="doc" description="génère la javadoc">
+    <mkdir dir="doc"/>
+    <javadoc sourcepath="${src.dir}" destdir="${doc.dir}"/>
+  </target>
 
 </project>
