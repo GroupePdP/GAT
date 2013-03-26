@@ -119,7 +119,8 @@ public class PanelTypeColumnProject extends JPanel{
 		this.thisPane.getTypeColumnPanel().add(type);
 		this.typesJList.setModel(new DefaultListModel());
 		this.typesJList.setListData(this.thisPane.getVecTypeList());
-		this.thisPane.revalidate();
+		this.thisPane.invalidate();
+		this.thisPane.validate();
 		this.thisPane.repaint();
 	}
 }

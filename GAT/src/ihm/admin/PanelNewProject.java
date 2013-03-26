@@ -21,10 +21,12 @@ import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -98,7 +100,23 @@ public class PanelNewProject extends JPanel{
 					}
 					
 					if (tem == false)
-						currentFrame.getCore().getProject().getLinguisticFactory().makeType(type.toString());
+					{
+						if(type.getType() != null)
+						{
+							Iterator ti = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getMap().keySet().iterator();
+							for(;ti.hasNext();)
+							{
+								Type tmpType = (Type)ti.next();
+								if(tmpType.getName().equals(type.getType().toString()))
+								{ 
+									currentFrame.getCore().getProject().getLinguisticFactory().makeType(type.toString(),tmpType);
+									break;
+								}
+							}
+						}
+						else
+							currentFrame.getCore().getProject().getLinguisticFactory().makeType(type.toString());
+					}
 				}
 				
 				for (PanelArgsColumnProject concept : vecConceptList){
@@ -119,7 +137,23 @@ public class PanelNewProject extends JPanel{
 						break;}
 					}
 					if(tem == false)
-						currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(concept.conceptName, t, concept.typeList);
+					{
+						List<Type> tmp = getTypeList(concept.getVecArgsList());
+						if(tmp.size() != 0)
+						{
+							currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(concept.conceptName, t, tmp);
+						}
+						else
+						{
+							System.out.println("erreur PUTAIN");
+							JOptionPane error = new JOptionPane();
+							//error.showConfirmDialog(currentFrame, "MESSAGE", "ERROR", JOptionPane.OK_OPTION);
+							error.setMessage("Le concept \""+concept.conceptName+"\" ne possède aucun argument.\n Veuillez terminer son initialisation avant de sauvegarder.");
+							
+							JDialog errorDial = error.createDialog(currentFrame, "Erreur lors de la sauvegarde");
+							errorDial.setVisible(true);
+						}
+					}
 				currentFrame.getCore().backupProject(currentFrame.getCore().getProject().getName());
 				
 			}
@@ -245,6 +279,30 @@ public class PanelNewProject extends JPanel{
 	{
 		System.out.println(type.toString());
 		this.vecTypeList.add(type);
+	}
+	
+	private List<Type> getTypeList(Vector<PanelSurTypeColumnProject> vecArgsList)
+	{
+		List<Type> result = new ArrayList();
+		
+		for(PanelSurTypeColumnProject pst : vecArgsList)
+		{
+			String typeName = pst.toString();
+			Iterator ti = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getMap().keySet().iterator();
+			for(;ti.hasNext();)
+			{
+				Type tmpType = (Type)ti.next();
+				if(tmpType.getName().equals(typeName))
+				{ 
+					result.add(tmpType);
+					break;
+				}
+			}
+			
+		}
+		
+		
+		return result;
 	}
 }
 

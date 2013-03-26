@@ -74,7 +74,8 @@ public class PanelSurTypeColumnProject extends JPanel{
 				
 				System.out.println(combo.getItemAt(0).toString());
 				columnMenu.add(combo, BorderLayout.NORTH);
-				thisPane.revalidate();
+				thisPane.invalidate();
+				thisPane.validate();
 				addTypeButton.setVisible(false);
 				valRet.setVisible(true);
 				combo.setVisible(true);
@@ -95,7 +96,8 @@ public class PanelSurTypeColumnProject extends JPanel{
 				combo.setVisible(false);
 				surType.setText(c.toString());
 				type=c;
-				thisPane.revalidate();
+				thisPane.invalidate();
+				thisPane.validate();
 				
 				
 				columnMenu.repaint();
@@ -155,7 +157,13 @@ public class PanelSurTypeColumnProject extends JPanel{
 	}
 */	
 	
+	
+	
 	public String toString() {
 		return this.typeName;
+	}
+
+	public PanelSurTypeColumnProject getType() {
+		return type;
 	}
 }

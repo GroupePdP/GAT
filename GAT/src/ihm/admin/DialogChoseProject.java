@@ -39,6 +39,7 @@ public class DialogChoseProject extends JDialog{
 	JDialog thisDiag = this;
 	MainFrame currentFrame;
 	
+	JPanel comboPane = new JPanel();
 	JComboBox combo;
 	JButton ok;
 	JButton ret;
@@ -70,20 +71,10 @@ public class DialogChoseProject extends JDialog{
 		projectLabelPanel.add(projectLabel);
 		
 		subGlobalPane.add(projectLabelPanel);
-		this.combo = new JComboBox(vecProjectList);
-		this.combo.addItemListener(new ItemListener(){
-			
-			@Override
-			public void itemStateChanged(ItemEvent arg0) {
-				// TODO Auto-generated method stub
-				if(combo.getSelectedItem() != null )
-					suppr.setEnabled(true);
-			}
-		});
-		combo.setSelectedItem(null);
-		combo.setPreferredSize(new Dimension(200,20));
+
+		initCombo();
 		
-		subGlobalPane.add(this.combo);
+		subGlobalPane.add(this.comboPane);
 		centSub.add(subGlobalPane);
 		
 		JPanel buttons = new JPanel();
@@ -111,8 +102,13 @@ public class DialogChoseProject extends JDialog{
 		this.suppr.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
-				File f = new File(currentFrame.getCore().getLocalStorage().getLocation());
+				int index = combo.getSelectedIndex();
+				File f = new File(currentFrame.getCore().getLocalStorage().getLocation() + File.separator + combo.getSelectedItem() + ".xml");
 				f.delete();
+				vecProjectList.remove(index);
+				thisDiag.remove(combo);
+				initCombo();
+				
 			}
 			
 		});
@@ -169,5 +165,27 @@ public class DialogChoseProject extends JDialog{
 		this.pack();
 		Point loc = this.currentFrame.getLocationOnScreen();
 		this.setLocation(loc.x+mf.getWidth()/2-this.getWidth()/2, loc.y+mf.getHeight()/2-this.getHeight()/2);
+	}
+	
+	private void initCombo()
+	{
+		if(this.combo != null)
+			this.comboPane.remove(combo);
+		this.combo = new JComboBox(vecProjectList);
+		this.combo.addItemListener(new ItemListener(){
+			
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+				if(combo.getSelectedItem() != null )
+					suppr.setEnabled(true);
+			}
+		});
+		this.combo.setSelectedItem(null);
+		this.combo.setPreferredSize(new Dimension(200,20));
+		this.comboPane.add(this.combo);
+		this.comboPane.invalidate();
+		this.comboPane.validate();
+		this.thisDiag.repaint();
 	}
 }

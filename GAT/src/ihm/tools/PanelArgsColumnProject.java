@@ -74,7 +74,8 @@ public class PanelArgsColumnProject extends JPanel{
 				combo = new JComboBox(thisPane.getVecTypeList());
 				combo.setSelectedItem(null);
 				columnMenu.add(combo, BorderLayout.NORTH);
-				thisPane.revalidate();
+				thisPane.invalidate();
+				thisPane.validate();
 				addConceptButton.setVisible(false);
 				valRet.setVisible(true);
 				combo.setVisible(true);
@@ -148,5 +149,10 @@ public class PanelArgsColumnProject extends JPanel{
 	public String toString() {
 		return this.conceptName+"("+this.conceptType.toString()+")";
 	}
+
+	public Vector<PanelSurTypeColumnProject> getVecArgsList() {
+		return vecArgsList;
+	}
+	
 	
 }

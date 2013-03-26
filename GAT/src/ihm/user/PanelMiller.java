@@ -68,7 +68,8 @@ public class PanelMiller extends JPanel{
 	public void addColumn(PanelSubColumnScenario col)
 	{
 		this.colPane.add(col);
-		this.revalidate();
+		this.invalidate();
+		this.validate();
 	}
 
 	public LinguisticFactory getLf() {

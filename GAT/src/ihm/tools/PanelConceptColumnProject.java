@@ -87,8 +87,8 @@ public class PanelConceptColumnProject extends JPanel{
 				conceptTypeCombo= new JComboBox(thisPane.getVecTypeList());
 				conceptTypeCombo.setVisible(true);
 				menuPanel.add(conceptTypeCombo);
-				
-				thisPane.revalidate();
+				thisPane.invalidate();
+				thisPane.validate();
 				conceptName.setText("");
 				menuPanel.setVisible(true);
 				validateButton.setVisible(true);
