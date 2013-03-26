@@ -29,7 +29,7 @@ Projet Générateur Automatique de Texte
 	srcdir="${src.dir}"
     	excludes="**/*est.java"
 	destdir="${bin.dir}" 
-    classpath=".:${bin.dir}:${lib.dir}/mysql-connector-java-5.1.24-bin.jar;.:${bin.dir}:${lib.dir}/xstream-1.4.4.jar" 
+    classpath=".:${bin.dir}:${lib.dir}/mysql-connector-java-5.1.24-bin.jar:${lib.dir}/xstream-1.4.4.jar" 
 	debug="on"
     source="1.7"/>
     
@@ -54,6 +54,7 @@ Projet Générateur Automatique de Texte
   	<manifest file="./MANIFEST.MF">
   	  <attribute name="Main-Class"
   	             value="core.Main" />
+  	  <attribute name="Class-Path" value=".:${bin.dir}:${lib.dir}/xstream-1.4.4.jar"/>
   	</manifest>
   	<jar destfile="dist/app.jar" basedir="${bin.dir}"
   		manifest= "./MANIFEST.MF"/>
