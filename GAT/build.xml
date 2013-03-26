@@ -7,7 +7,14 @@ Projet Générateur Automatique de Texte
   <property name="bin.dir" location="bin" />
   <property name="lib.dir" location="lib" />
   <property name="src.dir" location="src" />
-  
+	
+	<path id="projet.classpath">
+	    <fileset dir="${lib.dir}">
+	      <include name="*.jar"/>
+	    </fileset>
+	    <pathelement path="${bin.dir}" />
+	  </path>
+	
   <description>
     compilation du projet GAT
   </description>
@@ -48,21 +55,21 @@ Projet Générateur Automatique de Texte
   	  <attribute name="Main-Class"
   	             value="core.Main" />
   	</manifest>
-  	<!--<jar destfile="dist/app.jar" basedir="${bin.dir}"
+  	<jar destfile="dist/app.jar" basedir="${bin.dir}"
   		manifest= "./MANIFEST.MF"/>
-		<fileset dir= "${lib.dir}"/> -->
-  	<jar jarfile="dist/app.jar" manifest= "./MANIFEST.MF">
-  		<fileset dir="${bin.dir}"/>
-  		<fileset dir="${lib.dir}"/>
-  	</jar>
+		<fileset dir= "${lib.dir}"/> 
   </target>
 	
 	  <!-- =================================
 	       target: run_archive
 	       ================================= -->
 	  <target name="run_archive" depends="archive" description="lance l'archive jar">
-	  	<java jar="dist/app.jar" fork="true"/>
-
+	  	<java jar="dist/app.jar" fork="true">
+	  		<classpath>
+	  			<path refid="projet.classpath"/>
+	  			<path location="${jar.dir}/xstream-1.4.4.jar"/>
+	  		</classpath>
+		</java>
 	  </target>
   
   <!-- =================================
