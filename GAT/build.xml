@@ -48,9 +48,13 @@ Projet Générateur Automatique de Texte
   	  <attribute name="Main-Class"
   	             value="core.Main" />
   	</manifest>
-  	<jar destfile="dist/app.jar" basedir="${bin.dir}"
+  	<!--<jar destfile="dist/app.jar" basedir="${bin.dir}"
   		manifest= "./MANIFEST.MF"/>
-
+		<fileset dir= "${lib.dir}"/> -->
+  	<jar jarfile="dist/app.jar" manifest= "./MANIFEST.MF">
+  		<fileset dir="${bin.dir}"/>
+  		<fileset dir="${lib.dir}"/>
+  	</jar>
   </target>
 	
 	  <!-- =================================
