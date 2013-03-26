@@ -120,4 +120,14 @@ public class GraphNodeDefault implements GraphNode {
 			throw new IncompatibleTypesException(tChild, t);
 	}
 
+	@Override
+	public String generateSyntox() {
+		String requestSyntox = "[PRED:"+this.getConcept().getName();	
+		for(int i=0; i<this.getChildrenList().size(); i++){
+			requestSyntox += ", arg"+i+this.getChildrenList().get(i).generateSyntox();
+		}
+		requestSyntox += "]";
+		return requestSyntox;
+	}
+
 }

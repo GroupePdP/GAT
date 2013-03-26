@@ -17,6 +17,7 @@ public interface GraphNode extends GraphConceptsInterface{
 	public List<GraphNode> getListNodes();
 	public GraphNode getRoot();
 	public int getNumberOfNodes();
+	public String generateSyntox();
 	
 	public void addChild(GraphNode child, int index) throws IncompatibleTypesException;
 }
