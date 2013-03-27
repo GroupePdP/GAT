@@ -1,0 +1,315 @@
+//<!--
+Axiom → T dot
+{
+	↓1 := ↑ ∪ [mood:indicative];
+};
+
+T → T dot br T
+{
+	[PRED:succ, arg1:Arg1, arg2:Arg2];
+	↓1 := Arg1;
+	↓4 := Arg2;
+};
+
+T → T dot paragraph T
+{
+	[PRED:paragraph, arg1:Arg1, arg2:Arg2];
+	↓1 := Arg1;
+	↓4 := Arg2;
+};
+
+T → T comma parConséquent T
+{
+	[PRED:cons&eacute;quence, arg1:Arg1, arg2:Arg2];
+	↓1 := Arg1;
+	↓4 := Arg2;
+};
+
+T → siCependant T comma alors T
+{
+	[PRED:si-cependant-alors, arg1:Arg1, arg2:Arg2];
+	↓2 := Arg1;
+	↓5 := Arg2;
+};
+
+T → S
+{
+	[modS:NIL];
+	↓1 := ↑;
+};
+
+T → time comma T
+{
+	[modS:(Head::Tail), Rest];
+	↓1 := Head ∪ [time:date];
+	↓3 := Rest ∪ [mod:Tail];
+};
+
+T → T time
+{
+	[modS:(Head::Tail), Rest];
+	↓1 := Rest ∪ [mod:Tail];
+	↓2 := Head ∪ [time:time];
+};
+
+S → NP|cln VP
+{
+	[subj:S, Rest];
+	↓1 := S;
+	SyntS := ⇓1 ∪ [det:+];
+	↓2 := Rest ∪ [subj:SyntS];
+};
+
+S → merciDe VP
+{
+	[vcomp:VComp];
+	↓2 := VComp ∪ [finite:-];
+};
+
+NP → (det) N
+{
+    order ↓2 ↓1 ;
+    ↓2 := ↑;
+    if (↓1) {
+       ↓1 := ↑ ∪ ⇓2;
+       ⇑ := ↑ ∪ ⇓1 ∪ ⇓2 ∪ [person:3, det:+];
+    } else {
+       ⇑ := ↑ ∪ ⇓2 ∪ [person:3, det:-];
+    }
+};
+
+NP → pn
+{
+	↓1 := ↑;
+	⇑ := ⇓1;
+};
+
+N → nc
+{
+	[mod:NIL];
+	↓1 := ↑;
+	⇑ := ⇓1;
+};
+
+NP → constantNoun
+{
+	↓1 := ↑;
+	⇑ := ⇓1;
+};
+
+VP → VP NP
+{
+	[obj:[PRED:P], Rest];
+	[obj:Obj];
+	test P ≠ pro; 
+	↓1 := Rest;
+	↓2 := Obj ∪ [det:+];
+	⇑ := ⇓1;
+};
+
+VP → VP PP
+{
+	[de-obj:[PRED:P], Rest];
+	[de-obj:DeObj];
+	test P ≠ pro; 
+	↓1 := Rest;
+	↓2 := DeObj ∪ [det:+, pcas:de];
+	⇑ := ⇓1;
+};
+
+VP → VP PP
+{
+	[à-obj:[PRED:P], Rest];
+	[à-obj:DeObj];
+	test P ≠ pro; 
+	↓1 := Rest;
+	↓2 := DeObj ∪ [det:+, pcas:à];
+	⇑ := ⇓1;
+};
+
+VP → VP SComp
+{
+	[scomp:SComp, Rest];
+	↓1 := Rest;
+	[scomp:SCompSynt] := ⇓1;
+	↓2 := SComp ∪ SCompSynt;
+	⇑ := ⇓1;
+};
+
+VP → VP VComp
+{
+	[vcomp:VComp, Rest];
+	↓1 := Rest;
+	[vcomp:VCompSynt] := ⇓1;
+	↓2 := VComp ∪ VCompSynt;
+	⇑ := ⇓1;
+};
+
+VP → V (NP)
+{
+    [obj:NIL, scomp:NIL, de-obj:NIL];
+    [objC:Obj, X] := ↑;
+    ↓1 := X;
+    [objC:ObjSynt] := ⇓1;
+    if (↓2) {
+        ↓2 := ObjSynt;
+    } else {
+	test ¬ObjSynt;
+    }
+    ⇑ := ⇓1;
+
+};
+
+VP → V
+{
+	[obj:[PRED:pro], scomp:NIL];
+	↓1 := ↑;
+	⇑ := ⇓1;
+};
+
+// passive
+V → (clneg) CLITICS aux (ADVV) (advneg) v
+{
+	[X, subj:S];
+	[tense:T, mood:M, diathesis:passive] := ↑;
+	[number:N, gender:G] := S;
+	order ↓6 ↓3 ↓2 ↓1 ↓4 ↓5;
+	↓6 := X ∪ [aux:avoir, pastp:+, gender:G, number:N];
+	⇑ := ⇓6;
+        ↓3 := [aux:être, tense:T, mood:M, subj:S, finite:+];
+	if (↓4) {
+		[modV:ModV];
+		↓4 := [modV:ModV];
+	} else {
+		[modV:NIL];
+	}
+	test ⇓5 ⇔ ⇓1;
+	if (↓5) {
+		[neg:+];
+	} else {
+		[neg:-] := ↑;
+	}
+};
+
+// active
+// manque verbes intransitifs
+V → (clneg) CLITICS aux (ADVV) (advneg) v
+{
+	[X, subj:S];
+	[tense:T, mood:M, diathesis:active] := ↑;
+	if (↓4) {
+		[modV:ModV];
+		↓4 := [modV:ModV];
+	} else {
+		[modV:NIL];
+	}
+	test ⇓5 ⇔ ⇓1;
+	if (↓5) {
+		[neg:+];
+	} else {
+		[neg:-] := ↑;
+	}
+	// Si l&apos;objet est extrait, il s&apos;accorde
+	// en genre et en nombre avec le participe
+	[objExtr:OBJEXTR] := ↑;
+        ↓3 := [tense:T, mood:M, subj:S, finite:+];
+	[aux:AUX] := ⇓3;
+	if (OBJEXTR) {
+		[objExtr:[gender:G, number:N]] := ↑;
+		↓6 := X ∪ [aux:AUX, pastp:+, gender:G, number:N];
+	} 
+	else {
+	     if (AUX == avoir)
+	     	↓6 := X ∪ [aux:avoir, pastp:+, gender:ms, number:sg];
+	     else {
+		[number:N, gender:G] := S;
+		↓6 := X ∪ [aux:être, pastp:+, gender:G, number:N];
+	     }
+	}
+	⇑ := ⇓6;
+};
+
+V → (clneg) (advneg) CLITICS v (ADVV) (advneg)
+{
+	order ↓1 ↓2 ↓3 ↓5 ↓6 ↓4; 
+
+	[diathesis:active] := ↑;
+	test (⇓2 ∨ ⇓6) ⇔ ⇓1;
+	test ¬ (⇓2 ∧ ⇓6);
+	if (↓5) {
+		[modV:ModV];
+		↓5 := [modV:ModV];
+	} else {
+		[modV:NIL];
+	}
+	if (↓2) {
+		[neg:+];
+		[finite:-] := ↑;
+		↓4 := ↑ ∪ [pastp:-, finite:-];
+	} else if (↓6) {
+		[neg:+];
+		[finite:+] := ↑;
+		↓4 := ↑ ∪ [pastp:-, finite:+];
+	} else {
+		[neg:-] := ↑;
+		↓4 := ↑ ∪ [pastp:-];
+	}
+	⇑ := ⇓4;
+};
+
+ADVV → adv ADVV
+{
+	[modV:(Head::Tail)];
+        ↓1 := Head;
+        ↓2 := [modV:Tail];
+};
+
+ADVV →
+{
+	[modV:NIL];
+};
+
+CLITICS → (cld) (cla) (cld)
+{
+	test ¬(⇓1 ∧ ⇓3);
+	if (↓1) {
+		[à-obj:[PRED:pro, person:1|2]];
+		[à-obj:AObj];
+        	↓1 := AObj;
+	} 
+	else if (↓3) {
+		[à-obj:[PRED:pro, person:3]];
+		[à-obj:AObj];
+        	↓3 := AObj;
+	} else {
+		[à-obj:NIL];
+	}
+	if (↓2) {
+		[obj:[PRED:pro]];
+		[obj:Obj];
+        	↓2 := Obj;
+	} else {
+		[obj:NIL];
+	}
+};
+
+SComp → csu T
+{
+	↓1 := ↑;
+       	↓2 := ↑;
+	⇑ := ⇓1 ∪ ⇓2;
+};
+
+VComp → VP
+{
+	↓1 := ↑ ∪ [finite:+];
+       	⇑ := ⇓1;
+};
+
+PP → prep NP
+{
+	↓1 := ↑;
+       	↓2 := ↑;
+	⇑ := ⇓1 ∪ ⇓2;
+};
+//-->
