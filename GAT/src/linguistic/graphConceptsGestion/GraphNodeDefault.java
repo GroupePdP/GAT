@@ -99,7 +99,7 @@ public class GraphNodeDefault implements GraphNode {
 		Concept c = child.getConcept();
 		Type tChild = c.getType();
 
-		if (LinguisticFactory.getInstance().getTypeManager().isCompatible(tChild,t)){ // on verifie la compatibilité de tChild et t
+		if (LinguisticFactory.getInstance().getTypeManager().isCompatible(tChild,t)){ // on verifie la compatibilite de tChild et t
 			if(child.isTagged()){
 				GraphNode childReference = new GraphNodeDefault(child);
 				childReference.setReference(child);

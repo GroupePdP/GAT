@@ -151,7 +151,7 @@ public class PanelNewProject extends JPanel{
 /*							System.out.println("erreur PUTAIN");
 							JOptionPane error = new JOptionPane();
 							//error.showConfirmDialog(currentFrame, "MESSAGE", "ERROR", JOptionPane.OK_OPTION);
-							error.setMessage("Le concept \""+concept.conceptName+"\" ne possède aucun argument.\n Veuillez terminer son initialisation avant de sauvegarder.");
+							error.setMessage("Le concept \""+concept.conceptName+"\" ne possede aucun argument.\n Veuillez terminer son initialisation avant de sauvegarder.");
 							
 							JDialog errorDial = error.createDialog(currentFrame, "Erreur lors de la sauvegarde");
 							errorDial.setVisible(true);

@@ -9,8 +9,7 @@ public class JoinTableImpl implements JoinTable
 	private ArrayList<String> keys1;
 	private ArrayList<String> keysN;
 	
-	private String ligneJointureSql(int i)
-	{
+	private String ligneJointureSql(int i){
 		String sql ="";
 		sql.concat(this.table1);
 		sql.concat(".");
@@ -23,14 +22,11 @@ public class JoinTableImpl implements JoinTable
 		return sql;
 	}
 	
-	
-	public JoinTableImpl(String newTable1, String newTableN,ArrayList<String> newKeys1, ArrayList<String> newKeysN )
-	{
+	public JoinTableImpl(String newTable1, String newTableN,ArrayList<String> newKeys1, ArrayList<String> newKeysN){
 		if(newKeys1.size()==newKeysN.size())
 		{
-			//@TODO déclancher une erreur si les deux list de cle n'ont pas la meme taille
+			//@TODO declencher une erreur si les deux list de cle n'ont pas la meme taille
 		}
-		
 		this.table1=newTable1;
 		this.tableN=newTableN;
 		this.keys1=newKeys1;
@@ -38,49 +34,38 @@ public class JoinTableImpl implements JoinTable
 	}
 	
 	@Override
-	public String getSqlJoin() 
-	{
-		int i =0;
+	public String getSqlJoin(){
+		int i = 0;
 		String sql = this.ligneJointureSql(i);
-		
-		for(i =1; i<this.keys1.size(); i++ )
-		{
-			sql.concat(" AND ");
+		for(i = 1; i < this.keys1.size(); i++){
+			sql.concat("AND");
 			sql.concat(this.ligneJointureSql(i));
  		}
-		
 		return sql;
 	}
 
 	@Override
-	public boolean isTable1(String name) 
-	{
+	public boolean isTable1(String name) {
 		return this.table1.compareTo(name)==0;
 	}
 
 	@Override
-	public boolean isTableN(String name) 
-	{
+	public boolean isTableN(String name) {
 		return this.tableN.compareTo(name)==0;
 	}
 
 	@Override
-	public boolean containeTable(String name) 
-	{
+	public boolean containTable(String name) {
 		return this.isTable1(name) || this.isTableN(name);
 	}
 	
 	@Override
-	public boolean containeTable(String name1, String name2)
-	{
-		return this.containeTable(name1) && this.containeTable(name2);
+	public boolean containTable(String name1, String name2){
+		return this.containTable(name1) && this.containTable(name2);
 	}
 	
 	@Override
-	public boolean containeTableInTheOrder(String name1, String nameN)
-	{
+	public boolean containTableInTheOrder(String name1, String nameN){
 		return this.isTable1(name1) && this.isTableN(nameN);
 	}
-	
-
 }

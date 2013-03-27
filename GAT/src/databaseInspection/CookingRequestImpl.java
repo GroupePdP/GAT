@@ -1,16 +1,14 @@
 package databaseInspection;
 
 
-public class CookingRequesteImpl implements CookingRequeste 
+public class CookingRequestImpl implements CookingRequest 
 {
 
     private Base db;
 
 	@Override
-	public final String getRequeste() {
+	public final String getRequest() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 }

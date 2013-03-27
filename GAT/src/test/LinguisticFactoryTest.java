@@ -16,7 +16,7 @@ import linguistic.typesGestion.TypeManager;
 import org.junit.Before;
 import org.junit.Test;
 
-public class LinguistisFactoryTest {
+public class LinguisticFactoryTest {
 	
 	Concept c1, c2;
 	LinguisticFactory lf;
@@ -38,22 +38,22 @@ public class LinguistisFactoryTest {
 	}
 	
 	@Test
-	public void testMakeType1() {
+	public void testMakeType1(){
 		assertEquals(type1, lf.makeType("Réussir"));
 	}
 
 	@Test
-	public void testMakeType2() {
+	public void testMakeType2(){
 		assertEquals(type2, lf.makeType("Réussir", rootType));
 	}
 	
 	@Test
-	public void testMakeConcept1() {
+	public void testMakeConcept1(){
 		assertEquals(c1, lf.makeConcept("Réussir", type1, args));
 	}
 	
 	@Test
-	public void testMakeConcept2() {
+	public void testMakeConcept2(){
 		assertEquals(c2, lf.makeConcept("RéussirQuart", type1));
 	}
 	

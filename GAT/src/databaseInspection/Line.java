@@ -1,19 +1,12 @@
 package databaseInspection;
 
 
-public interface Line 
-{
+public interface Line {
 	public String getName();
-
 	public String getType();
-
-	public int getLenght();
-
+	public int getLength();
 	public boolean isPk();
-
 	public boolean isFk();
-
-	public boolean equals( Line l);
-
+	public boolean equals(Line l);
 
 }

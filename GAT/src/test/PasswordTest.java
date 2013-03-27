@@ -5,16 +5,14 @@ import org.junit.Test;
 import core.*;
 import static org.junit.Assert.assertEquals;
 
-public class PasswordTest {
+public class PasswordTest{
 	
 	String pass1, pass2, pass3, pass4;
 	String encrypt1,encrypt2,encrypt3,encrypt4;
 	String decrypt1,decrypt2,decrypt3,decrypt4;
 	
-
 	@Before
 	public void initialize() {
-		
 		pass1 = "eignozigzegnizgz";
 		pass2 = "" + Math.random();
 		pass3 = "Afeinef454AIfe";
@@ -29,10 +27,6 @@ public class PasswordTest {
 		decrypt2 = PasswordManager.decrypt(encrypt2);
 		decrypt3 = PasswordManager.decrypt(encrypt3);
 		decrypt4 = PasswordManager.decrypt(encrypt4);
-		
-		
-		
-		
 	}
 	
 	@Test

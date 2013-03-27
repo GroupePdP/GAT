@@ -9,13 +9,9 @@ import databaseConnection.DBConnection;
 
 public class BaseExtractorImpl implements  BaseExtractor
 {
-
 	@Override
-	public Base extracBase(DBConnection bd) {
+	public Base extractBase(DBConnection bd) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-
 }
