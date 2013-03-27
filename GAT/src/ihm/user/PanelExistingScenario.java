@@ -31,7 +31,10 @@ import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import linguistic.Scenario;
 
@@ -40,6 +43,7 @@ public class PanelExistingScenario extends JPanel{
 	MainFrame currentFrame;
 	PanelHomeUser previous;
 	JPanel thisPane;
+	JTextArea descrTArea;
 
 	public PanelExistingScenario(MainFrame mf, PanelHomeUser prev){
 		
@@ -98,11 +102,11 @@ public class PanelExistingScenario extends JPanel{
 		northSubLeftP.add(new JLabel("Description :"));
 		
 		JPanel centerSubLeftP = new JPanel(new BorderLayout());
-		JTextArea descrTArea = new JTextArea();
-		descrTArea.setText("Description");
-		descrTArea.setLineWrap(true);
-		descrTArea.setEditable(false);
-		JScrollPane descrScroll = new JScrollPane(descrTArea);
+		this.descrTArea = new JTextArea();
+		this.descrTArea.setText("");
+		this.descrTArea.setLineWrap(true);
+		this.descrTArea.setEditable(false);
+		JScrollPane descrScroll = new JScrollPane(this.descrTArea);
 		descrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		descrScroll.setSize(centerSubLeftP.getWidth(),centerSubLeftP.getHeight());
 		centerSubLeftP.add(descrScroll, BorderLayout.CENTER);
@@ -130,6 +134,22 @@ public class PanelExistingScenario extends JPanel{
 		
 		
 		final JList scenarioList = new JList(this.currentFrame.getCore().getProject().getListScenario().toArray());
+		scenarioList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		scenarioList.addListSelectionListener(new ListSelectionListener(){
+
+			@Override
+			public void valueChanged(ListSelectionEvent arg0) 
+			{
+				// TODO Auto-generated method stub
+				if(arg0.getValueIsAdjusting())
+			      {
+					int index = scenarioList.getSelectedIndex();
+					descrTArea.setText(currentFrame.getCore().getProject().getListScenario().get(index).getDescription());
+					thisPane.invalidate();
+					thisPane.validate();
+			      }
+			}
+		});
 		
 		scenarioList.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {

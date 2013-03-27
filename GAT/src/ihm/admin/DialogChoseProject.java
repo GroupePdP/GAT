@@ -31,6 +31,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import linguistic.conceptsGestion.Concept;
+import linguistic.conceptsGestion.ConceptComplex;
 
 import core.Project;
 
@@ -135,12 +136,31 @@ public class DialogChoseProject extends JDialog{
 					if (! type.getName().equals("object"))
 					{
 						PanelSurTypeColumnProject pane = new PanelSurTypeColumnProject(currentFrame, pnp, type.getName());
-						types.add(pane);
+						if(type.getSurtype() != null)
+						{
+							System.out.println("looool" + type.getSurtype().getName());
+							PanelSurTypeColumnProject tmp = new PanelSurTypeColumnProject(currentFrame, pnp, type.getSurtype().getName());
+							pane.setType(tmp);
+						}
+						pnp.thisTypeColumnPane.addType(pane);
 						for (Concept c : currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getConceptsForType(type))
 						{
 							PanelArgsColumnProject cons = new PanelArgsColumnProject(currentFrame, pnp, c.getName());
+							if(c.getArguments().size() != 0)
+							{
+								System.out.println(c.toString());
+								for(int i = 0; i<c.getArguments().size(); i++)
+								{
+									linguistic.typesGestion.Type tmp = c.getArguments().get(i);
+									System.out.println(tmp.toString());
+									PanelSurTypeColumnProject tmpType = new PanelSurTypeColumnProject(currentFrame, pnp, tmp.toString());
+									cons.addConcept(tmpType);
+								}
+								
+								
+							}
 							cons.conceptType = pane;
-							concepts.add(cons);
+							pnp.thisConceptColumnPane.addConcept(cons);
 						}
 					}
 				}

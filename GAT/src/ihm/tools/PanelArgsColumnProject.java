@@ -153,6 +153,4 @@ public class PanelArgsColumnProject extends JPanel{
 	public Vector<PanelSurTypeColumnProject> getVecArgsList() {
 		return vecArgsList;
 	}
-	
-	
 }

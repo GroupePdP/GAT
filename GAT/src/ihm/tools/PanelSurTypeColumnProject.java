@@ -166,4 +166,13 @@ public class PanelSurTypeColumnProject extends JPanel{
 	public PanelSurTypeColumnProject getType() {
 		return type;
 	}
+
+	public void setType(PanelSurTypeColumnProject type) {
+		this.type = type;
+		surType.setText(type.toString());
+		this.thisPane.invalidate();
+		this.thisPane.validate();
+	}
+	
+	
 }

@@ -9,6 +9,7 @@ public class Scenario {
 
 	private String name;
 	private List<GraphConcepts> graphList;
+	private String description;
 	
 	public Scenario(String name, List<GraphConcepts> list){
 		this.name = name;
@@ -28,6 +29,14 @@ public class Scenario {
 		return this.name;
 	}
 	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public List<GraphConcepts> getGraphList(){
 		return this.graphList;
 	}

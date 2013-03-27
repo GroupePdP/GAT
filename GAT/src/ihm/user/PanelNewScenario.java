@@ -50,6 +50,7 @@ public class PanelNewScenario extends JPanel{
 
 	public PanelSubColumnScenario[] tab;
 	
+	JTextArea descrTArea;
 	private Dimension columnSize;
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu test1 = new JMenu("Fichier");
@@ -111,11 +112,11 @@ public class PanelNewScenario extends JPanel{
 		JPanel right = new JPanel(new BorderLayout());
 		
 		JLabel description = new JLabel("Description :");
-		JTextArea descrTArea = new JTextArea();
-		descrTArea.setText("Inter quos Paulus eminebat notarius ortus in Hispania, glabro quidam sub vultu latens, odorandi vias periculorum occultas perquam sagax. is in Brittanniam missus ut militares quosdam perduceret ausos conspirasse Magnentio, cum reniti non possent, iussa licentius supergressus fluminis modo fortunis conplurium sese repentinus infudit et ferebatur per strages multiplices ac ruinas, vinculis membra ingenuorum adfligens et quosdam obterens manicis, crimina scilicet multa consarcinando a veritate longe discreta. unde admissum est facinus impium, quod Constanti tempus nota inusserat sempiterna.");
-		descrTArea.setLineWrap(true);
-		descrTArea.setEditable(false);
-		JScrollPane descrScroll = new JScrollPane(descrTArea);
+		this.descrTArea = new JTextArea();
+		this.descrTArea.setText("");
+		this.descrTArea.setLineWrap(true);
+		//descrTArea.setEditable(false);
+		JScrollPane descrScroll = new JScrollPane(this.descrTArea);
 		descrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		right.setPreferredSize(new Dimension(currentFrame.getWidth()/4,currentFrame.getHeight()));
@@ -147,6 +148,7 @@ public class PanelNewScenario extends JPanel{
 			}
 			
 			GraphConcepts gc = new GraphConcepts(nodeRoot);
+			this.scenario.setDescription(this.descrTArea.getText());
 			this.scenario.addGraphConcepts(gc);
 		}
 	}

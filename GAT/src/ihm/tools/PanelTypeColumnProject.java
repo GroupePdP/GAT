@@ -112,7 +112,7 @@ public class PanelTypeColumnProject extends JPanel{
 		this.add(this.columnMenu, BorderLayout.SOUTH);
 	}
 	
-	private void addType(PanelSurTypeColumnProject type)
+	public void addType(PanelSurTypeColumnProject type)
 	{
 		this.thisPane.addType(type);
 		type.setVisible(false);

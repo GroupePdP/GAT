@@ -150,7 +150,7 @@ public class PanelConceptColumnProject extends JPanel{
 		this.add(this.columnMenu, BorderLayout.SOUTH);
 	}
 	
-	private void addConcept(PanelArgsColumnProject concept)
+	public void addConcept(PanelArgsColumnProject concept)
 	{
 		this.thisPane.getVecConceptList().add(concept);
 		concept.setVisible(false);

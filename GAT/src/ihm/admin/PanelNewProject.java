@@ -45,6 +45,9 @@ public class PanelNewProject extends JPanel{
 	Vector<PanelArgsColumnProject> vecConceptList = new Vector(/*conceptsList*/);
 	Vector<PanelSurTypeColumnProject> vecTypeList = new Vector(/*conceptsList*/);
 	
+	PanelConceptColumnProject thisConceptColumnPane;
+	PanelTypeColumnProject thisTypeColumnPane;
+	
 	JPanel conceptColumnPanel;
 	JPanel typeColumnPanel;
 
@@ -145,13 +148,15 @@ public class PanelNewProject extends JPanel{
 						}
 						else
 						{
-							System.out.println("erreur PUTAIN");
+/*							System.out.println("erreur PUTAIN");
 							JOptionPane error = new JOptionPane();
 							//error.showConfirmDialog(currentFrame, "MESSAGE", "ERROR", JOptionPane.OK_OPTION);
 							error.setMessage("Le concept \""+concept.conceptName+"\" ne possède aucun argument.\n Veuillez terminer son initialisation avant de sauvegarder.");
 							
 							JDialog errorDial = error.createDialog(currentFrame, "Erreur lors de la sauvegarde");
 							errorDial.setVisible(true);
+*/							
+							currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(concept.conceptName, t);
 						}
 					}
 				currentFrame.getCore().backupProject(currentFrame.getCore().getProject().getName());
@@ -200,7 +205,8 @@ public class PanelNewProject extends JPanel{
 		
 		JPanel columnsSubPanel = new JPanel();
 		columnsSubPanel.setLayout(new BoxLayout(columnsSubPanel,BoxLayout.X_AXIS));
-		columnsSubPanel.add(new PanelConceptColumnProject(currentFrame,this));
+		this.thisConceptColumnPane = new PanelConceptColumnProject(currentFrame,this);
+		columnsSubPanel.add(this.thisConceptColumnPane);
 		this.conceptColumnPanel = columnsSubPanel;
 		
 		conceptPanel.add(this.conceptColumnPanel,BorderLayout.WEST);
@@ -209,7 +215,8 @@ public class PanelNewProject extends JPanel{
 		
 		JPanel typeSubPanel = new JPanel();
 		typeSubPanel.setLayout(new BoxLayout(typeSubPanel,BoxLayout.X_AXIS));
-		typeSubPanel.add(new PanelTypeColumnProject(currentFrame,this));
+		this.thisTypeColumnPane = new PanelTypeColumnProject(currentFrame,this);
+		typeSubPanel.add(this.thisTypeColumnPane);
 		this.typeColumnPanel = typeSubPanel;
 		
 		typePanel.add(this.typeColumnPanel,BorderLayout.WEST);
