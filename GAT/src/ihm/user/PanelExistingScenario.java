@@ -19,10 +19,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JMenuItem;
@@ -44,6 +47,7 @@ public class PanelExistingScenario extends JPanel{
 	PanelHomeUser previous;
 	JPanel thisPane;
 	JTextArea descrTArea;
+	JList scenarioList;
 
 	public PanelExistingScenario(MainFrame mf, PanelHomeUser prev){
 		
@@ -133,7 +137,7 @@ public class PanelExistingScenario extends JPanel{
 		// Création de la liste à faire.
 		
 		
-		final JList scenarioList = new JList(this.currentFrame.getCore().getProject().getListScenario().toArray());
+		this.scenarioList = new JList(this.currentFrame.getCore().getProject().getListScenario().toArray());
 		scenarioList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scenarioList.addListSelectionListener(new ListSelectionListener(){
 
@@ -150,18 +154,29 @@ public class PanelExistingScenario extends JPanel{
 			      }
 			}
 		});
+		final JPopupMenu popup_desktop = new JPopupMenu("Desktop Menu : ");
+		JMenuItem suppr = new JMenuItem("Supprimer Scenario");
+		suppr.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ArrayList<Scenario> tmp =currentFrame.getCore().getProject().getListScenario();
+				tmp.remove(scenarioList.getSelectedIndex());
+				currentFrame.getCore().getProject().setListScenario(tmp);
+				refreshScenarioList();
+			}
+			
+		});
 		
+		popup_desktop.add(suppr);
+  	  	
 		scenarioList.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 		              if (e.getButton() == 3)
 		              {
-		            	  int index = scenarioList.locationToIndex(e.getPoint());
-		            	  scenarioList.setSelectedIndex(index);
-		            	  JPopupMenu popup_desktop = new JPopupMenu("Desktop Menu : ");
-		            	  popup_desktop.add(new JMenuItem("test"));
-		            	  Point tmp = e.getLocationOnScreen();
-		            	  popup_desktop.setLocation(tmp);
-		            	  popup_desktop.setVisible(true);
+		            	  scenarioList.setSelectedIndex(scenarioList.locationToIndex(e.getPoint()));
+		            	  popup_desktop.show(scenarioList, e.getX(), e.getY());
 		              }
 		        }
 		});
@@ -177,5 +192,13 @@ public class PanelExistingScenario extends JPanel{
 		containsRightPanel.add(rightPanel);
 		
 		return containsRightPanel;
+	}
+	
+	private void refreshScenarioList()
+	{
+		this.scenarioList.setModel(new DefaultListModel());
+		this.scenarioList.setListData(currentFrame.getCore().getProject().getListScenario().toArray());
+		this.thisPane.invalidate();
+		this.thisPane.validate();
 	}
 }

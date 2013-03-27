@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,12 +23,16 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
+import linguistic.Scenario;
 
 public class PanelConceptColumnProject extends JPanel{
 
@@ -52,7 +58,6 @@ public class PanelConceptColumnProject extends JPanel{
 	public PanelConceptColumnProject(MainFrame mf, PanelNewProject pane)
 	{
 		this.setLayout(new BorderLayout());
-		//this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
 		this.currentFrame = mf;
 		this.thisPane = pane;
 		this.vecConceptList = this.thisPane.getVecConceptList();
@@ -61,8 +66,33 @@ public class PanelConceptColumnProject extends JPanel{
 		Dimension columnSize = new Dimension(350,this.thisPane.getHeight());
 		this.setPreferredSize(columnSize);
 		
+		final JPopupMenu popup_desktop = new JPopupMenu("Desktop Menu : ");
+		JMenuItem suppr = new JMenuItem("Supprimer Scenario");
+		suppr.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				removeConcept(conceptsJList.getSelectedIndex());
+			}
+			
+		});
+		
+		popup_desktop.add(suppr);
+		
+		
 		this.conceptsJList=new JList(this.thisPane.getVecConceptList());
 		this.conceptsJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.conceptsJList.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+	              if (e.getButton() == 3)
+	              {
+	            	  conceptsJList.setSelectedIndex(conceptsJList.locationToIndex(e.getPoint()));
+	            	  popup_desktop.show(conceptsJList, e.getX(), e.getY());
+	              }
+	        }
+	});
+		
 		this.conceptsJList.addListSelectionListener(new ListSelectionListener(){
 
 			@Override
@@ -157,6 +187,19 @@ public class PanelConceptColumnProject extends JPanel{
 		this.thisPane.getConceptColumnPanel().add(concept);
 		this.conceptsJList.setModel(new DefaultListModel());
 		this.conceptsJList.setListData(this.thisPane.getVecConceptList());
+		this.thisPane.repaint();
+	}
+	
+	public void removeConcept(int index)
+	{
+		this.thisPane.getVecConceptList().remove(index);
+		this.thisPane.getConceptColumnPanel().remove(index);
+		this.conceptsJList.setModel(new DefaultListModel());
+		this.conceptsJList.setListData(this.thisPane.getVecConceptList());
+		if(index == 0)
+			
+		this.thisPane.invalidate();
+		this.thisPane.validate();
 		this.thisPane.repaint();
 	}
 }
