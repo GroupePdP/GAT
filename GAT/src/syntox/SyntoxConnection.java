@@ -1,70 +1,81 @@
 package syntox;
 
+import java.awt.Desktop;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.URL;
-import java.net.URLConnection;
+import java.net.*;
 
-/**	
-  * ATTENTION : Cette classe est encore une ébauche.
-**/
-
-public class SyntoxConnection {
+public class SyntoxConnection{
 	
-	private OutputStreamWriter writer;
-	private BufferedReader reader;
-	private URLConnection connection;
-	private String answer, requete;
+	private String inputText;
+	private String grammarText;
+	private String lexiconText;
+	private String postEditionText;
+	private String currentPath = System.getProperty("user.dir")+"/src/syntox/";
 
-	public SyntoxConnection(){
-		try {
-			URL url = new URL("https://signes.bordeaux.inria.fr/syntox/pdp.php");
-			this.connection = url.openConnection();			
-			connection.setDoOutput(true);
-			this.writer = new OutputStreamWriter(connection.getOutputStream());
-		} catch (IOException e) {
-			// Prévoir éventuellement une JDialog annonçant l'erreur si jamais la connexion échoue.
-		}
+	public SyntoxConnection(String requestSyntox){
+		this.inputText = requestSyntox;	
+		this.grammarText = readFile((new File(currentPath+"grammar.txt")));	
+		this.lexiconText = readFile((new File(currentPath+"lexicon.txt")));
+		this.postEditionText = readFile((new File(currentPath+"postEdition.txt")));
 	}
-
-	public void sendRequestToSyntox(String r){
-		try {
-			requete = "Axiom[PRED:commander, subj:[PRED:pro, person:1, number:sg], obj:[PRED:article, " +
-					"gender:ms, number:sg, def:-, poss:-, dem:-, possnumber:sg, possperson:1], à-obj:[FORM:\"Martin-Duplomb\", " +
-					"number:sg, person:3, gender:ms], diathesis:active, tense:present, pastp:-]";
-			writer.write(requete);
-			writer.flush();
-			writer.close();
-		} catch (IOException e) {
-			// Prévoir éventuellement une JDialog annonçant l'erreur si jamais la requête n'est pas envoyée.
-		}
+	
+	public SyntoxConnection(String requestSyntox, String grammarFile, String lexiconFile, String postEditionFile){
+		this.inputText = requestSyntox;			
+		this.grammarText = readFile((new File(currentPath+grammarFile)));	
+		this.lexiconText = readFile((new File(currentPath+lexiconFile)));
+		this.postEditionText = readFile((new File(currentPath+postEditionFile)));	
 	}
-
-	public String getAnswerFromSyntox(){
+	
+	public String readFile(File file){
+		String fileText="";
 		try {
-			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-			while ((answer = reader.readLine()) != null) {
-				System.out.println(answer);
+			InputStream ips = new FileInputStream(file);
+			InputStreamReader ipsr=new InputStreamReader(ips);
+			BufferedReader reader = new BufferedReader(ipsr);
+			String line;
+			while((line = reader.readLine()) != null){
+				fileText += line+"\n";         
 			}
-			return answer;
+			reader.close();
+		} catch (FileNotFoundException e) {
 		} catch (IOException e) {
-			return null;
-			// Prévoir éventuellement une JDialog annonçant l'erreur si jamais la requête n'est pas envoyée.
-		}
+		} 
+		return fileText; 
 	}
-
-	/* Main pour tester
-	public static void main(String []args){
-		SyntoxConnection sc = new SyntoxConnection();
-		sc.syntoxRequest("");
+	
+	public void createFile(){
+		String filePath = "src/syntox/pdp.html";
 		try {
-			sc.syntoxAnswer();
+			File file = new File(filePath);
+			FileWriter fw = new FileWriter(file.getAbsolutePath(), false);
+			BufferedWriter output = new BufferedWriter(fw);
+			output.write(readFile(new File(currentPath+"headerPage.html")));
+			output.write(inputText+"\n</TEXTAREA>");
+			output.write("\n<INPUT type=\"hidden\" name=\"grammarText\" value=\"\n"+grammarText+"\">\n");
+			output.write("\n<INPUT type=\"hidden\" name=\"lexiconText\" value=\"\n"+lexiconText+"\">\n");
+			output.write("\n<INPUT type=\"hidden\" name=\"postEditionText\" value=\"\n"+postEditionText+"\">\n");
+			output.write(readFile(new File(currentPath+"endingPage.html")));
+			output.flush();
+			output.close();			
 		} catch (IOException e) {
-			e.printStackTrace();
+		};		
+	}
+	
+	public void requestSyntox(){
+		this.createFile();
+		try {
+			URI uri = new URI("file://"+currentPath+"pdp.html");
+			Desktop.getDesktop().browse(uri);
+		} catch (URISyntaxException e) {
+		} catch (IOException e) {
 		}
-		System.out.println("END");
-	}*/
-
+	}	
 }
