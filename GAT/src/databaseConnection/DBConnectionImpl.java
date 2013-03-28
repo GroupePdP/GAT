@@ -10,7 +10,6 @@ public class DBConnectionImpl implements DBConnection
 {
 
 	private Connection connection;
-	private ResultSet resultSet;
 	private Statement statement;
 	private String url ;
 	private String user;
