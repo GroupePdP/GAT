@@ -8,6 +8,7 @@ package linguistic.conceptsGestion;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import linguistic.typesGestion.Type;
 
@@ -25,6 +26,10 @@ public class ConceptSimple extends ConceptAbstract
 	{
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	
+	public void setSyntoxInput(Map<String, Type> map){
 	}
 	
 	@Override
