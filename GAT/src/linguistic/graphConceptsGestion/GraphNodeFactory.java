@@ -6,7 +6,7 @@ public final class GraphNodeFactory{
 		
 	private static volatile GraphNodeFactory instance = null;
 
-	public GraphNodeFactory(){
+	private GraphNodeFactory(){
 	}
 
 	public static GraphNodeFactory getInstance(){
