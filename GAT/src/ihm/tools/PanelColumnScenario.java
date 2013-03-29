@@ -74,11 +74,16 @@ public class PanelColumnScenario extends JPanel{
 		
 		
 		for (GraphConcepts n:scenario.getGraphList())
-			for (GraphNode g : n.getListNodes())
-			{
-				concepts.add(g.getConcept());
-			}
+		{
+			GraphNode node = n.getRoot();
+			for(GraphNode children : node.getChildrenList())
+				addChildren(node, children, p.getFrame().getCore().getProject().getLinguisticFactory());
+			concepts.add(node.getConcept());
+		}
+		
 		vec = new Vector(concepts);
+		this.conceptListTest=new JList(vec);
+		
 		this.lf = currentHome.getCurrentProject().getLinguisticFactory();
 		List<Concept> tmp = this.lf.getTypeManager().getTypeTree().getConceptsForType(this.lf.getTypeManager().getTypeTree().getRoot().getType());
 		this.conceptsList = tmp;
@@ -90,7 +95,7 @@ public class PanelColumnScenario extends JPanel{
 		
 		JPanel newCol = new JPanel(new BorderLayout());
 		
-		this.conceptListTest=new JList(vec);
+
 		this.conceptListTest.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.conceptListTest.addListSelectionListener(new ListSelectionListener(){
 
@@ -109,9 +114,6 @@ public class PanelColumnScenario extends JPanel{
 							PanelSubColumnScenario tmpCol = (PanelSubColumnScenario) it.next();
 							tmpCol.setVisibleAll(false);
 						}
-						
-						
-						
 						
 						list.get(conceptListTest.getSelectedIndex()).setVisible(true);
 					}
@@ -194,6 +196,20 @@ public class PanelColumnScenario extends JPanel{
 		this.conceptListTest.setModel(new DefaultListModel());
 		this.conceptListTest.setListData(this.vec);
 		this.main.repaint();
+	}
+	
+	private void addChildren(GraphNode father, GraphNode g, LinguisticFactory lf){
+		if (g.getChildrenList().isEmpty())
+		{
+			PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,father.getConcept(),lf);
+			newCol.setVisible(false);
+			currentPanel.addColumn(newCol);
+			list.add(newCol);
+		}
+		else for (GraphNode child : g.getChildrenList())
+		{		
+			addChildren(g, child, lf);
+		}
 	}
 
 	public ArrayList<PanelSubColumnScenario> getList() {

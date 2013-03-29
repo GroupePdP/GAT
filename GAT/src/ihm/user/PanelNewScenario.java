@@ -79,6 +79,7 @@ public class PanelNewScenario extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				scenario.setDescription(descrTArea.getText());
 				thisPane.generateScenario();
 				boolean alreadyExists = false;
 				for (Scenario s : currentFrame.getCore().getProject().getListScenario())
@@ -123,7 +124,7 @@ public class PanelNewScenario extends JPanel{
 		
 		JLabel description = new JLabel("Description :");
 		this.descrTArea = new JTextArea();
-		this.descrTArea.setText("");
+		this.descrTArea.setText(scenario.getDescription());
 		this.descrTArea.setLineWrap(true);
 		//descrTArea.setEditable(false);
 		JScrollPane descrScroll = new JScrollPane(this.descrTArea);
