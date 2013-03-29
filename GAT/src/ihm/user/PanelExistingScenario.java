@@ -81,7 +81,7 @@ public class PanelExistingScenario extends JPanel{
 		
 		JPanel modPanel  = new PanelCenteredButton("Modifier Scenario", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
-			{
+			{	
 				PanelNewScenario pr = new PanelNewScenario(currentFrame, (Scenario) scenarioList.getSelectedValue(), previous);
 				currentFrame.setPane(pr);
 			}
@@ -149,6 +149,8 @@ public class PanelExistingScenario extends JPanel{
 		this.scenarioList = new JList(this.currentFrame.getCore().getProject().getListScenario().toArray());
 		scenarioList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scenarioList.addListSelectionListener(new ListSelectionListener(){
+			
+			
 
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) 

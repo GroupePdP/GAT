@@ -80,7 +80,17 @@ public class PanelNewScenario extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				thisPane.generateScenario();
-				currentFrame.getCore().getProject().ajouterScenario(scenario);
+				boolean alreadyExists = false;
+				for (Scenario s : currentFrame.getCore().getProject().getListScenario())
+				{
+					if (s.getName().equals(scenario.getName()))
+					{
+						alreadyExists = true;
+						break;
+					}
+				}
+				if (alreadyExists == false)
+					currentFrame.getCore().getProject().ajouterScenario(scenario);
 				currentFrame.getCore().backupProject(currentFrame.getCore().getProject().getName());
 			}
 			
