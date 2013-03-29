@@ -59,7 +59,9 @@ public class PanelSurTypeColumnProject extends JPanel{
 		this.setLayout(new BorderLayout());
 		
 		
+		
 		this.combo = new JComboBox(this.thisPane.getVecTypeList());
+
 		//this.combo.setSelectedItem(null);
 		this.combo.setVisible(false);
 		
@@ -70,7 +72,11 @@ public class PanelSurTypeColumnProject extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				thisPane.remove(combo);
-				combo = new JComboBox(thisPane.getVecTypeList());
+				Vector<PanelSurTypeColumnProject> vec = new Vector();
+				for (PanelSurTypeColumnProject pst: thisPane.getVecTypeList())
+					if (! pst.toString().equals(typeName))
+						vec.add(pst);
+				combo = new JComboBox(vec);
 				
 				System.out.println(combo.getItemAt(0).toString());
 				columnMenu.add(combo, BorderLayout.NORTH);
