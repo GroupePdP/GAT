@@ -65,4 +65,23 @@ public class DBConnectionImpl implements DBConnection
 
 	}
 
+
+	@Override
+	public String getNameBase()
+	{
+		int lenght = this.url.length()-1;
+		String nameBase = "";
+		
+		if(this.url.charAt(lenght)== '/')
+			lenght--;
+		
+		while(this.url.charAt(lenght)!='/')
+		{
+			nameBase = this.url.charAt(lenght) +nameBase;
+			lenght--;
+		}
+		
+		return nameBase;
+	}
+	
 }
