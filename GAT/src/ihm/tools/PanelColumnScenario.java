@@ -33,6 +33,8 @@ import linguistic.Scenario;
 import linguistic.conceptsGestion.Concept;
 import linguistic.conceptsGestion.ConceptComplex;
 import linguistic.conceptsGestion.ConceptSimple;
+import linguistic.graphConceptsGestion.GraphConcepts;
+import linguistic.graphConceptsGestion.GraphNode;
 import linguistic.typesGestion.LinguisticFactory;
 import linguistic.typesGestion.Type;
 import linguistic.typesGestion.TypeImpl;
@@ -50,7 +52,7 @@ public class PanelColumnScenario extends JPanel{
 	Vector vecConceptList;
 	
 	List<Concept> concepts = new ArrayList<Concept>();
-	Vector vec = new Vector(concepts);
+	Vector vec;
 	
 	JComboBox combo;
 	JButton validateButton = new JButton("Valider");
@@ -70,6 +72,13 @@ public class PanelColumnScenario extends JPanel{
 		this.currentHome = p;
 		this.scenario = s;
 		
+		
+		for (GraphConcepts n:scenario.getGraphList())
+			for (GraphNode g : n.getListNodes())
+			{
+				concepts.add(g.getConcept());
+			}
+		vec = new Vector(concepts);
 		this.lf = currentHome.getCurrentProject().getLinguisticFactory();
 		List<Concept> tmp = this.lf.getTypeManager().getTypeTree().getConceptsForType(this.lf.getTypeManager().getTypeTree().getRoot().getType());
 		this.conceptsList = tmp;
