@@ -11,13 +11,13 @@ public class JoinTableImpl implements JoinTable
 	
 	private String ligneJointureSql(int i){
 		String sql ="";
-		sql.concat(this.table1);
-		sql.concat(".");
-		sql.concat(this.keys1.get(i));
-		sql.concat(" = ");
-		sql.concat(this.tableN);
-		sql.concat(".");
-		sql.concat(this.keysN.get(i));
+		sql += (this.table1);
+		sql += (".");
+		sql += (this.keys1.get(i));
+		sql += (" = ");
+		sql += (this.tableN);
+		sql += (".");
+		sql += (this.keysN.get(i));
 		
 		return sql;
 	}
@@ -38,8 +38,8 @@ public class JoinTableImpl implements JoinTable
 		int i = 0;
 		String sql = this.ligneJointureSql(i);
 		for(i = 1; i < this.keys1.size(); i++){
-			sql.concat("AND");
-			sql.concat(this.ligneJointureSql(i));
+			sql += ("AND");
+			sql += (this.ligneJointureSql(i));
  		}
 		return sql;
 	}
