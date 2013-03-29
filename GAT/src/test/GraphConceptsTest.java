@@ -26,7 +26,7 @@ public class GraphConceptsTest {
 		
 		
 		final LinguisticFactory lf = LinguisticFactory.getInstance();
-		GraphNodeFactory g = new GraphNodeFactory();
+		GraphNodeFactory g = GraphNodeFactory.getInstance();
 		Type t1 = lf.getTypeManager().makeType("personne");
 		Type t2 = lf.getTypeManager().makeType("joueur", t1);
 		Type t3 = lf.getTypeManager().makeType("gain_de_match");
