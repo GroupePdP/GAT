@@ -139,12 +139,15 @@ public class PanelNewScenario extends JPanel{
 	}
 	
 	public void generateScenario(){
+		List<GraphConcepts> list = new ArrayList();
 		ArrayList<PanelSubColumnScenario> tmp = scenarioRaw.getList();
-		
+		System.out.println("Enregistrement de " + tmp.size() + " elements");
 		for(PanelSubColumnScenario ps : tmp)
 		{
 			Concept root = ps.getOwner();
+
 			GraphNode nodeRoot = this.currentFrame.getCore().getGraphNodeFactory().makeNode(root);
+			System.out.println(ps.getList().size());
 			for(int i = 0 ; i < ps.getList().size(); i++)
 			{
 				GraphNode child = new GraphNodeDefault(ps.getList().get(i).getOwner());
@@ -160,8 +163,9 @@ public class PanelNewScenario extends JPanel{
 			
 			GraphConcepts gc = new GraphConcepts(nodeRoot);
 			this.scenario.setDescription(this.descrTArea.getText());
-			this.scenario.addGraphConcepts(gc);
+			list.add(gc);
 		}
+		this.scenario.setGraphList(list);
 	}
 
 }

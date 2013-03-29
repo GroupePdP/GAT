@@ -94,8 +94,8 @@ public class PanelConceptColumnProject extends JPanel{
 					PanelArgsColumnProject tmpCon = thisPane.getVecConceptList().get(index);
 					if(c.getName().equals(tmpCon.getName()))
 					{
-						DialogSetSyntoxInput newDia = new DialogSetSyntoxInput(currentFrame, c);
-						newDia.setVisible(true);
+						//DialogSetSyntoxInput newDia = new DialogSetSyntoxInput(currentFrame, c);
+					//	newDia.setVisible(true);
 						break;
 					}
 				}

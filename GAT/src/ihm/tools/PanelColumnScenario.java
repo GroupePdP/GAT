@@ -51,7 +51,7 @@ public class PanelColumnScenario extends JPanel{
 	List<Concept> conceptsList;
 	Vector vecConceptList;
 	
-	List<Concept> concepts = new ArrayList<Concept>();
+	List<Concept> roots = new ArrayList<Concept>();
 	Vector vec;
 	
 	JComboBox combo;
@@ -62,7 +62,7 @@ public class PanelColumnScenario extends JPanel{
 	JPanel columnMenu = new JPanel(new BorderLayout());
 	
 	String conceptName;
-	ArrayList<PanelSubColumnScenario> list = new ArrayList<PanelSubColumnScenario>();
+	ArrayList<PanelSubColumnScenario> list;
 
 	public PanelColumnScenario(Dimension columnSize, PanelMiller curr, Scenario s, PanelHomeUser p)
 	{
@@ -71,17 +71,22 @@ public class PanelColumnScenario extends JPanel{
 		this.thisColumnSize= columnSize;
 		this.currentHome = p;
 		this.scenario = s;
-		
+		this.list = new ArrayList<PanelSubColumnScenario>();
+		this.lf = currentHome.getCurrentProject().getLinguisticFactory();
 		
 		for (GraphConcepts n:scenario.getGraphList())
 		{
 			GraphNode node = n.getRoot();
-			for(GraphNode children : node.getChildrenList())
-				addChildren(node, children, p.getFrame().getCore().getProject().getLinguisticFactory());
-			concepts.add(node.getConcept());
+			PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,node.getConcept(),lf,null);
+			newCol.addChildren(node, lf);
+			newCol.setVisible(false);
+			currentPanel.addColumn(newCol);
+			list.add(newCol);
+			System.out.println("ajout concept ok " + list.size());
+			roots.add(node.getConcept());
 		}
 		
-		vec = new Vector(concepts);
+		vec = new Vector(roots);
 		this.conceptListTest=new JList(vec);
 		
 		this.lf = currentHome.getCurrentProject().getLinguisticFactory();
@@ -198,22 +203,10 @@ public class PanelColumnScenario extends JPanel{
 		this.main.repaint();
 	}
 	
-	private void addChildren(GraphNode father, GraphNode g, LinguisticFactory lf){
-		if (g.getChildrenList().isEmpty())
-		{
-			PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,father.getConcept(),lf);
-			newCol.setVisible(false);
-			currentPanel.addColumn(newCol);
-			list.add(newCol);
-		}
-		else for (GraphNode child : g.getChildrenList())
-		{		
-			addChildren(g, child, lf);
-		}
-	}
 
+	
 	public ArrayList<PanelSubColumnScenario> getList() {
-		return list;
+		return this.list;
 	}
 
 	public String getConceptName() {
