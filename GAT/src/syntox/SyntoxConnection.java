@@ -27,13 +27,6 @@ public class SyntoxConnection{
 		this.postEditionText = readFile((new File(currentPath+"postEdition.txt")));
 	}
 	
-	public SyntoxConnection(String requestSyntox, String grammarFile, String lexiconFile, String postEditionFile){
-		this.inputText = requestSyntox;			
-		this.grammarText = readFile((new File(currentPath+grammarFile)));	
-		this.lexiconText = readFile((new File(currentPath+lexiconFile)));
-		this.postEditionText = readFile((new File(currentPath+postEditionFile)));	
-	}
-	
 	public String readFile(File file){
 		String fileText="";
 		try {
