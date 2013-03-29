@@ -1,19 +1,17 @@
 package databaseInspection;
 
-public class LineImpl implements Line 
+public class ColumnImpl implements Column 
 {
 	private String type;
 	private String name;
 	private int length;
 	private boolean primaryKey;
-	private boolean foreignKey;
 
-	public LineImpl(String name, String type, int length, boolean pk,boolean fk){
+	public ColumnImpl(String name, String type, int length, boolean pk){
 		this.name = name;
 		this.type = type;
 		this.length = length;
 		this.primaryKey = pk;
-		this.foreignKey = fk;
 	}
 
 	@Override
@@ -32,17 +30,12 @@ public class LineImpl implements Line
 	}
 
 	@Override
-	public boolean isFk(){
-		return this.foreignKey;
-	}
-
-	@Override
 	public boolean isPk(){
 		return this.primaryKey;
 	}
 	
 	@Override
-	public boolean equals(Line l){
+	public boolean equals(Column l){
 		return this.name.equals(l.getName());
 	}
 }
