@@ -11,18 +11,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
-import javax.swing.DefaultListCellRenderer;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
-
-import linguistic.typesGestion.Type;
 
 public class PanelSurTypeColumnProject extends JPanel{
 	MainFrame currentFrame;
@@ -30,7 +22,6 @@ public class PanelSurTypeColumnProject extends JPanel{
 	
 	String typeName;
 	PanelSurTypeColumnProject type;
-	//Vector<PanelSurTypeColumnProject> vecSurTypeList = new Vector(/*conceptsList*/);
 	
 	JPanel columnMenu = new JPanel(new BorderLayout());
 	
@@ -42,9 +33,7 @@ public class PanelSurTypeColumnProject extends JPanel{
 	JButton retButton = new JButton("Annuler");
 	JPanel valRet = new JPanel(new FlowLayout());
 	
-//	JList surTypeJList;
 	JTextField surType = new JTextField(8);
-//	JScrollPane scrollMain;
 	
 	
 	
@@ -133,15 +122,6 @@ public class PanelSurTypeColumnProject extends JPanel{
 		this.columnMenu.add(this.valRet, BorderLayout.CENTER);
 		this.columnMenu.add(this.combo, BorderLayout.NORTH);
 		
-/*		this.surTypeJList=new JList(this.vecSurTypeList);
-		this.surTypeJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
-		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();
-		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
-		this.surTypeJList.setCellRenderer(centerRenderer);
-		JScrollPane surTypeScroll = new JScrollPane(surTypeJList);
-		surTypeScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		this.scrollMain=surTypeScroll;*/
 		
 		this.surType.setEditable(false);
 		this.setBackground(Color.WHITE);
@@ -149,20 +129,6 @@ public class PanelSurTypeColumnProject extends JPanel{
 		this.add(this.surType, BorderLayout.NORTH);
 		this.add(this.columnMenu, BorderLayout.SOUTH);
 	}
-	
-/*	
-	public void addSurType(PanelSurTypeColumnProject pane)
-	{
-		this.vecSurTypeList.add(pane);
-		this.surTypeJList.setModel(new DefaultListModel());
-		this.surTypeJList.setListData(this.vecSurTypeList);
-		
-		this.surType.setText(t)
-		this.thisPane.repaint();
-		
-	}
-*/	
-	
 	
 	
 	public String toString() {
