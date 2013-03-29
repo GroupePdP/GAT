@@ -146,6 +146,11 @@ public class PanelArgsColumnProject extends JPanel{
 	}
 	
 	
+	public String getName()
+	{
+		return this.conceptName;
+	}
+	
 	public String toString() {
 		return this.conceptName+"("+this.conceptType.toString()+")";
 	}

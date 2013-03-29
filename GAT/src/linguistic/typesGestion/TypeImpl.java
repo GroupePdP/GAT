@@ -27,6 +27,10 @@ public class TypeImpl implements Type {
 		return this.surtype;
 	}
 	
+	public void setSurType(Type surType) {
+		this.surtype = surType;
+	}
+
 	public String getName(){
 		return this.name;
 	}

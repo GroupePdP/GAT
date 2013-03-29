@@ -13,7 +13,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+
 import java.io.File;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -32,6 +34,9 @@ import javax.swing.event.DocumentListener;
 
 import linguistic.conceptsGestion.Concept;
 import linguistic.conceptsGestion.ConceptComplex;
+import linguistic.typesGestion.TypeTree;
+import linguistic.typesGestion.Type;
+import linguistic.typesGestion.TypeTreeNode;
 
 import core.Project;
 
@@ -128,39 +133,61 @@ public class DialogChoseProject extends JDialog{
 				Vector<PanelSurTypeColumnProject> types = new Vector();
 				Vector<PanelArgsColumnProject> concepts = new Vector();
 				PanelNewProject pnp = new PanelNewProject(currentFrame, prev, concepts, types);
-
-				Iterator it = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getMap().keySet().iterator();
+				TypeTree treeTmp = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree();
+				Iterator it = treeTmp.getMap().keySet().iterator();
 				for (;it.hasNext();)
 				{
 					linguistic.typesGestion.Type type = (linguistic.typesGestion.Type) it.next();
 					if (! type.getName().equals("object"))
 					{
-						PanelSurTypeColumnProject pane = new PanelSurTypeColumnProject(currentFrame, pnp, type.getName());
-						if(type.getSurtype() != null)
+						boolean typeAlreadyExist=false;
+						for(PanelSurTypeColumnProject typeTmp : pnp.getVecTypeList())
 						{
-							System.out.println("looool" + type.getSurtype().getName());
-							PanelSurTypeColumnProject tmp = new PanelSurTypeColumnProject(currentFrame, pnp, type.getSurtype().getName());
-							pane.setType(tmp);
-						}
-						pnp.thisTypeColumnPane.addType(pane);
-						for (Concept c : currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getConceptsForType(type))
-						{
-							PanelArgsColumnProject cons = new PanelArgsColumnProject(currentFrame, pnp, c.getName());
-							if(c.getArguments().size() != 0)
+							if(typeTmp.toString().equals(type.getName()))
 							{
-								System.out.println(c.toString());
-								for(int i = 0; i<c.getArguments().size(); i++)
-								{
-									linguistic.typesGestion.Type tmp = c.getArguments().get(i);
-									System.out.println(tmp.toString());
-									PanelSurTypeColumnProject tmpType = new PanelSurTypeColumnProject(currentFrame, pnp, tmp.toString());
-									cons.addConcept(tmpType);
-								}
-								
-								
+								typeAlreadyExist = true;break;
 							}
-							cons.conceptType = pane;
-							pnp.thisConceptColumnPane.addConcept(cons);
+								
+						}
+						if(typeAlreadyExist == false)
+						{
+							PanelSurTypeColumnProject pane = new PanelSurTypeColumnProject(currentFrame, pnp, type.getName());
+							if(type.getSurtype() != null)
+							{
+								PanelSurTypeColumnProject surTypeTmp = null;
+								for(PanelSurTypeColumnProject typeTmp : pnp.getVecTypeList())
+								{
+									if(typeTmp.toString().equals(type.getName()))
+									{
+										surTypeTmp = new PanelSurTypeColumnProject(currentFrame, pnp, type.getSurtype().toString()) ;
+										break;
+									}
+										
+								}
+								if(surTypeTmp != null)
+									pane.setType(surTypeTmp);
+							}
+							pnp.thisTypeColumnPane.addType(pane);
+							
+							
+							TypeTreeNode root= treeTmp.getRoot();
+							for (Concept c : treeTmp.getConceptsForType(root.getType()))
+							{
+								PanelArgsColumnProject cons = new PanelArgsColumnProject(currentFrame, pnp, c.getName());
+								if(c.getArguments().size() != 0)
+								{
+									for(int i = 0; i<c.getArguments().size(); i++)
+									{
+										linguistic.typesGestion.Type tmp = c.getArguments().get(i);
+										PanelSurTypeColumnProject tmpType = new PanelSurTypeColumnProject(currentFrame, pnp, tmp.toString());
+										cons.addConcept(tmpType);
+									}
+
+
+								}
+								cons.conceptType = pane;
+								pnp.thisConceptColumnPane.addConcept(cons);
+							}
 						}
 					}
 				}
