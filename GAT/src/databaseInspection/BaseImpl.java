@@ -47,5 +47,12 @@ public class BaseImpl implements Base
 	public void addJoin(JoinTable newJoin){
 		this.listJoin.add(newJoin);
 	}
-
+	
+	//TODO a suprimmer plus tard
+	@Override
+	public  Map<String,Table> getListTable()
+	{
+		return this.listTable;	
+	}
+	
 }
