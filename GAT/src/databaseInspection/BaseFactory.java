@@ -7,7 +7,8 @@ import databaseConnection.DBConnection;
  */
 
 
-public interface BaseExtractor {
+public interface BaseFactory {
 	
+	public BaseFactory getInstance ();
     public Base extractBase(DBConnection bd);
 }

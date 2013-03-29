@@ -2,9 +2,9 @@ package databaseInspection;
 
 public interface Table 
 {
-	public Line getLine(String key);
+	public Column getLine(String key);
 	
-	public void addLine(Line line);
+	public void addLine(Column line);
 
 	public String getName();
 }

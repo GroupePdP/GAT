@@ -7,10 +7,10 @@ import java.util.Map;
 public class TableImpl implements Table{
 
 	private String name;
-	private Map<String,Line> relation;
+	private Map<String,Column> relation;
 	
 	public TableImpl (String name){
-		this.relation = new HashMap<String,Line>();
+		this.relation = new HashMap<String,Column>();
 		this.name = name;
 	}
 
@@ -20,12 +20,12 @@ public class TableImpl implements Table{
 	}
 	
 	@Override
-	public Line getLine(String key){
+	public Column getLine(String key){
 		return this.relation.get(key);
 	}
 
 	@Override
-	public void addLine(Line line){
+	public void addLine(Column line){
 		this.relation.put(line.getName(),line);
 	}
 }

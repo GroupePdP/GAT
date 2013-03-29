@@ -2,6 +2,7 @@ package databaseInspection;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public interface Base 
 {
@@ -10,5 +11,7 @@ public interface Base
 	public void addTable(Table newTable);
 	public List<JoinTable> getJoin();
 	public void addJoin(JoinTable newJoin);
+	public ArrayList<JoinTable> getJoinTable();
+	Map<String, Table> getListTable();
 
 }

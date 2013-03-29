@@ -22,7 +22,7 @@ public class JoinTableImpl implements JoinTable
 		return sql;
 	}
 	
-	public JoinTableImpl(String newTable1, String newTableN,ArrayList<String> newKeys1, ArrayList<String> newKeysN){
+	public JoinTableImpl(String newTable1, String newTableN, ArrayList<String> newKeys1, ArrayList<String> newKeysN){
 		if(newKeys1.size()==newKeysN.size())
 		{
 			//@TODO declencher une erreur si les deux list de cle n'ont pas la meme taille

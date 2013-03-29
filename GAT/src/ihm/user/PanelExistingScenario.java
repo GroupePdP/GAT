@@ -79,6 +79,14 @@ public class PanelExistingScenario extends JPanel{
 			}
 		});
 		
+		JPanel modPanel  = new PanelCenteredButton("Modifier Scenario", new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				PanelNewScenario pr = new PanelNewScenario(currentFrame, (Scenario) scenarioList.getSelectedValue(), previous);
+				currentFrame.setPane(pr);
+			}
+		});
+		
 		JPanel nextPanel = new PanelCenteredButton("Valider", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -89,6 +97,7 @@ public class PanelExistingScenario extends JPanel{
 		
 		
 		southPanel.add(returnPanel);
+		southPanel.add(modPanel);
 		southPanel.add(nextPanel);
 		
 		southPanel.setPreferredSize(new Dimension(currentFrame.getWidth(), currentFrame.getHeight()/100*13));
