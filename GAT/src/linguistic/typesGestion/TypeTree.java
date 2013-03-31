@@ -36,7 +36,15 @@ public class TypeTree {
 	}
 	
 	// Autres methodes
-		
+	/** Adds a TypeTreeNode with the specified Type to the TypeTree 
+	 * and returns it.
+	 * If the TypeTreeNode with its surtype isn't present in the
+	 * TypeTree, the recursive call to the method will create it.
+	 * The TypeTreeNode created is also added to the nodeMap.
+	 * 
+	 * @param t the type wanted to be added to the TypeTree
+	 * @return the TypeTreeNode with the specified Type
+	 * **/
 	public TypeTreeNode addType(Type t){
 		TypeTreeNode parent = nodeMap.get(t.getSurtype());
 		if(parent==null)
@@ -49,21 +57,27 @@ public class TypeTree {
 		return node;
 	}
 	
-	public void addConcept(Concept c){
+	public void addConcept(Concept c){ // utilisée ?
 		TypeTreeNode node = nodeMap.get(c.getType());
 		node.addConcept(c);
 	}
 	
-	public List<Concept> getConceptsForType(Type t){ // On recupere les concepts du type t 
-													// et de ses sous-types
+	/** Returns the list of Concepts having the specified Type
+	 *  or one of his "children".
+	 *  The method runs through the Concepts having exactly
+	 *  the given Type, then through the Concepts having the
+	 *  "children" Types.
+	 *  @param t the Type of the Concepts searched
+	 *  @return the list of Concepts with the given Type
+	 * **/
+	public List<Concept> getConceptsForType(Type t){ 
 		TypeTreeNode node = nodeMap.get(t);
 		if (node == null)
 		{
 			return new ArrayList<Concept>();
 		}
 		List<Concept> list = new ArrayList<Concept>();
-		List<Concept> list2 = node.getConceptList(); //*****
-		for (Concept c : list2)
+		for (Concept c : node.getConceptList())
 		{
 			list.add(c);
 		}

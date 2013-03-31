@@ -13,6 +13,10 @@ public class TypeManager {
 		this.tree = new TypeTree();
 	}
 	
+	public TypeTree getTypeTree(){
+		return this.tree;
+	}
+	
 	// Creation des types
 	
 	public Type makeType(String name, Type surtype){
@@ -27,11 +31,15 @@ public class TypeManager {
 		return t;
 	}
 
-	public TypeTree getTypeTree(){
-		return this.tree;
-	}
-	
-	public boolean isCompatible(Type t1, Type t2){ // retourne true si t1 est compatible avec t2
+	/** Returns the compatibility of a first Type with a second one.
+	 * The method returns True if the first Type is compatible with
+	 * (i.e. is a "children"-Type of) the second Type. Else, the
+	 * method returns False.
+	 * @param t1 the first Type
+	 * @param t2 the second Type 
+	 * @return a boolean
+	 * **/
+	public boolean isCompatible(Type t1, Type t2){
 		while(t1!=null && t1!=t2){
 			t1 = t1.getSurtype();
 		}

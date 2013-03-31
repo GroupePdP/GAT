@@ -6,32 +6,28 @@ package linguistic.conceptsGestion;
 
 import linguistic.typesGestion.Type;
 
-public abstract class ConceptAbstract implements Concept
-{
+public abstract class ConceptAbstract implements Concept{
 	
 	private String name;
 	private Type type;
 	
-	public ConceptAbstract(String name, Type type)
-	{
+	public ConceptAbstract(String name, Type type){
 		this.name = name;
 		this.type = type;
 	}
 	
 	// Accesseurs
 
-	public String getName()
-	{
+	public String getName(){
 		return this.name;
 	}
 	
-	public Type getType()
-	{
+	public Type getType(){
 		return this.type;
 	}
 
 	@Override
-	public String toString() {
+	public String toString(){
 		return this.name;
 	}
 	

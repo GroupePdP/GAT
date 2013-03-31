@@ -31,42 +31,42 @@ public class GraphNodeDefault implements GraphNode {
 		this.concept = ref.getConcept();
 		this.childrenList = ref.getChildrenList();
 	}
-	
+
 	@Override
 	public boolean isTagged(){
 		return this.tag;
 	}
-	
+
 	@Override
 	public void setTag(boolean b){
 		this.tag = b;
 	}
-	
+
 	@Override
 	public GraphNode getReference(){
 		return this.reference;
 	}
-	
+
 	@Override
 	public void setReference(GraphNode node){
 		this.reference = node;
 	}
-	
+
 	@Override
 	public boolean getIsReference(){
 		return this.isReference;
 	}
-	
+
 	@Override
 	public void setIsReference(boolean b){
 		this.isReference = b;
 	}
-	
+
 	@Override
 	public Concept getConcept() {
 		return this.concept;
 	}
-	
+
 	@Override
 	public List<GraphNode> getChildrenList(){
 		return this.childrenList;
@@ -91,7 +91,8 @@ public class GraphNodeDefault implements GraphNode {
 	public int getNumberOfNodes() {
 		return getListNodes().size();
 	}
-	
+
+	/** Adds a GraphNode to another**/
 	@Override
 	public void addChild(GraphNode child,int index) throws IncompatibleTypesException{
 		List<Type> list = getConcept().getArguments();
@@ -99,7 +100,8 @@ public class GraphNodeDefault implements GraphNode {
 		Concept c = child.getConcept();
 		Type tChild = c.getType();
 
-		if (LinguisticFactory.getInstance().getTypeManager().isCompatible(tChild,t)){ // on verifie la compatibilite de tChild et t
+		if (LinguisticFactory.getInstance().getTypeManager()
+				.isCompatible(tChild,t)){ // on verifie la compatibilite de tChild et t
 			if(child.isTagged()){
 				GraphNode childReference = new GraphNodeDefault(child);
 				childReference.setReference(child);
@@ -122,9 +124,10 @@ public class GraphNodeDefault implements GraphNode {
 
 	@Override
 	public String generateSyntox() {
-		String requestSyntox = "[PRED:"+this.getConcept().getName();	
-		for(int i=0; i<this.getChildrenList().size(); i++){
-			requestSyntox += ", arg"+i+this.getChildrenList().get(i).generateSyntox();
+		String requestSyntox = "[PRED:" + this.getConcept().getName();	
+		for(int i=0; i < this.getChildrenList().size(); i++){
+			requestSyntox += ", arg" + i + 
+					this.getChildrenList().get(i).generateSyntox();
 		}
 		requestSyntox += "]";
 		return requestSyntox;
