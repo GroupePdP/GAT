@@ -80,7 +80,7 @@ public class PanelConceptColumnProject extends JPanel{
 			
 		});
 		
-		JMenuItem syntox = new JMenuItem("Ajouter entrée Synthox");
+		JMenuItem syntox = new JMenuItem("Ajouter entree Syntox");
 		syntox.addActionListener(new ActionListener(){
 
 			@Override

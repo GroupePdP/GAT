@@ -57,7 +57,7 @@ public class TypeTree {
 		return node;
 	}
 	
-	public void addConcept(Concept c){ // utilisée ?
+	public void addConcept(Concept c){ // utilisee ?
 		TypeTreeNode node = nodeMap.get(c.getType());
 		node.addConcept(c);
 	}
