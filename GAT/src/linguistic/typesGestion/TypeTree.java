@@ -1,7 +1,4 @@
-/** Classe TypeTree
- * contient une HashMap des Type et des noeuds de l'arbre de types
- * gere l'ajout d'un type ou d'un concept dans l'arbre
- */
+
 
 package linguistic.typesGestion;
 
@@ -13,24 +10,34 @@ import java.util.Map;
 
 import linguistic.conceptsGestion.Concept;
 
+/** Represents a tree structure of nodes of type TypeTreeNode.
+ * This structure allows to represent Type organization and
+ * arrangement, including surtypes relations.
+ * The TypeTree class can add a Type, a Concept (which has a 
+ * specific Type) and is used to return a list of Concepts having
+ * a specified Type.
+ * **/
 public class TypeTree {
 
 	private TypeTreeNode root;
 	private Map<Type, TypeTreeNode> nodeMap;
 	
 	public TypeTree(){
-		Type rootType = new TypeImpl("object"); // Type "racine"
+		Type rootType = new TypeImpl("object"); 
 		this.root = new TypeTreeNode(rootType);
 		this.nodeMap = new HashMap<Type, TypeTreeNode>();
 		nodeMap.put(rootType, root);
 	}
 	
 	// Accesseurs
-	
+	/** Returns the root of the TypeTree, with type
+	 * TypeTreeNode. **/
 	public TypeTreeNode getRoot(){
 		return this.root;
 	}
 	
+	/** Contains a Map, giving the relations between Types
+	 * and TypeTreeNodes. **/
 	public Map<Type,TypeTreeNode> getMap(){
 		return nodeMap;
 	}
