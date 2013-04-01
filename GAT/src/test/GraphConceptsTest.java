@@ -9,7 +9,7 @@ import linguistic.conceptsGestion.Concept;
 import linguistic.graphConceptsGestion.GraphConcepts;
 import linguistic.graphConceptsGestion.GraphNode;
 import linguistic.graphConceptsGestion.GraphNodeFactory;
-import linguistic.graphConceptsGestion.IncompatibleTypesException;
+import linguistic.typesGestion.IncompatibleTypesException;
 import linguistic.typesGestion.LinguisticFactory;
 import linguistic.typesGestion.Type;
 

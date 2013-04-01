@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import linguistic.conceptsGestion.Concept;
+import linguistic.typesGestion.IncompatibleTypesException;
 import linguistic.typesGestion.LinguisticFactory;
 import linguistic.typesGestion.Type;
 
@@ -27,7 +28,7 @@ public class GraphNodeDefault implements GraphNode {
 	public GraphNodeDefault(GraphNode ref){
 		this.tag = ref.isTagged();
 		this.reference = ref.getReference();
-		this.isReference = ref.getIsReference();
+		this.isReference = ref.isReference();
 		this.concept = ref.getConcept();
 		this.childrenList = ref.getChildrenList();
 	}
@@ -53,7 +54,7 @@ public class GraphNodeDefault implements GraphNode {
 	}
 
 	@Override
-	public boolean getIsReference(){
+	public boolean isReference(){
 		return this.isReference;
 	}
 

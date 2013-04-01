@@ -40,7 +40,7 @@ public class TypeImpl implements Type {
 		return this.name;
 	}
 	
-	public boolean equals(TypeImpl t) {
+	public boolean equals(Type t) {
 		return (this.name.equals(t.getName()) && this.surtype.equals(t.getSurtype()));
 	}
 
