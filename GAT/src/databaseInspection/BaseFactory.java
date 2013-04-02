@@ -9,6 +9,5 @@ import databaseConnection.DBConnection;
 
 public interface BaseFactory {
 	
-	public BaseFactory getInstance ();
-    public Base extractBase(DBConnection bd);
+	public Base extractBase(DBConnection bd);
 }
