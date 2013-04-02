@@ -56,9 +56,10 @@
 \contentsline {section}{\numberline {5.7}Probl\IeC {\`e}mes rencontr\IeC {\'e}s et remarques}{37}{section.5.7}
 \contentsline {chapter}{\numberline {6}Tests et r\IeC {\'e}sultats}{38}{chapter.6}
 \contentsline {section}{\numberline {6.1}Tests effectu\IeC {\'e}s}{38}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Base de donn\IeC {\'e}es}{38}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Interface graphique}{38}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Interactions ext\IeC {\'e}rieures}{39}{subsection.6.1.3}
-\contentsline {section}{\numberline {6.2}R\IeC {\'e}sultats}{39}{section.6.2}
-\contentsline {chapter}{\numberline {7}Conclusion}{40}{chapter.7}
-\contentsline {chapter}{\numberline {8}Annexes}{41}{chapter.8}
+\contentsline {subsection}{\numberline {6.1.1}Linguistique}{38}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Core}{39}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Database[Connection/Inspection]}{40}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}Syntox}{40}{subsection.6.1.4}
+\contentsline {section}{\numberline {6.2}R\IeC {\'e}sultats}{40}{section.6.2}
+\contentsline {chapter}{\numberline {7}Conclusion}{41}{chapter.7}
+\contentsline {chapter}{\numberline {8}Annexes}{42}{chapter.8}

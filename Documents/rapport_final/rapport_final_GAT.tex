@@ -52,37 +52,13 @@
 
 Le logiciel que nous avons développé pendant ce projet permet de générer du texte de manière automatique à partir de données brutes sélectionnées dans une base de données. 
 
-\bigskip
-
-Ce texte est en réalité la sortie du logiciel Syntox, qui est un logiciel développé par M. Lionel Clément, et qui génère du texte grammaticalement et syntaxiquement correct à partir d'une entrée d'une forme spécifique (dite \emph{entrée Syntox} dans notre rapport).
-
-Chaque entrée permet à Syntox de générer toutes les phrases correspondant aux contraintes qui y sont spécifiées.
-
-Par exemple, l'entrée 
-$$S [\text{PRED=manger},
-    \text{subj=[PRED=grenouille, def=+]},
-    \text{obj=[PRED=insecte, def=-]}
-]$$
-permet de générer :
-\begin{enumerate}
-    \item la grenouille mange un insecte
-    \item la grenouille mange des insectes
-    \item les grenouilles mangent un insecte
-    \item les grenouilles mangent des insectes
-\end{enumerate}
-Syntox contient à l'avance une grammaire et un lexique qui correspondent au thème traité. Ces deux composants sont fournis par le client.
-Le but de notre logiciel était donc de fournir à Syntox une entrée qui a ensuite été transformée en texte.
-
-\bigskip
-
 La base de données considérée dans ce projet est une base de données relationnelle, contenant des informations intéressantes pour l'utilisateur, mais non exploitables directement ; il s'agit de données chiffrées, de fonctions, de relations, qui doivent être étudiées avant d'être interprétées.
 
-\bigskip
-
-La génération de l'entrée Syntox se fait à partir de \emph{scénarios utilisateur} : chaque scénario correspond à un but rhétorique visé par l'utilisateur. Concrètement, cela peut être la rédaction d'un courriel à tous les étudiants de l'université ayant validé la matière X (à partir d'une base de données contenant les résultats de tous les étudiants à toutes les matières) ou l'analyse des résultats d'une équipe Y de rugby pendant une certaine saison (à partir d'une base de données contenant les résultats de toutes les équipes de rugby pendant plusieurs saisons).
-% A REPRENDRE
+Ce logiciel peut servir par exemple à analyser automatiquement des données contenues dans une base de données, ou à utiliser ces données intelligemment pour effectuer des tâches répétitives, notamment l'écriture de textes demandant une grande adaptation des termes suivant les situations (on peut penser au mailing automatique pour des commerciaux ou pour une administration, qui doivent adapter leur message à tous les types de destinataires).
 
 \bigskip
+
+La génération du texte se fait à partir de \emph{scénarios utilisateur} : chaque scénario correspond à un but rhétorique visé par l'utilisateur.
 
 Générer de tels textes ne se résumant pas à créer des "textes à trous", notre logiciel permet à l'utilisateur de construire le scénario voulu à partir de \emph{concepts} : ceux-ci peuvent être une action, un événement, une succession, un objet, une personne... Le concept est complètement indépendant de la manière de le représenter (notamment indépendant du lexique utilisé, et même de la langue).
 
@@ -107,6 +83,27 @@ Dans notre projet, le logiciel propose à l'utilisateur de choisir entre la cré
 
 \bigskip
 
+Ce texte est en réalité la sortie du logiciel Syntox, qui est un logiciel développé par M. Lionel Clément, et qui génère du texte grammaticalement et syntaxiquement correct à partir d'une entrée d'une forme spécifique (dite \emph{entrée Syntox} dans notre rapport).
+
+Chaque entrée permet à Syntox de générer toutes les phrases correspondant aux contraintes qui y sont spécifiées.
+
+Par exemple, l'entrée 
+$$S [\text{PRED=manger},
+    \text{subj=[PRED=grenouille, def=+]},
+    \text{obj=[PRED=insecte, def=-]}
+]$$
+permet de générer :
+\begin{enumerate}
+    \item la grenouille mange un insecte
+    \item la grenouille mange des insectes
+    \item les grenouilles mangent un insecte
+    \item les grenouilles mangent des insectes
+\end{enumerate}
+Syntox contient à l'avance une grammaire et un lexique qui correspondent au thème traité. Ces deux composants sont fournis par le client.
+Le but de notre logiciel était donc de fournir à Syntox une entrée qui a ensuite été transformée en texte.
+
+\bigskip
+
 Le scénario (c'est-à-dire l'ensemble de concepts plus ou moins complexes que l'utilisateur veut exprimer) est ensuite traité en plusieurs étapes par le logiciel pour générer l'entrée Syntox souhaitée.
 
 Premièrement, le scénario est transformé en un \emph{graphe conceptuel}, c'est-à-dire un graphe acyclique orienté dont les sommets sont des concepts et les arêtes orientées correspondent aux liens entre ces concepts.
@@ -122,7 +119,9 @@ Celui-ci peut ensuite enregistrer le résultat dans un fichier.
 
 \bigskip
 
-Il y a deux types d'utilisateurs : l'utilisateur dit "classique", qui ne se préoccupe pas de la manière dont le texte est généré, et l'utilisateur administrateur, qui peut configurer le système.
+Notre logiciel comporte deux types d'utilisateurs : l'utilisateur dit "classique", qui ne se préoccupe pas de la manière dont le texte est généré, et l'utilisateur administrateur, qui peut configurer le système.
+
+Ainsi, l'administrateur peut configurer le système (créer les concepts requis et donner les informations de connexion à la base de données), puis l'utilisateur classique n'a plus qu'à utiliser le logiciel, sans avoir besoin de connaître la base de données utilisée ou les détails des concepts qu'il manipule.
 
 
 \chapter{Etude de l'existant et bibliographie}
@@ -179,19 +178,19 @@ Son interface utilisateur est faite via un navigateur web pour permettre de port
 
 \subsubsection{Scénario 1}
 	\begin{enumerate}
-	\item L'utilisateur se connecte en choisissant le mode "utilisateur" ne requérant pas de mot de passe (voir figure 1 en Annexe).
-			\item Il sélectionne le projet sur lequel il souhaite travailler, et entre le mot de passe de la base de données correspondante (si il y en a un) (voir figure 2).
-            \item Il choisit scénario existant (voir figure 3) et dans la liste déroulante il choisit celui qui lui convient en fonction de la base de donnée active (voir figure 4).
+	\item L'utilisateur se connecte en choisissant le mode "utilisateur" ne requérant pas de mot de passe.
+			\item Il sélectionne le projet sur lequel il souhaite travailler, et entre le mot de passe de la base de données correspondante (si il y en a un).
+            \item Il choisit scénario existant et dans la liste déroulante il choisit celui qui lui convient en fonction de la base de donnée active .
             \item Il clique sur le bouton "Valider" pour lancer l'exécution du logiciel.
-            \item L'utilisateur peut alors voir le résultat généré par le logiciel (voir figure 5).
+            \item L'utilisateur peut alors voir le résultat généré par le logiciel.
             \item L'utilisateur enregistre le résultat dans un fichier texte en appuyant sur le bouton "sauvegarder".
             \end{enumerate}
 
 \subsubsection{Scénario 2}
     \begin{enumerate}
-    		\item L'utilisateur se connecte en choisissant le mode "utilisateur" ne requérant pas de mot de passe (voir figure 1 en Annexe).
-           \item Il choisit "scénario personnalisé" pour pouvoir commencer la création d'un scénario (voir figure 3).
-           	\item Dans l'écran  de création d'un nouveau scénario (voir figure 6), l'utilisateur peut choisir de rajouter ou de modifier les concepts qui composeront son scénario.
+    		\item L'utilisateur se connecte en choisissant le mode "utilisateur" ne requérant pas de mot de passe.
+           \item Il choisit "scénario personnalisé" pour pouvoir commencer la création d'un scénario.
+           	\item Dans l'écran  de création d'un nouveau scénario, l'utilisateur peut choisir de rajouter ou de modifier les concepts qui composeront son scénario.
             \item Il clique sur le bouton "Générer le texte" dans le menu "Fichier" pour lancer l'exécution du logiciel.
             \item L'utilisateur trouve que le texte généré ne contient pas assez d'informations, ou des informations non pertinentes, il retourne à l'étape de choix des concepts et les modifie pour affiner le résultat en fonction de ce qu'il recherche.
             \item Lorsque le résultat lui convient, l'utilisateur sauvegarde le scénario.
@@ -203,18 +202,18 @@ Son interface utilisateur est faite via un navigateur web pour permettre de port
 
 \subsubsection{Scénario 1}
     \begin{enumerate}
-    \item L'administrateur choisit de se connecter en mode "Administrateur" et doit rentrer un login et un mot de passe (voir figure 7).
-            \item Il choisit de créer un nouveau projet (voir figure 8).
-            \item Il peut alors entrer le nom du projet, la base de données qui souhaite employer et les identifiants associés (voir figure 9).
-            \item L'administrateur peut alors commencer la création du projet en choississant les différents concepts qui seront liés à la base de données (voir figure 10).
+    \item L'administrateur choisit de se connecter en mode "Administrateur" et doit rentrer un login et un mot de passe.
+            \item Il choisit de créer un nouveau projet.
+            \item Il peut alors entrer le nom du projet, la base de données qui souhaite employer et les identifiants associés.
+            \item L'administrateur peut alors commencer la création du projet en choississant les différents concepts qui seront liés à la base de données.
             \item L'administrateur peut alors enregistrer son projet.
             \end{enumerate}
 
 \subsubsection{Scénario 2}   
     \begin{enumerate}
     \item L'administrateur choisit de se connecter en mode "Administrateur" et doit rentrer un login et un mot de passe.
-    		\item Il choisit de modifier un projet (voir figure 8).
-            \item Il choisit le nom du projet à modifier (voir firgure 11).
+    		\item Il choisit de modifier un projet.
+            \item Il choisit le nom du projet à modifier.
             \item L'administrateur s'attelle à l'association de requêtes SQL avec des concepts nouveaux qu'il crée.
             \item L'administrateur enregistre le projet.
             \end{enumerate}
@@ -297,11 +296,11 @@ L'utilisateur administrateur aura accès à une fenêtre spécifique, consacrée
 
 \subsubsection{Génération de requêtes SQL}
 
-On doit prévoir un module capable de communiquer avec la base de donées au moyen de requêtes SQL: on doit donc être capable de les envoyer, et de recevoir la réponse de la base de données, ainsi que de traiter ces réponses pour pouvoir les utiliser.
+On doit prévoir un module capable de communiquer avec la base de données au moyen de requêtes SQL: on doit donc être capable de les envoyer, et de recevoir la réponse de la base de données, ainsi que de traiter ces réponses pour pouvoir les utiliser.
 
 \subsubsection{Base de données}
 
-Nous avons besoin de pouvoir se connecter à une base de données en lecture afin de pouvoir lire sa structure en lui soumettant des requêtes SQL. Pour le moment nous ne nous limitons pas à l'utilisation d'une seule base de données, afin de pouvoir étudier l'utilisation de différents concepts sur d'autres données.
+Nous avons besoin de pouvoir nous connecter à une base de données en lecture afin de pouvoir lire sa structure en lui soumettant des requêtes SQL. Pour le moment nous ne nous limitons pas à l'utilisation d'une seule base de données, afin de pouvoir étudier l'utilisation de différents concepts sur d'autres données.
 
 Nous envisageons de stocker les concepts dans une base de données indépendante de celle où se trouvent les données initiales, pour pouvoir la transporter sans véhiculer l'ensemble des données.
 
@@ -407,7 +406,7 @@ A l'heure actuelle, on ne sait pas encore si le résultat final sera consultable
 
 	Ce diagramme présente les fonctionnalités accessibles à l'utilisateur classique et à l'administrateur.
 
-	\includegraphics[scale=0.8]{Diagramme1.png}
+	\includegraphics[scale=0.5]{Diagramme1.png}
 
 \subsection{Schémas de fonctionnement}
 
@@ -428,7 +427,7 @@ A l'heure actuelle, on ne sait pas encore si le résultat final sera consultable
 
 
 \section{Architecture}
-Notre programme se composera de cinq packages principaux: BaseDonnées, Structure, GestionnaireFichiers, ConnexionSyntox et Interface graphique, correspondant aux différentes fonctionnalités du programme.
+Notre programme se composera de cinq packages principaux: Database, Linguistic, FileManager, SyntoxConnection et IHM, correspondant aux différentes fonctionnalités du programme.
 Chacun de ces packages comportera les classes nécessaires à son bon fonctionnement.
 
 \subsection{Diagramme de packages}
@@ -457,7 +456,7 @@ Le diagramme suivant présente la structure générale du logiciel.
 \begin{center}
 \includegraphics[scale=0.4]{DiagLinguistic_types_gestion.png}
 \includegraphics[scale=0.5]{DiagLinguistic_graph_concepts_gestion.png}
-\caption{Diagramme de classes sous-packages types\_gestion et graph\_concepts\_gestion}
+\caption{Diagramme de classes des sous-packages types\_gestion et graph\_concepts\_gestion}
 \end{center}
 \end{figure}
 
@@ -651,49 +650,94 @@ Ce package contiendra tous les éléments de l'interface graphique et des fenêt
 \section{Problèmes rencontrés et remarques}
 
 \chapter{Tests et résultats}
-
 \section{Tests effectués}
+Le but de ces tests est d'assurer le bon fonctionnement de notre application. Nous pouvons les regrouper selon l'ensemble de fonctionnalités auquels ils se rattachent. Afin de ne pas mélanger le code source et les essais, nous avons créé un package différent regroupant l'ensemble des classes et méthodes de test. 
 
-Le but de ces tests est de prévoir le bon fonctionnement de notre application. Ces prévisions de tests reposent essentiellement sur les besoins et les scénarios précédemment énoncés. Nous pouvons déjà les énumérer de façon regroupée selon le domaine auquel ils se rapportent.
-
-\subsection{Base de données}
-
-Les bases de données sont au coeur de notre projet. Utilisées pour contenir les informations à énoncer ou pour sauvegarder les concepts créés, toute fonctionnalité les manipulant doit être testée.
-Nous devrons donc tester :
+\subsection{Linguistique}
+Ce package regroupe les principaux objets utilisés par l'interface graphique tels que les concepts, graphes, noeuds et système de typage des concepts. Son bon fonctionnement était donc primordial pour ne pas avoir d'erreurs lors de l'utilisation de ces derniers par l'interface graphique. Nous avons donc élaboré des tests unitaires, au moyen de JUnit, sur chacune des classes et méthodes. 
+\begin{itemize}	
+\item ConceptTest : Permet de tester les classes Concept(Abstract/Complex/Simple). Dans ces classes nous avons majoritairement des accesseurs mais également des méthodes utilisées pour la génération de l'entrée Syntox. Notons que les accesseurs ne sont normalement pas des éléments soulevant des problèmes. Toutefois nous nous sommes assurés que les éléments retournés sont bien ceux attendus, surtout dans le cas de la liste et du nombre d'éléments qu'elle contient.
+Concernant la méthode generateSyntox() nous avons choisi de la tester plus tard dans une autre classe qui utilise une méthode identique mais depuis un objet "GraphConcepts" et qui fait appel à cette méthode.
+\item TypeTest : Permet de tester la classe TypeImpl qui implémente Type. Nous avons ici testé de manière similaire à "ConceptTest" les accesseurs présents en plus de la méthode "equals" dont nous avions besoin. 
+\item TypeTreeTest et TypeTreeNodeTest : Les tests présents dans ces classes se rapportent respectivement aux classes du même nom, TypeTree et TypeTreeNode. Comme nous l'indiquent les commentaires, ces dernières permettent de représenter sous forme d'arbre, l'organisation et les liaisons des différents types.
+Nous avons fait le choix de tester l'intégralité des méthodes présentes dans ces classes, à savoir :
 	\begin{itemize}
-	\item La connexion aux différentes bases de données utilisées. 
-	\item Pour les bases de données utilisées pour collecter les informations à énoncer, les requêtes de lecture de la base doivent être correctes (Résultat souhaité égal au résultat obtenu).
-	\item Pour celles sauvegardant les concepts, en plus des requêtes de lecture, les requêtes d'écriture doivent être testées correctes. 
-	\item Les droits d'accès et de manipulation des bases de données. Deux niveaux de privilèges sont utilisés pour notre projet, utilisateur classique et utilisateur administrateur. 
-	\item La déconnexion à toutes bases de données auparavant connectées.
-
+	\item L'ajout d'un nouveau concept à la liste du noeud en question. 
+	\item L'ajout d'un fils à la liste concernée.
+	\item L'ajout d'un type dans l'objet TypeTree (Plus précisément dans la Map de l'objet) en respectant les liaisons avec un type prédécesseur (surType). De façon similaire, l'ajout d'un concept à ce même objet.
+	\item La méthode permettant de retourner l'ensemble des sous-types que contient un type. 
 	\end{itemize}
-	
-\subsection{Interface graphique}
-
-L'interface graphique comportera différents éléments graphiques en intéraction avec les bases de données ou l'extérieur - Syntox. Nous envisageons donc de nous assurer que les actions suivantes se déroulerons correctement :
-
+\item TypeManagerTest : Se rapporte à la classe TypeManager du package permettant de gérer la création des types ainsi que leur insertion dans l'arbre. 
+Elle présente deux méthodes, différenciées par leurs arguments, permettant l'ajout d'un type dans l'arbre (makeType()). Nous les avons tout deux testées ainsi que la méthode retournant si deux types sont compatibles (isCompatible()).
+\item LinguisticFactoryTest : Test de la classe LinguisticFactory (Singleton) qui permet la création d'un TypeManager. 
+Nous avons choisi de tester les méthodes qui apportent les fonctionnalités suivantes: 
 	\begin{itemize}
-	
-	\item Fiabilité de l'interface, c'est-à-dire, les éléments qui la composent réalisent correctement leur objectif graphique. Il est question de tester la vraisemblance au niveau de la position des éléments graphiques, de leur visibilité, et de leur possibilité d'intéractions (Sélectionnable, cliquable, déplaçable). 
-	\item Certaines requêtes SQL seront construites à partir de champs sélectionnés au moyen de l'interface graphique. Nous devons nous assurer que l'élément choisi est identique à celui présent dans la réquête.
-	\item Pour la même raison, le graphe créé après validation par l'utilisateur doit correspondre aux choix que l'utilisateur a réalisés. Cela inclut au niveau des éléments: les liens qui les relient, l'ordre dans lequel ils se trouvent, et la correspondance des éléments eux mêmes.
-	\item Le rafraîchissement des éléments résultant d'une requête SQL ou d'une action. Ces derniers sont créés au moment où l'utilisateur sélectionne un élément particulier (Cas par exemple de la sélection d'un concept. Un ensemble précis d'attributs lui est alors proposé).
-
+	\item L'ajout d'un type au TypeManager au moyen de sa propre méthode (makeType). Il a fallu faire de même que pour TypeManagerTest, c'est-à-dire tester les deux méthodes permettant cette fonctionnalité malgré que leur seule différence (les éléments pris en argument). 
+	\item L'ajout de concept, simple ou complex à l'arbre qu'utilise le TypeManager. Ici aussi, nous avons réalisé deux tests selon la forme du concept. 
 	\end{itemize}
-
-\subsection{Interactions extérieures}
-
-Pour notre projet nous utiliserons Syntox, le logiciel en ligne du professeur et client Lionel Clément. Syntox sera utilisé pour générer les phrases en fonction de l'entrée qu'on lui fournit. 
-Nous prévoyons donc :
-
+\item GraphConceptsTest et GraphNodeDefault: GraphConceptsInterface et GraphNode sont des interfaces que les classes respectives GraphConcepts et GraphNodeDefault implémentent.
+Ces classes permettent la représentation sous forme de graphe des concepts utilisés et sélectionnés par l'utilisateur au moyen de l'interface graphique. 
+Nous avons testé pour ces classes :
 	\begin{itemize}
-	
-	\item S'assurer de la création de la requête Syntox depuis le graphe conceptuel. La syntaxe des requêtes est précise. Elle doit être identique à celle attendu par Syntox pour qu'il n'y est aucun problème de génération de textes.
-	\item Communication entre notre application et la version en ligne de Syntox. Etant en ligne, les requêtes générées par notre application doivent pouvoir être envoyées à Syntox.
-	\item Récupération du texte généré par Syntox. (Identité)
-
+	\item Certains accesseurs qui nous semblaient importants dans le sens où ces classes utilisent de nombreux objets d'autres classes, il est donc nécessaire de pouvoir garantir l'accès à ces objets et à leur référence. 
+	\item La méthode permettant la création de la requête qui sera envoyée à Syntox (generateSyntox()). Cette méthode est appelée depuis GraphConcepts et fait appel à son homologue présente dans GraphNodeDefault.
 	\end{itemize}
+\end{itemize}
+\subsection{Core}
+	Dans ce package se trouvent toutes les classes permettant le lancement de notre application et les outils nécessaires tel que les éléments permettant la gestion de la sauvegarde des projets, un utilitaire regroupant les informations nécessaires pour la base de données et un système de cryptage/décryptage de mot de passe pour sécuriser l'accès à la base de données. 
+Nous avons choisi de tester particulièrement les classes présentes dans les fichiers PasswordManager.java, Project.java et InfoDB.java. Plus précisément nous avons validé les fonctionnalités suivantes :
+	\begin{itemize}
+	\item L'encryptage ainsi que le décryptage d'un mot de passe. En effet, comme indiqué dans le cahier des besoins, nous ne souhaitons pas laisser le mot de passe utilisé pour la connexion à la base de données en clair. Il nous a donc fallu crypter une fois la connexion faite mais également décrypter si on doit réutiliser le mot de passe.
+	\item La conservation des informations saisies pour la base de données au moyen de l'objet initBase. 
+	\item L'ajout et la suppression de scénarios relatifs à un Projet.
+	\end{itemize}
+\subsection{Database[Connection/Inspection]}
+\subsection{Syntox}
+	
+
+
+
+
+%Le but de ces tests est de prévoir le bon fonctionnement de notre application. Ces prévisions de tests reposent essentiellement sur les besoins et les scénarios précédemment énoncés. Nous pouvons déjà les énumérer de façon regroupée selon le domaine auquel ils se rapportent.
+%
+%\subsection{Base de données}
+%
+%Les bases de données sont au coeur de notre projet. Utilisées pour contenir les informations à énoncer ou pour sauvegarder les concepts créés, toute fonctionnalité les manipulant doit être testée.
+%Nous devrons donc tester :
+%	\begin{itemize}
+%	\item La connexion aux différentes bases de données utilisées. 
+%	\item Pour les bases de données utilisées pour collecter les informations à énoncer, les requêtes de lecture de la base doivent être correctes (Résultat souhaité égal au résultat obtenu).
+%	\item Pour celles sauvegardant les concepts, en plus des requêtes de lecture, les requêtes d'écriture doivent être testées correctes. 
+%	\item Les droits d'accès et de manipulation des bases de données. Deux niveaux de privilèges sont utilisés pour notre projet, utilisateur classique et utilisateur administrateur. 
+%	\item La déconnexion à toutes bases de données auparavant connectées.
+%
+%	\end{itemize}
+%	
+%\subsection{Interface graphique}
+%
+%L'interface graphique comportera différents éléments graphiques en intéraction avec les bases de données ou l'extérieur - Syntox. Nous envisageons donc de nous assurer que les actions suivantes se déroulerons correctement :
+%
+%	\begin{itemize}
+%	
+%	\item Fiabilité de l'interface, c'est-à-dire, les éléments qui la composent réalisent correctement leur objectif graphique. Il est question de tester la vraisemblance au niveau de la position des éléments graphiques, de leur visibilité, et de leur possibilité d'intéractions (Sélectionnable, cliquable, déplaçable). 
+%	\item Certaines requêtes SQL seront construites à partir de champs sélectionnés au moyen de l'interface graphique. Nous devons nous assurer que l'élément choisi est identique à celui présent dans la réquête.
+%	\item Pour la même raison, le graphe créé après validation par l'utilisateur doit correspondre aux choix que l'utilisateur a réalisés. Cela inclut au niveau des éléments: les liens qui les relient, l'ordre dans lequel ils se trouvent, et la correspondance des éléments eux mêmes.
+%	\item Le rafraîchissement des éléments résultant d'une requête SQL ou d'une action. Ces derniers sont créés au moment où l'utilisateur sélectionne un élément particulier (Cas par exemple de la sélection d'un concept. Un ensemble précis d'attributs lui est alors proposé).
+%
+%	\end{itemize}
+%
+%\subsection{Interactions extérieures}
+%
+%Pour notre projet nous utiliserons Syntox, le logiciel en ligne du professeur et client Lionel Clément. Syntox sera utilisé pour générer les phrases en fonction de l'entrée qu'on lui fournit. 
+%Nous prévoyons donc :
+%
+%	\begin{itemize}
+%	
+%	\item S'assurer de la création de la requête Syntox depuis le graphe conceptuel. La syntaxe des requêtes est précise. Elle doit être identique à celle attendu par Syntox pour qu'il n'y est aucun problème de génération de textes.
+%	\item Communication entre notre application et la version en ligne de Syntox. Etant en ligne, les requêtes générées par notre application doivent pouvoir être envoyées à Syntox.
+%	\item Récupération du texte généré par Syntox. (Identité)
+%
+%	\end{itemize}
 	
 \section{Résultats}
 
