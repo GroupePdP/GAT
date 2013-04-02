@@ -1,0 +1,44 @@
+Le but de ces tests est d'assurer le bon fonctionnement de notre application. Nous pouvons les regrouper selon l'ensemble de fonctionnalités auquels ils se rattachent. Afin de ne pas mélanger le code source et les essais, nous avons créés un package différent regroupant l'ensemble des classes et méthodes testées. 
+
+6.1 Package Linguistique :
+
+  Ce package regroupe les principaux objets utilisés par l'interface graphique tel que les concepts, graphes, noeuds et système de typage des concepts. Son bon fonctionnement était donc primordial pour ne pas avoir d'erreurs lors de l'utilisation de ces derniers par l'interface graphique. Nous avons donc élaborer des tests unitaires, au moyen de JUnit, sur chacunes des classes et méthodes. 
+	
+-  ConceptTest : Permet de tester les classes Concept(Abstract/Complex/Simple). Dans ces classes nous avons majoritairement des accesseurs mais également des méthodes utilisées pour la génération de l'entrée Syntox. Notons que les accesseurs ne sont normalement pas des éléments soulevant des problème. Toutefois nous nous sommes assurés que les éléments retournés sont bien ceux attendus, surtout dans le cas de la liste et du nombre d'élément qu'elle contient.
+Concernant la méthode generateSyntox() nous avons choisi de la tester plus tard dans une autre classe qui utilise une méthode identique mais depuis un objet "GraphConcepts" et qui fait appel à cette méthode.
+- TypeTest : Permet de tester la classe TypeImpl qui implémente Type. Nous avons ici testé de manière similaire à "ConceptTest" les accesseurs présent en plus de la méthode "equals"
+dont nous avions besoin. 
+- TypeTreeTest et TypeTreeNodeTest : Les tests présent dans ces classes se rapportent respectivement aux classes du même nom, TypeTree et TypeTreeNode. Comme nous l'indique les commentaitres, ces dernières permettent de représenter sous forme d'arbre,  l'organisation, les liaisons et des différents types.
+Nous avons fait le choix de tester l'intégralité des méthodes présentes dans ces classes, à savoir :
+	- L'ajout d'un nouveau concept à la liste du noeud en question. 
+	- L'ajout d'un fils à la liste concernée.
+	- L'ajout d'un type dans l'objet TypeTree (Plus précisément dans la Map de l'objet) en respectant les liaisons avec un type prédécesseur (surType). De façon similaire, l'ajout d'un concept à ce même objet.
+	- La méthode permettant de retourner l'ensemble des sous-types que contient un type. 
+- TypeManagerTest : Se rapporte à la classe TypeManager du package permettant de gérer la création des types ainsi que leur insertion dans l'arbre. 
+Elle présente deux méthodes, différenciées par leurs arguments, permettant l'ajout d'un type dans l'arbre (makeType()). Nous les avons tout deux testées ainsi que la méthode retournant si deux type sont compatibles (isCompatible()).
+- LinguisticFactoryTest : Test de la classe LinguisticFactory (Singleton) qui permet la création d'un TypeManager. 
+Nous avons choisis de tester les méthodes qui apportent les fonctionnalitées suivantes:  
+	- L'ajout d'un type au TypeManager au moyen de sa propre méthode (makeType). Il a fallu faire de même que pour TypeManagerTest, c'est-à-dire tester les deux méthodes permettant cette fonctionnalitée malgré que leur seule différence soit les éléments qu'ils prennent en argument. 
+	- L'ajout de concept, simple ou complex à l'arbre qu'utilise le TypeManager. Ici aussi, nous avons réalisé deux tests selon la forme du concept. 
+- GraphConceptsTest et GraphNodeDefault: GraphConceptsInterface et GraphNode sont des interfaces que les classes respectives GraphConcepts et GraphNodeDefault implémentent.
+Ces classes permettent la réprésentation sous forme de graphe des concepts utilisés et sélectionnés par l'utilisateur au moyen de l'interface graphique. 
+Nous avons testés pour ces classes :
+	- Certains accesseurs qui nous semblaient important dans le sens où ces classes utilisent de nombreux objets d'autres classes, il est donc nécessaire de pouvoir garantir l'accès à ces objets et à leur référence. 
+	- La méthode permettant la création de la requête qui sera envoyée à Syntox (generateSyntox()). Cette méthode est appelé depuis GraphConcepts et fait appel à son homologue présente dans GraphNodeDefault.
+
+6.2 Package Core
+	Dans ce package se trouve toutes les classes permettant le lancement de notre application et les outils nécessaires tel que les éléments permettant la gestion de la sauvegarde des projets, un utilitaire regroupant les informations nécessaires pour la base de données, un système de cryptage/décryptage de mot de passe pour sécurisé l'accès à la base de données. 
+Nous avons choisis de tester particulièrement les classes présentes dans les fichiers PasswordManager.java, Project.java et InfoDB.java. Plus précisément nous avons validés les fonctionnalités suivantes :
+	- L'encryptage ainsi que le décryptage d'un mot de passe. En effet, comme indiquer dans le cahier des besoins, nous ne souhaitons pas laisser le mot de passe utilisé pour la connexion à la base de données en claire. Il nous a donc fallu crypter une fois la connexion faite mais également décrypter si le besoin de réutilisation du mot de passe est nécessaire.
+	- La conservation des informations saisies pour la base de données au moyen de l'objet initBase. 
+	- L'ajout et la suppression de scénarios relatif à un Projet.
+
+6.3 Package Database{Connection/Inspection}
+6.4 Package Syntox
+	
+
+
+
+
+
+
