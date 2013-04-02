@@ -46,6 +46,8 @@
 
 \chapter{Présentation du sujet}
 
+\section{Présentation du domaine}
+
 \section{Présentation du projet}
 
 Le logiciel que nous avons développé pendant ce projet permet de générer du texte de manière automatique à partir de données brutes sélectionnées dans une base de données. 
@@ -213,7 +215,7 @@ Son interface utilisateur est faite via un navigateur web pour permettre de port
     \item L'administrateur choisit de se connecter en mode "Administrateur" et doit rentrer un login et un mot de passe.
     		\item Il choisit de modifier un projet (voir figure 8).
             \item Il choisit le nom du projet à modifier (voir firgure 11).
-            \item L'administrateur s'atèle à l'association de requêtes SQL avec des concepts nouveaux qu'il crée.
+            \item L'administrateur s'attelle à l'association de requêtes SQL avec des concepts nouveaux qu'il crée.
             \item L'administrateur enregistre le projet.
             \end{enumerate}
 
@@ -381,16 +383,9 @@ On doit donc pouvoir effectuer des requêtes sur la base de données en
 tant que simple utilisateur, car on aura pas la possibilité d'une
 connexion en tant qu'administrateur.
 
-En ce qui concerne les besoins interne à notre logiciel, il nous semble
-que l'utilisation d'une base de donnée est superflu.  
+En ce qui concerne les besoins internes à notre logiciel, il nous semble
+que l'utilisation d'une base de données est superflue.  
 
-
-
-
-	
-
-
-\chapter{Algorithmique et structures de données}
 
 \chapter{Architecture}
 
@@ -516,6 +511,8 @@ Le diagramme suivant présente la structure générale du logiciel.
 
 \section{Justifications}
 
+% A VOIR SI NECESSAIRE, SI OUI, OU LE PLACER ?
+
 \subsubsection*{Package Structure}
 Il est composé de deux sous-packages, Structurel et Linguistique :
 
@@ -566,7 +563,15 @@ Ce package contiendra tous les éléments de l'interface graphique et des fenêt
 
 
 
-\chapter{Implémentation} % à voir !
+\chapter{Implémentation}
+
+\section{Algorithmique et structures de données utilisées}
+
+\section{Linguistique}
+
+\section{Génération de l'entrée Syntox}
+
+\section{Communication avec la base de données}
 
 \section{Interface graphique}
 
@@ -638,9 +643,13 @@ Ce package contiendra tous les éléments de l'interface graphique et des fenêt
 \caption{Diagramme de Gantt}
 \end{figure}
 
+\section{Autres}
+
+\section{Problèmes rencontrés et remarques}
+
 \chapter{Tests et résultats}
 
-\section{Tests}
+\section{Tests effectués}
 
 Le but de ces tests est de prévoir le bon fonctionnement de notre application. Ces prévisions de tests reposent essentiellement sur les besoins et les scénarios précédemment énoncés. Nous pouvons déjà les énumérer de façon regroupée selon le domaine auquel ils se rapportent.
 
@@ -656,7 +665,7 @@ Nous devrons donc tester :
 	\item La déconnexion à toutes bases de données auparavant connectées.
 
 	\end{itemize}
-
+	
 \subsection{Interface graphique}
 
 L'interface graphique comportera différents éléments graphiques en intéraction avec les bases de données ou l'extérieur - Syntox. Nous envisageons donc de nous assurer que les actions suivantes se déroulerons correctement :
@@ -682,8 +691,8 @@ Nous prévoyons donc :
 	\item Récupération du texte généré par Syntox. (Identité)
 
 	\end{itemize}
-
-\chapter{Produit final}
+	
+\section{Résultats}
 
 \chapter{Conclusion}
 
