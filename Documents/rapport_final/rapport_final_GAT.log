@@ -1,15 +1,14 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  18 MAR 2013 14:25
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.31)  2 APR 2013 14:37
 entering extended mode
- restricted \write18 enabled.
  %&-line parsing enabled.
 **rapport_final_GAT.tex
 (./rapport_final_GAT.tex
-LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
-aded.
-(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/report.cls
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+(/usr/share/texmf-texlive/tex/latex/base/size12.clo
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -25,14 +24,14 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/var/lib/texmf/tex/generic/babel/babel.sty
-Package: babel 2008/07/08 v3.8m The Babel package
+(/usr/share/texmf-texlive/tex/generic/babel/babel.sty
+Package: babel 2008/07/06 v3.8l The Babel package
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel/frenchb.ldf
-Language: frenchb 2010/08/21 v2.5a French support from the babel system
+(/usr/share/texmf-texlive/tex/generic/babel/frenchb.ldf
+Language: frenchb 2009/03/16 v2.3d French support from the babel system
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2008/07/08 v3.8m Babel common definitions
+(/usr/share/texmf-texlive/tex/generic/babel/babel.def
+File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen103
 )
@@ -42,10 +41,10 @@ Package babel Warning: No hyphenation patterns were loaded for
 (babel)                I will use the patterns loaded for \language=0 instead.
 
 \l@french = a dialect from \language0
-Package babel Info: Making : an active character on input line 234.
-Package babel Info: Making ; an active character on input line 235.
-Package babel Info: Making ! an active character on input line 236.
-Package babel Info: Making ? an active character on input line 237.
+Package babel Info: Making : an active character on input line 120.
+Package babel Info: Making ; an active character on input line 121.
+Package babel Info: Making ! an active character on input line 122.
+Package babel Info: Making ? an active character on input line 123.
 \FB@Mht=\dimen104
 \std@mcc=\count89
 \dec@mcc=\count90
@@ -53,25 +52,25 @@ Package babel Info: Making ? an active character on input line 237.
 *************************************
 * Local config file frenchb.cfg used
 *
-(/usr/share/texlive/texmf-dist/tex/generic/babel/frenchb.cfg)))
-(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/share/texmf-texlive/tex/generic/babel/frenchb.cfg)))
+(/usr/share/texmf-texlive/tex/latex/carlisle/scalefnt.sty)
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+(/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+(/usr/share/texmf-texlive/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
+(/usr/share/texmf-texlive/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -221,7 +220,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
+(/usr/share/texmf-texlive/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -252,7 +251,7 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
+(/usr/share/texmf-texlive/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -276,39 +275,32 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \Gread@gobject=\count91
 ))
 \Gin@req@height=\dimen106
 \Gin@req@width=\dimen107
 )
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2012/02/19 v3.2f Customizing captions (AR)
+(/usr/share/texmf-texlive/tex/latex/caption/caption.sty
+Package: caption 2009/10/09 v3.1k Customizing captions (AR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
+(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
+Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
 \captionmargin=\dimen108
 \captionmargin@=\dimen109
 \captionwidth=\dimen110
@@ -318,24 +310,24 @@ Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
 )
 \c@ContinuedFloat=\count92
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks17
 \ex@=\dimen114
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen115
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count93
@@ -376,120 +368,121 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2012/05/13 v6.82q Hypertext links for LaTeX
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
-
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
-Package hobsub Info: Skipping package `infwarerr' (already loaded).
-Package hobsub Info: Skipping package `ltxcmds' (already loaded).
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
 Package ifvtex Info: VTeX not detected.
-Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
-Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2009/01/23 v0.5 Provides ifxetex conditional
 )
-Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
-Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
-)
-Package hobsub Info: Skipping package `hobsub' (already loaded).
-Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
-Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
-Package: xcolor-patch 2011/01/30 xcolor patch
-Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
-Package atveryend Info: \enddocument detected (standard20110627).
-Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
-Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
-Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/hycolor.sty
+Package: hycolor 2009/10/02 v1.5 Code for color options of hyperref/bookmark (H
+O)
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
+Package: xcolor-patch 2009/10/02 xcolor patch
+))
 \@linkdim=\dimen123
 \Hy@linkcounter=\count105
 \Hy@pagecounter=\count106
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2012/05/13 v6.82q Hyperref: PDFDocEncoding definition (HO)
+(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count107
+(/usr/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+(/usr/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)
+(/usr/share/texmf-texlive/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4062.
-Package hyperref Info: Link nesting OFF on input line 4067.
-Package hyperref Info: Hyper index ON on input line 4070.
-Package hyperref Info: Plain pages OFF on input line 4077.
-Package hyperref Info: Backreferencing OFF on input line 4082.
-Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4300.
-\c@Hy@tempcnt=\count108
+(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2009/08/13 v3.4 Keyval support for LaTeX options (HO)
 
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2009/07/30 v1.5 Key value parser with default handler suppor
+t (HO)
+))
+Package hyperref Info: Hyper figures OFF on input line 2975.
+Package hyperref Info: Link nesting OFF on input line 2980.
+Package hyperref Info: Hyper index ON on input line 2983.
+Package hyperref Info: Plain pages OFF on input line 2990.
+Package hyperref Info: Backreferencing OFF on input line 2995.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 3191.
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4653.
-\Fld@menulength=\count109
+LaTeX Info: Redefining \url on input line 3428.
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
+Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/intcalc.sty
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty
+Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2009/09/23 v0.6 LuaTeX support for pdfTeX utility functions
+ (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2009/04/17 v1.2 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2009/08/05 v1.0 Some LaTeX kernel commands for general use (HO
+)
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+)))
+\Fld@menulength=\count107
 \Field@Width=\dimen124
 \Fld@charsize=\dimen125
-Package hyperref Info: Hyper figures OFF on input line 5773.
-Package hyperref Info: Link nesting OFF on input line 5778.
-Package hyperref Info: Hyper index ON on input line 5781.
-Package hyperref Info: backreferencing OFF on input line 5788.
-Package hyperref Info: Link coloring OFF on input line 5793.
-Package hyperref Info: Link coloring with OCG OFF on input line 5798.
-Package hyperref Info: PDF/A mode OFF on input line 5803.
-LaTeX Info: Redefining \ref on input line 5843.
-LaTeX Info: Redefining \pageref on input line 5847.
-\Hy@abspage=\count110
-\c@Item=\count111
-\c@Hfootnote=\count112
-)
+\Field@toks=\toks22
+Package hyperref Info: Hyper figures OFF on input line 4377.
+Package hyperref Info: Link nesting OFF on input line 4382.
+Package hyperref Info: Hyper index ON on input line 4385.
+Package hyperref Info: backreferencing OFF on input line 4392.
+Package hyperref Info: Link coloring OFF on input line 4397.
+Package hyperref Info: Link coloring with OCG OFF on input line 4402.
+Package hyperref Info: PDF/A mode OFF on input line 4407.
 
-Package hyperref Message: Driver (autodetected): hpdftex.
-
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2012/05/13 v6.82q Hyperref driver for pdfTeX
-\Fld@listcount=\count113
-\c@bookmark@seq@number=\count114
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-82.
+(/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@SectionHShift=\skip46
+\Hy@abspage=\count108
+\c@Item=\count109
+\c@Hfootnote=\count110
 )
-(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
+*hyperref using default driver hpdftex*
+(/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
+\Fld@listcount=\count111
+)
+(/usr/share/texmf-texlive/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
 )
 (./rapport_final_GAT.aux)
@@ -518,56 +511,39 @@ Package frenchb.ldf Warning: OT1 encoding should not be used for French.
 (frenchb.ldf)                Add \usepackage[T1]{fontenc} to the preamble
 (frenchb.ldf)                of your document, on input line 15.
 
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count115
+\scratchcounter=\count112
 \scratchdimen=\dimen126
 \scratchbox=\box28
-\nofMPsegments=\count116
-\nofMParguments=\count117
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count118
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count115
 \MPscratchDim=\dimen127
-\MPnumerator=\count119
-\makeMPintoPDFobject=\count120
-\everyMPtoPDFconversion=\toks23
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+\MPnumerator=\count116
+\everyMPtoPDFconversion=\toks24
 )
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box29
 Package hyperref Info: Link coloring OFF on input line 15.
+ (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
+Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count121
+\c@section@level=\count117
 )
 LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
-LaTeX Info: Redefining \nameref on input line 15.
 
 (./rapport_final_GAT.out) (./rapport_final_GAT.out)
 \@outlinefile=\write3
 \openout3 = `rapport_final_GAT.out'.
 
+\AtBeginShipoutBox=\box29
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./rapport_final_GAT.tocpd
@@ -575,7 +551,7 @@ fTeX warning (ext4): destination with the same identifier (name{page.1}) has be
 en already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.46 ...agrammes de classes}{21}{subsection.5.2.2}
+l.47 ...e s\IeC {\'e}quence}{25}{subsection.4.2.3}
                                                    [1
 
 ])
@@ -586,13 +562,10 @@ l.46 ...agrammes de classes}{21}{subsection.5.2.2}
 Chapitre 1.
 [3
 
-] <Reussir_graphe.png, id=241, 347.79938pt x 207.02344pt>
+] <Reussir_graphe.png, id=269, 347.79938pt x 207.02344pt>
 File: Reussir_graphe.png Graphic file (type png)
 
-<use Reussir_graphe.png>
-Package pdftex.def Info: Reussir_graphe.png used on input line 114.
-(pdftex.def)             Requested size: 173.89926pt x 103.51146pt.
- [4] [5 <./Reussir_graphe.png>]
+<use Reussir_graphe.png> [4] [5 <./Reussir_graphe.png (PNG copy)>]
 Chapitre 2.
 [6
 
@@ -601,295 +574,218 @@ Chapitre 3.
 [9
 
 ]
-Overfull \hbox (0.60089pt too wide) in paragraph at lines 230--231
+Overfull \hbox (0.60089pt too wide) in paragraph at lines 232--233
 []\OT1/cmr/m/n/12 Lors de la cr^^Seation d'un nou-veau sc^^Senario, les diff^^S
 erents con-cepts seront s^^Selectionn^^Ses
  []
 
 [10] [11] [12]
-Overfull \hbox (0.10922pt too wide) in paragraph at lines 324--325
+Overfull \hbox (0.10922pt too wide) in paragraph at lines 326--327
 []\OT1/cmr/m/n/12 Afin d'^etre con-forme aux sp^^Secifications fournies par le 
 client, le logi-ciel de-vra r^^Sepondre
  []
 
 [13] [14]
 Chapitre 4.
-[15
-
-]
-Chapitre 5.
-<Diagramme1.png, id=342, 550.055pt x 256.96pt>
+<Diagramme1.png, id=365, 550.055pt x 256.96pt>
 File: Diagramme1.png Graphic file (type png)
  <use Diagramme1.png>
-Package pdftex.def Info: Diagramme1.png used on input line 415.
-(pdftex.def)             Requested size: 440.04459pt x 205.56827pt.
-
-Overfull \hbox (10.7639pt too wide) in paragraph at lines 415--416
+Overfull \hbox (10.7639pt too wide) in paragraph at lines 410--411
 [][] 
  []
 
-[16
+[15
 
-] <FonctionnementUtilisateur.png, id=347, 678.535pt x 1462.46375pt>
+] <FonctionnementUtilisateur.png, id=370, 678.535pt x 1462.46375pt>
 File: FonctionnementUtilisateur.png Graphic file (type png)
 
-<use FonctionnementUtilisateur.png>
-Package pdftex.def Info: FonctionnementUtilisateur.png used on input line 421.
-(pdftex.def)             Requested size: 305.33792pt x 658.10262pt.
- [17 <./Diagramme1.png>] [18]
+<use FonctionnementUtilisateur.png> [16 <./Diagramme1.png (PNG copy)>] [17]
 Overfull \vbox (112.53043pt too high) has occurred while \output is active []
 
 
-[19 <./FonctionnementUtilisateur.png (PNG copy)>]
-<FonctionnementAdministrateur.png, id=362, 675.52374pt x 1456.44125pt>
+[18 <./FonctionnementUtilisateur.png (PNG copy)>]
+<FonctionnementAdministrateur.png, id=385, 675.52374pt x 1456.44125pt>
 File: FonctionnementAdministrateur.png Graphic file (type png)
 
 <use FonctionnementAdministrateur.png>
-Package pdftex.def Info: FonctionnementAdministrateur.png used on input line 42
-6.
-(pdftex.def)             Requested size: 303.98288pt x 655.39252pt.
-
 Overfull \vbox (87.57033pt too high) has occurred while \output is active []
 
 
-[20 <./FonctionnementAdministrateur.png (PNG copy)>]
-<diasequence2.png, id=368, 832.10875pt x 455.7025pt>
+[19 <./FonctionnementAdministrateur.png (PNG copy)>]
+<diasequence2.png, id=391, 832.10875pt x 455.7025pt>
 File: diasequence2.png Graphic file (type png)
  <use diasequence2.png>
-Package pdftex.def Info: diasequence2.png used on input line 432.
-(pdftex.def)             Requested size: 332.8376pt x 182.27776pt.
-
-<DiagPackages.png, id=369, 568.1225pt x 1006.76125pt>
+<DiagPackages.png, id=392, 614.295pt x 325.215pt>
 File: DiagPackages.png Graphic file (type png)
  <use DiagPackages.png>
-Package pdftex.def Info: DiagPackages.png used on input line 444.
-(pdftex.def)             Requested size: 227.24496pt x 402.69736pt.
+[20 <./diasequence2.png (PNG copy)> <./DiagPackages.png (PNG copy)>]
+<DiagLinguisticPackages.png, id=399, 490.83376pt x 338.26375pt>
+File: DiagLinguisticPackages.png Graphic file (type png)
 
+<use DiagLinguisticPackages.png>
+<DiagLinguistic_concepts_gestion.png, id=400, 847.165pt x 543.02875pt>
+File: DiagLinguistic_concepts_gestion.png Graphic file (type png)
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+<use DiagLinguistic_concepts_gestion.png>
+<DiagLinguistic_types_gestion.png, id=401, 1214.5375pt x 735.74875pt>
+File: DiagLinguistic_types_gestion.png Graphic file (type png)
 
-<DiagLinguistique.png, id=370, 2563.5775pt x 1267.73625pt>
-File: DiagLinguistique.png Graphic file (type png)
+<use DiagLinguistic_types_gestion.png>
+<DiagLinguistic_graph_concepts_gestion.png, id=402, 856.19875pt x 555.07375pt>
+File: DiagLinguistic_graph_concepts_gestion.png Graphic file (type png)
 
-<use DiagLinguistique.png>
-Package pdftex.def Info: DiagLinguistique.png used on input line 453.
-(pdftex.def)             Requested size: 1281.78563pt x 633.86658pt.
-
-Overfull \hbox (834.88013pt too wide) in paragraph at lines 453--454
+<use DiagLinguistic_graph_concepts_gestion.png>
+Overfull \hbox (38.9009pt too wide) in paragraph at lines 458--460
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 66.96106pt on input line 456.
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+[]\OT1/cmr/m/sc/12 Figure \OT1/cmr/m/n/12 4.3 { |Di-a-gramme de classes sous-pa
+ckages types[]gestion et
+ []
+
+
+LaTeX Warning: Float too large for page by 20.42494pt on input line 462.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagStructurel.png, id=371, 481.8pt x 313.17pt>
-File: DiagStructurel.png Graphic file (type png)
- <use DiagStructurel.png>
-Package pdftex.def Info: DiagStructurel.png used on input line 461.
-(pdftex.def)             Requested size: 240.8994pt x 156.58461pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<DiagBD.png, id=372, 656.4525pt x 416.55624pt>
+<DiagBD.png, id=403, 656.4525pt x 416.55624pt>
 File: DiagBD.png Graphic file (type png)
  <use DiagBD.png>
-Package pdftex.def Info: DiagBD.png used on input line 468.
-(pdftex.def)             Requested size: 328.22545pt x 208.2776pt.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagStockage.png, id=373, 326.21875pt x 360.34625pt>
+<DiagStockage.png, id=404, 326.21875pt x 360.34625pt>
 File: DiagStockage.png Graphic file (type png)
  <use DiagStockage.png>
-Package pdftex.def Info: DiagStockage.png used on input line 475.
-(pdftex.def)             Requested size: 163.10896pt x 180.17268pt.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagSyntox.png, id=374, 649.42625pt x 281.05pt>
+<DiagSyntox.png, id=405, 649.42625pt x 281.05pt>
 File: DiagSyntox.png Graphic file (type png)
  <use DiagSyntox.png>
-Package pdftex.def Info: DiagSyntox.png used on input line 483.
-(pdftex.def)             Requested size: 324.71233pt x 140.52464pt.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[21 <./diasequence2.png>] [22 <./DiagPackages.png>] [23 <./DiagLinguistique.png
->] [24 <./DiagStructurel.png> <./DiagBD.png>] [25 <./DiagStockage.png> <./DiagS
-yntox.png>] <DiagSeq.png, id=403, 916.42375pt x 1530.71875pt>
+[21 <./DiagLinguisticPackages.png (PNG copy)> <./DiagLinguistic_concepts_gestio
+n.png (PNG copy)>] [22 <./DiagLinguistic_types_gestion.png (PNG copy)> <./DiagL
+inguistic_graph_concepts_gestion.png (PNG copy)>] [23 <./DiagBD.png (PNG copy)>
+ <./DiagStockage.png (PNG copy)>] [24 <./DiagSyntox.png (PNG copy)>]
+<DiagSeq.png, id=428, 916.42375pt x 1530.71875pt>
 File: DiagSeq.png Graphic file (type png)
-
-<use DiagSeq.png>
-Package pdftex.def Info: DiagSeq.png used on input line 495.
-(pdftex.def)             Requested size: 311.57996pt x 520.4375pt.
- <DiagSeq2.png, id=404, 916.42375pt x 1530.71875pt>
+ <use DiagSeq.png>
+<DiagSeq2.png, id=429, 916.42375pt x 1530.71875pt>
 File: DiagSeq2.png Graphic file (type png)
-
-<use DiagSeq2.png>
-Package pdftex.def Info: DiagSeq2.png used on input line 503.
-(pdftex.def)             Requested size: 311.57996pt x 520.4375pt.
-
+ <use DiagSeq2.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagSeq3.png, id=405, 953.68059pt x 1187.4953pt>
+<DiagSeq3.png, id=430, 953.68059pt x 1187.4953pt>
 File: DiagSeq3.png Graphic file (type png)
  <use DiagSeq3.png>
-Package pdftex.def Info: DiagSeq3.png used on input line 511.
-(pdftex.def)             Requested size: 324.24712pt x 403.74306pt.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26
+[25
 
- <./DiagSeq.png>] [27 <./DiagSeq2.png>] [28 <./DiagSeq3.png>] [29
+ <./DiagSeq.png (PNG copy)>] [26 <./DiagSeq2.png (PNG copy)>] [27 <./DiagSeq3.p
+ng (PNG copy)>] [28
 
-] [30]
-Chapitre 6.
-<IHM_1a.png, id=438, 462.0462pt x 359.9046pt>
-File: IHM_1a.png Graphic file (type png)
- <use IHM_1a.png>
-Package pdftex.def Info: IHM_1a.png used on input line 575.
-(pdftex.def)             Requested size: 231.02252pt x 179.95186pt.
+] [29]
+Chapitre 5.
+<IHM/accueil.png, id=461, 1286.8075pt x 726.715pt>
+File: IHM/accueil.png Graphic file (type png)
+ <use IHM/accueil.png>
+<IHM/selection_modifier_projet.png, id=462, 1286.8075pt x 721.69624pt>
+File: IHM/selection_modifier_projet.png Graphic file (type png)
 
-<IHM_6a.png, id=439, 460.119pt x 348.8232pt>
-File: IHM_6a.png Graphic file (type png)
- <use IHM_6a.png>
-Package pdftex.def Info: IHM_6a.png used on input line 581.
-(pdftex.def)             Requested size: 230.05893pt x 174.41116pt.
+<use IHM/selection_modifier_projet.png>
+<IHM/choix_scenario.png, id=463, 1285.80376pt x 723.70375pt>
+File: IHM/choix_scenario.png Graphic file (type png)
 
-<IHM_2a.png, id=440, 462.528pt x 364.2408pt>
-File: IHM_2a.png Graphic file (type png)
- <use IHM_2a.png>
-Package pdftex.def Info: IHM_2a.png used on input line 587.
-(pdftex.def)             Requested size: 231.26343pt x 182.11995pt.
+<use IHM/choix_scenario.png>
+<IHM/selection_scenario.png, id=464, 1284.8pt x 722.7pt>
+File: IHM/selection_scenario.png Graphic file (type png)
 
-<IHM_2b.png, id=441, 458.1918pt x 359.4228pt>
-File: IHM_2b.png Graphic file (type png)
- <use IHM_2b.png>
-Package pdftex.def Info: IHM_2b.png used on input line 592.
-(pdftex.def)             Requested size: 229.09534pt x 179.71095pt.
+<use IHM/selection_scenario.png>
+<IHM/affichage_resultat.png, id=465, 1284.8pt x 725.71124pt>
+File: IHM/affichage_resultat.png Graphic file (type png)
 
-<IHM_4b.png, id=442, 474.0912pt x 365.6862pt>
-File: IHM_4b.png Graphic file (type png)
- <use IHM_4b.png>
-Package pdftex.def Info: IHM_4b.png used on input line 597.
-(pdftex.def)             Requested size: 237.04501pt x 182.84265pt.
+<use IHM/affichage_resultat.png>
+<IHM/remplissage_scenario.png, id=466, 1287.81125pt x 724.7075pt>
+File: IHM/remplissage_scenario.png Graphic file (type png)
 
-<IHM_6b.png, id=444, 471.2004pt x 370.0224pt>
-File: IHM_6b.png Graphic file (type png)
- <use IHM_6b.png>
-Package pdftex.def Info: IHM_6b.png used on input line 602.
-(pdftex.def)             Requested size: 235.59961pt x 185.01074pt.
-
-<IHM_5b.png, id=445, 459.1554pt x 360.3864pt>
+<use IHM/remplissage_scenario.png>
+<IHM_5b.png, id=467, 459.1554pt x 360.3864pt>
 File: IHM_5b.png Graphic file (type png)
  <use IHM_5b.png>
-Package pdftex.def Info: IHM_5b.png used on input line 607.
-(pdftex.def)             Requested size: 229.57713pt x 180.19275pt.
+<IHM/selection_projet.png, id=468, 1284.8pt x 721.69624pt>
+File: IHM/selection_projet.png Graphic file (type png)
 
-<IHM_4a.png, id=446, 461.0826pt x 362.3136pt>
-File: IHM_4a.png Graphic file (type png)
- <use IHM_4a.png>
-Package pdftex.def Info: IHM_4a.png used on input line 612.
-(pdftex.def)             Requested size: 230.54073pt x 181.15636pt.
+<use IHM/selection_projet.png>
+<IHM/creation_projet.png, id=469, 1285.80376pt x 724.7075pt>
+File: IHM/creation_projet.png Graphic file (type png)
 
-<IHM_3a.png, id=447, 469.755pt x 358.4592pt>
-File: IHM_3a.png Graphic file (type png)
- <use IHM_3a.png>
-Package pdftex.def Info: IHM_3a.png used on input line 617.
-(pdftex.def)             Requested size: 234.87692pt x 179.22916pt.
+<use IHM/creation_projet.png>
+<IHM/creation_types.png, id=470, 1285.80376pt x 722.7pt>
+File: IHM/creation_types.png Graphic file (type png)
 
-<IHM_3b.png, id=448, 460.119pt x 346.4142pt>
-File: IHM_3b.png Graphic file (type png)
- <use IHM_3b.png>
-Package pdftex.def Info: IHM_3b.png used on input line 622.
-(pdftex.def)             Requested size: 230.05893pt x 173.20667pt.
+<use IHM/creation_types.png>
+<IHM/creation_concepts.png, id=471, 1284.8pt x 722.7pt>
+File: IHM/creation_concepts.png Graphic file (type png)
 
-<IHM_5a.png, id=449, 460.6008pt x 362.3136pt>
-File: IHM_5a.png Graphic file (type png)
- <use IHM_5a.png>
-Package pdftex.def Info: IHM_5a.png used on input line 627.
-(pdftex.def)             Requested size: 230.29984pt x 181.15636pt.
+<use IHM/creation_concepts.png>
+<IHM/modifier_projet_admin.png, id=472, 1286.8075pt x 723.70375pt>
+File: IHM/modifier_projet_admin.png Graphic file (type png)
 
-<Generation.png, id=450, 903.375pt x 698.61pt>
+<use IHM/modifier_projet_admin.png>
+<Generation.png, id=473, 903.375pt x 698.61pt>
 File: Generation.png Graphic file (type png)
- <use Generation.png>
-Package pdftex.def Info: Generation.png used on input line 632.
-(pdftex.def)             Requested size: 225.8432pt x 174.65207pt.
+ <use Generation.png> [30
 
-<GANTT.png, id=451, 440.847pt x 619.5948pt>
-File: GANTT.png Graphic file (type png)
- <use GANTT.png>
-Package pdftex.def Info: GANTT.png used on input line 637.
-(pdftex.def)             Requested size: 440.84592pt x 619.59329pt.
+]
+[31 <./IHM/accueil.png (PNG copy)> <./IHM/selection_modifier_projet.png (PNG co
+py)>] [32 <./IHM/choix_scenario.png (PNG copy)> <./IHM/selection_scenario.png (
+PNG copy)>] [33 <./IHM/affichage_resultat.png (PNG copy)> <./IHM/remplissage_sc
+enario.png (PNG copy)>] [34 <./IHM_5b.png (PNG copy)> <./IHM/selection_projet.p
+ng (PNG copy)>] [35 <./IHM/creation_projet.png (PNG copy)> <./IHM/creation_type
+s.png (PNG copy)>] [36 <./IHM/creation_concepts.png (PNG copy)> <./IHM/modifier
+_projet_admin.png (PNG copy)>] [37 <./Generation.png (PNG copy)>]
+Chapitre 6.
+[38
 
-
-LaTeX Warning: Float too large for page by 38.68777pt on input line 639.
-
-[31
-
-] [32 <./IHM_1a.png (PNG copy)> <./IHM_6a.png (PNG copy)>] [33 <./IHM_2a.png (P
-NG copy)> <./IHM_2b.png (PNG copy)>] [34 <./IHM_4b.png> <./IHM_6b.png (PNG copy
-)>] [35 <./IHM_5b.png (PNG copy)> <./IHM_4a.png (PNG copy)>] [36 <./IHM_3a.png 
-(PNG copy)> <./IHM_3b.png (PNG copy)>] [37 <./IHM_5a.png (PNG copy)> <./Generat
-ion.png (PNG copy)>] [38 <./GANTT.png>]
+] [39]
 Chapitre 7.
-[39
+[40
 
-] [40]
+]
 Chapitre 8.
-[41
+(./rapport_final_GAT.bbl [41
 
-]
-Chapitre 9.
-[42
+]) [42
 
-]
-Chapitre 10.
-(./rapport_final_GAT.bbl [43
-
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 695.
- [44
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 695.
- (./rapport_final_GAT.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 695.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 695.
-Package rerunfilecheck Info: File `rapport_final_GAT.out' has not changed.
-(rerunfilecheck)             Checksum: 926E059231916EDB5505C59B6F82B7D2;2898.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 695.
- ) 
+] (./rapport_final_GAT.aux) ) 
 Here is how much of TeX's memory you used:
- 7763 strings out of 495059
- 114258 string characters out of 3182030
- 204326 words of memory out of 3000000
- 10674 multiletter control sequences out of 15000+200000
+ 6868 strings out of 495061
+ 100416 string characters out of 1182620
+ 185640 words of memory out of 3000000
+ 9750 multiletter control sequences out of 15000+50000
  9991 words of font info for 36 fonts, out of 3000000 for 9000
- 14 hyphenation exceptions out of 8191
- 36i,10n,38p,1698b,485s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmtt12.pfb>
-Output written on rapport_final_GAT.pdf (45 pages, 2932391 bytes).
+ 28 hyphenation exceptions out of 8191
+ 38i,10n,38p,1698b,463s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcs
+c10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/
+public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
+onts/cm/cmtt12.pfb>
+Output written on rapport_final_GAT.pdf (43 pages, 1222876 bytes).
 PDF statistics:
- 596 PDF objects out of 1000 (max. 8388607)
- 506 compressed objects within 6 object streams
- 166 named destinations out of 1000 (max. 500000)
- 472 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 611 PDF objects out of 1000 (max. 8388607)
+ 170 named destinations out of 1000 (max. 500000)
+ 530 words of extra memory for PDF output out of 10000 (max. 10000000)
 
