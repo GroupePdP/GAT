@@ -32,9 +32,34 @@ public class CookingRequestImpl implements CookingRequest
 		return select.substring(0,select.length()-1);		
 	}
 	
+	
+	//@TODO a refair 100/100 hack
 	private String getJoin (ArrayList<String> listTable)
 	{
-		return "";
+		String join = "";
+		
+		if(listTable.size() > 1)
+		{
+			ArrayList<AgloTableImpl> aglo = new ArrayList<AgloTableImpl>();
+			for(String table : listTable)
+			{
+				ArrayList<JoinTable> ajt = new ArrayList<JoinTable>();
+				for(JoinTable jt : db.getJoin())
+				{
+					if(jt.containTable(table))
+						ajt.add(jt);
+				}
+				
+				aglo.add(new AgloTableImpl(table, ajt));
+				
+				
+			}
+			
+			
+			
+		}
+		
+		return join;
 	}
 	
 	private String getFrom (ArrayList<String> listTable)
