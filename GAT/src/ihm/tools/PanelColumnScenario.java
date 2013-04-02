@@ -51,7 +51,7 @@ public class PanelColumnScenario extends JPanel{
 	List<Concept> conceptsList;
 	Vector vecConceptList;
 	
-	List<Concept> concepts = new ArrayList<Concept>();
+	List<Concept> roots = new ArrayList<Concept>();
 	Vector vec;
 	
 	JComboBox combo;
@@ -62,7 +62,7 @@ public class PanelColumnScenario extends JPanel{
 	JPanel columnMenu = new JPanel(new BorderLayout());
 	
 	String conceptName;
-	ArrayList<PanelSubColumnScenario> list = new ArrayList<PanelSubColumnScenario>();
+	ArrayList<PanelSubColumnScenario> list;
 
 	public PanelColumnScenario(Dimension columnSize, PanelMiller curr, Scenario s, PanelHomeUser p)
 	{
@@ -71,14 +71,24 @@ public class PanelColumnScenario extends JPanel{
 		this.thisColumnSize= columnSize;
 		this.currentHome = p;
 		this.scenario = s;
-		
+		this.list = new ArrayList<PanelSubColumnScenario>();
+		this.lf = currentHome.getCurrentProject().getLinguisticFactory();
 		
 		for (GraphConcepts n:scenario.getGraphList())
-			for (GraphNode g : n.getListNodes())
-			{
-				concepts.add(g.getConcept());
-			}
-		vec = new Vector(concepts);
+		{
+			GraphNode node = n.getRoot();
+			PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,node.getConcept(),lf,null);
+			newCol.addChildren(node, lf);
+			newCol.setVisible(false);
+			currentPanel.addColumn(newCol);
+			list.add(newCol);
+			System.out.println("ajout concept ok " + list.size());
+			roots.add(node.getConcept());
+		}
+		
+		vec = new Vector(roots);
+		this.conceptListTest=new JList(vec);
+		
 		this.lf = currentHome.getCurrentProject().getLinguisticFactory();
 		List<Concept> tmp = this.lf.getTypeManager().getTypeTree().getConceptsForType(this.lf.getTypeManager().getTypeTree().getRoot().getType());
 		this.conceptsList = tmp;
@@ -90,7 +100,7 @@ public class PanelColumnScenario extends JPanel{
 		
 		JPanel newCol = new JPanel(new BorderLayout());
 		
-		this.conceptListTest=new JList(vec);
+
 		this.conceptListTest.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.conceptListTest.addListSelectionListener(new ListSelectionListener(){
 
@@ -109,9 +119,6 @@ public class PanelColumnScenario extends JPanel{
 							PanelSubColumnScenario tmpCol = (PanelSubColumnScenario) it.next();
 							tmpCol.setVisibleAll(false);
 						}
-						
-						
-						
 						
 						list.get(conceptListTest.getSelectedIndex()).setVisible(true);
 					}
@@ -195,9 +202,11 @@ public class PanelColumnScenario extends JPanel{
 		this.conceptListTest.setListData(this.vec);
 		this.main.repaint();
 	}
+	
 
+	
 	public ArrayList<PanelSubColumnScenario> getList() {
-		return list;
+		return this.list;
 	}
 
 	public String getConceptName() {

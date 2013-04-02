@@ -12,19 +12,16 @@ import java.util.Map;
 
 import linguistic.typesGestion.Type;
 
-public class ConceptSimple extends ConceptAbstract 
-{
-	public ConceptSimple(String name, Type type)
-	{
+public class ConceptSimple extends ConceptAbstract{
+	
+	public ConceptSimple(String name, Type type){
 		super(name, type);
 	}
 	
 	/**Autres methodes**/
 	
 	@Override
-	public String generateSyntox()
-	{
-		// TODO Auto-generated method stub
+	public String generateSyntox(){
 		return null;
 	}
 	

@@ -1,12 +1,8 @@
-package linguistic.graphConceptsGestion;
+package linguistic.typesGestion;
 
-import linguistic.typesGestion.Type;
 
 public class IncompatibleTypesException extends Exception {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Type t1;
 	private Type t2;

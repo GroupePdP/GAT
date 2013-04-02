@@ -36,7 +36,7 @@ import linguistic.conceptsGestion.ConceptSimple;
 import linguistic.graphConceptsGestion.GraphConcepts;
 import linguistic.graphConceptsGestion.GraphNode;
 import linguistic.graphConceptsGestion.GraphNodeDefault;
-import linguistic.graphConceptsGestion.IncompatibleTypesException;
+import linguistic.typesGestion.IncompatibleTypesException;
 import linguistic.typesGestion.LinguisticFactory;
 import linguistic.typesGestion.Type;
 
@@ -79,6 +79,7 @@ public class PanelNewScenario extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				scenario.setDescription(descrTArea.getText());
 				thisPane.generateScenario();
 				boolean alreadyExists = false;
 				for (Scenario s : currentFrame.getCore().getProject().getListScenario())
@@ -123,7 +124,7 @@ public class PanelNewScenario extends JPanel{
 		
 		JLabel description = new JLabel("Description :");
 		this.descrTArea = new JTextArea();
-		this.descrTArea.setText("");
+		this.descrTArea.setText(scenario.getDescription());
 		this.descrTArea.setLineWrap(true);
 		//descrTArea.setEditable(false);
 		JScrollPane descrScroll = new JScrollPane(this.descrTArea);
@@ -138,12 +139,15 @@ public class PanelNewScenario extends JPanel{
 	}
 	
 	public void generateScenario(){
+		List<GraphConcepts> list = new ArrayList();
 		ArrayList<PanelSubColumnScenario> tmp = scenarioRaw.getList();
-		
+		System.out.println("Enregistrement de " + tmp.size() + " elements");
 		for(PanelSubColumnScenario ps : tmp)
 		{
 			Concept root = ps.getOwner();
+
 			GraphNode nodeRoot = this.currentFrame.getCore().getGraphNodeFactory().makeNode(root);
+			System.out.println(ps.getList().size());
 			for(int i = 0 ; i < ps.getList().size(); i++)
 			{
 				GraphNode child = new GraphNodeDefault(ps.getList().get(i).getOwner());
@@ -159,8 +163,9 @@ public class PanelNewScenario extends JPanel{
 			
 			GraphConcepts gc = new GraphConcepts(nodeRoot);
 			this.scenario.setDescription(this.descrTArea.getText());
-			this.scenario.addGraphConcepts(gc);
+			list.add(gc);
 		}
+		this.scenario.setGraphList(list);
 	}
 
 }

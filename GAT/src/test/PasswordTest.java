@@ -16,7 +16,7 @@ public class PasswordTest{
 		pass1 = "eignozigzegnizgz";
 		pass2 = "" + Math.random();
 		pass3 = "Afeinef454AIfe";
-		pass4 = "eignenéàç" + Math.random();
+		pass4 = "eignen" + Math.random();
 		
 		encrypt1 = PasswordManager.encrypt(pass1);
 		encrypt2 = PasswordManager.encrypt(pass2);

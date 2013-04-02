@@ -64,5 +64,9 @@ public class PanelHomeUser extends JPanel {
 		return currentProject;
 	}
 	
+	public MainFrame getFrame(){
+		return this.currentFrame;
+	}
+	
 	
 }

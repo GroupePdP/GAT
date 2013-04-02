@@ -12,7 +12,7 @@ import linguistic.typesGestion.Type;
 
 public interface Concept {
 
-	public String generateSyntox(); // a implementer !
+	public String generateSyntox();
 	public Type getType();
 	public String getName();
 	public List<Type> getArguments();

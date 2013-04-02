@@ -33,6 +33,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import linguistic.Scenario;
+import linguistic.conceptsGestion.Concept;
+import linguistic.typesGestion.TypeTree;
 
 public class PanelConceptColumnProject extends JPanel{
 
@@ -67,7 +69,7 @@ public class PanelConceptColumnProject extends JPanel{
 		this.setPreferredSize(columnSize);
 		
 		final JPopupMenu popup_desktop = new JPopupMenu("Desktop Menu : ");
-		JMenuItem suppr = new JMenuItem("Supprimer Scenario");
+		JMenuItem suppr = new JMenuItem("Supprimer Concept");
 		suppr.addActionListener(new ActionListener(){
 
 			@Override
@@ -78,7 +80,31 @@ public class PanelConceptColumnProject extends JPanel{
 			
 		});
 		
+		JMenuItem syntox = new JMenuItem("Ajouter entree Syntox");
+		syntox.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				TypeTree treeTmp = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree();
+				List<Concept> tmp = treeTmp.getConceptsForType(treeTmp.getRoot().getType());
+				for(Concept c : tmp)
+				{
+					int index = conceptsJList.getSelectedIndex();
+					PanelArgsColumnProject tmpCon = thisPane.getVecConceptList().get(index);
+					if(c.getName().equals(tmpCon.getName()))
+					{
+						//DialogSetSyntoxInput newDia = new DialogSetSyntoxInput(currentFrame, c);
+					//	newDia.setVisible(true);
+						break;
+					}
+				}
+				
+			}
+			
+		});
 		popup_desktop.add(suppr);
+		popup_desktop.add(syntox);
 		
 		
 		this.conceptsJList=new JList(this.thisPane.getVecConceptList());

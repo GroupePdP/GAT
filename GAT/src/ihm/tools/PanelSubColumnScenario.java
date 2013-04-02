@@ -29,7 +29,7 @@ import linguistic.conceptsGestion.ConceptComplex;
 import linguistic.conceptsGestion.ConceptSimple;
 import linguistic.graphConceptsGestion.GraphNode;
 import linguistic.graphConceptsGestion.GraphNodeDefault;
-import linguistic.graphConceptsGestion.IncompatibleTypesException;
+import linguistic.typesGestion.IncompatibleTypesException;
 import linguistic.typesGestion.LinguisticFactory;
 import linguistic.typesGestion.Type;
 import linguistic.typesGestion.TypeImpl;
@@ -49,6 +49,26 @@ public class PanelSubColumnScenario extends JPanel{
 	
 	JList conceptList;
 	JScrollPane main;
+	
+	public PanelSubColumnScenario(Dimension columnSize, PanelMiller curr, Concept owner, LinguisticFactory lf, ArrayList<PanelSubColumnScenario> list)
+	{
+		colList.setLayout(new BoxLayout(colList, BoxLayout.Y_AXIS));
+		colList.setPreferredSize(new Dimension((int)columnSize.getWidth(), (int)columnSize.getHeight()));
+		this.owner = owner;
+		this.thisPane = this;
+		this.currentPanel=curr;
+		this.thisColumnSize= columnSize;
+		
+		this.setLayout(new BorderLayout());
+		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
+		
+
+		JScrollPane conceptScroll = new JScrollPane(this.colList);
+		//conceptScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		this.main = conceptScroll;
+		
+		this.add(conceptScroll, BorderLayout.CENTER);
+	}
 	
 	public PanelSubColumnScenario(Dimension columnSize, PanelMiller curr, Concept toto, LinguisticFactory lf)
 	{
@@ -119,6 +139,23 @@ public class PanelSubColumnScenario extends JPanel{
 		
 	}
 	
+	public void addChildren(GraphNode father, LinguisticFactory lf){
+
+		
+		if (!father.getChildrenList().isEmpty()){
+			for (GraphNode child : father.getChildrenList())
+			{		
+				PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, this.currentPanel,father.getConcept(),lf,null);
+				newCol.addChildren(child, lf);
+				newCol.setVisible(false);
+				currentPanel.addColumn(newCol);
+				this.list.add(newCol);
+				System.out.println("coucou " + newCol.toString());
+
+			}
+		}
+}
+	
 	public void setVisibleAll(Boolean bool)
 	{
 		this.setVisible(bool);
@@ -135,6 +172,10 @@ public class PanelSubColumnScenario extends JPanel{
 
 	public ArrayList<PanelSubColumnScenario> getList() {
 		return list;
+	}
+	
+	public void addPane(PanelSubColumnScenario pan){
+		this.list.add(pan);
 	}
 
 	public GraphNode generateGraphConcept(GraphNode thisNode)
