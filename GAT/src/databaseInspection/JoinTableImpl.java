@@ -32,7 +32,15 @@ public class JoinTableImpl implements JoinTable
 		this.keys1=newKeys1;
 		this.keysN=newKeysN;
 	}
-	
+	public JoinTableImpl(String newTable1, String newTableN, String newKeys1, String newKeysN){
+		
+		this.table1=newTable1;
+		this.tableN=newTableN;
+		this.keys1= new ArrayList<String>();
+		this.keys1.add(newKeys1);
+		this.keysN= new ArrayList<String>();
+		this.keysN.add(newKeysN);
+	}
 	@Override
 	public String getSqlJoin(){
 		int i = 0;
@@ -68,4 +76,23 @@ public class JoinTableImpl implements JoinTable
 	public boolean containTableInTheOrder(String name1, String nameN){
 		return this.isTable1(name1) && this.isTableN(nameN);
 	}
+
+	@Override
+	public String getAnotherTable(String name) {
+		
+		String anotherTable ="";
+		
+		if(this.isTable1(name))
+		{
+			anotherTable = this.tableN;
+		}
+		else if(this.isTableN(name))
+		{
+			anotherTable = this.table1;
+		}
+		
+		return anotherTable;
+	}
+	
+	
 }

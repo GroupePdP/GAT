@@ -3,6 +3,7 @@ package databaseInspection;
 public interface JoinTable
 {
 	public String getSqlJoin();
+	public String getAnotherTable(String name);
 	public boolean isTable1(String name);
 	public boolean isTableN(String name);
 	public boolean containTable(String name);
