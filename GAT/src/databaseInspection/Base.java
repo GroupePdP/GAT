@@ -1,6 +1,5 @@
 package databaseInspection;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -9,9 +8,8 @@ public interface Base
 	public String getName();
 	public Table getTable(String name);
 	public void addTable(Table newTable);
-	public List<JoinTable> getJoin();
 	public void addJoin(JoinTable newJoin);
-	public ArrayList<JoinTable> getJoinTable();
+	public List<JoinTable> getJoinTable();
 	Map<String, Table> getListTable();
 
 }
