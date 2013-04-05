@@ -9,14 +9,9 @@ public class CookingRequestImpl implements CookingRequest
 {
 
 	private Base db;
+	private String requestCashe;
 	private Queue <String[]> listeColumn;
 	
-	public CookingRequestImpl (Base db)
-	{
-		this.db = db;
-		this.listeColumn = new LinkedList<String[]>();
-	}
-
 	private String getSelect (ArrayList<String> listTable)
 	{
 		String select = "SELECT";
@@ -32,36 +27,6 @@ public class CookingRequestImpl implements CookingRequest
 		return select.substring(0,select.length()-1);		
 	}
 	
-	
-	//@TODO a refair 100/100 hack
-	private String getJoin (ArrayList<String> listTable)
-	{
-		String join = "";
-		
-		if(listTable.size() > 1)
-		{
-			ArrayList<AgloTableImpl> aglo = new ArrayList<AgloTableImpl>();
-			for(String table : listTable)
-			{
-				ArrayList<JoinTable> ajt = new ArrayList<JoinTable>();
-				for(JoinTable jt : db.getJoin())
-				{
-					if(jt.containTable(table))
-						ajt.add(jt);
-				}
-				
-				aglo.add(new AgloTableImpl(table, ajt));
-				
-				
-			}
-			
-			
-			
-		}
-		
-		return join;
-	}
-	
 	private String getFrom (ArrayList<String> listTable)
 	{
 		String from = "";
@@ -74,39 +39,107 @@ public class CookingRequestImpl implements CookingRequest
 		
 		return from;
 	}
-	@Override
-	public String getRequest() {
-		
-		String newRequest = "";
-		
-		if(!this.listeColumn.isEmpty())
+	
+	//@TODO algo ni rapide ni meilleur solution 
+	private String getJoin (ArrayList<String> listTable)
+	{
+		String join = "";
+		//todo retire teste toujours faux quand le reste fonctionnera
+		if(listTable.size() >2 && false == true)
 		{
-			ArrayList<String> listTable = new ArrayList<String>();
+			ArrayList<String> ListTableTraveled = new ArrayList<String>();
+			ArrayList<String> ListTableRequiredtraveled = new ArrayList<String>(listTable);
 			
-			newRequest += this.getSelect(listTable);
+			String currentTable = ListTableRequiredtraveled.get(0);
+			ListTableRequiredtraveled.remove(0);
 			
-			String sqljointure = this.getJoin(listTable);
+			boolean nextTableFound = false;
 			
-			newRequest += " FROM " + this.getFrom(listTable);
+			while(!ListTableRequiredtraveled.isEmpty())
+			{
+				for(JoinTable currentJoin : this.db.getJoinTable())
+				{
+					String nextTable = currentJoin.getAnotherTable(currentTable);
+					if(!nextTable.isEmpty())
+					{
+						for(String RequiredTable : ListTableRequiredtraveled )
+						{
+							if(nextTable.equals(RequiredTable))
+							{
+								join += currentJoin.getSqlJoin();
+								ListTableRequiredtraveled.remove(nextTable);
+								ListTableTraveled.add(nextTable);
+								nextTableFound = true;
+								break;
+							}
+						}
+					}
+					if(nextTableFound)
+					{
+						break;
+					}
+				}
+				if(!nextTableFound)
+				{
+					
+				}
+				
+			}
 			
-			if(!sqljointure.isEmpty())
-				newRequest += " WHERE " + sqljointure;
-			
-			newRequest += ";";
 		}
+		
+		return join;
+	}
+	
+	private String makeRequest()
+	{
+		String newRequest ="";
+		ArrayList<String> listTable = new ArrayList<String>();
+		
+		newRequest += this.getSelect(listTable);
+		
+		String sqljointure = this.getJoin(listTable);
+		
+		newRequest += " FROM " + this.getFrom(listTable);
+		
+		if(!sqljointure.isEmpty())
+			newRequest += " WHERE " + sqljointure;
+		
+		newRequest += ";";
+		
 		return newRequest;
 	}
 
-	@Override
-	public void newRequest()
+	public CookingRequestImpl (Base db)
 	{
-		this.listeColumn.removeAll(listeColumn);
+		this.db = db;
+		this.listeColumn = new LinkedList<String[]>();
+		this.requestCashe = "";
 	}
 	
 	@Override
+	public String getRequest() {
+		
+		if(this.requestCashe.isEmpty()) {
+			if(!this.listeColumn.isEmpty()) {
+				this.requestCashe = makeRequest();
+			}
+		}
+		
+		return this.requestCashe;
+	}
+
+	@Override
+	public void newRequest(){
+		this.listeColumn.removeAll(listeColumn);
+		this.requestCashe = "";
+	}
+	
+	//@TODO pas de protection sur la validite des information donnee par l'utilisateur
+	@Override
 	public void addColumn(String table, String column) {
 		String el[] = {table , column};
-		
+		this.requestCashe = "";
 		this.listeColumn.add(el);
 	}
 }
