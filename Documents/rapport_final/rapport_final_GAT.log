@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.31)  5 APR 2013 19:06
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.31)  5 APR 2013 19:23
 entering extended mode
  %&-line parsing enabled.
 **rapport_final_GAT.tex
@@ -562,7 +562,7 @@ l.47 ...e s\IeC {\'e}quence}{25}{subsection.4.2.3}
 Chapitre 1.
 [3
 
-] [4] <Reussir_graphe.png, id=279, 347.79938pt x 207.02344pt>
+] [4] <Reussir_graphe.png, id=277, 347.79938pt x 207.02344pt>
 File: Reussir_graphe.png Graphic file (type png)
 
 <use Reussir_graphe.png> [5 <./Reussir_graphe.png (PNG copy)>]
@@ -579,19 +579,7 @@ mencer la cr^^Seation d'un sc^^Senario.
 
 [9
 
-]
-Overfull \hbox (0.60089pt too wide) in paragraph at lines 241--242
-[]\OT1/cmr/m/n/12 Lors de la cr^^Seation d'un nou-veau sc^^Senario, les diff^^S
-erents con-cepts seront s^^Selectionn^^Ses
- []
-
-[10] [11] [12]
-Overfull \hbox (0.10922pt too wide) in paragraph at lines 335--336
-[]\OT1/cmr/m/n/12 Afin d'^etre con-forme aux sp^^Secifications fournies par le 
-client, le logi-ciel de-vra r^^Sepondre
- []
-
-[13] [14]
+] [10] [11] [12] [13] [14]
 Chapitre 4.
 <Diagramme1.png, id=370, 550.055pt x 256.96pt>
 File: Diagramme1.png Graphic file (type png)
@@ -637,18 +625,18 @@ File: DiagLinguistic_types_gestion.png Graphic file (type png)
 File: DiagLinguistic_graph_concepts_gestion.png Graphic file (type png)
 
 <use DiagLinguistic_graph_concepts_gestion.png>
-Overfull \hbox (38.9009pt too wide) in paragraph at lines 467--469
+Overfull \hbox (38.9009pt too wide) in paragraph at lines 468--470
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 470--470
 []\OT1/cmr/m/sc/12 Figure \OT1/cmr/m/n/12 4.3 { |Di-a-gramme de classes des sou
 s-packages types[]gestion et
  []
 
 
-LaTeX Warning: Float too large for page by 20.42494pt on input line 471.
+LaTeX Warning: Float too large for page by 20.42494pt on input line 472.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -763,7 +751,7 @@ Chapitre 7.
 [39
 
 ]
-Overfull \hbox (0.13847pt too wide) in paragraph at lines 692--693
+Overfull \hbox (0.13847pt too wide) in paragraph at lines 693--694
 []\OT1/cmr/m/n/12 L'ajout d'un type au Type-M-an-ager au moyen de sa pro-pre m^
 ^Sethode (makeType).
  []
@@ -791,7 +779,7 @@ xmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/
 fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/
 public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
 onts/cm/cmtt12.pfb>
-Output written on rapport_final_GAT.pdf (44 pages, 1227150 bytes).
+Output written on rapport_final_GAT.pdf (44 pages, 1227179 bytes).
 PDF statistics:
  620 PDF objects out of 1000 (max. 8388607)
  172 named destinations out of 1000 (max. 500000)

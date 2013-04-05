@@ -53,9 +53,7 @@
 
 	La question est donc de savoir quoi faire dire à un logiciel, quel texte lui faire générer, et de quelle manière.
 	
-	La génération
-
-
+	La génération automatique de texte est surtout un domaine où la machine doit savoir faire beaucoup de choix : choix du sujet à traiter, choix du vocabulaire à employer, choix de l'articulation des phrases... Tous ces choix doivent donc être guidés par le linguiste ou l'informaticien responsable du projet.
 
 
 \section{Présentation du projet}
@@ -167,16 +165,18 @@ Cependant, il n'arrive pas pleinement à extraire le "sens" (au sens le plus str
 
 \subsection{Syntox}
 
+% A remanier
+
 Syntox \cite{Clem12} est un logiciel développé par Lionel Clément, chercheur au LaBRI dans l'équipe Méthodes Formelles.
 
 Il est défini par son auteur comme un synthétiseur de texte. C'est un type de programme plutôt récent, il en existe donc peu et sont pour la plupart le fait d'universitaires.
 
-Syntox permet de générer du texte à partir de concepts. C'est l'inverse d'un compilateur comme gcc, qui part des feuilles (mot) pour générer une racine. Au contraire l'entrée de Syntox est une racine (comportant un/des concepts) avec laquelle il génère les feuilles. En d'autres termes il ne vérifie pas qu'une phrase est correcte dans un langage donné, mais il crée une phrase correcte dans une grammaire et un lexique défini à partir d'idées.
+Syntox permet de générer du texte à partir de concepts. En d'autres termes il ne vérifie pas qu'une phrase est correcte dans un langage donné, mais il crée une phrase correcte dans une grammaire et un lexique défini à partir d'idées.
 
-Syntox ne se limitera donc pas à la génération d'une unique phrase, il doit pouvoir générer des paragraphes entiers. Sa limite principale est dans les reprises sémantiques comme les anaphores, ou les ellipses.
-A l'heure actuelle, le projet représente deux ans de travail et fait un peu plus de 12000 lignes de C++.
+Syntox ne se limite donc pas à la génération d'une unique phrase, et peut générer des paragraphes entiers. Sa limite principale se trouve dans les reprises sémantiques comme les anaphores, ou les ellipses.
+A l'heure actuelle, le projet représente deux ans de travail.
 
-Son interface utilisateur est faite via un navigateur web pour permettre de porter les efforts sur le programme en lui même et de ne pas perdre du temps à créer des exécutables pour différentes plate-formes. 
+Son interface utilisateur est accessible via un navigateur web pour permettre de porter les efforts sur le programme en lui même et de ne pas perdre du temps à créer des exécutables pour différentes plateformes. 
 
 
 \chapter{Cahier des charges}
@@ -233,14 +233,14 @@ Son interface utilisateur est faite via un navigateur web pour permettre de port
 
 \subsection{Besoins utilisateur}
 
-L'utilisateur classique doit pouvoir effectuer plusieurs actions de manière assez intuitive. Nous proposerons donc une interface graphique pour accéder aux diverses fonctionnalités.
+L'utilisateur classique doit pouvoir effectuer plusieurs actions de manière assez intuitive. Nous proposons donc une interface graphique pour accéder aux diverses fonctionnalités.
 
 	\begin{itemize}
-	\item Dans un premier temps, l'utilisateur pourra sélectionner la base de données sur laquelle il souhaite travailler.
+	\item Dans un premier temps, l'utilisateur peut sélectionner la base de données sur laquelle il souhaite travailler.
 	\item L'utilisateur doit pouvoir créer un nouveau scénario ou charger un scénario pré-existant.
-	\item Lors de la création d'un nouveau scénario, les différents concepts seront sélectionnés et une vue globale du scénario sera proposée à l'utilisateur.
-	\item La visualisation du texte généré se fera via l'interface graphique.
-	\item Le résultat pourra être enregistré dans un fichier .txt dont le nom sera choisi par l'utilisateur. Ce fichier lui permettra de réutiliser le texte généré à sa guise.
+	\item Lors de la création d'un nouveau scénario, les différents concepts sont sélectionnés et une vue globale du scénario est proposée à l'utilisateur.
+	\item La visualisation du texte généré se fait via l'interface graphique.
+	\item Le résultat peut être enregistré dans un fichier .txt dont le nom est choisi par l'utilisateur. Ce fichier lui permet de réutiliser le texte généré à sa guise.
 	\end{itemize}
 
 \subsection{Besoins administrateur}
@@ -254,7 +254,7 @@ L'administrateur doit pouvoir:
 \begin{itemize}
 
 \item Lier les concepts à la base de données (par des requêtes SQL) via une interface graphique ;
-\item Choisir des concepts pertinents selon la base de données utilisée. L'administrateur va alors lier à chaque concept une ou plusieurs requêtes SQL nécessaire à son expression;
+\item Choisir des concepts pertinents selon la base de données utilisée. L'administrateur va alors lier à chaque concept une ou plusieurs requêtes SQL nécessaire(s) à son expression;
 \item Il a les mêmes besoins que l'utilisateur classique, et doit pouvoir accéder aux mêmes informations;
 \item Il doit pouvoir visualiser le texte final, afin de pouvoir le vérifier et éventuellement modifier l'étape de liaison concepts/requêtes en cas de non-satisfaction.
 \end{itemize} 
@@ -285,8 +285,7 @@ D'un point de vue "administration de la base de données", l'administrateur doit
 	
 \end{itemize}
 
-
-Le client (M. Lionel Clément) se chargera de la génération du lexique et de la grammaire associée au logiciel Syntox, il nous fournira également les concepts dont nous aurons besoin.
+Le client (M. Lionel Clément) se charge de la génération du lexique et de la grammaire associée au logiciel Syntox, il nous fournit également les concepts dont nous aurons besoin.
 
 \subsection{Besoins système}
 
@@ -294,15 +293,17 @@ Indépendamment des besoins fonctionnels de l'utilisateur classique et de l'util
 
 \subsubsection{Interface graphique}
 
-Pour répondre aux besoins des utilisateurs classiques et administrateurs, l'interface graphique aura pour fonction la création de l'entrée Syntox. Cette création du point de vue de l'utilisateur consistera à choisir, par le biais d'éléments graphiques, les concepts qu'il souhaite employer dans le texte final. Il pourra choisir les concepts et leurs arguments, qu'ils soient simples ou complexes.
+Pour répondre aux besoins des utilisateurs classiques et administrateurs, l'interface graphique a pour fonction la création de l'entrée Syntox. Cette création du point de vue de l'utilisateur consiste à choisir, par le biais d'éléments graphiques, les concepts qu'il souhaite employer dans le texte final. Il peut choisir les concepts et leurs arguments, qu'ils soient simples ou complexes.
 
 \bigskip
 
-La fenêtre qui permettra la création de l'entrée Syntox - fenêtre de création - sera commune à l'utilisateur classique et à l'administrateur. Tous deux ont les mêmes besoins pour cet aspect du programme, il n'est donc pas nécessaire de la dissocier.
+La fenêtre qui permet la création de l'entrée Syntox est commune à l'utilisateur classique et à l'administrateur. Tous deux ont les mêmes besoins pour cet aspect du programme, il n'est donc pas nécessaire de la dissocier.
 
 \bigskip
 
-L'utilisateur administrateur aura accès à une fenêtre spécifique, consacrée à la gestion des concepts et des éléments de la base de données. Son rôle en tant qu'administrateur est  de relier les concepts à des requêtes. Au moyen de cette fenêtre il pourra répondre à ce besoin fonctionnel.
+L'utilisateur administrateur a accès à une fenêtre spécifique, consacrée à la gestion des concepts et des éléments de la base de données. Son rôle en tant qu'administrateur est de relier les concepts à des requêtes. Au moyen de cette fenêtre il pourra répondre à ce besoin fonctionnel.
+
+% A remanier
 
 \subsubsection{Génération de requêtes SQL}
 
@@ -316,29 +317,29 @@ Nous envisageons de stocker les concepts dans une base de données indépendante
 
 \subsubsection{Création du graphe conceptuel}
 
-Pour la création du graphe conceptuel, nous aurons besoin d'une librairie de graphes:
+Pour la création du graphe conceptuel, nous avons besoin d'une librairie de graphes:
 nous devons pouvoir afficher le graphe, le modifier, le stocker en mémoire et le parcourir.
 
 Ce graphe étant un graphe orienté acyclique, le parcourir pour générer l'entrée Syntox sera assez simple (un parcours en profondeur classique, en marquant les sommets déjà explorés).
   
 \subsubsection{Création de la requête pour Syntox}
 
-Il s'agira ici de transformer le graphe conceptuel obtenu précédemment en entrée Syntox avec sa syntaxe spécifique. On créera dans ce but une table de correspondance entre chaque concept et l'entrée Syntox correspondante, qui sera modifiable par l'administrateur.
+Il s'agit ici de transformer le graphe conceptuel obtenu précédemment en entrée Syntox avec sa syntaxe spécifique. On crée dans ce but une table de correspondance entre chaque concept et l'entrée Syntox correspondante, modifiable par l'administrateur.
 
 \subsubsection{Génération de phrases}
 
-On utilisera Syntox afin de générer les phrases à partir de l'entrée créée par notre programme.
-On devra alors soit intégrer Syntox dans notre programme afin de lui communiquer directement les entrées, et les récupérer pour les stocker dans un fichier; soit établir un protocole de communication avec la version en ligne de Syntox fonctionnant dans les deux sens: l'envoi de l'entrée et la récupération des phrases générées par Syntox.
+On utilise Syntox afin de générer les phrases à partir de l'entrée créée par notre programme.
+On doit alors soit intégrer Syntox dans notre programme afin de lui communiquer directement les entrées, et les récupérer pour les stocker dans un fichier; soit établir un protocole de communication avec la version en ligne de Syntox fonctionnant dans les deux sens: l'envoi de l'entrée et la récupération des phrases générées par Syntox.
 
 \section{Besoins non-fonctionnels}
 
-Afin d'être conforme aux spécifications fournies par le client, le logiciel devra répondre à un certain nombre de besoins non-fonctionnels.
+Afin d'être conforme aux spécifications fournies par le client, le logiciel doit répondre à un certain nombre de besoins non-fonctionnels.
 
 \subsection{Génération d'une entrée Syntox}
 
 \begin{itemize}
-	\item Le but premier du logiciel est de générer une entrée Syntox. Nous devons donc faire en sorte que cette entrée soit de forme compatible avec le logiciel Syntox. Pour ce faire nous devrons avoir en mémoire un ensemble de règles qui relieront chaque concept exprimé au formalisme Syntox correspondant.
-	\item L'entrée Syntox que le logiciel génèrera devra permettre la production d'une phrase grammaticalement correcte par Syntox, ce qui sera assuré par une construction soignée et précise de l'entrée.
+	\item Le but premier du logiciel est de générer une entrée Syntox. Nous devons donc faire en sorte que cette entrée soit de forme compatible avec le logiciel Syntox. Pour ce faire nous devons avoir en mémoire un ensemble de règles qui relieront chaque concept exprimé au formalisme Syntox correspondant.
+	\item L'entrée Syntox que le logiciel génère doit permettre la production d'une phrase grammaticalement correcte par Syntox, ce qui est assuré par une construction soignée et précise de l'entrée.
 \end{itemize}
 
 
@@ -348,7 +349,7 @@ Le logiciel est conçu selon les besoins de notre client. Nous ne
 savons pas si d'autres personnes l'utiliseront. Nous partons donc avec
 l'objectif d'avoir un logiciel utilisable par une personne ayant des
 connaissances basiques en informatique. Cependant, il est à noter que
-pour l'administrateur, des connaissances minimales en base de données sont
+pour l'administrateur, des connaissances en base de données sont
 souhaitées.
 
 \subsection{Portabilité}
@@ -366,10 +367,10 @@ l'utilisateur final.
 
 \subsection{Besoins relatifs aux bases de données utilisées}
   
-Pour les bases de données sur lesquelles on travaillera, on se limitera
+Pour les bases de données sur lesquelles on travaillera, on se limite
 aux bases relationnelles (SQL) car elles sont les plus répandues et
 permettent donc un travail sur des thèmes plus diversifiés. Cela
-permettra également de disposer de plus d'outils pour les manipuler de
+permet également de disposer de plus d'outils pour les manipuler de
 par le nombre de librairies disponibles et d'un langage connu et normé,
 par rapport à des bases de données non SQL (souvent utilisées pour
 l'entrepôt de données comme les bases de données MongoDB) dont les
@@ -378,13 +379,13 @@ chaque base de données développe son propre langage, rendant la lecture
 par le même logiciel de plusieurs de ces bases impossible, ce qui ne les
 rend pas intéressantes dans le cadre de notre projet.
 
-En conclusion nous nous limiterons pour l'instant à une base de données
+En conclusion nous nous limitons pour l'instant à une base de données
 MySQL, car il s'agit des plus répandues. En parallèle, on s'occupera de
 rendre notre logiciel adaptable au maximum à des bases de données
 relationnelles autres que MySQL, afin de rendre possible une extension
 du programme dans le futur.
 
-Concernant le travail sur la base de données, on se contentera tout
+Concernant le travail sur la base de données, nous nous contentons tout
 d'abord de connexions publiques (sans mot de passe) pour l'envoi des
 requêtes. On veut avant tout ne pas avoir à gérer un stockage de mot de
 passe car cela poserait des problèmes de sécurité (cryptage etc).
