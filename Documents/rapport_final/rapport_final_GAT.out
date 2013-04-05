@@ -32,18 +32,18 @@
 \BOOKMARK [1][-]{section.4.3}{Justifications}{chapter.4}
 \BOOKMARK [0][-]{chapter.5}{Impl\351mentation}{}
 \BOOKMARK [1][-]{section.5.1}{Algorithmique et structures de donn\351es utilis\351es}{chapter.5}
-\BOOKMARK [1][-]{section.5.2}{Linguistique}{chapter.5}
-\BOOKMARK [1][-]{section.5.3}{G\351n\351ration de l'entr\351e Syntox}{chapter.5}
-\BOOKMARK [1][-]{section.5.4}{Communication avec la base de donn\351es}{chapter.5}
-\BOOKMARK [1][-]{section.5.5}{Interface graphique}{chapter.5}
-\BOOKMARK [1][-]{section.5.6}{Autres}{chapter.5}
-\BOOKMARK [1][-]{section.5.7}{Probl\350mes rencontr\351s et remarques}{chapter.5}
-\BOOKMARK [0][-]{chapter.6}{Tests et r\351sultats}{}
-\BOOKMARK [1][-]{section.6.1}{Tests effectu\351s}{chapter.6}
-\BOOKMARK [2][-]{subsection.6.1.1}{Linguistique}{section.6.1}
-\BOOKMARK [2][-]{subsection.6.1.2}{Core}{section.6.1}
-\BOOKMARK [2][-]{subsection.6.1.3}{Database[Connection/Inspection]}{section.6.1}
-\BOOKMARK [2][-]{subsection.6.1.4}{Syntox}{section.6.1}
-\BOOKMARK [1][-]{section.6.2}{R\351sultats}{chapter.6}
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}
-\BOOKMARK [0][-]{chapter.8}{Annexes}{}
+\BOOKMARK [1][-]{section.5.2}{Communication avec la base de donn\351es}{chapter.5}
+\BOOKMARK [1][-]{section.5.3}{Package Linguistique}{chapter.5}
+\BOOKMARK [1][-]{section.5.4}{G\351n\351ration de l'entr\351e Syntox}{chapter.5}
+\BOOKMARK [1][-]{section.5.5}{Autres}{chapter.5}
+\BOOKMARK [1][-]{section.5.6}{Probl\350mes rencontr\351s et remarques}{chapter.5}
+\BOOKMARK [0][-]{chapter.6}{Pr\351sentation du logiciel fourni}{}
+\BOOKMARK [0][-]{chapter.7}{Tests et r\351sultats}{}
+\BOOKMARK [1][-]{section.7.1}{Tests effectu\351s}{chapter.7}
+\BOOKMARK [2][-]{subsection.7.1.1}{Package Linguistique}{section.7.1}
+\BOOKMARK [2][-]{subsection.7.1.2}{Core}{section.7.1}
+\BOOKMARK [2][-]{subsection.7.1.3}{Database[Connection/Inspection]}{section.7.1}
+\BOOKMARK [2][-]{subsection.7.1.4}{Syntox}{section.7.1}
+\BOOKMARK [2][-]{subsection.7.1.5}{M\351moire et temps de calcul}{section.7.1}
+\BOOKMARK [1][-]{section.7.2}{R\351sultats}{chapter.7}
+\BOOKMARK [0][-]{chapter.8}{Conclusion et perspectives}{}

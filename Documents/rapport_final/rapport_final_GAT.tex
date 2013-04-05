@@ -50,10 +50,10 @@
 
 	Depuis l'apparition des ordinateurs dans les années 50, la question de la reproduction du langage naturel a toujours été une des plus épineuses. \par 
 	En effet, le langage humain comprend une multitude de paramètres qui ne sont pas évidents à mettre en oeuvre en termes de programmation : syntaxe, grammaire, intonation, structuration de la pensée... Mais à quoi pourrait bien servir un ordinateur possédant le langage, puisqu'il ne possède pas la pensée, l'intention ; à quoi sert-il de savoir \emph{parler} si l'on ne sait rien \emph{dire} ?
-	
-	La génération automatique de 
+
 	La question est donc de savoir quoi faire dire à un logiciel, quel texte lui faire générer, et de quelle manière.
 	
+	La génération
 
 
 
@@ -579,14 +579,25 @@ Ce package contiendra tous les éléments de l'interface graphique et des fenêt
 
 \section{Algorithmique et structures de données utilisées}
 
-\section{Linguistique}
+\section{Communication avec la base de données}
+
+\section{Package Linguistique}
 
 \section{Génération de l'entrée Syntox}
 
-\section{Communication avec la base de données}
 
-\section{Interface graphique}
 
+
+
+\section{Autres}
+
+
+
+\section{Problèmes rencontrés et remarques}
+
+\chapter{Présentation du logiciel fourni}
+
+% Explications et présentation de l'IHM
 \begin{figure}
 \centering
 \includegraphics[scale=0.3]{IHM/accueil.png}
@@ -655,15 +666,11 @@ Ce package contiendra tous les éléments de l'interface graphique et des fenêt
 \caption{Ecran de choix des attributs}
 \end{figure}
 
-\section{Autres}
-
-\section{Problèmes rencontrés et remarques}
-
 \chapter{Tests et résultats}
 \section{Tests effectués}
 Le but de ces tests est d'assurer le bon fonctionnement de notre application. Nous pouvons les regrouper selon l'ensemble de fonctionnalités auquels ils se rattachent. Afin de ne pas mélanger le code source et les essais, nous avons créé un package différent regroupant l'ensemble des classes et méthodes de test. 
 
-\subsection{Linguistique}
+\subsection{Package Linguistique}
 Ce package regroupe les principaux objets utilisés par l'interface graphique tels que les concepts, graphes, noeuds et système de typage des concepts. Son bon fonctionnement était donc primordial pour ne pas avoir d'erreurs lors de l'utilisation de ces derniers par l'interface graphique. Nous avons donc élaboré des tests unitaires, au moyen de JUnit, sur chacune des classes et méthodes. 
 \begin{itemize}	
 \item ConceptTest : Permet de tester les classes Concept(Abstract/Complex/Simple). Dans ces classes nous avons majoritairement des accesseurs mais également des méthodes utilisées pour la génération de l'entrée Syntox. Notons que les accesseurs ne sont normalement pas des éléments soulevant des problèmes. Toutefois nous nous sommes assurés que les éléments retournés sont bien ceux attendus, surtout dans le cas de la liste et du nombre d'éléments qu'elle contient.
@@ -703,58 +710,13 @@ Nous avons choisi de tester particulièrement les classes présentes dans les fi
 	\end{itemize}
 \subsection{Database[Connection/Inspection]}
 \subsection{Syntox}
-	
 
-
-
-
-%Le but de ces tests est de prévoir le bon fonctionnement de notre application. Ces prévisions de tests reposent essentiellement sur les besoins et les scénarios précédemment énoncés. Nous pouvons déjà les énumérer de façon regroupée selon le domaine auquel ils se rapportent.
-%
-%\subsection{Base de données}
-%
-%Les bases de données sont au coeur de notre projet. Utilisées pour contenir les informations à énoncer ou pour sauvegarder les concepts créés, toute fonctionnalité les manipulant doit être testée.
-%Nous devrons donc tester :
-%	\begin{itemize}
-%	\item La connexion aux différentes bases de données utilisées. 
-%	\item Pour les bases de données utilisées pour collecter les informations à énoncer, les requêtes de lecture de la base doivent être correctes (Résultat souhaité égal au résultat obtenu).
-%	\item Pour celles sauvegardant les concepts, en plus des requêtes de lecture, les requêtes d'écriture doivent être testées correctes. 
-%	\item Les droits d'accès et de manipulation des bases de données. Deux niveaux de privilèges sont utilisés pour notre projet, utilisateur classique et utilisateur administrateur. 
-%	\item La déconnexion à toutes bases de données auparavant connectées.
-%
-%	\end{itemize}
-%	
-%\subsection{Interface graphique}
-%
-%L'interface graphique comportera différents éléments graphiques en intéraction avec les bases de données ou l'extérieur - Syntox. Nous envisageons donc de nous assurer que les actions suivantes se déroulerons correctement :
-%
-%	\begin{itemize}
-%	
-%	\item Fiabilité de l'interface, c'est-à-dire, les éléments qui la composent réalisent correctement leur objectif graphique. Il est question de tester la vraisemblance au niveau de la position des éléments graphiques, de leur visibilité, et de leur possibilité d'intéractions (Sélectionnable, cliquable, déplaçable). 
-%	\item Certaines requêtes SQL seront construites à partir de champs sélectionnés au moyen de l'interface graphique. Nous devons nous assurer que l'élément choisi est identique à celui présent dans la réquête.
-%	\item Pour la même raison, le graphe créé après validation par l'utilisateur doit correspondre aux choix que l'utilisateur a réalisés. Cela inclut au niveau des éléments: les liens qui les relient, l'ordre dans lequel ils se trouvent, et la correspondance des éléments eux mêmes.
-%	\item Le rafraîchissement des éléments résultant d'une requête SQL ou d'une action. Ces derniers sont créés au moment où l'utilisateur sélectionne un élément particulier (Cas par exemple de la sélection d'un concept. Un ensemble précis d'attributs lui est alors proposé).
-%
-%	\end{itemize}
-%
-%\subsection{Interactions extérieures}
-%
-%Pour notre projet nous utiliserons Syntox, le logiciel en ligne du professeur et client Lionel Clément. Syntox sera utilisé pour générer les phrases en fonction de l'entrée qu'on lui fournit. 
-%Nous prévoyons donc :
-%
-%	\begin{itemize}
-%	
-%	\item S'assurer de la création de la requête Syntox depuis le graphe conceptuel. La syntaxe des requêtes est précise. Elle doit être identique à celle attendu par Syntox pour qu'il n'y est aucun problème de génération de textes.
-%	\item Communication entre notre application et la version en ligne de Syntox. Etant en ligne, les requêtes générées par notre application doivent pouvoir être envoyées à Syntox.
-%	\item Récupération du texte généré par Syntox. (Identité)
-%
-%	\end{itemize}
+\subsection{Mémoire et temps de calcul}
 	
 \section{Résultats}
 
-\chapter{Conclusion}
+\chapter{Conclusion et perspectives}
 
-\chapter{Annexes}
-% A VOIR SI BESOIN
 
 \bibliographystyle{plain}
 \bibliography{biblio}
