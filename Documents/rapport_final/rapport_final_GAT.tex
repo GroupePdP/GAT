@@ -52,9 +52,13 @@
 	En effet, le langage humain comprend une multitude de paramètres qui ne sont pas évidents à mettre en oeuvre en termes de programmation : syntaxe, grammaire, intonation, structuration de la pensée... Mais à quoi pourrait bien servir un ordinateur possédant le langage, puisqu'il ne possède pas la pensée, l'intention ; à quoi sert-il de savoir \emph{parler} si l'on ne sait rien \emph{dire} ?
 
 	La question est donc de savoir quoi faire dire à un logiciel, quel texte lui faire générer, et de quelle manière.
+	\bigskip 
 	
 	La génération automatique de texte est surtout un domaine où la machine doit savoir faire beaucoup de choix : choix du sujet à traiter, choix du vocabulaire à employer, choix de l'articulation des phrases... Tous ces choix doivent donc être guidés par le linguiste ou l'informaticien responsable du projet.
-
+	
+	Les données analysées par le logiciel peuvent être de plusieurs types : tableaux de données financières (comme dans le système EasyText \cite{Dan11}), données statistiques ou météorologiques... Le traitement et l'analyse de données contenues dans une base de données est, par contre, un sujet qui a été très peu, voire pas traité dans le domaine de la génération de texte, sûrement en raison de la difficulté qu'il y a à extirper le sens de telles données.
+	
+	Quant à la manière utilisée dans la génération de texte elle-même, elle peut également fortement varier : elle peut faire intervenir (ou non) un utilisateur externe, notamment pour l'étape de sélection du contenu pertinent dans les données initiales.
 
 \section{Présentation du projet}
 
@@ -68,7 +72,7 @@ Ce logiciel peut servir par exemple à analyser automatiquement des données con
 
 La génération du texte se fait à partir de \emph{scénarios utilisateur} : chaque scénario correspond à un but rhétorique visé par l'utilisateur.
 
-Générer de tels textes ne se résumant pas à créer des "textes à trous", notre logiciel permet à l'utilisateur de construire le scénario voulu à partir de \emph{concepts} : ceux-ci peuvent être une action, un événement, une succession, un objet, une personne... Le concept est complètement indépendant de la manière de le représenter (notamment indépendant du lexique utilisé, et même de la langue).
+Notre logiciel fait donc intervenir un utilisateur, qui peut construire le scénario voulu à partir de \emph{concepts} : ceux-ci peuvent être une action, un événement, une succession, un objet, une personne... Le concept est complètement indépendant de la manière de le représenter (notamment indépendant du lexique utilisé, et même de la langue).
 
 Par exemple, le concept "REUSSIR" peut être représenté ainsi :
 $$\begin{bmatrix}
@@ -96,16 +100,27 @@ Ce texte est en réalité la sortie du logiciel Syntox, qui est un logiciel dév
 Chaque entrée permet à Syntox de générer toutes les phrases correspondant aux contraintes qui y sont spécifiées.
 
 Par exemple, l'entrée 
-$$S [\text{PRED=manger},
-    \text{subj=[PRED=grenouille, def=+]},
-    \text{obj=[PRED=insecte, def=-]}
-]$$
-permet de générer :
+\begin{verbatim}
+   S Axiom[PRED=cause,
+      arg1=[PRED=gagnerMatch, 
+           tense=present, 
+           subj=[PRED=joueur1, number=sg, def=+],
+           obj=[PRED=match1, number=sg, def=+]],
+      arg2 =[PRED=remporterCompetition,
+           tense=present,
+           subj=[PRED=joueur1, number=sg, def=+],
+           obj=[PRED=competition, number = sg, def=+]]
+\end{verbatim}
+
+permet de générer les phrases:
 \begin{enumerate}
-    \item la grenouille mange un insecte
-    \item la grenouille mange des insectes
-    \item les grenouilles mangent un insecte
-    \item les grenouilles mangent des insectes
+    \item le joueur1 gagne le match1 , par conséquent le joueur1
+remporte la compétition .
+	\item le joueur1 gagne le match1 . le joueur1 remporte la
+compétition .
+	\item le joueur1 gagne le match1 , donc le joueur1 remporte
+la compétition .
+
 \end{enumerate}
 Syntox contient à l'avance une grammaire et un lexique qui correspondent au thème traité. Ces deux composants sont fournis par le client.
 Le but de notre logiciel était donc de fournir à Syntox une entrée qui a ensuite été transformée en texte.
@@ -116,9 +131,9 @@ Le scénario (c'est-à-dire l'ensemble de concepts plus ou moins complexes que l
 
 Premièrement, le scénario est transformé en un \emph{graphe conceptuel}, c'est-à-dire un graphe acyclique orienté dont les sommets sont des concepts et les arêtes orientées correspondent aux liens entre ces concepts.
 
-Exemple : le graphe conceptuel de "REUSSIR"
+Exemple : le graphe conceptuel correspondant à l'exemple ci-dessus.
 \begin{center}
-	\includegraphics[scale=0.5]{Reussir_graphe.png}
+	\includegraphics[scale=0.5]{graphe_cause.png}
 \end{center}
 
 Ce graphe est ensuite parcouru pour le retranscrire en entrée Syntox.

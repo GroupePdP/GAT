@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.31)  5 APR 2013 19:23
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.31)  6 APR 2013 16:31
 entering extended mode
  %&-line parsing enabled.
 **rapport_final_GAT.tex
@@ -551,7 +551,7 @@ fTeX warning (ext4): destination with the same identifier (name{page.1}) has be
 en already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.47 ...e s\IeC {\'e}quence}{25}{subsection.4.2.3}
+l.47 ...e s\IeC {\'e}quence}{26}{subsection.4.2.3}
                                                    [1
 
 ])
@@ -562,224 +562,223 @@ l.47 ...e s\IeC {\'e}quence}{25}{subsection.4.2.3}
 Chapitre 1.
 [3
 
-] [4] <Reussir_graphe.png, id=277, 347.79938pt x 207.02344pt>
-File: Reussir_graphe.png Graphic file (type png)
+] [4] <graphe_cause.png, id=276, 718.685pt x 339.2675pt>
+File: graphe_cause.png Graphic file (type png)
 
-<use Reussir_graphe.png> [5 <./Reussir_graphe.png (PNG copy)>]
+<use graphe_cause.png> [5 <./graphe_cause.png (PNG copy)>] [6]
 Chapitre 2.
-[6
+[7
 
-] [7] [8]
+] [8] [9]
 Chapitre 3.
 
-Overfull \hbox (2.19678pt too wide) in paragraph at lines 202--203
+Overfull \hbox (2.19678pt too wide) in paragraph at lines 217--218
 []\OT1/cmr/m/n/12 Il choisit "sc^^Senario per-son-nalis^^Se" pour pou-voir com-
 mencer la cr^^Seation d'un sc^^Senario. 
  []
 
-[9
+[10
 
-] [10] [11] [12] [13] [14]
+] [11] [12] [13] [14] [15]
 Chapitre 4.
-<Diagramme1.png, id=370, 550.055pt x 256.96pt>
+<Diagramme1.png, id=374, 550.055pt x 256.96pt>
 File: Diagramme1.png Graphic file (type png)
- <use Diagramme1.png> [15
+ <use Diagramme1.png> [16
 
 ]
-<FonctionnementUtilisateur.png, id=375, 678.535pt x 1462.46375pt>
+<FonctionnementUtilisateur.png, id=379, 678.535pt x 1462.46375pt>
 File: FonctionnementUtilisateur.png Graphic file (type png)
 
-<use FonctionnementUtilisateur.png> [16 <./Diagramme1.png (PNG copy)>] [17]
+<use FonctionnementUtilisateur.png> [17 <./Diagramme1.png (PNG copy)>] [18]
 Overfull \vbox (112.53043pt too high) has occurred while \output is active []
 
 
-[18 <./FonctionnementUtilisateur.png (PNG copy)>]
-<FonctionnementAdministrateur.png, id=390, 675.52374pt x 1456.44125pt>
+[19 <./FonctionnementUtilisateur.png (PNG copy)>]
+<FonctionnementAdministrateur.png, id=394, 675.52374pt x 1456.44125pt>
 File: FonctionnementAdministrateur.png Graphic file (type png)
 
 <use FonctionnementAdministrateur.png>
 Overfull \vbox (87.57033pt too high) has occurred while \output is active []
 
 
-[19 <./FonctionnementAdministrateur.png (PNG copy)>]
-<diasequence2.png, id=396, 832.10875pt x 455.7025pt>
+[20 <./FonctionnementAdministrateur.png (PNG copy)>]
+<diasequence2.png, id=400, 832.10875pt x 455.7025pt>
 File: diasequence2.png Graphic file (type png)
  <use diasequence2.png>
-<DiagPackages.png, id=397, 614.295pt x 325.215pt>
+<DiagPackages.png, id=401, 614.295pt x 325.215pt>
 File: DiagPackages.png Graphic file (type png)
  <use DiagPackages.png>
-[20 <./diasequence2.png (PNG copy)> <./DiagPackages.png (PNG copy)>]
-<DiagLinguisticPackages.png, id=404, 490.83376pt x 338.26375pt>
+[21 <./diasequence2.png (PNG copy)> <./DiagPackages.png (PNG copy)>]
+<DiagLinguisticPackages.png, id=408, 490.83376pt x 338.26375pt>
 File: DiagLinguisticPackages.png Graphic file (type png)
 
 <use DiagLinguisticPackages.png>
-<DiagLinguistic_concepts_gestion.png, id=405, 847.165pt x 543.02875pt>
+<DiagLinguistic_concepts_gestion.png, id=409, 847.165pt x 543.02875pt>
 File: DiagLinguistic_concepts_gestion.png Graphic file (type png)
 
 <use DiagLinguistic_concepts_gestion.png>
-<DiagLinguistic_types_gestion.png, id=406, 1214.5375pt x 735.74875pt>
+<DiagLinguistic_types_gestion.png, id=410, 1214.5375pt x 735.74875pt>
 File: DiagLinguistic_types_gestion.png Graphic file (type png)
 
 <use DiagLinguistic_types_gestion.png>
-<DiagLinguistic_graph_concepts_gestion.png, id=407, 856.19875pt x 555.07375pt>
+<DiagLinguistic_graph_concepts_gestion.png, id=411, 856.19875pt x 555.07375pt>
 File: DiagLinguistic_graph_concepts_gestion.png Graphic file (type png)
 
 <use DiagLinguistic_graph_concepts_gestion.png>
-Overfull \hbox (38.9009pt too wide) in paragraph at lines 468--470
+Overfull \hbox (38.9009pt too wide) in paragraph at lines 483--485
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--470
+Underfull \hbox (badness 10000) in paragraph at lines 485--485
 []\OT1/cmr/m/sc/12 Figure \OT1/cmr/m/n/12 4.3 { |Di-a-gramme de classes des sou
 s-packages types[]gestion et
  []
 
 
-LaTeX Warning: Float too large for page by 20.42494pt on input line 472.
+LaTeX Warning: Float too large for page by 20.42494pt on input line 487.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagBD.png, id=408, 656.4525pt x 416.55624pt>
+<DiagBD.png, id=412, 656.4525pt x 416.55624pt>
 File: DiagBD.png Graphic file (type png)
  <use DiagBD.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagStockage.png, id=409, 326.21875pt x 360.34625pt>
+<DiagStockage.png, id=413, 326.21875pt x 360.34625pt>
 File: DiagStockage.png Graphic file (type png)
  <use DiagStockage.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagSyntox.png, id=410, 649.42625pt x 281.05pt>
+<DiagSyntox.png, id=414, 649.42625pt x 281.05pt>
 File: DiagSyntox.png Graphic file (type png)
  <use DiagSyntox.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[21 <./DiagLinguisticPackages.png (PNG copy)> <./DiagLinguistic_concepts_gestio
-n.png (PNG copy)>] [22 <./DiagLinguistic_types_gestion.png (PNG copy)> <./DiagL
-inguistic_graph_concepts_gestion.png (PNG copy)>] [23 <./DiagBD.png (PNG copy)>
- <./DiagStockage.png (PNG copy)>] [24 <./DiagSyntox.png (PNG copy)>]
-<DiagSeq.png, id=433, 916.42375pt x 1530.71875pt>
+[22 <./DiagLinguisticPackages.png (PNG copy)> <./DiagLinguistic_concepts_gestio
+n.png (PNG copy)>] [23 <./DiagLinguistic_types_gestion.png (PNG copy)> <./DiagL
+inguistic_graph_concepts_gestion.png (PNG copy)>] [24 <./DiagBD.png (PNG copy)>
+ <./DiagStockage.png (PNG copy)>] [25 <./DiagSyntox.png (PNG copy)>]
+<DiagSeq.png, id=437, 916.42375pt x 1530.71875pt>
 File: DiagSeq.png Graphic file (type png)
  <use DiagSeq.png>
-<DiagSeq2.png, id=434, 916.42375pt x 1530.71875pt>
+<DiagSeq2.png, id=438, 916.42375pt x 1530.71875pt>
 File: DiagSeq2.png Graphic file (type png)
  <use DiagSeq2.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagSeq3.png, id=435, 953.68059pt x 1187.4953pt>
+<DiagSeq3.png, id=439, 953.68059pt x 1187.4953pt>
 File: DiagSeq3.png Graphic file (type png)
  <use DiagSeq3.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[25
+[26
 
- <./DiagSeq.png (PNG copy)>] [26 <./DiagSeq2.png (PNG copy)>] [27 <./DiagSeq3.p
-ng (PNG copy)>] [28
+ <./DiagSeq.png (PNG copy)>] [27 <./DiagSeq2.png (PNG copy)>] [28 <./DiagSeq3.p
+ng (PNG copy)>] [29
 
-] [29]
+] [30]
 Chapitre 5.
-[30
+[31
 
 ]
 Chapitre 6.
-<IHM/accueil.png, id=471, 1286.8075pt x 726.715pt>
+<IHM/accueil.png, id=475, 1286.8075pt x 726.715pt>
 File: IHM/accueil.png Graphic file (type png)
  <use IHM/accueil.png>
-<IHM/selection_modifier_projet.png, id=472, 1286.8075pt x 721.69624pt>
+<IHM/selection_modifier_projet.png, id=476, 1286.8075pt x 721.69624pt>
 File: IHM/selection_modifier_projet.png Graphic file (type png)
 
 <use IHM/selection_modifier_projet.png>
-<IHM/choix_scenario.png, id=473, 1285.80376pt x 723.70375pt>
+<IHM/choix_scenario.png, id=477, 1285.80376pt x 723.70375pt>
 File: IHM/choix_scenario.png Graphic file (type png)
 
 <use IHM/choix_scenario.png>
-<IHM/selection_scenario.png, id=474, 1284.8pt x 722.7pt>
+<IHM/selection_scenario.png, id=478, 1284.8pt x 722.7pt>
 File: IHM/selection_scenario.png Graphic file (type png)
 
 <use IHM/selection_scenario.png>
-<IHM/affichage_resultat.png, id=475, 1284.8pt x 725.71124pt>
+<IHM/affichage_resultat.png, id=479, 1284.8pt x 725.71124pt>
 File: IHM/affichage_resultat.png Graphic file (type png)
 
 <use IHM/affichage_resultat.png>
-<IHM/remplissage_scenario.png, id=476, 1287.81125pt x 724.7075pt>
+<IHM/remplissage_scenario.png, id=480, 1287.81125pt x 724.7075pt>
 File: IHM/remplissage_scenario.png Graphic file (type png)
 
 <use IHM/remplissage_scenario.png>
-<IHM_5b.png, id=477, 459.1554pt x 360.3864pt>
+<IHM_5b.png, id=481, 459.1554pt x 360.3864pt>
 File: IHM_5b.png Graphic file (type png)
  <use IHM_5b.png>
-<IHM/selection_projet.png, id=478, 1284.8pt x 721.69624pt>
+<IHM/selection_projet.png, id=482, 1284.8pt x 721.69624pt>
 File: IHM/selection_projet.png Graphic file (type png)
 
 <use IHM/selection_projet.png>
-<IHM/creation_projet.png, id=479, 1285.80376pt x 724.7075pt>
+<IHM/creation_projet.png, id=483, 1285.80376pt x 724.7075pt>
 File: IHM/creation_projet.png Graphic file (type png)
 
 <use IHM/creation_projet.png>
-<IHM/creation_types.png, id=480, 1285.80376pt x 722.7pt>
+<IHM/creation_types.png, id=484, 1285.80376pt x 722.7pt>
 File: IHM/creation_types.png Graphic file (type png)
 
 <use IHM/creation_types.png>
-<IHM/creation_concepts.png, id=481, 1284.8pt x 722.7pt>
+<IHM/creation_concepts.png, id=485, 1284.8pt x 722.7pt>
 File: IHM/creation_concepts.png Graphic file (type png)
 
 <use IHM/creation_concepts.png>
-<IHM/modifier_projet_admin.png, id=482, 1286.8075pt x 723.70375pt>
+<IHM/modifier_projet_admin.png, id=486, 1286.8075pt x 723.70375pt>
 File: IHM/modifier_projet_admin.png Graphic file (type png)
 
 <use IHM/modifier_projet_admin.png>
-<Generation.png, id=483, 903.375pt x 698.61pt>
+<Generation.png, id=487, 903.375pt x 698.61pt>
 File: Generation.png Graphic file (type png)
- <use Generation.png> [31
+ <use Generation.png> [32
 
 ]
-[32 <./IHM/accueil.png (PNG copy)> <./IHM/selection_modifier_projet.png (PNG co
-py)>] [33 <./IHM/choix_scenario.png (PNG copy)> <./IHM/selection_scenario.png (
-PNG copy)>] [34 <./IHM/affichage_resultat.png (PNG copy)> <./IHM/remplissage_sc
-enario.png (PNG copy)>] [35 <./IHM_5b.png (PNG copy)> <./IHM/selection_projet.p
-ng (PNG copy)>] [36 <./IHM/creation_projet.png (PNG copy)> <./IHM/creation_type
-s.png (PNG copy)>] [37 <./IHM/creation_concepts.png (PNG copy)> <./IHM/modifier
-_projet_admin.png (PNG copy)>] [38 <./Generation.png (PNG copy)>]
+[33 <./IHM/accueil.png (PNG copy)> <./IHM/selection_modifier_projet.png (PNG co
+py)>] [34 <./IHM/choix_scenario.png (PNG copy)> <./IHM/selection_scenario.png (
+PNG copy)>] [35 <./IHM/affichage_resultat.png (PNG copy)> <./IHM/remplissage_sc
+enario.png (PNG copy)>] [36 <./IHM_5b.png (PNG copy)> <./IHM/selection_projet.p
+ng (PNG copy)>] [37 <./IHM/creation_projet.png (PNG copy)> <./IHM/creation_type
+s.png (PNG copy)>] [38 <./IHM/creation_concepts.png (PNG copy)> <./IHM/modifier
+_projet_admin.png (PNG copy)>] [39 <./Generation.png (PNG copy)>]
 Chapitre 7.
-[39
+[40
 
 ]
-Overfull \hbox (0.13847pt too wide) in paragraph at lines 693--694
+Overfull \hbox (0.13847pt too wide) in paragraph at lines 708--709
 []\OT1/cmr/m/n/12 L'ajout d'un type au Type-M-an-ager au moyen de sa pro-pre m^
 ^Sethode (makeType).
  []
 
-[40] [41]
+[41] [42]
 Chapitre 8.
-(./rapport_final_GAT.bbl [42
+(./rapport_final_GAT.bbl [43
 
-]) [43
+]) [44
 
 ] (./rapport_final_GAT.aux) ) 
 Here is how much of TeX's memory you used:
- 6871 strings out of 495061
- 100467 string characters out of 1182620
+ 6872 strings out of 495061
+ 100465 string characters out of 1182620
  185640 words of memory out of 3000000
- 9751 multiletter control sequences out of 15000+50000
+ 9752 multiletter control sequences out of 15000+50000
  9991 words of font info for 36 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  38i,10n,38p,1698b,463s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfo
 nts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcs
 c10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/te
-xmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/
-fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/
-public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
-onts/cm/cmtt12.pfb>
-Output written on rapport_final_GAT.pdf (44 pages, 1227179 bytes).
+sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/tex
+mf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/f
+onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
+public/amsfonts/cm/cmtt12.pfb>
+Output written on rapport_final_GAT.pdf (45 pages, 1329378 bytes).
 PDF statistics:
  620 PDF objects out of 1000 (max. 8388607)
  172 named destinations out of 1000 (max. 500000)
