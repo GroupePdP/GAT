@@ -56,17 +56,26 @@
 	
 	La génération automatique de texte est surtout un domaine où la machine doit savoir faire beaucoup de choix : choix du sujet à traiter, choix du vocabulaire à employer, choix de l'articulation des phrases... Tous ces choix doivent donc être guidés par le linguiste ou l'informaticien responsable du projet.
 	
+	\bigskip 
 	Les données analysées par le logiciel peuvent être de plusieurs types : tableaux de données financières (comme dans le système EasyText \cite{Dan11}), données statistiques ou météorologiques... Le traitement et l'analyse de données contenues dans une base de données est, par contre, un sujet qui a été très peu, voire pas traité dans le domaine de la génération de texte, sûrement en raison de la difficulté qu'il y a à extirper le sens de telles données.
 	
 	Quant à la manière utilisée dans la génération de texte elle-même, elle peut également fortement varier : elle peut faire intervenir (ou non) un utilisateur externe, notamment pour l'étape de sélection du contenu pertinent dans les données initiales.
 
+
 \section{Présentation du projet}
 
-Le logiciel que nous avons développé pendant ce projet permet de générer du texte de manière automatique à partir de données brutes sélectionnées dans une base de données. 
+Le but du projet est de réaliser un logiciel permettant de générer du texte de manière automatique à partir de données brutes sélectionnées dans une base de données. 
 
-La base de données considérée dans ce projet est une base de données relationnelle, contenant des informations intéressantes pour l'utilisateur, mais non exploitables directement ; il s'agit de données chiffrées, de fonctions, de relations, qui doivent être étudiées avant d'être interprétées.
+Pour se faire, nous utilisons le logiciel Syntox, qui est un logiciel développé par M. Lionel Clément, et qui génère du texte grammaticalement et syntaxiquement correct à partir d'une entrée d'une forme spécifique (dite \emph{entrée Syntox} dans notre rapport).
+Syntox contient à l'avance une grammaire et un lexique qui correspondent au thème traité, ces deux composants étant fournis par M.Clément.
+
+Le but de notre logiciel est donc de fournir à Syntox une entrée qui est ensuite transformée en texte.
+
+\bigskip
 
 Ce logiciel peut servir par exemple à analyser automatiquement des données contenues dans une base de données, ou à utiliser ces données intelligemment pour effectuer des tâches répétitives, notamment l'écriture de textes demandant une grande adaptation des termes suivant les situations (on peut penser au mailing automatique pour des commerciaux ou pour une administration, qui doivent adapter leur message à tous les types de destinataires).
+
+La base de données considérée dans ce projet est une base de données relationnelle, contenant des informations intéressantes pour l'utilisateur, mais non exploitables directement ; il s'agit de données chiffrées, de fonctions, de relations, qui doivent être étudiées avant d'être interprétées.
 
 \bigskip
 
@@ -74,32 +83,41 @@ La génération du texte se fait à partir de \emph{scénarios utilisateur} : ch
 
 Notre logiciel fait donc intervenir un utilisateur, qui peut construire le scénario voulu à partir de \emph{concepts} : ceux-ci peuvent être une action, un événement, une succession, un objet, une personne... Le concept est complètement indépendant de la manière de le représenter (notamment indépendant du lexique utilisé, et même de la langue).
 
-Par exemple, le concept "REUSSIR" peut être représenté ainsi :
+Les concepts dits "simples" ou atomiques, sont en général les personnes, ou les objets (ce qui correspond souvent aux noms propres ou aux noms communs). Dans l'exemple ci-dessous, les concepts "match" et "équipe" sont des concepts simples.
+
+Par exemple, le concept "Gagner\_Match" peut être représenté ainsi :
 $$\begin{bmatrix}
-\text{REUSSIR} \\ \text{arg1 = qui\ ?} \\ \text{arg2 = quoi\ ?}
+\text{Gagner\_match} \\ \text{arg1 = équipe} \\ \text{arg2 = match}
 \end{bmatrix}
 $$
 Les arguments d'un concept peuvent être eux-mêmes des concepts : cela permet de fabriquer des concepts plus complexes.
-Par exemple, le concept de causalité prend en argument deux concepts, qui sont eux-mêmes complexes :
+Par exemple, le concept de causalité prend en argument deux concepts, qui sont complexes :
 
 $$\begin{bmatrix}
-\text{CAUSALITE} \\ \text{arg1 = [antécédent]} \\ \text{arg2 = [conséquence]}
+\text{cause} \\ \text{arg1 = antécédent} \\ \text{arg2 = conséquence}
 \end{bmatrix}
 $$
-
-Les concepts dits "simples" ou atomiques, sont en général les personnes, ou les objets (ce qui correspond souvent aux noms propres ou aux noms communs).
-
-\bigskip
 
 Dans notre projet, le logiciel propose à l'utilisateur de choisir entre la création d'un nouveau scénario (et l'utilisateur devra alors choisir les concepts qu'il veut exprimer, ainsi que leurs arguments) et la réutilisation d'un scénario déjà établi et sauvegardé.
 
 \bigskip
 
-Ce texte est en réalité la sortie du logiciel Syntox, qui est un logiciel développé par M. Lionel Clément, et qui génère du texte grammaticalement et syntaxiquement correct à partir d'une entrée d'une forme spécifique (dite \emph{entrée Syntox} dans notre rapport).
 
-Chaque entrée permet à Syntox de générer toutes les phrases correspondant aux contraintes qui y sont spécifiées.
+Le scénario (c'est-à-dire l'ensemble de concepts plus ou moins complexes que l'utilisateur veut exprimer) est ensuite traité en plusieurs étapes par le logiciel pour générer l'entrée Syntox souhaitée.
 
-Par exemple, l'entrée 
+Premièrement, le scénario est transformé en un \emph{graphe conceptuel}, c'est-à-dire un graphe acyclique orienté dont les sommets sont des concepts et les arêtes orientées correspondent aux liens entre ces concepts.
+
+Exemple de graphe conceptuel :
+\begin{figure}[!h]
+\begin{center}
+	\includegraphics[scale=0.5]{graphe_cause.png}
+	\caption{La victoire du joueur1 dans le match1 entraîne sa victoire de la compétition A.}
+\end{center}
+\end{figure}
+
+Ce graphe est ensuite parcouru pour le retranscrire en entrée Syntox.
+
+Par exemple, le graphe ci-dessus provoque la génération de l'entrée suivante :
 \begin{verbatim}
    S Axiom[PRED=cause,
       arg1=[PRED=gagnerMatch, 
@@ -112,7 +130,10 @@ Par exemple, l'entrée
            obj=[PRED=competition, number = sg, def=+]]
 \end{verbatim}
 
-permet de générer les phrases:
+Chaque entrée permet à Syntox de générer toutes les phrases correspondant aux contraintes qui y sont spécifiées.
+
+Dans notre exemple, Syntox génère alors les phrases :
+
 \begin{enumerate}
     \item le joueur1 gagne le match1 , par conséquent le joueur1
 remporte la compétition .
@@ -122,22 +143,8 @@ compétition .
 la compétition .
 
 \end{enumerate}
-Syntox contient à l'avance une grammaire et un lexique qui correspondent au thème traité. Ces deux composants sont fournis par le client.
-Le but de notre logiciel était donc de fournir à Syntox une entrée qui a ensuite été transformée en texte.
 
-\bigskip
-
-Le scénario (c'est-à-dire l'ensemble de concepts plus ou moins complexes que l'utilisateur veut exprimer) est ensuite traité en plusieurs étapes par le logiciel pour générer l'entrée Syntox souhaitée.
-
-Premièrement, le scénario est transformé en un \emph{graphe conceptuel}, c'est-à-dire un graphe acyclique orienté dont les sommets sont des concepts et les arêtes orientées correspondent aux liens entre ces concepts.
-
-Exemple : le graphe conceptuel correspondant à l'exemple ci-dessus.
-\begin{center}
-	\includegraphics[scale=0.5]{graphe_cause.png}
-\end{center}
-
-Ce graphe est ensuite parcouru pour le retranscrire en entrée Syntox.
-Cette entrée est envoyée au logiciel Syntox, qui génère les phrases correspondantes. On récupère ces phrases, qui correspondent au texte voulu par l'utilisateur. 
+On récupère ces phrases, qui correspondent au texte voulu par l'utilisateur. 
 Celui-ci peut ensuite enregistrer le résultat dans un fichier.
 
 \bigskip
