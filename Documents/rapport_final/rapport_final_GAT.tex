@@ -578,6 +578,10 @@ La classe TypeManager est une classe qui permet de gérer et d'instancier les ty
 
 L'arbre de types et donc la classe TypeManager ne doivent avoir qu'une seule instance par Projet, nous avons donc mis en place la classe LinguisticFactory, qui se base sur le pattern Singleton, pour gérer la création de nouveaux Type et de nouveaux Concept. C'est cette classe qui sera utilisée lors de l'instanciation des Type et des Concept, et qui "cachera" à l'utilisateur le système de gestion et de stockage des Type et des Concept.
 
+\bigskip
+
+Le package \texttt{types\_gestion} comprend également une classe d'exception IncompatibleTypesException, qui permet de gérer l'incompatibilité de deux types.
+
 \subsection{Package \texttt{graph\_concepts\_gestion}}
 
 \begin{center}

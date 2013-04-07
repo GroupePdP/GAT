@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.31)  7 APR 2013 13:01
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.31)  7 APR 2013 13:06
 entering extended mode
  %&-line parsing enabled.
 **rapport_final_GAT.tex
@@ -682,38 +682,42 @@ Overfull \hbox (38.9009pt too wide) in paragraph at lines 559--560
 <DiagLinguistic_graph_concepts_gestion.png, id=432, 856.19875pt x 555.07375pt>
 File: DiagLinguistic_graph_concepts_gestion.png Graphic file (type png)
 
-<use DiagLinguistic_graph_concepts_gestion.png>
-<DiagSyntox.png, id=433, 649.42625pt x 281.05pt>
+<use DiagLinguistic_graph_concepts_gestion.png> [27]
+<DiagSyntox.png, id=437, 649.42625pt x 281.05pt>
 File: DiagSyntox.png Graphic file (type png)
- <use DiagSyntox.png> [27 <./DiagLinguistic_graph_concepts_gestion.png (PNG cop
-y)>]
+ <use DiagSyntox.png>
 <DiagStockage.png, id=438, 326.21875pt x 360.34625pt>
 File: DiagStockage.png Graphic file (type png)
  <use DiagStockage.png>
-[28 <./DiagSyntox.png (PNG copy)> <./DiagStockage.png (PNG copy)>]
-<diasequence2.png, id=445, 832.10875pt x 455.7025pt>
-File: diasequence2.png Graphic file (type png)
- <use diasequence2.png>
-<DiagSeq.png, id=446, 916.42375pt x 1530.71875pt>
-File: DiagSeq.png Graphic file (type png)
- <use DiagSeq.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagSeq2.png, id=447, 916.42375pt x 1530.71875pt>
+[28 <./DiagLinguistic_graph_concepts_gestion.png (PNG copy)> <./DiagSyntox.png 
+(PNG copy)>] <diasequence2.png, id=444, 832.10875pt x 455.7025pt>
+File: diasequence2.png Graphic file (type png)
+
+<use diasequence2.png> <DiagSeq.png, id=445, 916.42375pt x 1530.71875pt>
+File: DiagSeq.png Graphic file (type png)
+
+<use DiagSeq.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<DiagSeq2.png, id=446, 916.42375pt x 1530.71875pt>
 File: DiagSeq2.png Graphic file (type png)
  <use DiagSeq2.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagSeq3.png, id=448, 953.68059pt x 1187.4953pt>
+<DiagSeq3.png, id=447, 953.68059pt x 1187.4953pt>
 File: DiagSeq3.png Graphic file (type png)
  <use DiagSeq3.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[29 <./diasequence2.png (PNG copy)>] [30 <./DiagSeq.png (PNG copy)>] [31 <./Dia
-gSeq2.png (PNG copy)>] [32 <./DiagSeq3.png (PNG copy)>]
+[29 <./DiagStockage.png (PNG copy)> <./diasequence2.png (PNG copy)>] [30 <./Dia
+gSeq.png (PNG copy)>] [31 <./DiagSeq2.png (PNG copy)>] [32 <./DiagSeq3.png (PNG
+ copy)>]
 Chapitre 5.
 <IHM/accueil.png, id=469, 1286.8075pt x 726.715pt>
 File: IHM/accueil.png Graphic file (type png)
@@ -777,7 +781,7 @@ Chapitre 6.
 [41
 
 ]
-Overfull \hbox (0.13847pt too wide) in paragraph at lines 736--737
+Overfull \hbox (0.13847pt too wide) in paragraph at lines 740--741
 []\OT1/cmr/m/n/12 L'ajout d'un type au Type-M-an-ager au moyen de sa pro-pre m^
 ^Sethode (makeType).
  []
@@ -804,7 +808,7 @@ sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/tex
 mf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
 public/amsfonts/cm/cmtt12.pfb>
-Output written on rapport_final_GAT.pdf (46 pages, 1496771 bytes).
+Output written on rapport_final_GAT.pdf (46 pages, 1496923 bytes).
 PDF statistics:
  613 PDF objects out of 1000 (max. 8388607)
  168 named destinations out of 1000 (max. 500000)
