@@ -1,48 +1,52 @@
 This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: rapport_final_GAT.aux
 The style file: plain.bst
-Database file #1: rapport_final_GAT.bib
-Warning--empty chapter and pages in Dan00
-Warning--empty publisher in Dan00
-You've used 6 entries,
+Database file #1: biblio.bib
+Warning--I didn't find a database entry for "Dan11"
+Warning--I didn't find a database entry for "Bat93"
+Warning--I didn't find a database entry for "Dan00"
+Warning--I didn't find a database entry for "Dan10"
+Warning--I didn't find a database entry for "GAT2"
+Warning--I didn't find a database entry for "Clem12"
+You've used 0 entries,
             2118 wiz_defined-function locations,
-            533 strings with 4808 characters,
-and the built_in function-call counts, 1367 in all, are:
-= -- 119
-> -- 46
+            509 strings with 4073 characters,
+and the built_in function-call counts, 18 in all, are:
+= -- 0
+> -- 0
 < -- 0
-+ -- 19
-- -- 13
-* -- 58
-:= -- 247
-add.period$ -- 18
-call.type$ -- 6
-change.case$ -- 24
++ -- 0
+- -- 0
+* -- 2
+:= -- 7
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 71
-empty$ -- 141
-format.name$ -- 13
-if$ -- 285
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 5
-newline$ -- 33
-num.names$ -- 14
-pop$ -- 42
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
 preamble$ -- 1
-purify$ -- 18
+purify$ -- 0
 quote$ -- 0
-skip$ -- 36
+skip$ -- 1
 stack$ -- 0
-substring$ -- 30
-swap$ -- 8
+substring$ -- 0
+swap$ -- 0
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 22
-warning$ -- 2
-while$ -- 13
-width$ -- 7
-write$ -- 62
-(There were 2 warnings)
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There were 6 warnings)

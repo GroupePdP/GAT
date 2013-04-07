@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.31)  7 APR 2013 22:19
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.2.13)  7 APR 2013 22:37
 entering extended mode
  %&-line parsing enabled.
 **rapport_final_GAT.tex
@@ -560,16 +560,39 @@ l.47 ...{concepts\_gestion}}{24}{subsection.4.5.1}
 
  [2]
 Chapitre 1.
+
+LaTeX Warning: Citation `Dan11' on page 3 undefined on input line 60.
+
 [3
 
-] [4] <graphe_cause.png, id=282, 718.685pt x 339.2675pt>
+] [4] <graphe_cause.png, id=280, 718.685pt x 339.2675pt>
 File: graphe_cause.png Graphic file (type png)
 
 <use graphe_cause.png> [5 <./graphe_cause.png (PNG copy)>] [6]
 Chapitre 2.
+
+LaTeX Warning: Citation `Bat93' on page 7 undefined on input line 161.
+
+
+LaTeX Warning: Citation `Dan00' on page 7 undefined on input line 165.
+
 [7
 
-] [8] [9]
+]
+
+LaTeX Warning: Citation `Dan11' on page 8 undefined on input line 168.
+
+
+LaTeX Warning: Citation `Dan10' on page 8 undefined on input line 170.
+
+
+LaTeX Warning: Citation `GAT2' on page 8 undefined on input line 183.
+
+[8]
+
+LaTeX Warning: Citation `Clem12' on page 9 undefined on input line 192.
+
+[9]
 Chapitre 3.
 
 Overfull \hbox (4.08981pt too wide) in paragraph at lines 224--225
@@ -587,13 +610,13 @@ Overfull \hbox (9.20824pt too wide) in paragraph at lines 422--422
 t 
  []
 
-<cas_utilisation.png, id=381, 825.0825pt x 247.92625pt>
+<cas_utilisation.png, id=368, 825.0825pt x 247.92625pt>
 File: cas_utilisation.png Graphic file (type png)
 
 <use cas_utilisation.png> [16
 
  <./cas_utilisation.png (PNG copy)>]
-<FonctionnementUtilisateur.png, id=386, 678.535pt x 1462.46375pt>
+<FonctionnementUtilisateur.png, id=373, 678.535pt x 1462.46375pt>
 File: FonctionnementUtilisateur.png Graphic file (type png)
 
 <use FonctionnementUtilisateur.png> [17]
@@ -601,7 +624,7 @@ Overfull \vbox (90.28043pt too high) has occurred while \output is active []
 
 
 [18 <./FonctionnementUtilisateur.png (PNG copy)>]
-<FonctionnementAdministrateur.png, id=397, 675.52374pt x 1456.44125pt>
+<FonctionnementAdministrateur.png, id=384, 675.52374pt x 1456.44125pt>
 File: FonctionnementAdministrateur.png Graphic file (type png)
 
 <use FonctionnementAdministrateur.png>
@@ -609,7 +632,7 @@ Overfull \vbox (87.57033pt too high) has occurred while \output is active []
 
 
 [19 <./FonctionnementAdministrateur.png (PNG copy)>]
-<DiagPackages.png, id=403, 614.295pt x 325.215pt>
+<DiagPackages.png, id=390, 614.295pt x 325.215pt>
 File: DiagPackages.png Graphic file (type png)
  <use DiagPackages.png>
 Overfull \hbox (9.67647pt too wide) in paragraph at lines 488--489
@@ -617,7 +640,7 @@ Overfull \hbox (9.67647pt too wide) in paragraph at lines 488--489
 par Colum-n-Impl. Elle repr^^Sesente
  []
 
-<bduml/structDataBase.png, id=404, 1143.27126pt x 649.42625pt>
+<bduml/structDataBase.png, id=391, 1143.27126pt x 649.42625pt>
 File: bduml/structDataBase.png Graphic file (type png)
 
 <use bduml/structDataBase.png>
@@ -628,14 +651,14 @@ Overfull \hbox (10.3949pt too wide) in paragraph at lines 497--498
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<bduml/baseFactory.png, id=405, 736.7525pt x 467.7475pt>
+<bduml/baseFactory.png, id=392, 736.7525pt x 467.7475pt>
 File: bduml/baseFactory.png Graphic file (type png)
 
 <use bduml/baseFactory.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<bduml/cookingRequeste.png, id=406, 958.58125pt x 572.1375pt>
+<bduml/cookingRequeste.png, id=393, 958.58125pt x 572.1375pt>
 File: bduml/cookingRequeste.png Graphic file (type png)
 
 <use bduml/cookingRequeste.png>
@@ -646,24 +669,24 @@ Overfull \hbox (32.38396pt too wide) in paragraph at lines 511--512
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<bduml/databaseConnection.png, id=407, 558.085pt x 484.81125pt>
+<bduml/databaseConnection.png, id=394, 558.085pt x 484.81125pt>
 File: bduml/databaseConnection.png Graphic file (type png)
 
 <use bduml/databaseConnection.png> [20 <./DiagPackages.png (PNG copy)>]
 [21 <./bduml/structDataBase.png (PNG copy)> <./bduml/databaseConnection.png (PN
 G copy)>] [22 <./bduml/baseFactory.png (PNG copy)>]
-<DiagLinguisticPackages.png, id=424, 490.83376pt x 338.26375pt>
+<DiagLinguisticPackages.png, id=411, 490.83376pt x 338.26375pt>
 File: DiagLinguisticPackages.png Graphic file (type png)
 
 <use DiagLinguisticPackages.png> [23 <./bduml/cookingRequeste.png (PNG copy)>]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 540.
 
-<DiagLinguistic_concepts_gestion.png, id=430, 847.165pt x 543.02875pt>
+<DiagLinguistic_concepts_gestion.png, id=417, 847.165pt x 543.02875pt>
 File: DiagLinguistic_concepts_gestion.png Graphic file (type png)
 
 <use DiagLinguistic_concepts_gestion.png>
-<DiagLinguistic_types_gestion.png, id=431, 1214.5375pt x 735.74875pt>
+<DiagLinguistic_types_gestion.png, id=418, 1214.5375pt x 735.74875pt>
 File: DiagLinguistic_types_gestion.png Graphic file (type png)
 
 <use DiagLinguistic_types_gestion.png>
@@ -673,7 +696,7 @@ Overfull \hbox (75.33545pt too wide) in paragraph at lines 554--555
 
 [24 <./DiagLinguisticPackages.png (PNG copy)> <./DiagLinguistic_concepts_gestio
 n.png (PNG copy)>] [25 <./DiagLinguistic_types_gestion.png (PNG copy)>]
-<DiagLinguistic_graph_concepts_gestion.png, id=441, 818.05624pt x 591.20876pt>
+<DiagLinguistic_graph_concepts_gestion.png, id=428, 818.05624pt x 591.20876pt>
 File: DiagLinguistic_graph_concepts_gestion.png Graphic file (type png)
 
 <use DiagLinguistic_graph_concepts_gestion.png>
@@ -683,11 +706,11 @@ ph-Con-ceptsIn-ter-face et Graph-
  []
 
 [26 <./DiagLinguistic_graph_concepts_gestion.png (PNG copy)>]
-<diversuml/SyntoxConnection.png, id=446, 363.3575pt x 286.06876pt>
+<diversuml/SyntoxConnection.png, id=433, 363.3575pt x 286.06876pt>
 File: diversuml/SyntoxConnection.png Graphic file (type png)
 
 <use diversuml/SyntoxConnection.png> [27]
-<diversuml/fileManager.png, id=451, 521.95pt x 434.62375pt>
+<diversuml/fileManager.png, id=438, 521.95pt x 434.62375pt>
 File: diversuml/fileManager.png Graphic file (type png)
 
 <use diversuml/fileManager.png> [28 <./diversuml/SyntoxConnection.png (PNG copy
@@ -697,26 +720,26 @@ Overfull \hbox (2.05455pt too wide) in paragraph at lines 677--680
 ement[] \OT1/cmr/m/n/12 De part la mani^^Rere
  []
 
-[29] <diversuml/Core.png, id=463, 886.31125pt x 669.50125pt>
+[29] <diversuml/Core.png, id=450, 886.31125pt x 669.50125pt>
 File: diversuml/Core.png Graphic file (type png)
 
 <use diversuml/Core.png> [30]
-<diasequence2.png, id=470, 832.10875pt x 455.7025pt>
+<diasequence2.png, id=457, 832.10875pt x 455.7025pt>
 File: diasequence2.png Graphic file (type png)
  <use diasequence2.png>
-<DiagSeq.png, id=471, 916.42375pt x 1530.71875pt>
+<DiagSeq.png, id=458, 916.42375pt x 1530.71875pt>
 File: DiagSeq.png Graphic file (type png)
  <use DiagSeq.png> [31 <./diversuml/Core.png (PNG copy)>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagSeq2.png, id=476, 916.42375pt x 1530.71875pt>
+<DiagSeq2.png, id=463, 916.42375pt x 1530.71875pt>
 File: DiagSeq2.png Graphic file (type png)
  <use DiagSeq2.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<DiagSeq3.png, id=477, 953.68059pt x 1187.4953pt>
+<DiagSeq3.png, id=464, 953.68059pt x 1187.4953pt>
 File: DiagSeq3.png Graphic file (type png)
  <use DiagSeq3.png>
 
@@ -725,53 +748,53 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [32 <./diasequence2.png (PNG copy)>] [33 <./DiagSeq.png (PNG copy)>] [34 <./Dia
 gSeq2.png (PNG copy)>] [35 <./DiagSeq3.png (PNG copy)>]
 Chapitre 5.
-<IHM/accueil.png, id=497, 1286.8075pt x 726.715pt>
+<IHM/accueil.png, id=484, 1286.8075pt x 726.715pt>
 File: IHM/accueil.png Graphic file (type png)
  <use IHM/accueil.png>
-<IHM/selection_modifier_projet.png, id=498, 1286.8075pt x 721.69624pt>
+<IHM/selection_modifier_projet.png, id=485, 1286.8075pt x 721.69624pt>
 File: IHM/selection_modifier_projet.png Graphic file (type png)
 
 <use IHM/selection_modifier_projet.png>
-<IHM/choix_scenario.png, id=499, 1285.80376pt x 723.70375pt>
+<IHM/choix_scenario.png, id=486, 1285.80376pt x 723.70375pt>
 File: IHM/choix_scenario.png Graphic file (type png)
 
 <use IHM/choix_scenario.png>
-<IHM/selection_scenario.png, id=500, 1284.8pt x 722.7pt>
+<IHM/selection_scenario.png, id=487, 1284.8pt x 722.7pt>
 File: IHM/selection_scenario.png Graphic file (type png)
 
 <use IHM/selection_scenario.png>
-<IHM/affichage_resultat.png, id=501, 1284.8pt x 725.71124pt>
+<IHM/affichage_resultat.png, id=488, 1284.8pt x 725.71124pt>
 File: IHM/affichage_resultat.png Graphic file (type png)
 
 <use IHM/affichage_resultat.png>
-<IHM/remplissage_scenario.png, id=502, 1287.81125pt x 724.7075pt>
+<IHM/remplissage_scenario.png, id=489, 1287.81125pt x 724.7075pt>
 File: IHM/remplissage_scenario.png Graphic file (type png)
 
 <use IHM/remplissage_scenario.png>
-<IHM_5b.png, id=503, 459.1554pt x 360.3864pt>
+<IHM_5b.png, id=490, 459.1554pt x 360.3864pt>
 File: IHM_5b.png Graphic file (type png)
  <use IHM_5b.png>
-<IHM/selection_projet.png, id=504, 1284.8pt x 721.69624pt>
+<IHM/selection_projet.png, id=491, 1284.8pt x 721.69624pt>
 File: IHM/selection_projet.png Graphic file (type png)
 
 <use IHM/selection_projet.png>
-<IHM/creation_projet.png, id=505, 1285.80376pt x 724.7075pt>
+<IHM/creation_projet.png, id=492, 1285.80376pt x 724.7075pt>
 File: IHM/creation_projet.png Graphic file (type png)
 
 <use IHM/creation_projet.png>
-<IHM/creation_types.png, id=506, 1285.80376pt x 722.7pt>
+<IHM/creation_types.png, id=493, 1285.80376pt x 722.7pt>
 File: IHM/creation_types.png Graphic file (type png)
 
 <use IHM/creation_types.png>
-<IHM/creation_concepts.png, id=507, 1284.8pt x 722.7pt>
+<IHM/creation_concepts.png, id=494, 1284.8pt x 722.7pt>
 File: IHM/creation_concepts.png Graphic file (type png)
 
 <use IHM/creation_concepts.png>
-<IHM/modifier_projet_admin.png, id=508, 1286.8075pt x 723.70375pt>
+<IHM/modifier_projet_admin.png, id=495, 1286.8075pt x 723.70375pt>
 File: IHM/modifier_projet_admin.png Graphic file (type png)
 
 <use IHM/modifier_projet_admin.png>
-<Generation.png, id=509, 903.375pt x 698.61pt>
+<Generation.png, id=496, 903.375pt x 698.61pt>
 File: Generation.png Graphic file (type png)
  <use Generation.png> [36
 
@@ -784,7 +807,7 @@ ng (PNG copy)>] [41 <./IHM/creation_projet.png (PNG copy)> <./IHM/creation_type
 s.png (PNG copy)>] [42 <./IHM/creation_concepts.png (PNG copy)> <./IHM/modifier
 _projet_admin.png (PNG copy)>] [43 <./Generation.png (PNG copy)>]
 Chapitre 6.
-<resultatTest1.png, id=557, 806.03174pt x 578.89pt>
+<resultatTest1.png, id=544, 806.03174pt x 186.88pt>
 File: resultatTest1.png Graphic file (type png)
  <use resultatTest1.png>
 Overfull \hbox (1.97014pt too wide) in paragraph at lines 810--817
@@ -792,79 +815,71 @@ Overfull \hbox (1.97014pt too wide) in paragraph at lines 810--817
 le) nous rap-pelons
  []
 
-<resultatTest6.png, id=558, 807.50664pt x 579.62pt>
+<resultatTest6.png, id=545, 807.50664pt x 172.28pt>
 File: resultatTest6.png Graphic file (type png)
  <use resultatTest6.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 [44
 
-] <resultatTest8.png, id=563, 807.50664pt x 579.62pt>
+ <./resultatTest1.png (PNG copy)>]
+<resultatTest8.png, id=551, 807.50664pt x 170.82pt>
 File: resultatTest8.png Graphic file (type png)
-
-<use resultatTest8.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<resultatTest7.png, id=564, 806.76918pt x 580.35pt>
+ <use resultatTest8.png>
+<resultatTest7.png, id=552, 806.76918pt x 170.82pt>
 File: resultatTest7.png Graphic file (type png)
  <use resultatTest7.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<resultatTest5.png, id=565, 807.50664pt x 579.62pt>
+<resultatTest5.png, id=553, 807.50664pt x 170.82pt>
 File: resultatTest5.png Graphic file (type png)
  <use resultatTest5.png>
-[45 <./resultatTest1.png (PNG copy)> <./resultatTest6.png (PNG copy)>]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<resultatTest4.png, id=572, 808.24408pt x 579.62pt>
+[45 <./resultatTest6.png (PNG copy)> <./resultatTest8.png (PNG copy)> <./result
+atTest7.png (PNG copy)> <./resultatTest5.png (PNG copy)>]
+<resultatTest4.png, id=562, 808.24408pt x 180.31pt>
 File: resultatTest4.png Graphic file (type png)
  <use resultatTest4.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 Overfull \hbox (1.33965pt too wide) in paragraph at lines 857--859
 []\OT1/cmr/m/n/12 GraphConceptsTest et GraphN-od-eDe-fault : Les classes Graph-
 Con-cepts et GraphN-
  []
 
-[46 <./resultatTest8.png (PNG copy)> <./resultatTest7.png (PNG copy)>] [47 <./r
-esultatTest5.png (PNG copy)> <./resultatTest4.png (PNG copy)>]
-<resultatTest2.png, id=585, 806.76918pt x 581.81pt>
+<resultatTest2.png, id=563, 806.76918pt x 156.22pt>
 File: resultatTest2.png Graphic file (type png)
  <use resultatTest2.png>
-<resultatTest3.png, id=586, 808.24408pt x 579.62pt>
+<resultatTest3.png, id=564, 808.24408pt x 179.58pt>
 File: resultatTest3.png Graphic file (type png)
  <use resultatTest3.png>
-[48 <./resultatTest2.png (PNG copy)> <./resultatTest3.png (PNG copy)>] [49]
+[46 <./resultatTest4.png (PNG copy)> <./resultatTest2.png (PNG copy)> <./result
+atTest3.png (PNG copy)>] [47]
 Chapitre 7.
-(./rapport_final_GAT.bbl [50
+(./rapport_final_GAT.bbl [48
 
-]) [51
+]
 
-] (./rapport_final_GAT.aux) ) 
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
+
+) [49
+
+] (./rapport_final_GAT.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6950 strings out of 495061
- 102230 string characters out of 1182620
+ 6938 strings out of 495061
+ 102106 string characters out of 1182621
  185640 words of memory out of 3000000
- 9803 multiletter control sequences out of 15000+50000
+ 9799 multiletter control sequences out of 15000+50000
  10160 words of font info for 37 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 38i,10n,38p,1698b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcs
-c10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/tex
-mf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/f
-onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
-public/amsfonts/cm/cmtt12.pfb>
-Output written on rapport_final_GAT.pdf (52 pages, 2258587 bytes).
+ 38i,10n,38p,1696b,463s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/font
+s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt12.p
+fb>
+Output written on rapport_final_GAT.pdf (50 pages, 1764172 bytes).
 PDF statistics:
- 674 PDF objects out of 1000 (max. 8388607)
- 185 named destinations out of 1000 (max. 500000)
+ 649 PDF objects out of 1000 (max. 8388607)
+ 177 named destinations out of 1000 (max. 500000)
  606 words of extra memory for PDF output out of 10000 (max. 10000000)
 
