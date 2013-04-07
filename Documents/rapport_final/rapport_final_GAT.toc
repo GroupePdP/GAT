@@ -48,16 +48,17 @@
 \contentsline {subsection}{\numberline {4.5.2}Package \texttt {types\_gestion}}{26}{subsection.4.5.2}
 \contentsline {subsection}{\numberline {4.5.3}Package \texttt {graph\_concepts\_gestion}}{28}{subsection.4.5.3}
 \contentsline {section}{\numberline {4.6}G\IeC {\'e}n\IeC {\'e}ration de l'entr\IeC {\'e}e Syntox}{28}{section.4.6}
-\contentsline {section}{\numberline {4.7}Gestion des fichiers}{28}{section.4.7}
-\contentsline {section}{\numberline {4.8}Probl\IeC {\`e}mes rencontr\IeC {\'e}s et remarques}{29}{section.4.8}
-\contentsline {section}{\numberline {4.9}Diagrammes de s\IeC {\'e}quence}{29}{section.4.9}
-\contentsline {chapter}{\numberline {5}Pr\IeC {\'e}sentation du logiciel fourni}{33}{chapter.5}
-\contentsline {chapter}{\numberline {6}Tests et r\IeC {\'e}sultats}{41}{chapter.6}
-\contentsline {section}{\numberline {6.1}Tests effectu\IeC {\'e}s}{41}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Package Linguistique}{41}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Core}{42}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Database[Connection/Inspection]}{43}{subsection.6.1.3}
-\contentsline {subsection}{\numberline {6.1.4}Syntox}{43}{subsection.6.1.4}
-\contentsline {subsection}{\numberline {6.1.5}M\IeC {\'e}moire et temps de calcul}{43}{subsection.6.1.5}
-\contentsline {section}{\numberline {6.2}R\IeC {\'e}sultats}{43}{section.6.2}
-\contentsline {chapter}{\numberline {7}Conclusion et perspectives}{44}{chapter.7}
+\contentsline {section}{\numberline {4.7}Gestion des fichiers}{29}{section.4.7}
+\contentsline {section}{\numberline {4.8}Core}{30}{section.4.8}
+\contentsline {section}{\numberline {4.9}Probl\IeC {\`e}mes rencontr\IeC {\'e}s et remarques}{30}{section.4.9}
+\contentsline {section}{\numberline {4.10}Diagrammes de s\IeC {\'e}quence}{30}{section.4.10}
+\contentsline {chapter}{\numberline {5}Pr\IeC {\'e}sentation du logiciel fourni}{35}{chapter.5}
+\contentsline {chapter}{\numberline {6}Tests et r\IeC {\'e}sultats}{43}{chapter.6}
+\contentsline {section}{\numberline {6.1}Tests effectu\IeC {\'e}s}{43}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Package Linguistique}{43}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Core}{44}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Database[Connection/Inspection]}{45}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}Syntox}{45}{subsection.6.1.4}
+\contentsline {subsection}{\numberline {6.1.5}M\IeC {\'e}moire et temps de calcul}{45}{subsection.6.1.5}
+\contentsline {section}{\numberline {6.2}R\IeC {\'e}sultats}{45}{section.6.2}
+\contentsline {chapter}{\numberline {7}Conclusion et perspectives}{46}{chapter.7}
