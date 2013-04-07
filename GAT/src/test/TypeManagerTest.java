@@ -2,7 +2,6 @@ package test;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import linguistic.typesGestion.Type;
@@ -11,29 +10,34 @@ import linguistic.typesGestion.TypeManager;
 
 public class TypeManagerTest {
 	
-	Type type1, rootType;
+	Type type, rootType;
 	TypeManager typeManager;
-	
-	@Before
-	public void initialize() {
-		typeManager = new TypeManager();
-		rootType = new TypeImpl("object");
-		type1 = new TypeImpl("Réussir", rootType);
-	}
 	
 	@Test
 	public void testMakeType1() {
-		assertEquals(type1, typeManager.makeType("Réussir", rootType));
+		typeManager = new TypeManager();
+		type = new TypeImpl("Reussir", typeManager.getTypeTree().getRoot().getType());
+		
+		assertEquals(type.getName(), typeManager.makeType("Reussir", typeManager.getTypeTree().getRoot().getType()).getName());
+		assertEquals(type.getSurtype(), typeManager.makeType("Reussir").getSurtype());		
 	}
 	
 	@Test
 	public void testMakeType2() {
-		assertEquals(type1, typeManager.makeType("Réussir"));
+		typeManager = new TypeManager();
+		type = new TypeImpl("Reussir",typeManager.getTypeTree().getRoot().getType());
+		
+		assertEquals(type.getName(), typeManager.makeType("Reussir").getName());
+		assertEquals(type.getSurtype(), typeManager.makeType("Reussir").getSurtype());
 	}
 	
 	@Test
 	public void testIsCompatible() {
-		assertEquals(type1, rootType);
+		typeManager = new TypeManager();
+		type = new TypeImpl("Reussir", typeManager.getTypeTree().getRoot().getType());
+		rootType = typeManager.getTypeTree().getRoot().getType();
+		
+		assertEquals(true, typeManager.isCompatible(type, rootType));
 	}
 	
 	

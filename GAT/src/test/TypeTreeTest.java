@@ -2,7 +2,6 @@ package test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.junit.*;
 
@@ -16,75 +15,50 @@ import linguistic.typesGestion.TypeTreeNode;
 
 public class TypeTreeTest extends TestCase{
 	
-	Concept c1, c2, c3, c4;
-	Map<Type, TypeTreeNode> nodeMap;
-	Type rootType, childType1, childType2, childType3, childType4;
+	Concept c1, c2, c3;
+	Type childType;
 	TypeTree tree;
 	TypeTreeNode root, childRoot;
-	
-	@Before 
-	public void initialize() {
-		tree = new TypeTree();
-		
-		//rootType = new TypeImpl("object"); déjà présent dans le constructeur de TypeTree
-		//root = new TypeTreeNode(rootType);
-				
-		childType1 = new TypeImpl("Réussir", tree.getRoot().getType());
-		childRoot = new TypeTreeNode(childType1);
-		
-		tree.getRoot().addChild(childRoot);	
-		
-		//nodeMap = new HashMap<Type, TypeTreeNode>(); déjà présent dans le constructeur de TypeTree
-		//nodeMap.put(rootType, root);
-		
-		c1 = new ConceptSimple("Réussir",tree.getRoot().getType());
-	}
-	
 	
 	@Test
 	public void testAddType(){	
 		tree = new TypeTree();
-		childType1 = new TypeImpl("Réussir", tree.getRoot().getType());
-		childRoot = new TypeTreeNode(childType1);
-		TypeTreeNode node = tree.addType(childType1);
+		childType = new TypeImpl("Reussir", tree.getRoot().getType());
+		childRoot = new TypeTreeNode(childType);
+		TypeTreeNode node = tree.addType(childType);
 		assertEquals(tree.getRoot().getChildrenList().get(0), node);
 	}
 	
 	
 	@Test
 	public void testAddConcept() {
+		tree = new TypeTree();
+		c1 = new ConceptSimple("Reussir",tree.getRoot().getType());
 		tree.addConcept(c1);
-		root.addConcept(c1);
+		ArrayList<Concept> conceptList = new ArrayList<Concept>();
+		conceptList.add(c1);
 		
-		assertEquals(root.getConceptList(),tree.getRoot().getConceptList()); // root et tree.getRoot() c'est pareil non ?
+		assertEquals(conceptList,tree.getRoot().getConceptList());
 	}
 	
 	@Test
 	public void testgetConceptsForType() {
 		List<Concept> list = new ArrayList<Concept>();
+		tree = new TypeTree();
 		
-		childType2 = new TypeImpl("RéussirMatch", childType1);
-		childType3 = new TypeImpl("RéussirQuart", childType1);
-		childType4 = new TypeImpl("RéussirCoupe", childType1);
+		c1 = new ConceptSimple("Reussir",tree.getRoot().getType());
+		c2 = new ConceptSimple("ReussirMatch", c1.getType());
+		c3 = new ConceptSimple("ReussirQuart", c1.getType());
 		
-		c2 = new ConceptSimple("RéussirMatch", childType1);
-		c3 = new ConceptSimple("RéussirQuart", childType1);
-		c4 = new ConceptSimple("RéussirCoupe", childType1);
-		
-		tree.addType(childType2);
-		tree.addType(childType3);
-		tree.addType(childType4);
-		
-		tree.addConcept(c2);
-		tree.addConcept(c3);
-		tree.addConcept(c4);
-		
+		list.add(c1);
 		list.add(c2);
-		list.add(c3);
-		list.add(c4);
+		list.add(c3);	
 		
-		assertEquals(list, tree.getConceptsForType(childType1));
+		tree.addConcept(c1);
+		tree.addConcept(c2);
+		tree.addConcept(c3);		
 		
+		assertEquals(list, tree.getConceptsForType(tree.getRoot().getType()));		
 	}
 	
 
