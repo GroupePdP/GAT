@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -40,7 +41,7 @@ public class DialogInitNewProject extends JDialog{
 	JTextField newProjectTextArea = new JTextField(16);
 	JTextField dataBaseTextArea = new JTextField(16);
 	JTextField idTextArea = new JTextField(12);
-	JTextField pwTextArea = new JTextField(12);
+	JPasswordField pwTextArea = new JPasswordField(12);
 	
 	JLabel errorProjectName = new JLabel("Nom de scenario incorrect");
 	
