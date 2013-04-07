@@ -192,12 +192,14 @@ public class DialogChoseProject extends JDialog{
 			if(pip.getTypesCol().typeAlreadyExists(type.getSurtype().getName()))
 			{
 				TypeGraphic tmp = new TypeGraphic(pip, type.getName(), pip.getTypesCol().getTypeByName(type.getSurtype().getName()));
+				tmp.setDescription(type.getDescription());
 				pip.getTypesCol().addTypeGraphic(tmp);
 				return tmp;
 			}
 			else
 			{
 				TypeGraphic tmp = new TypeGraphic(pip, type.getName(), addType(pip, type.getSurtype()));
+				tmp.setDescription(type.getDescription());
 				pip.getTypesCol().addTypeGraphic(tmp);
 				return tmp;
 			}
@@ -205,6 +207,7 @@ public class DialogChoseProject extends JDialog{
 		else
 		{
 			TypeGraphic tmp = new TypeGraphic(pip, type.getName());
+			tmp.setDescription(type.getDescription());
 			pip.getTypesCol().addTypeGraphic(tmp);
 			return tmp;
 		}

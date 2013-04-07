@@ -84,9 +84,12 @@ public class DialogRename extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				tg.setName(nameTextField.getText());
-				pip.getTypesCol().renameTypeGraphic(nameTextField.getText(), tg);
-				dispose();
+				if(nameTextField.getText().length() !=0)
+				{
+					tg.setName(nameTextField.getText());
+					pip.getTypesCol().renameTypeGraphic(nameTextField.getText(), tg);
+					dispose();
+				}
 			}
 		});
 	}

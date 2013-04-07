@@ -249,6 +249,7 @@ public class ConceptsColumn extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				removeConceptGraphic(concepts.remove(conceptsJList.getSelectedIndex()));
+				currentPane.setCurrentDescription("");
 			}
 			
 		});
@@ -265,7 +266,7 @@ public class ConceptsColumn extends JPanel{
 			
 		});
 
-		JMenuItem descr = new JMenuItem("Ajouter Description");
+		JMenuItem descr = new JMenuItem("Editer Description");
 		descr.addActionListener(new ActionListener(){
 
 			@Override

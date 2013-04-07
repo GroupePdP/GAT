@@ -23,17 +23,17 @@ public class DialogDescription extends JDialog{
 	
 	public DialogDescription(final PanelInitProject pip, final TypeGraphic tg)
 	{
-		initComponent();
+		initComponent(tg.getDescription());
 		initValidateTypeGraphic(pip,tg);
 	}
 	
 	public DialogDescription(final PanelInitProject pip, final ConceptGraphic cg)
 	{
-		initComponent();
+		initComponent(cg.getDescription());
 		initValidateConceptGraphic(pip,cg);
 	}
 	
-	private void initComponent()
+	private void initComponent(String descr)
 	{
 		JPanel main = new JPanel(new BorderLayout());
 		main.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
@@ -46,6 +46,7 @@ public class DialogDescription extends JDialog{
 		JScrollPane descrScroll = new JScrollPane(this.descrArea);
 		descrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		descrScroll.setPreferredSize(new Dimension(main.getWidth(), 60));
+		this.descrArea.setText(descr);
 		
 		JPanel valRetPane = new JPanel();
 		valRetPane.setLayout(new BoxLayout(valRetPane, BoxLayout.X_AXIS));

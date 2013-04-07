@@ -73,7 +73,7 @@ public class PanelInitProject extends JPanel{
 		
 		gbc.fill = GridBagConstraints.VERTICAL;
 		gbc.anchor = GridBagConstraints.CENTER;
-		gbc.gridwidth = GridBagConstraints.REMAINDER;;
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.gridheight = GridBagConstraints.REMAINDER;
 		gbc.weightx = 0.1;
 		gbc.weighty = 1;
@@ -112,7 +112,7 @@ public class PanelInitProject extends JPanel{
 		this.currentDescription = new JTextArea();
 		this.currentDescription.setText("");
 		this.currentDescription.setLineWrap(true);
-		this.currentDescription.setEditable(true);
+		this.currentDescription.setEditable(false);
 		JScrollPane descrScroll = new JScrollPane(this.currentDescription);
 		descrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
@@ -218,11 +218,11 @@ public class PanelInitProject extends JPanel{
 
 		if (type.getSurType() == null)
 		{
-			return currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().makeType(type.toString());
+			return currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().makeType(type.toString(),type.getDescription());
 		}
 		else
 		{
-			return currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().makeType(type.toString() , recMakeType(type.getSurType()));
+			return currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().makeType(type.toString() , recMakeType(type.getSurType()), type.getDescription());
 		}
 
 	}

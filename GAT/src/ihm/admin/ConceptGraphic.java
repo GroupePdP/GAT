@@ -199,6 +199,10 @@ public class ConceptGraphic extends JPanel {
 		return popup;
 	}
 	
+	public String getDescription() {
+		return description;
+	}
+
 	public void setDescription(String descr)
 	{
 		this.description = descr;

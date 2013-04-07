@@ -267,11 +267,12 @@ public class TypesColumn extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				removeTypeGraphic(types.remove(typesJList.getSelectedIndex()));
+				currentPane.setCurrentDescription("");
 			}
 			
 		});
 
-		JMenuItem descr = new JMenuItem("Ajouter Description");
+		JMenuItem descr = new JMenuItem("Editer Description");
 		descr.addActionListener(new ActionListener(){
 
 			@Override

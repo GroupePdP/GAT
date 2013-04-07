@@ -23,7 +23,7 @@ public class TypeGraphic extends JPanel{
 	
 	String name;
 	TypeGraphic surType = null;
-	String description;
+	String description = "";
 	
 	
 	
@@ -236,7 +236,11 @@ public class TypeGraphic extends JPanel{
 	{
 		this.description = descr;
 	}
-	
+
+	public String getDescription() {
+		return description;
+	}
+
 	public void setName(String name)
 	{
 		this.name = name;

@@ -18,4 +18,5 @@ public interface Concept {
 	public List<Type> getArguments();
 	public int getNumberArguments();
 	public void setSyntoxInput(Map<String, Type> map);
+	public String getDescription();
 }

@@ -8,17 +8,24 @@ public class TypeImpl implements Type {
 	
 	private String name;
 	private Type surtype;
-	private String description;
+	private String description = "";
 	
 	// Constructeurs
 	
-	public TypeImpl(String name, Type surtype, String description){
+
+	public TypeImpl(String name, Type surtype, String description) {
 		this.name = name;
 		this.surtype = surtype;
 		this.description = description;
 	}
-	
-	public TypeImpl(String name, Type surtype){
+
+	public TypeImpl(String name, String description){
+		this.name = name;
+		this.surtype = null;
+		this.description = description;
+	}
+
+	public TypeImpl(String name, Type surtype) {
 		this.name = name;
 		this.surtype = surtype;
 	}

@@ -39,6 +39,16 @@ public final class LinguisticFactory implements Factory{
 	}
 	
 	@Override
+	public Type makeType(String name, Type surtype, String description){
+		return tm.makeType(name, surtype, description);
+	}
+
+	@Override
+	public Type makeType(String name, String description){
+		return tm.makeType(name, description);
+	}
+
+	@Override
 	public Type makeType(String name, Type surtype){
 		return tm.makeType(name, surtype);
 	}
@@ -47,7 +57,7 @@ public final class LinguisticFactory implements Factory{
 	public Type makeType(String name){
 		return tm.makeType(name);
 	}
-
+	
 	@Override
 	public ConceptComplex makeConcept(String name, Type type, List<Type> args) {
 		Concept c = new ConceptComplex(name, type, args);

@@ -19,6 +19,18 @@ public class TypeManager {
 	
 	// Creation des types
 	
+	public Type makeType(String name, Type surtype, String description){
+		Type t = new TypeImpl(name, surtype, description);
+		tree.addType(t);
+		return t;
+	}
+	
+	public Type makeType(String name, String description){
+		Type t = new TypeImpl(name, tree.getRoot().getType(), description);
+		tree.addType(t);
+		return t;
+	}
+
 	public Type makeType(String name, Type surtype){
 		Type t = new TypeImpl(name, surtype);
 		tree.addType(t);
@@ -30,7 +42,6 @@ public class TypeManager {
 		tree.addType(t);
 		return t;
 	}
-
 	/** Returns the compatibility of a first Type with a second one.
 	 * The method returns True if the first Type is compatible with
 	 * (i.e. is a "children"-Type of) the second Type. Else, the
