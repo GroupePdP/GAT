@@ -1,6 +1,5 @@
 package core;
 import linguistic.graphConceptsGestion.GraphNodeFactory;
-import linguistic.typesGestion.LinguisticFactory;
 import fileManager.LocalStorage;
 
 public class Core {

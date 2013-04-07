@@ -3,16 +3,12 @@ package ihm.admin;
 import ihm.MainFrame;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
@@ -29,9 +25,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
-import linguistic.conceptsGestion.Concept;
-import linguistic.typesGestion.TypeTree;
 
 public class ConceptsColumn extends JPanel{
 	

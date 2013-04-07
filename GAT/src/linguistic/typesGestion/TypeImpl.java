@@ -8,8 +8,15 @@ public class TypeImpl implements Type {
 	
 	private String name;
 	private Type surtype;
+	private String description;
 	
 	// Constructeurs
+	
+	public TypeImpl(String name, Type surtype, String description){
+		this.name = name;
+		this.surtype = surtype;
+		this.description = description;
+	}
 	
 	public TypeImpl(String name, Type surtype){
 		this.name = name;
@@ -33,6 +40,14 @@ public class TypeImpl implements Type {
 
 	public String getName(){
 		return this.name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override
