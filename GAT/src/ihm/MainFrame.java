@@ -19,7 +19,7 @@ public class MainFrame extends JFrame{
 		this.getContentPane().setLayout(new BorderLayout());
 		Dimension frameSize = new Dimension(1280,720);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(frameSize);
+		this.setPreferredSize(frameSize);
 		this.setResizable(false);
 		this.mainCore = core;
 		this.setPane(home);
@@ -39,6 +39,7 @@ public class MainFrame extends JFrame{
 		this.currentPane = newPane;
 		this.getContentPane().add(newPane, BorderLayout.CENTER);
 		newPane.setVisible(true);
+		this.pack();
 	}
 
 	public Core getCore() {

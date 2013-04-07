@@ -1,8 +1,6 @@
 package ihm.admin;
 
 import ihm.MainFrame;
-import ihm.tools.PanelArgsColumnProject;
-import ihm.tools.PanelSurTypeColumnProject;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -44,6 +42,7 @@ public class DialogChoseProject extends JDialog{
 
 	JDialog thisDiag = this;
 	MainFrame currentFrame;
+	PanelHomeAdmin previous;
 	
 	JPanel comboPane = new JPanel();
 	JComboBox combo;
@@ -53,9 +52,10 @@ public class DialogChoseProject extends JDialog{
 	
 	Vector<String> vecProjectList = new Vector();
 	
-	public DialogChoseProject(MainFrame mf, final JPanel prev)
+	public DialogChoseProject(MainFrame mf, final PanelHomeAdmin prev)
 	{
 		this.currentFrame = mf;
+		this.previous = prev;
 		this.setTitle("Modifier Projet");
 		this.setResizable(false);
 		this.setModal(true);
@@ -128,73 +128,8 @@ public class DialogChoseProject extends JDialog{
 		this.ok.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
-				Project p = (Project) currentFrame.getCore().getLocalStorage().load((String) combo.getSelectedItem());
-				currentFrame.getCore().setProject(p);
-				Vector<PanelSurTypeColumnProject> types = new Vector();
-				Vector<PanelArgsColumnProject> concepts = new Vector();
-				PanelNewProject pnp = new PanelNewProject(currentFrame, prev, concepts, types);
-				TypeTree treeTmp = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree();
-				Iterator it = treeTmp.getMap().keySet().iterator();
-				for (;it.hasNext();)
-				{
-					linguistic.typesGestion.Type type = (linguistic.typesGestion.Type) it.next();
-					if (! type.getName().equals("object"))
-					{
-						boolean typeAlreadyExist=false;
-						for(PanelSurTypeColumnProject typeTmp : pnp.getVecTypeList())
-						{
-							if(typeTmp.toString().equals(type.getName()))
-							{
-								typeAlreadyExist = true;break;
-							}
-								
-						}
-						if(typeAlreadyExist == false)
-						{
-							PanelSurTypeColumnProject pane = new PanelSurTypeColumnProject(currentFrame, pnp, type.getName());
-							if(type.getSurtype() != null)
-							{
-								PanelSurTypeColumnProject surTypeTmp = null;
-								for(PanelSurTypeColumnProject typeTmp : pnp.getVecTypeList())
-								{
-									if(typeTmp.toString().equals(type.getName()))
-									{
-										surTypeTmp = new PanelSurTypeColumnProject(currentFrame, pnp, type.getSurtype().toString()) ;
-										break;
-									}
-										
-								}
-								if(surTypeTmp != null)
-									pane.setType(surTypeTmp);
-							}
-							pnp.thisTypeColumnPane.addType(pane);
-							
-							
-							TypeTreeNode root= treeTmp.getRoot();
-							for (Concept c : treeTmp.getConceptsForType(root.getType()))
-							{
-								PanelArgsColumnProject cons = new PanelArgsColumnProject(currentFrame, pnp, c.getName());
-								if(c.getArguments().size() != 0)
-								{
-									for(int i = 0; i<c.getArguments().size(); i++)
-									{
-										linguistic.typesGestion.Type tmp = c.getArguments().get(i);
-										PanelSurTypeColumnProject tmpType = new PanelSurTypeColumnProject(currentFrame, pnp, tmp.toString());
-										cons.addConcept(tmpType);
-									}
-
-
-								}
-								cons.conceptType = pane;
-								pnp.thisConceptColumnPane.addConcept(cons);
-							}
-						}
-					}
-				}
-
+				loadProject((String) combo.getSelectedItem());
 				
-				currentFrame.setPane(pnp);
-				thisDiag.dispose();
 			}
 		});
 		this.ok.setPreferredSize(buttSize);
@@ -234,5 +169,74 @@ public class DialogChoseProject extends JDialog{
 		this.comboPane.invalidate();
 		this.comboPane.validate();
 		this.thisDiag.repaint();
+	}
+	
+	private void loadProject(String project)
+	{
+		Project p = (Project) currentFrame.getCore().getLocalStorage().load(project);
+		currentFrame.getCore().setProject(p);
+
+		PanelInitProject pip = new PanelInitProject(currentFrame,this.previous);
+
+		TypeTree treeTmp = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree();
+		for(Type t : treeTmp.getMap().keySet())
+		{
+			if(!t.getName().equals("object") && !pip.getTypesCol().typeAlreadyExists(t.getName()))
+			{
+				addType(pip, t);
+			}
+		}
+		
+		TypeTreeNode root= treeTmp.getRoot();
+		for (Concept c : treeTmp.getConceptsForType(root.getType()))
+		{
+			addConcept(pip, c);
+		}
+		
+		currentFrame.setPane(pip);
+		thisDiag.dispose();
+	}
+
+	private TypeGraphic addType(PanelInitProject pip, Type type)
+	{
+		if(type.getSurtype() != null && !type.getSurtype().getName().equals("object"))
+		{
+			if(pip.getTypesCol().typeAlreadyExists(type.getSurtype().getName()))
+			{
+				TypeGraphic tmp = new TypeGraphic(pip, type.getName(), pip.getTypesCol().getTypeByName(type.getSurtype().getName()));
+				pip.getTypesCol().addTypeGraphic(tmp);
+				return tmp;
+			}
+			else
+			{
+				TypeGraphic tmp = new TypeGraphic(pip, type.getName(), addType(pip, type.getSurtype()));
+				pip.getTypesCol().addTypeGraphic(tmp);
+				return tmp;
+			}
+		}
+		else
+		{
+			TypeGraphic tmp = new TypeGraphic(pip, type.getName());
+			pip.getTypesCol().addTypeGraphic(tmp);
+			return tmp;
+		}
+	}
+	
+	private void addConcept(PanelInitProject pip, Concept concept)
+	{
+		if(concept.getNumberArguments() == 0)
+		{
+			ConceptGraphic tmp = new ConceptGraphic(pip, concept.getName(), pip.getTypesCol().getTypeByName(concept.getType().getName()));
+			pip.getConceptsCol().addConceptGraphic(tmp);
+		}
+		else
+		{
+			ConceptGraphic tmp = new ConceptGraphic(pip, concept.getName(), pip.getTypesCol().getTypeByName(concept.getType().getName()));
+			for(Type t : concept.getArguments())
+			{
+				tmp.addArgument(pip.getTypesCol().getTypeByName(t.getName()));
+			}
+			pip.getConceptsCol().addConceptGraphic(tmp);
+		}
 	}
 }

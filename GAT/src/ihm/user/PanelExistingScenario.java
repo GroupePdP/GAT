@@ -2,7 +2,6 @@ package ihm.user;
 
 import ihm.MainFrame;
 import ihm.PanelHome;
-import ihm.tools.PanelArgsColumnProject;
 import ihm.tools.PanelCenteredButton;
 
 import java.awt.BorderLayout;

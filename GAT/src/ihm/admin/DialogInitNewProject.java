@@ -10,6 +10,7 @@ import java.awt.FlowLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -23,6 +24,12 @@ import javax.swing.event.DocumentListener;
 
 import core.InfoDb;
 import core.Project;
+import databaseConnection.DBConnection;
+import databaseInspection.Base;
+import databaseInspection.BaseFactory;
+import databaseInspection.BaseFactoryImpl;
+import databaseInspection.Column;
+import databaseInspection.Table;
 
 import linguistic.Scenario;
 
@@ -37,7 +44,7 @@ public class DialogInitNewProject extends JDialog{
 	
 	JLabel errorProjectName = new JLabel("Nom de scenario incorrect");
 	
-	public DialogInitNewProject(MainFrame mf, final JPanel prev)
+	public DialogInitNewProject(MainFrame mf, final PanelHomeAdmin prev)
 	{
 		this.currentFrame = mf;
 		this.setTitle("Creation d'un nouveau projet");
@@ -156,9 +163,22 @@ public class DialogInitNewProject extends JDialog{
 				
 				if(projectName.length() != 0)
 				{
-					currentFrame.getCore().setProject(new Project(new InfoDb(dataBase, "mySQL", id, pwd), projectName));
-					PanelNewProject pnp = new PanelNewProject(currentFrame, prev);
-					currentFrame.setPane(pnp);
+					boolean errorDB = false;
+					PanelInitProject pip = new PanelInitProject(currentFrame, prev);
+					if(id.length() !=0 && pwd.length() !=0 && dataBase.length() != 0)
+					{
+						
+						currentFrame.getCore().setProject(new Project(new InfoDb(dataBase, "mySQL", id, pwd), projectName));
+						try {
+							initProjectFromBD(pip);
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+							errorDB = true;
+						}
+					}	
+					if(errorDB == false)
+						currentFrame.setPane(pip);
 					thisDiag.dispose();
 				}
 				
@@ -185,5 +205,28 @@ public class DialogInitNewProject extends JDialog{
 		this.pack();
 		Point loc = this.currentFrame.getLocationOnScreen();
 		this.setLocation(loc.x+mf.getWidth()/2-this.getWidth()/2, loc.y+mf.getHeight()/2-this.getHeight()/2);
+	}
+	
+	
+	private void initProjectFromBD(PanelInitProject pip) throws SQLException
+	{
+		DBConnection tmp = this.currentFrame.getCore().getProject().getInfoDb().getDBCfromInfoDB();
+		
+		if(tmp.connection())
+		{
+			Base tmpBase = BaseFactoryImpl.getInstance().extractBase(tmp);
+
+			for(Table t : tmpBase.getListTable().values())
+			{
+				pip.getTypesCol().addTypeGraphic(new TypeGraphic(pip, t.getName()));
+				for(Column c : t.getColumn().values())
+				{
+					TypeGraphic tg = new TypeGraphic(pip, t.getName()+"."+c.getName());
+					pip.getTypesCol().addTypeGraphic(tg);
+				}
+			}
+			
+			tmp.disconnection();
+		}
 	}
 }
