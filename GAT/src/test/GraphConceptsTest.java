@@ -68,7 +68,7 @@ public class GraphConceptsTest {
 		}
 		gc = new GraphConcepts(root);
 		
-		result = "Axiom[PRED:"+c5.getName()+"arg0[PRED:"+c3.getName()+"arg0[PRED:"+c8.getName()+"], arg1[PRED:"+c2.getName()+"]], arg1[PRED:"+c4.getName()+", arg0[PRED:"+
+		result = "Axiom[PRED:"+c5.getName()+", arg0[PRED:"+c3.getName()+", arg0[PRED:"+c8.getName()+"], arg1[PRED:"+c2.getName()+"]], arg1[PRED:"+c4.getName()+", arg0[PRED:"+
 				c8.getName()+"], arg1[PRED:"+c6.getName()+"]]]";		
 	}
 

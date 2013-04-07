@@ -64,7 +64,7 @@ public class TypeTree {
 		return node;
 	}
 	
-	public void addConcept(Concept c){ // utilisee ?
+	public void addConcept(Concept c){
 		TypeTreeNode node = nodeMap.get(c.getType());
 		node.addConcept(c);
 	}
@@ -96,9 +96,5 @@ public class TypeTree {
 			}
 		}
 		return list;
-	}
-	
-	public boolean equals(TypeTree t) {
-		return (this.root.equals(t.getRoot()));
 	}
 }
