@@ -26,8 +26,10 @@ public class LinguisticFactoryTest {
 		typeManager = new TypeManager();
 		type = new TypeImpl("Reussir", typeManager.getTypeTree().getRoot().getType());
 		
-		assertEquals(type.getName(), LinguisticFactory.getInstance().makeType("Reussir", LinguisticFactory.getInstance().getTypeManager().getTypeTree().getRoot().getType()).getName());
-		assertEquals(type.getSurtype().toString(), LinguisticFactory.getInstance().makeType("Reussir", LinguisticFactory.getInstance().getTypeManager().getTypeTree().getRoot().getType()).getSurtype().toString());
+		assertEquals(type.getName(), LinguisticFactory.getInstance().makeType("Reussir", 
+				LinguisticFactory.getInstance().getTypeManager().getTypeTree().getRoot().getType()).getName());
+		assertEquals(type.getSurtype().toString(), LinguisticFactory.getInstance().makeType("Reussir", 
+				LinguisticFactory.getInstance().getTypeManager().getTypeTree().getRoot().getType()).getSurtype().toString());
 		
 	}
 
@@ -45,7 +47,8 @@ public class LinguisticFactoryTest {
 		type = new TypeImpl("Reussir", typeManager.getTypeTree().getRoot().getType());
 		concept = new ConceptSimple("Reussir", typeManager.getTypeTree().getRoot().getType());
 
-		assertEquals(concept.getName(), LinguisticFactory.getInstance().makeConcept("Reussir", LinguisticFactory.getInstance().getTypeManager().getTypeTree().getRoot().getType()).getName());
+		assertEquals(concept.getName(), LinguisticFactory.getInstance().makeConcept("Reussir", 
+				LinguisticFactory.getInstance().getTypeManager().getTypeTree().getRoot().getType()).getName());
 	}
 	
 }

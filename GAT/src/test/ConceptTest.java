@@ -27,10 +27,10 @@ public class ConceptTest {
 		args = new ArrayList<Type> ();
 		num = args.size();
 		
-		name1 = "RéussirMatch";
-		type1 = new TypeImpl("Réussir");
+		name1 = "ReussirMatch";
+		type1 = new TypeImpl("Reussir");
 		
-		name2 = "RéussirQuart";
+		name2 = "ReussirQuart";
 		
 		c1 = new ConceptComplex(name1, type1, args);
 		c2 = new ConceptSimple(name2 , type1);	
