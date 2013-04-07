@@ -23,7 +23,11 @@ public class TableImpl implements Table{
 	public Column getColumn(String key){
 		return this.relation.get(key);
 	}
-
+	
+	@Override
+	public Map<String,Column> getColumn(){
+		return this.relation;
+	}
 	@Override
 	public void addColumn(Column col){
 		this.relation.put(col.getName(),col);
