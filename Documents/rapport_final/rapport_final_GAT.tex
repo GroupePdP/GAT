@@ -803,33 +803,73 @@ Le but de ces tests est d'assurer le bon fonctionnement de notre application. No
 \subsection{Package Linguistique}
 Ce package regroupe les principaux objets utilisés par l'interface graphique tels que les concepts, graphes, noeuds et système de typage des concepts. Son bon fonctionnement était donc primordial pour ne pas avoir d'erreurs lors de l'utilisation de ces derniers par l'interface graphique. Nous avons donc élaboré des tests unitaires, au moyen de JUnit, sur chacune des classes et méthodes. 
 \begin{itemize}	
-\item ConceptTest : Permet de tester les classes Concept(Abstract/Complex/Simple). Dans ces classes nous avons majoritairement des accesseurs mais également des méthodes utilisées pour la génération de l'entrée Syntox. Notons que les accesseurs ne sont normalement pas des éléments soulevant des problèmes. Toutefois nous nous sommes assurés que les éléments retournés sont bien ceux attendus, surtout dans le cas de la liste et du nombre d'éléments qu'elle contient.
-Concernant la méthode generateSyntox() nous avons choisi de la tester plus tard dans une autre classe qui utilise une méthode identique mais depuis un objet "GraphConcepts" et qui fait appel à cette méthode.
-\item TypeTest : Permet de tester la classe TypeImpl qui implémente Type. Nous avons ici testé de manière similaire à "ConceptTest" les accesseurs présents en plus de la méthode "equals" dont nous avions besoin. 
-\item TypeTreeTest et TypeTreeNodeTest : Les tests présents dans ces classes se rapportent respectivement aux classes du même nom, TypeTree et TypeTreeNode. Comme nous l'indiquent les commentaires, ces dernières permettent de représenter sous forme d'arbre, l'organisation et les liaisons des différents types.
-Nous avons fait le choix de tester l'intégralité des méthodes présentes dans ces classes, à savoir :
+\item ConceptTest : Dans les classes Concept(Abstract/Complex/Simple) nous rappelons qu'il y a majoritairement des accesseurs mais également des méthodes utilisées pour la génération de l'entrée Syntox. Notons que les accesseurs ne sont normalement pas des éléments soulevant des problèmes. Toutefois nous nous sommes assurés que les éléments retournés sont bien ceux attendus, surtout dans le cas de la liste et du nombre d'éléments qu'elle contient.
+Concernant la méthode generateSyntox() nous avons choisi de la tester lors de l'utilisation d'un objet ``GraphConcepts''.
+\begin{figure}
+\begin{center}
+	\includegraphics[scale=0.40]{resultatTest1.png}
+\end{center}
+\end{figure}
+\newpage
+\item TypeTest : Nous avons ici testé de manière similaire à "ConceptTest" les accesseurs présents. 
+\begin{figure}[h!]
+\begin{center}
+	\includegraphics[scale=0.40]{resultatTest6.png}
+\end{center}
+\end{figure}
+\item TypeTreeTest et TypeTreeNodeTest : Nous avons fait le choix de tester l'intégralité des méthodes présentes dans ces classes, à savoir :
 	\begin{itemize}
 	\item L'ajout d'un nouveau concept à la liste du noeud en question. 
 	\item L'ajout d'un fils à la liste concernée.
-	\item L'ajout d'un type dans l'objet TypeTree (Plus précisément dans la Map de l'objet) en respectant les liaisons avec un type prédécesseur (surType). De façon similaire, l'ajout d'un concept à ce même objet.
+	\item L'ajout d'un type dans l'objet TypeTree (Plus précisément dans la Map de l'objet) en respectant les liaisons avec un type prédécesseur (surType). Et de façon similaire, l'ajout d'un concept à ce même objet.
 	\item La méthode permettant de retourner l'ensemble des sous-types que contient un type. 
 	\end{itemize}
-\item TypeManagerTest : Se rapporte à la classe TypeManager du package permettant de gérer la création des types ainsi que leur insertion dans l'arbre. 
-Elle présente deux méthodes, différenciées par leurs arguments, permettant l'ajout d'un type dans l'arbre (makeType()). Nous les avons tout deux testées ainsi que la méthode retournant si deux types sont compatibles (isCompatible()).
-\item LinguisticFactoryTest : Test de la classe LinguisticFactory (Singleton) qui permet la création d'un TypeManager. 
-Nous avons choisi de tester les méthodes qui apportent les fonctionnalités suivantes: 
+\begin{figure}[h!]
+\begin{center}
+	\includegraphics[scale=0.40]{resultatTest8.png}
+\end{center}
+\end{figure}
+\begin{figure}[h!]
+\begin{center}
+	\includegraphics[scale=0.40]{resultatTest7.png}
+\end{center}
+\end{figure}
+\item TypeManagerTest : Nous rappelons que cette classe permet de gérer la création des types ainsi que leur insertion dans l'arbre. 
+Nous avons testé la méthode permettant l'ajout d'un type dans l'arbre (makeType() avec un et deux arguments) ainsi que la méthode retournant si deux types sont compatibles (isCompatible()).
+\begin{figure}[h!]
+\begin{center}
+	\includegraphics[scale=0.40]{resultatTest5.png}
+\end{center}
+\end{figure}
+\item LinguisticFactoryTest : Nous avons choisi de tester les méthodes qui apportent les fonctionnalités suivantes: 
 	\begin{itemize}
-	\item L'ajout d'un type au TypeManager au moyen de sa propre méthode (makeType). Il a fallu faire de même que pour TypeManagerTest, c'est-à-dire tester les deux méthodes permettant cette fonctionnalité malgré que leur seule différence (les éléments pris en argument). 
-	\item L'ajout de concept, simple ou complex à l'arbre qu'utilise le TypeManager. Ici aussi, nous avons réalisé deux tests selon la forme du concept. 
+	\item L'ajout d'un type au TypeManager au moyen de la méthode ``makeType''.
+	\item L'ajout de concept, simple ou complex à l'arbre qu'utilise le TypeManager.
 	\end{itemize}
-\item GraphConceptsTest et GraphNodeDefault: GraphConceptsInterface et GraphNode sont des interfaces que les classes respectives GraphConcepts et GraphNodeDefault implémentent.
-Ces classes permettent la représentation sous forme de graphe des concepts utilisés et sélectionnés par l'utilisateur au moyen de l'interface graphique. 
+\newpage
+\begin{figure}[h!]
+\begin{center}
+	\includegraphics[scale=0.40]{resultatTest4.png}
+\end{center}
+\end{figure}
+\item GraphConceptsTest et GraphNodeDefault: Les classes GraphConcepts et GraphNodeDefault, comme nous le rappelons, permettent la représentation sous forme de graphe des concepts utilisés et sélectionnés par l'utilisateur au moyen de l'interface graphique. 
 Nous avons testé pour ces classes :
 	\begin{itemize}
 	\item Certains accesseurs qui nous semblaient importants dans le sens où ces classes utilisent de nombreux objets d'autres classes, il est donc nécessaire de pouvoir garantir l'accès à ces objets et à leur référence. 
 	\item La méthode permettant la création de la requête qui sera envoyée à Syntox (generateSyntox()). Cette méthode est appelée depuis GraphConcepts et fait appel à son homologue présente dans GraphNodeDefault.
 	\end{itemize}
 \end{itemize}
+\begin{figure}[h!]
+\begin{center}
+	\includegraphics[scale=0.40]{resultatTest2.png}
+\end{center}
+\end{figure}
+\begin{figure}[h!]
+\begin{center}
+	\includegraphics[scale=0.40]{resultatTest3.png}
+\end{center}
+\end{figure}
+\newpage
 \subsection{Core}
 	Dans ce package se trouvent toutes les classes permettant le lancement de notre application et les outils nécessaires tel que les éléments permettant la gestion de la sauvegarde des projets, un utilitaire regroupant les informations nécessaires pour la base de données et un système de cryptage/décryptage de mot de passe pour sécuriser l'accès à la base de données. 
 Nous avons choisi de tester particulièrement les classes présentes dans les fichiers PasswordManager.java, Project.java et InfoDB.java. Plus précisément nous avons validé les fonctionnalités suivantes :
