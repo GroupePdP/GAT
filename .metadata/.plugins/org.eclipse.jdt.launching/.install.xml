@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
+<entry loc="/usr/lib/jvm/java-6-openjdk" stamp="1333029451000"/>
 <entry loc="D:\Program Files\Java\jre7" stamp="1361441443521"/>
-<entry loc="/usr/lib/jvm/jdk-7.15-oracle-x64" stamp="1362189807000"/>
 <entry loc="D:\Program Files\Java\jdk1.6.0_38" stamp="1360597636876"/>
+<entry loc="/usr/lib/jvm/jdk-7.15-oracle-x64" stamp="1362189807000"/>
 </dirs>
