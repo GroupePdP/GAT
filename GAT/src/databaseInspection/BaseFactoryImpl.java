@@ -68,7 +68,7 @@ public class BaseFactoryImpl implements  BaseFactory
 					boolean pk = resultLine.getString(4)== "PRI";
 					
 					Column newLine = new ColumnImpl(lineName, lineType, lineLenght, pk);
-					newTable.addLine(newLine);
+					newTable.addColumn(newLine);
 					
 					
 				}
