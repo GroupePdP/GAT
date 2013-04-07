@@ -1,8 +1,10 @@
 package databaseInspection;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 
 public class CookingRequestImpl implements CookingRequest 
@@ -43,52 +45,67 @@ public class CookingRequestImpl implements CookingRequest
 	//@TODO algo ni rapide ni meilleur solution 
 	private String getJoin (ArrayList<String> listTable)
 	{
+		for(String s : listTable)
+			System.out.println(s);
+		
+//		System.out.println();
 		String join = "";
-		//todo retire teste toujours faux quand le reste fonctionnera
-		if(listTable.size() >2 && false == true)
+		
+		/**partie creation agloTable ***/
+		ArrayList<AgloTable> listAgloTable = new ArrayList<AgloTable>();
+		ArrayList<AgloTable> listCibleAgloTable = new ArrayList<AgloTable>();
+		
+		Set<String> listNameTable = this.db.getListTable().keySet();
+		Iterator<String> it = listNameTable.iterator();
+		while(it.hasNext())
 		{
-			ArrayList<String> ListTableTraveled = new ArrayList<String>();
-			ArrayList<String> ListTableRequiredtraveled = new ArrayList<String>(listTable);
+			String nameTable = it.next();
+			Table currentTable = this.db.getTable(nameTable);
 			
-			String currentTable = ListTableRequiredtraveled.get(0);
-			ListTableRequiredtraveled.remove(0);
+			ArrayList<JoinTable> join4CurrentTable = new ArrayList<JoinTable>();
 			
-			boolean nextTableFound = false;
-			
-			while(!ListTableRequiredtraveled.isEmpty())
+			for(JoinTable jt : this.db.getJoinTable())
 			{
-				for(JoinTable currentJoin : this.db.getJoinTable())
+				if(jt.containTable(currentTable.getName()))
 				{
-					String nextTable = currentJoin.getAnotherTable(currentTable);
-					if(!nextTable.isEmpty())
-					{
-						for(String RequiredTable : ListTableRequiredtraveled )
-						{
-							if(nextTable.equals(RequiredTable))
-							{
-								join += currentJoin.getSqlJoin();
-								ListTableRequiredtraveled.remove(nextTable);
-								ListTableTraveled.add(nextTable);
-								nextTableFound = true;
-								break;
-							}
-						}
-					}
-					if(nextTableFound)
-					{
-						break;
-					}
+					join4CurrentTable.add(jt);
 				}
-				if(!nextTableFound)
-				{
-					
-				}
-				
 			}
-			
+			AgloTable newAgloTable= new AgloTableImpl(currentTable.getName(), join4CurrentTable);
+			listAgloTable.add(newAgloTable);
+				
+			for(String cibleName : listTable)
+			{
+					if(cibleName.contentEquals(currentTable.getName())){
+						listCibleAgloTable.add(newAgloTable);
+					}
+			}
 		}
 		
-		return join;
+//		System.out.println(listCibleAgloTable.size());
+//		System.out.println(listAgloTable.size());
+		
+		/***fin***/
+		
+		/****debut jointure **/
+		ArrayList<JoinTable> listjoin = listCibleAgloTable.get(0).getJoin(listCibleAgloTable, listAgloTable);
+		System.out.println(listjoin.size());
+		for(JoinTable jt : listjoin)
+		{
+			join += " "+ jt.getSqlJoin() + " AND";
+			if(listTable.contains(jt.getTableN()))
+			{
+				listTable.add(jt.getTableN());
+			}
+			if(listTable.contains(jt.getTable1()))
+			{
+				listTable.add(jt.getTable1());
+			}
+		}
+		
+//		System.out.println(join+"rien");
+		
+		return join.substring(0,join.length()-4);
 	}
 	
 	private String makeRequest()
@@ -98,11 +115,14 @@ public class CookingRequestImpl implements CookingRequest
 		
 		newRequest += this.getSelect(listTable);
 		
-		String sqljointure = this.getJoin(listTable);
+		String sqljointure = "";
+		
+		if(listTable.size() >1)
+		sqljointure = this.getJoin(listTable);
 		
 		newRequest += " FROM " + this.getFrom(listTable);
 		
-		if(!sqljointure.isEmpty())
+		if(listTable.size() >1)
 			newRequest += " WHERE " + sqljointure;
 		
 		newRequest += ";";

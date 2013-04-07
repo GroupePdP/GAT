@@ -93,6 +93,15 @@ public class JoinTableImpl implements JoinTable
 		
 		return anotherTable;
 	}
-	
+	@Override
+	public String getTable1()
+	{
+		return this.table1;
+	}
+	@Override
+	public String getTableN()
+	{
+		return this.tableN;
+	}
 	
 }

@@ -2,10 +2,6 @@ package databaseInspection;
 
 import databaseConnection.DBConnection;
 
-/* 
-   
- */
-
 
 public interface BaseFactory {
 	

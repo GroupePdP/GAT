@@ -1,10 +1,8 @@
 package databaseInspection;
 
-public interface Table 
-{
-	public Column getLine(String key);
+public interface Table {
 	
-	public void addLine(Column line);
-
 	public String getName();
+	public Column getLine(String key);
+	public void addLine(Column line);
 }

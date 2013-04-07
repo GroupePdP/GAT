@@ -2,13 +2,13 @@ package databaseInspection;
 
 import java.util.ArrayList;
 
-public class AgloTableImpl {
+public class AgloTableImpl implements AgloTable {
 	
 	ArrayList<String> listTable;
 	ArrayList<JoinTable> joinIntra;
 	ArrayList<JoinTable> joinExtra;
 	
-	
+
 	public AgloTableImpl (String table, ArrayList<JoinTable> listJoin)
 	{
 		this.listTable = new ArrayList<String>();
@@ -25,9 +25,25 @@ public class AgloTableImpl {
 		
 	}
 	
-	public void fusion(AgloTableImpl at, JoinTable contact)
+	@Override
+	public ArrayList<JoinTable> getJoinIntra(){
+		return this.joinIntra;
+	}
+	
+	@Override
+	public ArrayList<JoinTable> getJoinExtra(){
+		return this.joinExtra;
+	}
+	
+	@Override
+	public ArrayList<String> getListTable() {
+		return this.listTable;
+	}
+	
+	@Override
+	public void fusion(AgloTable at, JoinTable contact)
 	{
-		for (String t : at.listTable)
+		for (String t : at.getListTable())
 		{
 			//@TODO faire traitement d'erreur si besoin
 			if(!this.listTable.contains(t))
@@ -35,7 +51,7 @@ public class AgloTableImpl {
 				this.listTable.add(t);
 			}
 		}
-		for (JoinTable jt : at.joinIntra)
+		for (JoinTable jt : at.getJoinIntra())
 		{
 			//@TODO faire traitement d'erreur si besoin
 			if(!this.joinIntra.contains(jt))
@@ -43,7 +59,7 @@ public class AgloTableImpl {
 				this.joinIntra.add(jt);
 			}
 		}
-		for (JoinTable jt : at.joinExtra)
+		for (JoinTable jt : at.getJoinExtra())
 		{
 			//@TODO faire traitement d'erreur si besoin
 			if(!this.joinExtra.contains(jt) )
@@ -57,9 +73,10 @@ public class AgloTableImpl {
 		
 	}
 	
-	public JoinTable contact (AgloTableImpl at)
+	@Override
+	public JoinTable contact (AgloTable cible)
 	{
-		for (String t : at.listTable)
+		for (String t : cible.getListTable())
 		{
 			for (JoinTable jt :this.joinExtra)
 			{
@@ -71,21 +88,86 @@ public class AgloTableImpl {
 		return null;
 		
 	}
-	public JoinTable contact(AgloTableImpl cible, ArrayList<AgloTableImpl> listAt, int distance)
+	
+	@Override
+	public AgloTable contactRecursion(AgloTable cible, ArrayList<AgloTable> listAglo, int distance)
 	{
-		if(distance == 1)
-			return this.contact(cible);
-		
-		if(distance > 1)
+		if(distance > 0)
 		{
-	//		ArrayList<AgloTableImpl> chemin = new ArrayList<AgloTableImpl>();
-			
-			//for ()
-			
+			for(AgloTable aglo :listAglo )
+			{
+				JoinTable jt = this.contact(aglo);
+				if(jt != null)
+				{
+					AgloTable newAglo = null;
+					System.out.println("grjhgerklmhgrhg");
+					if(aglo.equals(cible))
+					{
+						System.out.println("grjhgerklmhgrhg");
+						newAglo = cible;
+					}
+					else
+					{
+						newAglo = aglo.contactRecursion(cible, listAglo, distance-1);
+					}
+					
+					if(newAglo != null)
+					{
+						if(!listAglo.remove(newAglo))
+							System.out.println("coucoc");
+						this.fusion(newAglo, jt);
+						return this;
+					}
+				}
+			}
+		}
+		return null;
+	}
+	@Override
+	public ArrayList<JoinTable> getJoin (ArrayList<AgloTable> listCible, ArrayList<AgloTable> listAglo)
+	{
+		
+		AgloTable agloJointure = null;
+		
+		for (AgloTable currentCible : listCible )
+		{
+			//System.out.println("coucoc");
+			agloJointure = currentCible;
+			for (AgloTable nextCible : listCible)
+			{
+				if(currentCible.equals(nextCible))
+				{
+					continue;
+				}
+				for (int  i = 1 ; i < listAglo.size(); i++ )
+				{
+					AgloTable newAglo = this.contactRecursion(nextCible, listAglo, i);
+					if(newAglo != null)
+					{
+						listCible.remove(nextCible);
+						break;
+					}
+				}
+			}
 		}
 		
-		return null;
+		System.out.println(listCible.size());
+		System.out.println(listAglo.size());
 		
+		return  agloJointure.getJoinIntra();
 	}
 
+	@Override
+	public boolean equals(AgloTable at) {
+		boolean res = true;
+		if(! this.joinExtra.equals(at.getJoinExtra()));
+			res =false;
+		if(! this.joinIntra.equals(at.getJoinIntra()));
+			res= false;
+		
+		return res;
+	}
+	
+	
+	
 }

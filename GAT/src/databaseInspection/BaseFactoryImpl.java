@@ -14,8 +14,8 @@ import databaseConnection.DBConnection;
 public class BaseFactoryImpl implements  BaseFactory
 {
 	
-	private BaseFactoryImpl(){};
 	private static volatile BaseFactoryImpl instance = null;
+	private BaseFactoryImpl(){};
 	
 	public static BaseFactory getInstance() {
 		
@@ -78,7 +78,7 @@ public class BaseFactoryImpl implements  BaseFactory
 			
 			String requestJoin =
 					"select table_name, column_name, referenced_table_name, referenced_column_name " +
-					"from information_schema.key_column_usage" +
+					"from information_schema.key_column_usage " +
 					"where referenced_table_name is not null and table_schema = '" + nameBase +"';";
 			ResultSet resultJoin = bdc.selectQuery(requestJoin);
 			
