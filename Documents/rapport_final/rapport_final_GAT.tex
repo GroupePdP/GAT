@@ -486,35 +486,28 @@ Le diagramme suivant présente la structure générale du logiciel.
 
 \section{Communication avec la base de données}
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{bduml/databaseConnection.png}
-\caption{Diagramme du package BaseDonnées}
-\end{center}
-\end{figure}
-
+\subsubsection*{Package databaseInspection}
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.4]{bduml/structDataBase.png}
-\caption{Diagramme du package database Inspection partie structure}
+\caption{Diagramme du package databaseInspection partie structure}
 \end{center}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.5]{bduml/baseFactory.png}
-\caption{Diagramme du package database Inspection partie génération de la structure}
+\caption{Diagramme du package databaseInspection partie génération de la structure}
 \end{center}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.5]{bduml/cookingRequeste.png}
-\caption{Diagramme du package database Inspection partie génération de requête sql}
+\caption{Diagramme du package databaseInspection partie génération de requête sql}
 \end{center}
 \end{figure}
 
-\subsubsection*{Package databaseInspection}
 \begin{itemize}
 \item Interface Base: Cette interface sera implémentée par BaseImpl. Elle contient les tables et leurs relations(jointure).
 \item Interface Table: Cette interface sera implémentée par TableImpl. Elle représente une table et contient les liste de ces colonnes.
@@ -526,6 +519,12 @@ Le diagramme suivant présente la structure générale du logiciel.
 \end{itemize}
 
 \subsubsection*{Package databaseConnection}
+
+\begin{center}
+\includegraphics[scale=0.5]{bduml/databaseConnection.png}
+\end{center}
+
+
 \begin{itemize}
 \item Interface DBConnexion: Cette interface sera implémentée par DBConnexionImpl. Elle contient les outils nécessaire à la connexion aux bases de données.
 \end{itemize}
@@ -559,7 +558,6 @@ La méthode generateSyntox sera analysée dans la partie "Génération de l'entr
 \includegraphics[scale=0.43]{DiagLinguistic_types_gestion.png}
 \end{center}
 
-
 Le package \texttt{types\_gestion} contient les classes gérant le système de typage des Concepts. Le coeur de ce package est donc bien sûr l'interface Type et la classe TypeImpl qui l'implémente.
 Chaque Type est défini par son nom et peut être relié à d'autres types par une relation surtype/sous-type.
 
@@ -588,6 +586,29 @@ Le package \texttt{types\_gestion} comprend également une classe d'exception In
 \begin{center}
 \includegraphics[scale=0.5]{DiagLinguistic_graph_concepts_gestion.png}
 \end{center}
+
+A la fin de la création et du remplissage d'un nouveau Scénario, les Concept manipulés par l'utilisateur sont stockés dans un graphe, implémenté à l'aide des classes GraphNodeDefault et GraphConcepts, et des interfaces GraphConceptsInterface et Graph-Node.
+
+Chaque GraphConcepts est constitué d'un GraphNode racine. Un GraphNode est identifié par le Concept qu'il représente et la liste des GraphNode dont il est le "parent".
+
+\bigskip
+
+Par construction, le graphe créé à partir des Concept manipulés par l'utilisateur est un graphe orienté acyclique (l'orientation se fait d'un GraphNode vers ses "fils", dont il possède la liste). Cependant, ce graphe doit être enregistré dans un fichier XML et il était plus simple pour cette utilisation d'avoir une structure purement arborescente. 
+
+Nous avons donc ajouté trois champs qui nous permettent d'avoir une structure d'arbre tout en conservant la possibilité d'avoir des références multiples à un même concept ; ces champs sont principalement utilisés dans la méthode addChild(GraphNode child, int index) de la classe GraphNodeDefault.
+\begin{itemize}
+\item tag (boolean) : ce champ est modifié lors du parcours de la liste de GraphNode childrenList, il permet de savoir si le GraphNode que l'on veut ajouter a déjà été rencontré parmi les enfants du GraphNode considéré. Si cela est le cas, cela signifie que l'on va avoir une référence multiple au même GraphNode, et donc au même Concept.
+\item isReference (boolean) : ce champ a pour valeur \texttt{true} si d'autres GraphNode font référence au GraphNode considéré.
+\item reference (GraphNode) : ce champ contient le GraphNode auquel on fait référence, le cas échéant.
+\end{itemize}
+
+On a donc un arbre de GraphNode au lieu d'un graphe acyclique ; si deux GraphNode ayant trait au même Concept sont présents dans cet arbre, alors c'est que l'un fait référence à l'autre.
+
+\bigskip 
+Les scénarios (qui seront plus tard enregistrés dans un fichier .XML) sont représentés par un nom et une liste de GraphConcepts.
+
+\bigskip
+Le pattern Singleton est ici réutilisé comme modèle pour la classe GraphNodeFactory, qui permet d'instancier la classe GraphNodeDefault en cachant l'implémentation du graphe de Concept.
 
 \section{Génération de l'entrée Syntox}
 
