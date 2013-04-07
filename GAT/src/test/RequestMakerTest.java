@@ -7,10 +7,10 @@ import databaseConnection.DBConnectionImpl;
 import databaseInspection.Base;
 import databaseInspection.BaseFactory;
 import databaseInspection.BaseFactoryImpl;
-import databaseInspection.CookingRequest;
-import databaseInspection.CookingRequestImpl;
+import databaseInspection.RequestMaker;
+import databaseInspection.RequestMakerImpl;
 
-public class CookingRequestTest {
+public class RequestMakerTest {
 
 	
 	public static void main (String[] args){
@@ -40,7 +40,7 @@ public class CookingRequestTest {
 			myBase = bF.extractBase(dbc);
 			dbc.disconnection();
 			
-			CookingRequest cr = new CookingRequestImpl(myBase);
+			RequestMaker cr = new RequestMakerImpl(myBase);
 			
 			cr.addColumn("joue", "nat_essai" );
 			cr.addColumn("joue", "nat_trans");

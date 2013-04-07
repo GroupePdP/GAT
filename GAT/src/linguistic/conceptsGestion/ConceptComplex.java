@@ -42,7 +42,7 @@ public class ConceptComplex extends ConceptAbstract {
 	@Override
 	public String generateSyntox() {
 		String res = new String("");
-		Iterator it =this.syntox.keySet().iterator();
+		Iterator<String> it =this.syntox.keySet().iterator();
 		for (;it.hasNext();)
 			res = res + it.next().toString();
 		return res;

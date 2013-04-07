@@ -419,9 +419,11 @@ En ce qui concerne les besoins internes à notre logiciel, il nous semble
 que l'utilisation d'une base de données est superflue.  
 
 
-\chapter{Architecture}
+\chapter{Architecture et implémentation}
 
-\section{Diagrammes et schémas}
+\section{Schémas de cas d'utilisation et de fonctionnement}
+
+% A REVOIR
 
 Ils schématisent les interactions entre le programme, l'utilisateur et l'administrateur, avec la base de données et Syntox.
 
@@ -452,14 +454,260 @@ A l'heure actuelle, on ne sait pas encore si le résultat final sera consultable
 	Le schéma suivant décrit le fonctionnement du logiciel du point de vue d'un administrateur.
 	\includegraphics[scale=0.45]{FonctionnementAdministrateur.png}
 
-\subsection{Diagramme de séquence}
+	
 
+
+Notre programme se composera de cinq packages principaux: Database, Linguistic, FileManager, SyntoxConnection et IHM, correspondant aux différentes fonctionnalités du programme.
+Chacun de ces packages comportera les classes nécessaires à son bon fonctionnement.
+
+\section{Diagramme de packages}
+Le diagramme suivant présente la structure générale du logiciel.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.45]{DiagPackages.png}
+\caption{Diagramme de packages}
+\end{center}
+\end{figure}
+
+% Expliquer le diagramme de packages
+
+
+
+
+
+
+
+
+\FloatBarrier
+
+
+\section{Structures de données utilisées}
+
+\section{Communication avec la base de données}
+
+\subsubsection*{Package databaseInspection}
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{bduml/structDataBase.png}
+\caption{Diagramme du package databaseInspection partie structure}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{bduml/baseFactory.png}
+\caption{Diagramme du package databaseInspection partie génération de la structure}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{bduml/cookingRequeste.png}
+\caption{Diagramme du package databaseInspection partie génération de requête sql}
+\end{center}
+\end{figure}
+
+\begin{itemize}
+\item Interface Base: Cette interface sera implémentée par BaseImpl. Elle contient les tables et leurs relations(jointure).
+\item Interface Table: Cette interface sera implémentée par TableImpl. Elle représente une table et contient les liste de ces colonnes.
+\item Interface Column: Cette interface sera implémentée par ColumnImpl. Elle représente une colonne d'une table.
+\item Interface JoinTable: Cette interface sera implémentée par JoinTableImpl. Elle représente la liaison entre deux table.
+\item Interface BaseFactory: Cette interface sera implémentée par BaseFactoryImpl. elle construit un objet Base à partir d'une base de données SQL.
+\item Interface CookingRequeste: Cette interface sera implémentée par CookingRequesteImpl. Elle construit une requête SQL.
+\item Interface AgloTable: Cette interface sera implémentée par AgloTableImpl. Elle calcule la jointure minimal entre plusieurs table.
+\end{itemize}
+
+\subsubsection*{Package databaseConnection}
+
+\begin{center}
+\includegraphics[scale=0.5]{bduml/databaseConnection.png}
+\end{center}
+
+
+\begin{itemize}
+\item Interface DBConnexion: Cette interface sera implémentée par DBConnexionImpl. Elle contient les outils nécessaire à la connexion aux bases de données.
+\end{itemize}
+
+
+
+\section{Package Linguistic}
+
+Ce package comprend toutes les classes nécessaires à la gestion des concepts, la mise en place d'un système de typage et la génération du graphe conceptuel correspondant au scénario généré par l'utilisateur.
+
+Le package \texttt{linguistic} a été subdivisé en trois sous-packages : \texttt{concepts\_gestion}, \texttt{types\_gestion} et \texttt{graph\_concepts\_gestion}.
+
+\begin{center}
+\includegraphics[scale=0.5]{DiagLinguisticPackages.png}
+\end{center}
+
+\subsection{Package \texttt{concepts\_gestion}}
+
+\begin{center}
+\includegraphics[scale=0.5]{DiagLinguistic_concepts_gestion.png}
+\end{center}
+
+Ce package contient la structure représentant un concept. Chaque Concept est défini par (au moins) un nom et un Type. Le Concept peut être simple ou complexe ; s'il est complexe, il possède également une liste d'arguments (qui sont des types, ce qui permet une indépendance des différents concepts). % voir parametre syntox et methode setSyntoxInput...
+
+La classe ConceptAbstract permet de factoriser du code, notamment les accesseurs.
+La méthode generateSyntox sera analysée dans la partie "Génération de l'entrée Syntox".
+
+\subsection{Package \texttt{types\_gestion}}
+
+\begin{center}
+\includegraphics[scale=0.43]{DiagLinguistic_types_gestion.png}
+\end{center}
+
+Le package \texttt{types\_gestion} contient les classes gérant le système de typage des Concepts. Le coeur de ce package est donc bien sûr l'interface Type et la classe TypeImpl qui l'implémente.
+Chaque Type est défini par son nom et peut être relié à d'autres types par une relation surtype/sous-type.
+
+\bigskip
+
+Les Types sont stockés dans un arbre de types, implémenté par la classe TypeTree. Cet arbre de types contient une référence à la racine de l'arbre (qui correspond au Type racine), et une Map qui permet de faire la correspondance entre un Type stocké dans l'arbre et le noeud de l'arbre associé à ce Type. Nous avons choisi d'implémenter cette correspondance avec une Map car c'est une structure qui permet une indexation par les Types, et un accès rapide en lecture.
+
+L'arbre de types TypeTree est composé de plusieurs TypeTreeNode, chacun correspondant à un Type précis et une liste de Concept ayant ce Type. Chaque TypeTreeNode comprend aussi une liste des TypeTreeNode qui sont "en-dessous" de lui dans l'arbre de types (et qui sont donc associés à ses "sous-types").
+
+Cette connaissance par chaque TypeTreeNode de ses fils permet au TypeTree de parcourir les TypeTreeNode à partir de la racine, ce qui sert notamment pour l'implémen-tation de la méthode getConceptsForType(Type t), qui retourne une liste des instances de Concept ayant le Type t ou un de ses sous-types.
+
+\bigskip
+
+La classe TypeManager est une classe qui permet de gérer la classe TypeTree et d'instancier la classe TypeImpl, elle se base sur le modèle du pattern Factory. En effet, l'instanciation de TypeImpl est faite par le TypeManager, qui crée et modifie dynamiquement l'arbre de types correspondant. Il est aussi responsable de la compatibilité de deux Type t1 et t2, c'est-à-dire la vérification que le Type t1 est un sous-type (strict ou non) du Type t2.
+
+\bigskip
+
+L'arbre de types et donc la classe TypeManager ne doivent avoir qu'une seule instance par Projet, nous avons donc mis en place la classe LinguisticFactory, qui se base sur le pattern Singleton, pour gérer la création de nouveaux Type et de nouveaux Concept. C'est cette classe qui sera utilisée lors de l'instanciation des Type et des Concept, et qui "cachera" à l'utilisateur le système de gestion et de stockage des Type et des Concept.
+
+\bigskip
+
+Le package \texttt{types\_gestion} comprend également une classe d'exception IncompatibleTypesException, qui permet de gérer l'incompatibilité de deux types.
+
+\subsection{Package \texttt{graph\_concepts\_gestion}}
+
+\begin{center}
+\includegraphics[scale=0.5]{DiagLinguistic_graph_concepts_gestion.png}
+\end{center}
+
+A la fin de la création et du remplissage d'un nouveau Scénario, les Concept manipulés par l'utilisateur sont stockés dans un graphe, implémenté à l'aide des classes GraphNodeDefault et GraphConcepts, et des interfaces GraphConceptsInterface et Graph-Node.
+
+Chaque GraphConcepts est constitué d'un GraphNode racine. Un GraphNode est identifié par le Concept qu'il représente et la liste des GraphNode dont il est le "parent".
+
+\bigskip
+
+Par construction, le graphe créé à partir des Concept manipulés par l'utilisateur est un graphe orienté acyclique (l'orientation se fait d'un GraphNode vers ses "fils", dont il possède la liste). Cependant, ce graphe doit être enregistré dans un fichier XML et il était plus simple pour cette utilisation d'avoir une structure purement arborescente. 
+
+Nous avons donc ajouté trois champs qui nous permettent d'avoir une structure d'arbre tout en conservant la possibilité d'avoir des références multiples à un même concept ; ces champs sont principalement utilisés dans la méthode addChild(GraphNode child, int index) de la classe GraphNodeDefault.
+\begin{itemize}
+\item tag (boolean) : ce champ est modifié lors du parcours de la liste de GraphNode childrenList, il permet de savoir si le GraphNode que l'on veut ajouter a déjà été rencontré parmi les enfants du GraphNode considéré. Si cela est le cas, cela signifie que l'on va avoir une référence multiple au même GraphNode, et donc au même Concept.
+\item isReference (boolean) : ce champ a pour valeur \texttt{true} si d'autres GraphNode font référence au GraphNode considéré.
+\item reference (GraphNode) : ce champ contient le GraphNode auquel on fait référence, le cas échéant.
+\end{itemize}
+
+On a donc un arbre de GraphNode au lieu d'un graphe acyclique ; si deux GraphNode ayant trait au même Concept sont présents dans cet arbre, alors c'est que l'un fait référence à l'autre.
+
+\bigskip 
+Les scénarios (qui seront plus tard enregistrés dans un fichier .XML) sont représentés par un nom et une liste de GraphConcepts.
+
+\bigskip
+Le pattern Singleton est ici réutilisé comme modèle pour la classe GraphNodeFactory, qui permet d'instancier la classe GraphNodeDefault en cachant l'implémentation du graphe de Concept.
+
+\section{Génération de l'entrée Syntox}
+
+\begin{center}
+\includegraphics[scale=0.6]{diversuml/SyntoxConnection.png}
+\end{center}
+
+
+
+\section{Gestion des fichiers}
+
+
+\begin{center}
+\includegraphics[scale=0.55]{diversuml/fileManager.png}
+\end{center}
+
+
+\subsection{Présentation globale}
+
+	Dans le cadre de notre programme, il est indispensable de pouvoir à tout moment enregistrer le travail en cours sur
+le disque dur et de pouvoir y accéder pour le modifier: en effet, les projets, scénarios et concepts doivent être modulables
+et surtout, du fait de leur structure complexe, nécessitent un travail conséquent de la part de l'utilisateur, qui appréciera
+de ne pas avoir besoin de recommencer son travail à chaque démarrage du programme.
+
+	L'objet "Projet" regroupe tous les champs nécessaires au travail sur une base de donnée précise: scénarios, concepts et LinguisticFactory.
+Il a donc été décidé que chaque Projet serait stocké sur le disque sous forme d'un fichier regroupant tous ses champs.
+
+	Afin de faciliter la sérialisation des données, nous avons choisi d'utiliser la bibliothèque XStream.
+Cette bibliothèque permet d'exporter facilement les objets sur le disque dur sous forme de fichier XML, et de les charger de manière également
+intuitive.
+
+	Pour cela nous avons ajouté la bibliothèque simplifiée "xstream-1.4.4.jar", qui regroupe les fonctions principales dont nous
+aurons besoin afin de stocker et récupérer les objets de type Projet.
+
+\subsection{Implémentation}
+
+	Les fonctions nécessaires pour le chargement et enregistrement des données sont regroupées dans le package "fileManager".
+Ce paquet contient l'interface Storage.java et son implémentation LocalStorage.java.
+
+	Nous avons choisi d'implémenter cette partie de la manière suivante:
+	\begin{itemize}
+	\item Une fonction de chargement : public Object load (String name)
+	\item Une fonction d'enregistrement : public boolean backup(String name, Object obj)
+	\item Une fonction d'affichage des fichiers XML du répertoire courant : public String[] projectsList()
+	\end{itemize}
+
+
+Par défaut, on considère que le répertoire contenant les projets existants et stockant les nouvelles sauvegarde sera (en chemin relatif par rapport
+au répertoire du programme): ../Projets
+
+	\paragraph{Enregistrement}
+
+La bibliothèque XStream permet donc l'enregistrement d'Objects sur le disque. Cette fonction se contente de créer un FileWriter du nom du paramètre "name"
+à l'emplacement ../Projets et d'appeler la fonction xstream.toXML sur l'argument de type "Object"(on doit donc effectuer un cast sur le Project): on obtient un fichier .XML dans le répertoire contenant
+toutes les informations nécessaire au travail sur le projet: les concepts existants, les scénarios déjà créés, et tous les types.
+
+	\paragraph{Chargement}
+
+La fonction "load" appelle simplement la fonction xstream.fromXML sur un fichier dont le nom est passé en paramètre de la fonction, et renvoie un Object,
+que l'on cast en Project et qui peut être ensuite utilisé et modifié dans le programme.
+
+	\paragraph{Affichage du répertoire courant}
+
+Cette fonction renvoie un tableau de String dont les éléments sont les noms de fichiers .XML contenus dans le répertoire ../Projets, sans l'extension
+de fichier. Cette fonction est utilisée dans la partie utilisateur du programme, au moment de choisir un projet existant.
+
+
+	\paragraph{Utilisation des fonctions de chargement et d'enregistrement}
+
+De part la manière de sauvegarder choisie, chaque modification (que ce soit un concept, un scénario ou un projet intégral) nécessite de sauvegarder
+l'intégralité du projet: toutes les fonctions de sauvegarde du programme appellent la fonction backup de la classe LocalStorage après avoir modifié
+l'objet chargé dans le programme.
+
+On garantit ainsi l'intégrité du travail en cours par l'utilisateur au détriment éventuel du temps d'exécution: cependant, cette solution a été
+préférée pour sa simplicité d'utilisation (une seule fonction de sauvegarde), pour sa propreté (un seul et unique fichier par projet, et non par scénario ou concept).
+
+De plus, les structures de données utilisées, même si non limitées en taille par l'implémentation, ne seront de manière intuitive jamais gigantesques:
+on ne peut pas imaginer une base de données associée à plusieurs millions de concepts ou de scénarios. Les temps d'éxécution des fonctions d'enregistrement
+et de chargement sont donc considérées comme triviaux.
+
+La fonction d'enregistrement est donc appelée à chaque clic sur un bouton de type "Enregistrer" (panel Scénario, Projet et Concept, administrateur ou utilisateur).
+La fonction de chargement est utilisée lors du choix du projet existant par l'administrateur ou l'utilisateur (au lancement du programme dans la plupart des cas,
+si l'utilisateur ne quitte pas le projet en cours pour en changer).
+La fonction d'affichage du répertoire, quand à elle, est appelée au choix du projet, juste avant le chargement.
+
+
+\section{Core}
+
+
+\begin{center}
+\includegraphics[scale=0.5]{diversuml/Core.png}
+\end{center}
+
+\section{Problèmes rencontrés et remarques}
+
+\section{Diagrammes de séquence}
 	Ce diagramme de séquence explicite les étapes de configuration de la base de données, du lexique et de la grammaire par l'administrateur. 
 
 	\includegraphics[scale=0.4]{diasequence2.png}
-	
-	\subsection{Diagrammes de séquence}
-
 
 \begin{figure}[h!]
 \begin{center}
@@ -484,178 +732,6 @@ A l'heure actuelle, on ne sait pas encore si le résultat final sera consultable
 \end{center}
 \end{figure}
 
-
-\section{Architecture}
-Notre programme se composera de cinq packages principaux: Database, Linguistic, FileManager, SyntoxConnection et IHM, correspondant aux différentes fonctionnalités du programme.
-Chacun de ces packages comportera les classes nécessaires à son bon fonctionnement.
-
-\subsection{Diagramme de packages}
-Le diagramme suivant présente la structure générale du logiciel.
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[scale=0.45]{DiagPackages.png}
-\caption{Diagramme de packages}
-\end{center}
-\end{figure}
-
-
-
-\subsection{Diagrammes de classes}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{DiagLinguisticPackages.png}
-\includegraphics[scale=0.5]{DiagLinguistic_concepts_gestion.png}
-\caption{Diagramme du package Linguistic et diagramme de classes du sous-package concepts\_gestion}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.4]{DiagLinguistic_types_gestion.png}
-\includegraphics[scale=0.5]{DiagLinguistic_graph_concepts_gestion.png}
-\caption{Diagramme de classes des sous-packages types\_gestion et graph\_concepts\_gestion}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{bduml/databaseConnection.png}
-\caption{Diagramme du package BaseDonnées}
-\end{center}
-\end{figure}
-
-%c'est random lisible
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.4]{bduml/structDataBase.png}
-\caption{Diagramme du package database Inspection partie structure}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{bduml/baseFactory.png}
-\caption{Diagramme du package database Inspection partie génération de la structure}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{bduml/cookingRequeste.png}
-\caption{Diagramme du package database Inspection partie génération de requête sql}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.7]{DiagStockage.png}
-\caption{Diagramme du package GestionnaireFichiers}
-\end{center}
-\end{figure}
-
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{DiagSyntox.png}
-\caption{Diagramme du package ConnexionSyntox}
-\end{center}
-\end{figure}
-
-\FloatBarrier
-
-
-
-
-\section{Justifications}
-
-% A VOIR SI NECESSAIRE, SI OUI, OU LE PLACER ?
-%c'est pas à refaire cette partie
-
-\subsubsection*{Package Structure}
-Il est composé de deux sous-packages, Structurel et Linguistique :
-
-\begin{itemize}
-\item Le package Structurel contient tous les objets de modélisation d'arbres.
-\item Le package Linguistique contient les objets liés à la manipulation du langage: concepts et types des concepts.
-\end{itemize}
-
-\subsubsection*{Package Linguistique}
-\begin{itemize}
-\item Interface Concept : Dans cette interface se trouveront toutes les fonctionnalités liées aux concepts.
-
-\item Interface Type : Cette interface sera utilisée afin de regrouper plusieurs concepts sous un même type. 
-
-\item Classe ConceptImpl: Cette classe permet de factoriser du code entre les différentes implémentations de la classe Concept.
-
-\item Classe ConceptAtomique: Il s'agit de l'implémentation d'un concept directement relié à une ligne d'une table de la base de données, c'est à dire qu'elle contient uniquement une requête SQL et pas un autre concept.
-
-\item Classe ConceptComplexe: Il s'agit de l'implémentation d'un concept dont les arguments sont d'autres concepts, atomiques ou complexes.
-
-\item Classe TypeConcept: Cette classe contient l'implémentation de l'interface Type.
-\end{itemize}
-
-\subsubsection*{Package Structurel}
-\begin{itemize}
-\item Interface Node: Dans cette interface sont présentées les fonctionnalités nécessaires à la réalisation d'un schéma de phrase.
-
-\item Classe NodeConcret: Implémentation de l'interface Node.
-
-\item Classe BiblioConcept: Classe visant à organiser tous les concepts en les regroupant par type à des fins de recherche (facilité d'accès).
-
-\item Classe BiblioScenario: Cette classe regroupe l'ensemble des scénarios d'un projet. Cette classe sera utilisée lorsque l'utilisateur cherchera un scénario à utiliser. Chaque création de scénario fera appel à cette classe.
-
-\item Classe BiblioProjet: Contient les informations de connexion à la base de données, une bibliothèque de concepts, une bibliothèque de scénarios pour chacun des projets.
-\end{itemize}
-
-\subsubsection*{Package databaseInspection}
-\begin{itemize}
-\item Interface Base: Cette interface sera implémentée par BaseImpl. Elle contient les tables et leurs relations(jointure).
-\item Interface Table: Cette interface sera implémentée par TableImpl. Elle représente une table et contient les liste de ces colonnes.
-\item Interface Column: Cette interface sera implémentée par ColumnImpl. Elle représente une colonne d'une table.
-\item Interface JoinTable: Cette interface sera implémentée par JoinTableImpl. Elle représente la liaison entre deux table.
-\item Interface BaseFactory: Cette interface sera implémentée par BaseFactoryImpl. elle construit un objet Base à partir d'une base de données SQL.
-\item Interface CookingRequeste: Cette interface sera implémentée par CookingRequesteImpl. Elle construit une requête SQL.
-\item Interface AgloTable: Cette interface sera implémentée par AgloTableImpl. Elle calcule la jointure minimal entre plusieurs table.
-\end{itemize}
-
-\subsubsection*{Package databaseConnection}
-\begin{itemize}
-\item Interface DBConnexion: Cette interface sera implémentée par DBConnexionImpl. Elle contient les outils nécessaire à la connexion aux bases de données.
-\end{itemize}
-
-\subsubsection*{Package GestionnaireFichiers}
-Interface Stockage: Permet toutes les actions basiques liées à la manipulation des données volatiles.
-
-\subsubsection*{Package ConnexionSyntox}
-Interface Connexion: Contient les fonctionnalités permettant de communiquer avec le logiciel Syntox.
-
-\subsubsection*{Package InterfaceGraphique}
-Ce package contiendra tous les éléments de l'interface graphique et des fenêtres.
-
-
-
-\chapter{Implémentation}
-
-\section{Algorithmique et structures de données utilisées}
-
-\section{Communication avec la base de données}
-
-\section{Package Linguistique}
-
-\section{Génération de l'entrée Syntox}
-
-
-
-
-
-\section{Autres}
-
-
-
-\section{Problèmes rencontrés et remarques}
 
 \chapter{Présentation du logiciel fourni}
 

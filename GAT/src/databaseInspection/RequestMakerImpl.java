@@ -7,11 +7,11 @@ import java.util.Queue;
 import java.util.Set;
 
 
-public class CookingRequestImpl implements CookingRequest 
+public class RequestMakerImpl implements RequestMaker 
 {
 
 	private Base db;
-	private String requestCashe;
+	private String requestCache;
 	private Queue <String[]> listeColumn;
 	
 	private String getSelect (ArrayList<String> listTable)
@@ -130,36 +130,36 @@ public class CookingRequestImpl implements CookingRequest
 		return newRequest;
 	}
 
-	public CookingRequestImpl (Base db)
+	public RequestMakerImpl (Base db)
 	{
 		this.db = db;
 		this.listeColumn = new LinkedList<String[]>();
-		this.requestCashe = "";
+		this.requestCache = "";
 	}
 	
 	@Override
 	public String getRequest() {
 		
-		if(this.requestCashe.isEmpty()) {
+		if(this.requestCache.isEmpty()) {
 			if(!this.listeColumn.isEmpty()) {
-				this.requestCashe = makeRequest();
+				this.requestCache = makeRequest();
 			}
 		}
 		
-		return this.requestCashe;
+		return this.requestCache;
 	}
 
 	@Override
 	public void newRequest(){
 		this.listeColumn.removeAll(listeColumn);
-		this.requestCashe = "";
+		this.requestCache = "";
 	}
 	
 	//@TODO pas de protection sur la validite des information donnee par l'utilisateur
 	@Override
 	public void addColumn(String table, String column) {
 		String el[] = {table , column};
-		this.requestCashe = "";
+		this.requestCache = "";
 		this.listeColumn.add(el);
 	}
 }

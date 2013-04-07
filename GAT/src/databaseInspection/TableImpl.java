@@ -20,12 +20,12 @@ public class TableImpl implements Table{
 	}
 	
 	@Override
-	public Column getLine(String key){
+	public Column getColumn(String key){
 		return this.relation.get(key);
 	}
 
 	@Override
-	public void addLine(Column line){
-		this.relation.put(line.getName(),line);
+	public void addColumn(Column col){
+		this.relation.put(col.getName(),col);
 	}
 }

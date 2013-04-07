@@ -1,7 +1,7 @@
 package databaseInspection;
 
 
-public interface CookingRequest {
+public interface RequestMaker {
 	
 	public String getRequest();
 	public void addColumn(String table , String column);
