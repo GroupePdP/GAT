@@ -419,9 +419,11 @@ En ce qui concerne les besoins internes à notre logiciel, il nous semble
 que l'utilisation d'une base de données est superflue.  
 
 
-\chapter{Architecture}
+\chapter{Architecture et implémentation}
 
-\section{Diagrammes et schémas}
+\section{Schémas de cas d'utilisation et de fonctionnement}
+
+% A REVOIR
 
 Ils schématisent les interactions entre le programme, l'utilisateur et l'administrateur, avec la base de données et Syntox.
 
@@ -452,14 +454,127 @@ A l'heure actuelle, on ne sait pas encore si le résultat final sera consultable
 	Le schéma suivant décrit le fonctionnement du logiciel du point de vue d'un administrateur.
 	\includegraphics[scale=0.45]{FonctionnementAdministrateur.png}
 
-\subsection{Diagramme de séquence}
+	
 
+
+Notre programme se composera de cinq packages principaux: Database, Linguistic, FileManager, SyntoxConnection et IHM, correspondant aux différentes fonctionnalités du programme.
+Chacun de ces packages comportera les classes nécessaires à son bon fonctionnement.
+
+\section{Diagramme de packages}
+Le diagramme suivant présente la structure générale du logiciel.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.45]{DiagPackages.png}
+\caption{Diagramme de packages}
+\end{center}
+\end{figure}
+
+% Expliquer le diagramme de packages
+
+
+
+
+
+
+
+
+\FloatBarrier
+
+
+\section{Structures de données utilisées}
+
+\section{Communication avec la base de données}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{bduml/databaseConnection.png}
+\caption{Diagramme du package BaseDonnées}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{bduml/structDataBase.png}
+\caption{Diagramme du package database Inspection partie structure}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{bduml/baseFactory.png}
+\caption{Diagramme du package database Inspection partie génération de la structure}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{bduml/cookingRequeste.png}
+\caption{Diagramme du package database Inspection partie génération de requête sql}
+\end{center}
+\end{figure}
+
+\subsubsection*{Package databaseInspection}
+\begin{itemize}
+\item Interface Base: Cette interface sera implémentée par BaseImpl. Elle contient les tables et leurs relations(jointure).
+\item Interface Table: Cette interface sera implémentée par TableImpl. Elle représente une table et contient les liste de ces colonnes.
+\item Interface Column: Cette interface sera implémentée par ColumnImpl. Elle représente une colonne d'une table.
+\item Interface JoinTable: Cette interface sera implémentée par JoinTableImpl. Elle représente la liaison entre deux table.
+\item Interface BaseFactory: Cette interface sera implémentée par BaseFactoryImpl. elle construit un objet Base à partir d'une base de données SQL.
+\item Interface CookingRequeste: Cette interface sera implémentée par CookingRequesteImpl. Elle construit une requête SQL.
+\item Interface AgloTable: Cette interface sera implémentée par AgloTableImpl. Elle calcule la jointure minimal entre plusieurs table.
+\end{itemize}
+
+\subsubsection*{Package databaseConnection}
+\begin{itemize}
+\item Interface DBConnexion: Cette interface sera implémentée par DBConnexionImpl. Elle contient les outils nécessaire à la connexion aux bases de données.
+\end{itemize}
+
+\section{Package Linguistique}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{DiagLinguisticPackages.png}
+\includegraphics[scale=0.5]{DiagLinguistic_concepts_gestion.png}
+\caption{Diagramme du package Linguistic et diagramme de classes du sous-package concepts\_gestion}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.4]{DiagLinguistic_types_gestion.png}
+\includegraphics[scale=0.5]{DiagLinguistic_graph_concepts_gestion.png}
+\caption{Diagramme de classes des sous-packages types\_gestion et graph\_concepts\_gestion}
+\end{center}
+\end{figure}
+
+\section{Génération de l'entrée Syntox}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{DiagSyntox.png}
+\caption{Diagramme du package ConnexionSyntox}
+\end{center}
+\end{figure}
+
+
+
+\section{Gestion des fichiers}
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.7]{DiagStockage.png}
+\caption{Diagramme du package GestionnaireFichiers}
+\end{center}
+\end{figure}
+
+\section{Problèmes rencontrés et remarques}
+
+\section{Diagrammes de séquence}
 	Ce diagramme de séquence explicite les étapes de configuration de la base de données, du lexique et de la grammaire par l'administrateur. 
 
 	\includegraphics[scale=0.4]{diasequence2.png}
-	
-	\subsection{Diagrammes de séquence}
-
 
 \begin{figure}[h!]
 \begin{center}
@@ -484,178 +599,6 @@ A l'heure actuelle, on ne sait pas encore si le résultat final sera consultable
 \end{center}
 \end{figure}
 
-
-\section{Architecture}
-Notre programme se composera de cinq packages principaux: Database, Linguistic, FileManager, SyntoxConnection et IHM, correspondant aux différentes fonctionnalités du programme.
-Chacun de ces packages comportera les classes nécessaires à son bon fonctionnement.
-
-\subsection{Diagramme de packages}
-Le diagramme suivant présente la structure générale du logiciel.
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[scale=0.45]{DiagPackages.png}
-\caption{Diagramme de packages}
-\end{center}
-\end{figure}
-
-
-
-\subsection{Diagrammes de classes}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{DiagLinguisticPackages.png}
-\includegraphics[scale=0.5]{DiagLinguistic_concepts_gestion.png}
-\caption{Diagramme du package Linguistic et diagramme de classes du sous-package concepts\_gestion}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.4]{DiagLinguistic_types_gestion.png}
-\includegraphics[scale=0.5]{DiagLinguistic_graph_concepts_gestion.png}
-\caption{Diagramme de classes des sous-packages types\_gestion et graph\_concepts\_gestion}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{bduml/databaseConnection.png}
-\caption{Diagramme du package BaseDonnées}
-\end{center}
-\end{figure}
-
-%c'est random lisible
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.4]{bduml/structDataBase.png}
-\caption{Diagramme du package database Inspection partie structure}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{bduml/baseFactory.png}
-\caption{Diagramme du package database Inspection partie génération de la structure}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{bduml/cookingRequeste.png}
-\caption{Diagramme du package database Inspection partie génération de requête sql}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.7]{DiagStockage.png}
-\caption{Diagramme du package GestionnaireFichiers}
-\end{center}
-\end{figure}
-
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.5]{DiagSyntox.png}
-\caption{Diagramme du package ConnexionSyntox}
-\end{center}
-\end{figure}
-
-\FloatBarrier
-
-
-
-
-\section{Justifications}
-
-% A VOIR SI NECESSAIRE, SI OUI, OU LE PLACER ?
-%c'est pas à refaire cette partie
-
-\subsubsection*{Package Structure}
-Il est composé de deux sous-packages, Structurel et Linguistique :
-
-\begin{itemize}
-\item Le package Structurel contient tous les objets de modélisation d'arbres.
-\item Le package Linguistique contient les objets liés à la manipulation du langage: concepts et types des concepts.
-\end{itemize}
-
-\subsubsection*{Package Linguistique}
-\begin{itemize}
-\item Interface Concept : Dans cette interface se trouveront toutes les fonctionnalités liées aux concepts.
-
-\item Interface Type : Cette interface sera utilisée afin de regrouper plusieurs concepts sous un même type. 
-
-\item Classe ConceptImpl: Cette classe permet de factoriser du code entre les différentes implémentations de la classe Concept.
-
-\item Classe ConceptAtomique: Il s'agit de l'implémentation d'un concept directement relié à une ligne d'une table de la base de données, c'est à dire qu'elle contient uniquement une requête SQL et pas un autre concept.
-
-\item Classe ConceptComplexe: Il s'agit de l'implémentation d'un concept dont les arguments sont d'autres concepts, atomiques ou complexes.
-
-\item Classe TypeConcept: Cette classe contient l'implémentation de l'interface Type.
-\end{itemize}
-
-\subsubsection*{Package Structurel}
-\begin{itemize}
-\item Interface Node: Dans cette interface sont présentées les fonctionnalités nécessaires à la réalisation d'un schéma de phrase.
-
-\item Classe NodeConcret: Implémentation de l'interface Node.
-
-\item Classe BiblioConcept: Classe visant à organiser tous les concepts en les regroupant par type à des fins de recherche (facilité d'accès).
-
-\item Classe BiblioScenario: Cette classe regroupe l'ensemble des scénarios d'un projet. Cette classe sera utilisée lorsque l'utilisateur cherchera un scénario à utiliser. Chaque création de scénario fera appel à cette classe.
-
-\item Classe BiblioProjet: Contient les informations de connexion à la base de données, une bibliothèque de concepts, une bibliothèque de scénarios pour chacun des projets.
-\end{itemize}
-
-\subsubsection*{Package databaseInspection}
-\begin{itemize}
-\item Interface Base: Cette interface sera implémentée par BaseImpl. Elle contient les tables et leurs relations(jointure).
-\item Interface Table: Cette interface sera implémentée par TableImpl. Elle représente une table et contient les liste de ces colonnes.
-\item Interface Column: Cette interface sera implémentée par ColumnImpl. Elle représente une colonne d'une table.
-\item Interface JoinTable: Cette interface sera implémentée par JoinTableImpl. Elle représente la liaison entre deux table.
-\item Interface BaseFactory: Cette interface sera implémentée par BaseFactoryImpl. elle construit un objet Base à partir d'une base de données SQL.
-\item Interface CookingRequeste: Cette interface sera implémentée par CookingRequesteImpl. Elle construit une requête SQL.
-\item Interface AgloTable: Cette interface sera implémentée par AgloTableImpl. Elle calcule la jointure minimal entre plusieurs table.
-\end{itemize}
-
-\subsubsection*{Package databaseConnection}
-\begin{itemize}
-\item Interface DBConnexion: Cette interface sera implémentée par DBConnexionImpl. Elle contient les outils nécessaire à la connexion aux bases de données.
-\end{itemize}
-
-\subsubsection*{Package GestionnaireFichiers}
-Interface Stockage: Permet toutes les actions basiques liées à la manipulation des données volatiles.
-
-\subsubsection*{Package ConnexionSyntox}
-Interface Connexion: Contient les fonctionnalités permettant de communiquer avec le logiciel Syntox.
-
-\subsubsection*{Package InterfaceGraphique}
-Ce package contiendra tous les éléments de l'interface graphique et des fenêtres.
-
-
-
-\chapter{Implémentation}
-
-\section{Algorithmique et structures de données utilisées}
-
-\section{Communication avec la base de données}
-
-\section{Package Linguistique}
-
-\section{Génération de l'entrée Syntox}
-
-
-
-
-
-\section{Autres}
-
-
-
-\section{Problèmes rencontrés et remarques}
 
 \chapter{Présentation du logiciel fourni}
 

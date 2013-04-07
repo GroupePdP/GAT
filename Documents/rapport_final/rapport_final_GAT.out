@@ -20,30 +20,25 @@
 \BOOKMARK [2][-]{subsection.3.3.2}{Facilit\351 d'utilisation}{section.3.3}
 \BOOKMARK [2][-]{subsection.3.3.3}{Portabilit\351}{section.3.3}
 \BOOKMARK [2][-]{subsection.3.3.4}{Besoins relatifs aux bases de donn\351es utilis\351es}{section.3.3}
-\BOOKMARK [0][-]{chapter.4}{Architecture}{}
-\BOOKMARK [1][-]{section.4.1}{Diagrammes et sch\351mas}{chapter.4}
+\BOOKMARK [0][-]{chapter.4}{Architecture et impl\351mentation}{}
+\BOOKMARK [1][-]{section.4.1}{Sch\351mas de cas d'utilisation et de fonctionnement}{chapter.4}
 \BOOKMARK [2][-]{subsection.4.1.1}{Diagramme de cas d'utilisation}{section.4.1}
 \BOOKMARK [2][-]{subsection.4.1.2}{Sch\351mas de fonctionnement}{section.4.1}
-\BOOKMARK [2][-]{subsection.4.1.3}{Diagramme de s\351quence}{section.4.1}
-\BOOKMARK [2][-]{subsection.4.1.4}{Diagrammes de s\351quence}{section.4.1}
-\BOOKMARK [1][-]{section.4.2}{Architecture}{chapter.4}
-\BOOKMARK [2][-]{subsection.4.2.1}{Diagramme de packages}{section.4.2}
-\BOOKMARK [2][-]{subsection.4.2.2}{Diagrammes de classes}{section.4.2}
-\BOOKMARK [1][-]{section.4.3}{Justifications}{chapter.4}
-\BOOKMARK [0][-]{chapter.5}{Impl\351mentation}{}
-\BOOKMARK [1][-]{section.5.1}{Algorithmique et structures de donn\351es utilis\351es}{chapter.5}
-\BOOKMARK [1][-]{section.5.2}{Communication avec la base de donn\351es}{chapter.5}
-\BOOKMARK [1][-]{section.5.3}{Package Linguistique}{chapter.5}
-\BOOKMARK [1][-]{section.5.4}{G\351n\351ration de l'entr\351e Syntox}{chapter.5}
-\BOOKMARK [1][-]{section.5.5}{Autres}{chapter.5}
-\BOOKMARK [1][-]{section.5.6}{Probl\350mes rencontr\351s et remarques}{chapter.5}
-\BOOKMARK [0][-]{chapter.6}{Pr\351sentation du logiciel fourni}{}
-\BOOKMARK [0][-]{chapter.7}{Tests et r\351sultats}{}
-\BOOKMARK [1][-]{section.7.1}{Tests effectu\351s}{chapter.7}
-\BOOKMARK [2][-]{subsection.7.1.1}{Package Linguistique}{section.7.1}
-\BOOKMARK [2][-]{subsection.7.1.2}{Core}{section.7.1}
-\BOOKMARK [2][-]{subsection.7.1.3}{Database[Connection/Inspection]}{section.7.1}
-\BOOKMARK [2][-]{subsection.7.1.4}{Syntox}{section.7.1}
-\BOOKMARK [2][-]{subsection.7.1.5}{M\351moire et temps de calcul}{section.7.1}
-\BOOKMARK [1][-]{section.7.2}{R\351sultats}{chapter.7}
-\BOOKMARK [0][-]{chapter.8}{Conclusion et perspectives}{}
+\BOOKMARK [1][-]{section.4.2}{Diagramme de packages}{chapter.4}
+\BOOKMARK [1][-]{section.4.3}{Structures de donn\351es utilis\351es}{chapter.4}
+\BOOKMARK [1][-]{section.4.4}{Communication avec la base de donn\351es}{chapter.4}
+\BOOKMARK [1][-]{section.4.5}{Package Linguistique}{chapter.4}
+\BOOKMARK [1][-]{section.4.6}{G\351n\351ration de l'entr\351e Syntox}{chapter.4}
+\BOOKMARK [1][-]{section.4.7}{Gestion des fichiers}{chapter.4}
+\BOOKMARK [1][-]{section.4.8}{Probl\350mes rencontr\351s et remarques}{chapter.4}
+\BOOKMARK [1][-]{section.4.9}{Diagrammes de s\351quence}{chapter.4}
+\BOOKMARK [0][-]{chapter.5}{Pr\351sentation du logiciel fourni}{}
+\BOOKMARK [0][-]{chapter.6}{Tests et r\351sultats}{}
+\BOOKMARK [1][-]{section.6.1}{Tests effectu\351s}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.1.1}{Package Linguistique}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.2}{Core}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.3}{Database[Connection/Inspection]}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.4}{Syntox}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.5}{M\351moire et temps de calcul}{section.6.1}
+\BOOKMARK [1][-]{section.6.2}{R\351sultats}{chapter.6}
+\BOOKMARK [0][-]{chapter.7}{Conclusion et perspectives}{}
