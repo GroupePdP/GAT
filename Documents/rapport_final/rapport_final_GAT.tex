@@ -560,19 +560,19 @@ La méthode generateSyntox sera analysée dans la partie "Génération de l'entr
 \end{center}
 
 Le package \texttt{types\_gestion} contient les classes gérant le système de typage des Concepts. Le coeur de ce package est donc bien sûr l'interface Type et la classe TypeImpl qui l'implémente.
-Chaque Type peut être relié à d'autres types par une relation surtype / sous-type.
+Chaque Type est défini par son nom et peut être relié à d'autres types par une relation surtype/sous-type.
 
 \bigskip
 
-Les Types sont stockés dans un arbre de types, implémenté par la classe TypeTree. Cet arbre de types contient une référence à la racine de l'arbre (qui correspond au Type racine), et une Map qui permet de faire la correspondance entre un Type stocké dans l'arbre et le noeud de l'arbre qui contient ce type. Noud avons choisi d'implémenter cette correspondance avec une Map car c'est une structure qui permet une indexation par les Types, et un accès rapide en lecture.
+Les Types sont stockés dans un arbre de types, implémenté par la classe TypeTree. Cet arbre de types contient une référence à la racine de l'arbre (qui correspond au Type racine), et une Map qui permet de faire la correspondance entre un Type stocké dans l'arbre et le noeud de l'arbre associé à ce Type. Nous avons choisi d'implémenter cette correspondance avec une Map car c'est une structure qui permet une indexation par les Types, et un accès rapide en lecture.
 
-L'arbre de types TypeTree est composé de plusieurs TypeTreeNode, chacun correspondant à un Type précis et une liste de Concepts ayant ce Type. Chaque TypeTreeNode comprend aussi une liste des TypeTreeNode qui sont "en-dessous" de lui dans l'arbre de types.
+L'arbre de types TypeTree est composé de plusieurs TypeTreeNode, chacun correspondant à un Type précis et une liste de Concept ayant ce Type. Chaque TypeTreeNode comprend aussi une liste des TypeTreeNode qui sont "en-dessous" de lui dans l'arbre de types (et qui sont donc associés à ses "sous-types").
 
-Cette connaissance par chaque TypeTreeNode de ses fils permet au TypeTree de parcourir les TypeTreeNode à partir de la racine, ce qui sert notamment pour l'implémen-tation de la méthode getConceptsForType(Type t), qui retourne une liste des Concepts ayant le Type t ou un de ses sous-types.
+Cette connaissance par chaque TypeTreeNode de ses fils permet au TypeTree de parcourir les TypeTreeNode à partir de la racine, ce qui sert notamment pour l'implémen-tation de la méthode getConceptsForType(Type t), qui retourne une liste des instances de Concept ayant le Type t ou un de ses sous-types.
 
 \bigskip
 
-La classe TypeManager est une classe qui permet de gérer et d'instancier les types, elle se base sur le modèle du pattern Factory. En effet, l'instanciation des types est faite par le TypeManager, qui crée et modifie dynamiquement l'arbre de types correspondant. Il est aussi responsable de la compatibilité de deux Types t1 et t2, c'est-à-dire la vérification que le Type t1 est un sous-type (strict ou non) du Type t2.
+La classe TypeManager est une classe qui permet de gérer la classe TypeTree et d'instancier la classe TypeImpl, elle se base sur le modèle du pattern Factory. En effet, l'instanciation de TypeImpl est faite par le TypeManager, qui crée et modifie dynamiquement l'arbre de types correspondant. Il est aussi responsable de la compatibilité de deux Type t1 et t2, c'est-à-dire la vérification que le Type t1 est un sous-type (strict ou non) du Type t2.
 
 \bigskip
 
