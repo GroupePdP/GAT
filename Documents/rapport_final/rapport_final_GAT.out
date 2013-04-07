@@ -27,7 +27,10 @@
 \BOOKMARK [1][-]{section.4.2}{Diagramme de packages}{chapter.4}
 \BOOKMARK [1][-]{section.4.3}{Structures de donn\351es utilis\351es}{chapter.4}
 \BOOKMARK [1][-]{section.4.4}{Communication avec la base de donn\351es}{chapter.4}
-\BOOKMARK [1][-]{section.4.5}{Package Linguistique}{chapter.4}
+\BOOKMARK [1][-]{section.4.5}{Package Linguistic}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.5.1}{Package concepts\137gestion}{section.4.5}
+\BOOKMARK [2][-]{subsection.4.5.2}{Package types\137gestion}{section.4.5}
+\BOOKMARK [2][-]{subsection.4.5.3}{Package graph\137concepts\137gestion}{section.4.5}
 \BOOKMARK [1][-]{section.4.6}{G\351n\351ration de l'entr\351e Syntox}{chapter.4}
 \BOOKMARK [1][-]{section.4.7}{Gestion des fichiers}{chapter.4}
 \BOOKMARK [1][-]{section.4.8}{Probl\350mes rencontr\351s et remarques}{chapter.4}
