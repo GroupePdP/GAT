@@ -556,8 +556,9 @@ La méthode generateSyntox sera analysée dans la partie "Génération de l'entr
 \subsection{Package \texttt{types\_gestion}}
 
 \begin{center}
-\includegraphics[scale=0.4]{DiagLinguistic_types_gestion.png}
+\includegraphics[scale=0.43]{DiagLinguistic_types_gestion.png}
 \end{center}
+
 
 Le package \texttt{types\_gestion} contient les classes gérant le système de typage des Concepts. Le coeur de ce package est donc bien sûr l'interface Type et la classe TypeImpl qui l'implémente.
 Chaque Type est défini par son nom et peut être relié à d'autres types par une relation surtype/sous-type.
@@ -602,6 +603,75 @@ Le package \texttt{types\_gestion} comprend également une classe d'exception In
 \begin{center}
 \includegraphics[scale=0.55]{diversuml/fileManager.png}
 \end{center}
+
+
+\subsection{Présentation globale}
+
+	Dans le cadre de notre programme, il est indispensable de pouvoir à tout moment enregistrer le travail en cours sur
+le disque dur et de pouvoir y accéder pour le modifier: en effet, les projets, scénarios et concepts doivent être modulables
+et surtout, du fait de leur structure complexe, nécessitent un travail conséquent de la part de l'utilisateur, qui appréciera
+de ne pas avoir besoin de recommencer son travail à chaque démarrage du programme.
+
+	L'objet "Projet" regroupe tous les champs nécessaires au travail sur une base de donnée précise: scénarios, concepts et LinguisticFactory.
+Il a donc été décidé que chaque Projet serait stocké sur le disque sous forme d'un fichier regroupant tous ses champs.
+
+	Afin de faciliter la sérialisation des données, nous avons choisi d'utiliser la bibliothèque XStream.
+Cette bibliothèque permet d'exporter facilement les objets sur le disque dur sous forme de fichier XML, et de les charger de manière également
+intuitive.
+
+	Pour cela nous avons ajouté la bibliothèque simplifiée "xstream-1.4.4.jar", qui regroupe les fonctions principales dont nous
+aurons besoin afin de stocker et récupérer les objets de type Projet.
+
+\subsection{Implémentation}
+
+	Les fonctions nécessaires pour le chargement et enregistrement des données sont regroupées dans le package "fileManager".
+Ce paquet contient l'interface Storage.java et son implémentation LocalStorage.java.
+
+	Nous avons choisi d'implémenter cette partie de la manière suivante:
+	\begin{itemize}
+	\item Une fonction de chargement : public Object load (String name)
+	\item Une fonction d'enregistrement : public boolean backup(String name, Object obj)
+	\item Une fonction d'affichage des fichiers XML du répertoire courant : public String[] projectsList()
+	\end{itemize}
+
+
+Par défaut, on considère que le répertoire contenant les projets existants et stockant les nouvelles sauvegarde sera (en chemin relatif par rapport
+au répertoire du programme): ../Projets
+
+	\paragraph{Enregistrement}
+
+La bibliothèque XStream permet donc l'enregistrement d'Objects sur le disque. Cette fonction se contente de créer un FileWriter du nom du paramètre "name"
+à l'emplacement ../Projets et d'appeler la fonction xstream.toXML sur l'argument de type "Object"(on doit donc effectuer un cast sur le Project): on obtient un fichier .XML dans le répertoire contenant
+toutes les informations nécessaire au travail sur le projet: les concepts existants, les scénarios déjà créés, et tous les types.
+
+	\paragraph{Chargement}
+
+La fonction "load" appelle simplement la fonction xstream.fromXML sur un fichier dont le nom est passé en paramètre de la fonction, et renvoie un Object,
+que l'on cast en Project et qui peut être ensuite utilisé et modifié dans le programme.
+
+	\paragraph{Affichage du répertoire courant}
+
+Cette fonction renvoie un tableau de String dont les éléments sont les noms de fichiers .XML contenus dans le répertoire ../Projets, sans l'extension
+de fichier. Cette fonction est utilisée dans la partie utilisateur du programme, au moment de choisir un projet existant.
+
+
+	\paragraph{Utilisation des fonctions de chargement et d'enregistrement}
+
+De part la manière de sauvegarder choisie, chaque modification (que ce soit un concept, un scénario ou un projet intégral) nécessite de sauvegarder
+l'intégralité du projet: toutes les fonctions de sauvegarde du programme appellent la fonction backup de la classe LocalStorage après avoir modifié
+l'objet chargé dans le programme.
+
+On garantit ainsi l'intégrité du travail en cours par l'utilisateur au détriment éventuel du temps d'exécution: cependant, cette solution a été
+préférée pour sa simplicité d'utilisation (une seule fonction de sauvegarde), pour sa propreté (un seul et unique fichier par projet, et non par scénario ou concept).
+
+De plus, les structures de données utilisées, même si non limitées en taille par l'implémentation, ne seront de manière intuitive jamais gigantesques:
+on ne peut pas imaginer une base de données associée à plusieurs millions de concepts ou de scénarios. Les temps d'éxécution des fonctions d'enregistrement
+et de chargement sont donc considérées comme triviaux.
+
+La fonction d'enregistrement est donc appelée à chaque clic sur un bouton de type "Enregistrer" (panel Scénario, Projet et Concept, administrateur ou utilisateur).
+La fonction de chargement est utilisée lors du choix du projet existant par l'administrateur ou l'utilisateur (au lancement du programme dans la plupart des cas,
+si l'utilisateur ne quitte pas le projet en cours pour en changer).
+La fonction d'affichage du répertoire, quand à elle, est appelée au choix du projet, juste avant le chargement.
 
 
 \section{Core}
