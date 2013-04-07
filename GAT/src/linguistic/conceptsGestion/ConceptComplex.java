@@ -21,6 +21,11 @@ public class ConceptComplex extends ConceptAbstract {
 		this.arguments = args;
 	}
 	
+	public ConceptComplex(String name, Type type, List<Type> args, String description) {
+		super(name, type, description);
+		this.arguments = args;
+	}
+	
 	// Accesseurs
 	
 	public int getNumberArguments(){
@@ -35,7 +40,6 @@ public class ConceptComplex extends ConceptAbstract {
 	public void setSyntoxInput(Map<String, Type> map){
 		this.syntox = map;
 	}
-	
 	
 	// Autres methodes
 

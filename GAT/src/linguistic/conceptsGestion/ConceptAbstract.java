@@ -17,6 +17,12 @@ public abstract class ConceptAbstract implements Concept{
 		this.type = type;
 	}
 	
+	public ConceptAbstract(String name, Type type, String description){
+		this.name = name;
+		this.type = type;
+		this.description = description;
+	}
+	
 	// Accesseurs
 
 	public String getName(){

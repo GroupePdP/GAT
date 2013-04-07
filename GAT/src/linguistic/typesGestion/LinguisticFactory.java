@@ -66,10 +66,23 @@ public final class LinguisticFactory implements Factory{
 	}
 
 	@Override
+	public ConceptComplex makeConcept(String name, Type type, List<Type> args, String description) {
+		Concept c = new ConceptComplex(name, type, args, description);
+		tm.getTypeTree().addConcept(c);
+		return (ConceptComplex) c;
+	}
+	
+	@Override
 	public ConceptSimple makeConcept(String name, Type type) {
 		Concept c = new ConceptSimple(name, type);
 		tm.getTypeTree().addConcept(c);
 		return (ConceptSimple) c;
 	}
 
+	@Override
+	public ConceptSimple makeConcept(String name, Type type, String description) {
+		Concept c = new ConceptSimple(name, type, description);
+		tm.getTypeTree().addConcept(c);
+		return (ConceptSimple) c;
+	}
 }

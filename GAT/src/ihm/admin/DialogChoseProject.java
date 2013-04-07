@@ -218,6 +218,7 @@ public class DialogChoseProject extends JDialog{
 		if(concept.getNumberArguments() == 0)
 		{
 			ConceptGraphic tmp = new ConceptGraphic(pip, concept.getName(), pip.getTypesCol().getTypeByName(concept.getType().getName()));
+			tmp.setDescription(concept.getDescription());
 			pip.getConceptsCol().addConceptGraphic(tmp);
 		}
 		else
@@ -227,6 +228,7 @@ public class DialogChoseProject extends JDialog{
 			{
 				tmp.addArgument(pip.getTypesCol().getTypeByName(t.getName()));
 			}
+			tmp.setDescription(concept.getDescription());
 			pip.getConceptsCol().addConceptGraphic(tmp);
 		}
 	}

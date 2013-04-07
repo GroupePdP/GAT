@@ -1,7 +1,6 @@
 package ihm.admin;
 
 import ihm.MainFrame;
-import ihm.user.PanelNewScenario;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -27,12 +26,9 @@ import core.InfoDb;
 import core.Project;
 import databaseConnection.DBConnection;
 import databaseInspection.Base;
-import databaseInspection.BaseFactory;
 import databaseInspection.BaseFactoryImpl;
 import databaseInspection.Column;
 import databaseInspection.Table;
-
-import linguistic.Scenario;
 
 public class DialogInitNewProject extends JDialog{
 	JDialog thisDiag = this;
@@ -166,10 +162,9 @@ public class DialogInitNewProject extends JDialog{
 				{
 					boolean errorDB = false;
 					PanelInitProject pip = new PanelInitProject(currentFrame, prev);
+					currentFrame.getCore().setProject(new Project(new InfoDb(dataBase, "mySQL", id, pwd), projectName));
 					if(id.length() !=0 && pwd.length() !=0 && dataBase.length() != 0)
 					{
-						
-						currentFrame.getCore().setProject(new Project(new InfoDb(dataBase, "mySQL", id, pwd), projectName));
 						try {
 							initProjectFromBD(pip);
 						} catch (SQLException e1) {

@@ -18,5 +18,6 @@ public interface Factory {
 	
 	public Concept makeConcept(String name, Type type, List<Type> args);
 	public Concept makeConcept(String name, Type type);
-	
+	public Concept makeConcept(String name, Type type, List<Type> args, String description);
+	public Concept makeConcept(String name, Type type, String description);
 }

@@ -18,6 +18,10 @@ public class ConceptSimple extends ConceptAbstract{
 		super(name, type);
 	}
 	
+	public ConceptSimple(String name, Type type, String description){
+		super(name, type, description);
+	}
+	
 	/**Autres methodes**/
 	
 	@Override

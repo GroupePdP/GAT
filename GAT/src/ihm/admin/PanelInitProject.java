@@ -193,10 +193,10 @@ public class PanelInitProject extends JPanel{
 				if(cg.arguments.size()!=0)
 				{
 					List<Type> tmp = getTypeList(cg.arguments);
-					currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(cg.toString(),typeTmp , tmp);
+					currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(cg.toString(),typeTmp , tmp, cg.getDescription());
 				}
 				else
-					currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(cg.toString(), typeTmp);
+					currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(cg.toString(), typeTmp, cg.getDescription());
 			}
 		}
 		
