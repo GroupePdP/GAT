@@ -478,9 +478,19 @@ Chacun de ces packages comportera les classes nécessaires à son bon fonctionne
 
 \section{Structures de données utilisées}
 
-\section{Communication avec la base de données}
 
 \subsubsection*{Package databaseInspection}
+
+\begin{itemize}
+\item Interface Base: Cette interface sera implémentée par BaseImpl. Elle contient les tables et leurs relations(jointure).
+\item Interface Table: Cette interface sera implémentée par TableImpl. Elle représente une table et contient les liste de ces colonnes.
+\item Interface Column: Cette interface sera implémentée par ColumnImpl. Elle représente une colonne d'une table.
+\item Interface JoinTable: Cette interface sera implémentée par JoinTableImpl. Elle représente la liaison entre deux table.
+\item Interface BaseFactory: Cette interface sera implémentée par BaseFactoryImpl. elle construit un objet Base à partir d'une base de données SQL.
+\item Interface RequestMaker: Cette interface sera implémentée par RequestMakerImpl. Elle construit une requête SQL.
+\item Interface AgloTable: Cette interface sera implémentée par AgloTableImpl. Elle calcule la jointure minimal entre plusieurs table.
+\end{itemize}
+
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.4]{bduml/structDataBase.png}
@@ -502,16 +512,7 @@ Chacun de ces packages comportera les classes nécessaires à son bon fonctionne
 \end{center}
 \end{figure}
 
-\begin{itemize}
-\item Interface Base: Cette interface sera implémentée par BaseImpl. Elle contient les tables et leurs relations(jointure).
-\item Interface Table: Cette interface sera implémentée par TableImpl. Elle représente une table et contient les liste de ces colonnes.
-\item Interface Column: Cette interface sera implémentée par ColumnImpl. Elle représente une colonne d'une table.
-\item Interface JoinTable: Cette interface sera implémentée par JoinTableImpl. Elle représente la liaison entre deux table.
-\item Interface BaseFactory: Cette interface sera implémentée par BaseFactoryImpl. elle construit un objet Base à partir d'une base de données SQL.
-\item Interface CookingRequeste: Cette interface sera implémentée par CookingRequesteImpl. Elle construit une requête SQL.
-\item Interface AgloTable: Cette interface sera implémentée par AgloTableImpl. Elle calcule la jointure minimal entre plusieurs table.
-\end{itemize}
-
+\section{Communication avec la base de données}
 \subsubsection*{Package databaseConnection}
 
 \begin{center}
