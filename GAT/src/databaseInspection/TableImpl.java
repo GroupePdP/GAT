@@ -3,7 +3,6 @@ package databaseInspection;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class TableImpl implements Table{
 
 	private String name;

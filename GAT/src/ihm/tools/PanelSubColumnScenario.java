@@ -38,18 +38,18 @@ import linguistic.typesGestion.TypeTree;
 public class PanelSubColumnScenario extends JPanel{
 
 	PanelSubColumnScenario thisPane;
-	
+
 	Concept owner;
 	Dimension thisColumnSize;
 	PanelMiller currentPanel;
-	
+
 	ArrayList<PanelSubColumnScenario> list = new ArrayList<PanelSubColumnScenario>();
 
 	JPanel colList = new JPanel();
-	
+
 	JList conceptList;
 	JScrollPane main;
-	
+
 	public PanelSubColumnScenario(Dimension columnSize, PanelMiller curr, Concept owner, LinguisticFactory lf, ArrayList<PanelSubColumnScenario> list)
 	{
 		colList.setLayout(new BoxLayout(colList, BoxLayout.Y_AXIS));
@@ -58,18 +58,18 @@ public class PanelSubColumnScenario extends JPanel{
 		this.thisPane = this;
 		this.currentPanel=curr;
 		this.thisColumnSize= columnSize;
-		
+
 		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
-		
+
 
 		JScrollPane conceptScroll = new JScrollPane(this.colList);
 		//conceptScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		this.main = conceptScroll;
-		
+
 		this.add(conceptScroll, BorderLayout.CENTER);
 	}
-	
+
 	public PanelSubColumnScenario(Dimension columnSize, PanelMiller curr, Concept toto, LinguisticFactory lf)
 	{
 		colList.setLayout(new BoxLayout(colList, BoxLayout.Y_AXIS));
@@ -78,23 +78,23 @@ public class PanelSubColumnScenario extends JPanel{
 		this.thisPane = this;
 		this.currentPanel=curr;
 		this.thisColumnSize= columnSize;
-		
-		
+
+
 		if(owner instanceof ConceptComplex)
 		{
 			for(Type t : ((ConceptComplex)owner).getArguments())
 			{
 				Vector tmpVec = new Vector(lf.getTypeManager().getTypeTree().getConceptsForType(t));
-				
+
 				JPanel tmpPane = new JPanel(new BorderLayout());
 				tmpPane.setMaximumSize(new Dimension((int)columnSize.getWidth(),30));
-				
+
 				final JComboBox tmp = new JComboBox(tmpVec);
 				//tmp.setSelectedItem(null);
 				tmp.setMaximumSize(new Dimension((int)columnSize.getWidth(),30));
-				
+
 				JButton tmpArrow = new JButton(">");
-				
+
 				final PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, currentPanel,(Concept)tmp.getSelectedItem(),lf);
 				newCol.setVisible(false);
 				list.add(newCol);
@@ -102,8 +102,6 @@ public class PanelSubColumnScenario extends JPanel{
 
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						// TODO Auto-generated method stub
-						
 						if(tmp.getSelectedItem() instanceof ConceptComplex)
 						{
 							currentPanel.addColumn(newCol);
@@ -112,75 +110,64 @@ public class PanelSubColumnScenario extends JPanel{
 							newCol.setVisible(true);
 						}
 					}
-					
+
 				});
 				tmpArrow.setMaximumSize(new Dimension(20,20));
-				
+
 				tmpPane.add(tmp, BorderLayout.CENTER);
-				
+
 				if(tmp.getSelectedItem() instanceof ConceptComplex)
 					tmpPane.add(tmpArrow, BorderLayout.EAST);
-				
+
 				colList.add(tmpPane);
 			}
 		}
-		
-		
+
 		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.black));
-		
 
 		JScrollPane conceptScroll = new JScrollPane(this.colList);
 		//conceptScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		this.main = conceptScroll;
-		
+
 		this.add(conceptScroll, BorderLayout.CENTER);
-		
-		
 	}
-	
+
 	public void addChildren(GraphNode father, LinguisticFactory lf){
 
-		
 		if (!father.getChildrenList().isEmpty()){
 			for (GraphNode child : father.getChildrenList())
 			{		
-				PanelSubColumnScenario newCol = new PanelSubColumnScenario(thisColumnSize, this.currentPanel,father.getConcept(),lf,null);
+				PanelSubColumnScenario newCol = new PanelSubColumnScenario(
+						thisColumnSize, this.currentPanel,father.getConcept(),lf,null);
 				newCol.addChildren(child, lf);
 				newCol.setVisible(false);
 				currentPanel.addColumn(newCol);
 				this.list.add(newCol);
-				System.out.println("coucou " + newCol.toString());
-
+				System.out.println("coucou " + newCol.toString()); // ?
 			}
-		}
-}
-	
-	public void setVisibleAll(Boolean bool)
-	{
-		this.setVisible(bool);
-		
-		for(PanelSubColumnScenario ps : this.list)
-		{
-			ps.setVisibleAll(bool);
 		}
 	}
 
-	public Concept getOwner() {
+	public void setVisibleAll(Boolean bool){
+		this.setVisible(bool);
+		for(PanelSubColumnScenario ps : this.list)
+			ps.setVisibleAll(bool);
+	}
+
+	public Concept getOwner(){
 		return owner;
 	}
 
-	public ArrayList<PanelSubColumnScenario> getList() {
+	public ArrayList<PanelSubColumnScenario> getList(){
 		return list;
 	}
-	
+
 	public void addPane(PanelSubColumnScenario pan){
 		this.list.add(pan);
 	}
 
-	public GraphNode generateGraphConcept(GraphNode thisNode)
-	{
-		
+	public GraphNode generateGraphConcept(GraphNode thisNode){
 		
 		for(int i = 0 ; i < this.getList().size(); i++)
 		{
@@ -191,10 +178,8 @@ public class PanelSubColumnScenario extends JPanel{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 			this.getList().get(i).generateGraphConcept(child);
 		}
-		
 		return thisNode;
 	}
 }

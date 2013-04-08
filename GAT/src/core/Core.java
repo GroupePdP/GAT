@@ -6,10 +6,9 @@ public class Core {
 	
 	private Project project;
 	private LocalStorage localStorage;
-	//private LinguisticFactory linguisticFactory; pas besoin, y a une instance dans Project
 	private GraphNodeFactory graphNodeFactory;
 	
-	/** Constructeurs **/
+	/* Constructeurs */
 	
 	public Core (String location){
 		this.localStorage = new LocalStorage(location);
@@ -22,7 +21,7 @@ public class Core {
 		this.graphNodeFactory = GraphNodeFactory.getInstance();
 	}
 	
-	/** Accesseurs et modificateurs **/
+	/* Accesseurs et modificateurs */
 	
 	public Project getProject(){
 		return this.project;
@@ -44,9 +43,8 @@ public class Core {
 	public LocalStorage getLocalStorage(){
 		return this.localStorage;
 	}
-	
 
-	public void setLocalStorage(String location) {
+	public void setLocalStorage(String location){
 		this.localStorage = new LocalStorage(location);
 	}
 	
@@ -54,9 +52,9 @@ public class Core {
 		return this.graphNodeFactory;
 	}
 	
-	/** Autres méthodes **/
+	/* Autres methodes */
 	
-	public void setProjectName(String s) {
+	public void setProjectName(String s){
 		this.project.setName(s);
 	}
 	

@@ -3,7 +3,7 @@ package core;
 import databaseConnection.DBConnection;
 import databaseConnection.DBConnectionImpl;
 
-public class InfoDb {
+public class InfoDb{
  
 	private String link;
 	private String typeDataBase;
@@ -25,12 +25,10 @@ public class InfoDb {
 		this.initBase(link, tdb, user, null);
 	}
 	
-	public DBConnection getDBCfromInfoDB()
-	{
+	public DBConnection getDBCfromInfoDB(){
 		String url = this.getLink();
 		String usr = this.getUser();
 		String pwd = (PasswordManager.decrypt(this.getPassWord()));
-		
 		return (new DBConnectionImpl(url, usr, pwd));
 	}
 	

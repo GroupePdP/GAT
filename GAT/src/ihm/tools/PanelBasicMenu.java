@@ -10,12 +10,11 @@ import javax.swing.JPanel;
 
 public class PanelBasicMenu extends JPanel{
 
-	public PanelBasicMenu (JPanel[] buttons)
-	{
+	public PanelBasicMenu (JPanel[] buttons){
+		
 		this.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridx = gbc.gridy = 1;
-		
 		
 		JPanel content = new JPanel();
 		Dimension panelSize = new Dimension(200, 200);
@@ -24,10 +23,7 @@ public class PanelBasicMenu extends JPanel{
 		content.setLayout(new BoxLayout(content,BoxLayout.Y_AXIS));
 		
 		for(int i = 0; i<buttons.length ; i++)
-		{
 			content.add(buttons[i]);
-		}
-		
 		this.add(content);
 	}
 	

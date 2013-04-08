@@ -29,16 +29,12 @@ import javax.swing.event.ListSelectionListener;
 public class ConceptsColumn extends JPanel{
 
 	MainFrame currentFrame;
-
 	PanelInitProject currentPane;
-
 	ConceptGraphic currentConceptPanel;
-
 	Vector<ConceptGraphic> concepts = new Vector();
 	JList conceptsJList;
 
 	JPanel displayArea = new JPanel();
-
 	JPanel menu = new JPanel();
 	JButton addConcept = new JButton("Ajouter Concept");
 	JButton validate = new JButton("Valider");
@@ -48,41 +44,38 @@ public class ConceptsColumn extends JPanel{
 	JTextField conceptName = new JTextField(16);
 	JComboBox typeCombo= new JComboBox();
 
-	public ConceptsColumn(MainFrame currentFrame, PanelInitProject pip) 
-	{
+	public ConceptsColumn(MainFrame currentFrame, PanelInitProject pip){
+
 		this.currentFrame = currentFrame;
 		this.setLayout(new GridLayout(1,2));
 		this.currentPane = pip;
 		initMainColumn();
 	}
 
-	private void initMainColumn()
-	{
+	private void initMainColumn(){
+
 		JPanel main = new JPanel(new BorderLayout());
 
 		// Initialisation de la JList
-
-
 		this.conceptsJList = new JList(this.concepts);
 		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 		this.conceptsJList.setCellRenderer(centerRenderer);
 		JScrollPane scrollJList = new JScrollPane(this.conceptsJList);
-		scrollJList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollJList.setVerticalScrollBarPolicy(
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		this.conceptsJList.addListSelectionListener(new ListSelectionListener(){
-
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) 
 			{
 				if(arg0.getValueIsAdjusting())
-				{
-					setCurrentConceptPanel(concepts.get(conceptsJList.getSelectedIndex()));
-				}
+					setCurrentConceptPanel(concepts.get(
+							conceptsJList.getSelectedIndex()));
 			}
 		});
 
-		this.conceptsJList.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
+		this.conceptsJList.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent e){
 				if (e.getButton() == 3)
 				{
 					conceptsJList.setSelectedIndex(conceptsJList.locationToIndex(e.getPoint()));
@@ -92,16 +85,12 @@ public class ConceptsColumn extends JPanel{
 			}
 		});
 
-
 		// Initialisation du menu
-
 		this.menu = new JPanel();
 		this.menu.setLayout(new BoxLayout(menu, BoxLayout.Y_AXIS));
 		this.menu.setVisible(false);
 
-
-		this.addConcept.addActionListener(new ActionListener() {
-
+		this.addConcept.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				menu.remove(typeCombo);
@@ -118,7 +107,7 @@ public class ConceptsColumn extends JPanel{
 			}
 		});
 
-		this.validate.addActionListener(new ActionListener() {
+		this.validate.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -126,13 +115,16 @@ public class ConceptsColumn extends JPanel{
 				addConcept.setVisible(true);
 				validate.setVisible(false);
 				ret.setVisible(false);
-				ConceptGraphic tmp = new ConceptGraphic(currentPane, conceptName.getText(), (TypeGraphic)typeCombo.getSelectedItem());
+				ConceptGraphic tmp = new ConceptGraphic(
+						currentPane, conceptName.getText(), 
+						(TypeGraphic)typeCombo.getSelectedItem());
 
 				addConceptGraphic(tmp);
 			}
 		});
+
 		this.validate.setVisible(false);
-		this.ret.addActionListener(new ActionListener() {
+		this.ret.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -142,8 +134,8 @@ public class ConceptsColumn extends JPanel{
 				ret.setVisible(false);
 			}
 		});
-		this.ret.setVisible(false);
 
+		this.ret.setVisible(false);
 		this.menu.add(this.conceptLabel);
 		this.menu.add(this.conceptName);
 		this.menu.add(this.typeLabel);
@@ -160,7 +152,6 @@ public class ConceptsColumn extends JPanel{
 		valRetPane.add(retPane);
 		valRetPane.add(validatePane);
 
-
 		JPanel addConceptPane = new JPanel(new BorderLayout());
 		addConceptPane.add(this.addConcept, BorderLayout.CENTER);
 
@@ -176,22 +167,17 @@ public class ConceptsColumn extends JPanel{
 
 		this.displayArea.setLayout(new BoxLayout(this.displayArea, BoxLayout.X_AXIS));
 		this.add(this.displayArea);
-
 	}
 
-	public void setCurrentConceptPanel(ConceptGraphic cg)
-	{
+	public void setCurrentConceptPanel(ConceptGraphic cg){
 		if(this.currentConceptPanel != null)
-		{
 			this.currentConceptPanel.setVisible(false);
-		}
 		this.currentConceptPanel = cg;
 		this.currentConceptPanel.setVisible(true);
 		this.currentPane.setCurrentDescription(cg.description);
 	}
 
-	public void addConceptGraphic(ConceptGraphic cg)
-	{
+	public void addConceptGraphic(ConceptGraphic cg){
 		cg.setVisible(false);
 		this.setCurrentConceptPanel(cg);
 		this.concepts.add(cg);
@@ -202,8 +188,7 @@ public class ConceptsColumn extends JPanel{
 		this.validate();
 	}
 
-	public void removeConceptGraphic(ConceptGraphic cg)
-	{
+	public void removeConceptGraphic(ConceptGraphic cg){
 		cg.setVisible(false);
 		this.concepts.remove(cg);
 		this.conceptsJList.setModel(new DefaultListModel());
@@ -212,39 +197,37 @@ public class ConceptsColumn extends JPanel{
 		this.validate();
 	}
 
-
-	public Vector<ConceptGraphic> getConcepts() {
+	public Vector<ConceptGraphic> getConcepts(){
 		return concepts;
 	}
 
-	private JPopupMenu initPopup()
-	{
+	private JPopupMenu initPopup(){
 		JPopupMenu popup = new JPopupMenu();
 
 		JMenuItem rename = new JMenuItem("Renommer Concept");
 		rename.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				DialogRename dd = new DialogRename(currentPane, concepts.get(conceptsJList.getSelectedIndex()));
+			public void actionPerformed(ActionEvent e){
+				DialogRename dd = new DialogRename(currentPane, 
+						concepts.get(conceptsJList.getSelectedIndex()));
 
 				Point loc = currentFrame.getLocationOnScreen();
-				dd.setLocation(loc.x+currentFrame.getWidth()/2-dd.getWidth()/2, loc.y+currentFrame.getHeight()/2-dd.getHeight()/2);
+				dd.setLocation(loc.x+currentFrame.getWidth()/2-dd.getWidth()/2,
+						loc.y+currentFrame.getHeight()/2-dd.getHeight()/2);
 				dd.setVisible(true);
 			}
-
 		});
-
 
 		JMenuItem suppr = new JMenuItem("Supprimer Concept");
 		suppr.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				removeConceptGraphic(concepts.remove(conceptsJList.getSelectedIndex()));
+			public void actionPerformed(ActionEvent e){
+				removeConceptGraphic(concepts.remove(
+						conceptsJList.getSelectedIndex()));
 				currentPane.setCurrentDescription("");
 			}
-
 		});
 
 		JMenuItem syntox = new JMenuItem("Ajouter entree Syntox");
@@ -253,26 +236,23 @@ public class ConceptsColumn extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-
-
 			}
-
 		});
 
 		JMenuItem descr = new JMenuItem("Editer Description");
 		descr.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				DialogDescription dd = new DialogDescription(currentPane, concepts.get(conceptsJList.getSelectedIndex()));
-
+			public void actionPerformed(ActionEvent e){
+				DialogDescription dd = new DialogDescription(currentPane, 
+						concepts.get(conceptsJList.getSelectedIndex()));
 				Point loc = currentFrame.getLocationOnScreen();
-				dd.setLocation(loc.x+currentFrame.getWidth()/2-dd.getWidth()/2, loc.y+currentFrame.getHeight()/2-dd.getHeight()/2);
+				dd.setLocation(loc.x+currentFrame.getWidth()/2-dd.getWidth()/2, 
+						loc.y+currentFrame.getHeight()/2-dd.getHeight()/2);
 				dd.setVisible(true);
 			}
-
 		});
-
+		
 		popup.add(rename);
 		popup.add(descr);
 		popup.add(syntox);
@@ -280,8 +260,7 @@ public class ConceptsColumn extends JPanel{
 		return popup;
 	}
 
-	public void renameConceptGraphic(String newName, ConceptGraphic tg)
-	{
+	public void renameConceptGraphic(String newName, ConceptGraphic tg){
 		tg.name = newName;
 		this.conceptsJList.setModel(new DefaultListModel());
 		this.conceptsJList.setListData(this.concepts);

@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 public class PanelCenteredButton extends JPanel{
 	
 	public PanelCenteredButton(String buttname, ActionListener listener){
+		
 		JButton usrButton = new JButton(buttname);
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));
 		this.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));

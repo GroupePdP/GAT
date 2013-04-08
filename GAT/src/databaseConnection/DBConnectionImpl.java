@@ -6,8 +6,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DBConnectionImpl implements DBConnection 
-{
+public class DBConnectionImpl implements DBConnection{
 
 	private Connection connection;
 	private Statement statement;
@@ -15,8 +14,7 @@ public class DBConnectionImpl implements DBConnection
 	private String user;
 	private String pwd ;
 	
-	public DBConnectionImpl(String url, String user, String pwd)
-	{	
+	public DBConnectionImpl(String url, String user, String pwd){	
 		this.connection = null;
 		this.statement = null;
 		this.url = url;
@@ -26,24 +24,21 @@ public class DBConnectionImpl implements DBConnection
 	
 	
 	@Override
-	public boolean connection() throws SQLException 
-	{
+	public boolean connection() throws SQLException {
 		boolean success = false;
-		if(connection ==null)
+		if(connection == null)
 		{
 			this.connection = DriverManager.getConnection(url, user, pwd);
 			this.statement = connection.createStatement();
 			success = true;
 		}
-		return success ;
+		return success;
 	}
 	
 	@Override
-	public boolean disconnection() throws SQLException
-	{
+	public boolean disconnection() throws SQLException{
 		boolean success = false;
-		
-		if ( connection != null )
+		if (connection != null)
 		{
 			this.connection.close();
 			this.connection = null;
@@ -53,34 +48,24 @@ public class DBConnectionImpl implements DBConnection
 		return success;
 	}
 	
-	public ResultSet selectQuery(String query) throws SQLException
-	{
+	public ResultSet selectQuery(String query) throws SQLException{
 		ResultSet resultSet = null;
-		
 		if(statement != null)
-		{
 			resultSet = this.statement.executeQuery(query);
-		}
 		return resultSet;
-
 	}
 
-
 	@Override
-	public String getNameBase()
-	{
-		int lenght = this.url.length()-1;
+	public String getNameBase(){
+		int length = this.url.length()-1;
 		String nameBase = "";
 		
-		if(this.url.charAt(lenght)== '/')
-			lenght--;
-		
-		while(this.url.charAt(lenght)!='/')
-		{
-			nameBase = this.url.charAt(lenght) +nameBase;
-			lenght--;
+		if(this.url.charAt(length)== '/')
+			length--;
+		while(this.url.charAt(length)!='/'){
+			nameBase = this.url.charAt(length) +nameBase;
+			length--;
 		}
-		
 		return nameBase;
 	}
 	
