@@ -39,31 +39,31 @@
 \contentsline {section}{\numberline {4.2}Sch\IeC {\'e}mas de cas d'utilisation et de fonctionnement}{16}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Diagramme de cas d'utilisation}{16}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Sch\IeC {\'e}mas de fonctionnement}{16}{subsection.4.2.2}
-\contentsline {subsubsection}{Sch\IeC {\'e}ma de fonctionnement - Utilisateur}{18}{section*.16}
-\contentsline {subsubsection}{Sch\IeC {\'e}ma de fonctionnement - Administrateur}{20}{section*.17}
-\contentsline {section}{\numberline {4.3}Diagramme de packages}{21}{section.4.3}
-\contentsline {section}{\numberline {4.4}Base de donn\IeC {\'e}es}{21}{section.4.4}
-\contentsline {section}{\numberline {4.5}Package Linguistic}{24}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Package \texttt {concepts\_gestion}}{25}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Package \texttt {types\_gestion}}{26}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Package \texttt {graph\_concepts\_gestion}}{27}{subsection.4.5.3}
-\contentsline {section}{\numberline {4.6}Package Syntox}{29}{section.4.6}
-\contentsline {section}{\numberline {4.7}Gestion des fichiers}{30}{section.4.7}
-\contentsline {subsection}{\numberline {4.7.1}Pr\IeC {\'e}sentation globale}{30}{subsection.4.7.1}
-\contentsline {subsection}{\numberline {4.7.2}Impl\IeC {\'e}mentation}{31}{subsection.4.7.2}
-\contentsline {paragraph}{Enregistrement}{31}{section*.23}
-\contentsline {paragraph}{Chargement}{31}{section*.24}
-\contentsline {paragraph}{Affichage du r\IeC {\'e}pertoire courant}{31}{section*.25}
-\contentsline {paragraph}{Utilisation des fonctions de chargement et d'enregistrement}{31}{section*.26}
-\contentsline {section}{\numberline {4.8}Core}{32}{section.4.8}
-\contentsline {section}{\numberline {4.9}Diagrammes de s\IeC {\'e}quence}{33}{section.4.9}
-\contentsline {chapter}{\numberline {5}Pr\IeC {\'e}sentation du logiciel fourni}{37}{chapter.5}
-\contentsline {chapter}{\numberline {6}Tests et r\IeC {\'e}sultats}{45}{chapter.6}
-\contentsline {section}{\numberline {6.1}Tests effectu\IeC {\'e}s}{45}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Package Linguistique}{45}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Core}{47}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Database[Connection/Inspection]}{48}{subsection.6.1.3}
-\contentsline {subsection}{\numberline {6.1.4}Syntox}{48}{subsection.6.1.4}
-\contentsline {subsection}{\numberline {6.1.5}M\IeC {\'e}moire et temps de calcul}{48}{subsection.6.1.5}
-\contentsline {section}{\numberline {6.2}R\IeC {\'e}sultats}{48}{section.6.2}
-\contentsline {chapter}{\numberline {7}Conclusion et perspectives}{49}{chapter.7}
+\contentsline {subsubsection}{Sch\IeC {\'e}ma de fonctionnement - Utilisateur}{17}{section*.16}
+\contentsline {subsubsection}{Sch\IeC {\'e}ma de fonctionnement - Administrateur}{18}{section*.17}
+\contentsline {section}{\numberline {4.3}Diagramme de packages}{20}{section.4.3}
+\contentsline {section}{\numberline {4.4}Base de donn\IeC {\'e}es}{20}{section.4.4}
+\contentsline {section}{\numberline {4.5}Package Linguistic}{23}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Package \texttt {concepts\_gestion}}{24}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Package \texttt {types\_gestion}}{25}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Package \texttt {graph\_concepts\_gestion}}{26}{subsection.4.5.3}
+\contentsline {section}{\numberline {4.6}Package Syntox}{28}{section.4.6}
+\contentsline {section}{\numberline {4.7}Gestion des fichiers}{29}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}Pr\IeC {\'e}sentation globale}{29}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.2}Impl\IeC {\'e}mentation}{30}{subsection.4.7.2}
+\contentsline {paragraph}{Enregistrement}{30}{section*.23}
+\contentsline {paragraph}{Chargement}{30}{section*.24}
+\contentsline {paragraph}{Affichage du r\IeC {\'e}pertoire courant}{30}{section*.25}
+\contentsline {paragraph}{Utilisation des fonctions de chargement et d'enregistrement}{30}{section*.26}
+\contentsline {section}{\numberline {4.8}Core}{31}{section.4.8}
+\contentsline {section}{\numberline {4.9}Diagrammes de s\IeC {\'e}quence}{32}{section.4.9}
+\contentsline {chapter}{\numberline {5}Pr\IeC {\'e}sentation du logiciel fourni}{36}{chapter.5}
+\contentsline {chapter}{\numberline {6}Tests et r\IeC {\'e}sultats}{44}{chapter.6}
+\contentsline {section}{\numberline {6.1}Tests effectu\IeC {\'e}s}{44}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Package Linguistique}{44}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Core}{46}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Database[Connection/Inspection]}{47}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}Syntox}{47}{subsection.6.1.4}
+\contentsline {subsection}{\numberline {6.1.5}M\IeC {\'e}moire et temps de calcul}{47}{subsection.6.1.5}
+\contentsline {section}{\numberline {6.2}R\IeC {\'e}sultats}{47}{section.6.2}
+\contentsline {chapter}{\numberline {7}Conclusion et perspectives}{48}{chapter.7}

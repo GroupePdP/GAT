@@ -437,30 +437,33 @@ que l'utilisation d'une base de données est superflue.
 
 Ils schématisent les interactions entre le programme, l'utilisateur et l'administrateur, avec la base de données et Syntox.
 
-
-Avant tout, l'administrateur configure la connexion avec la base de données.
-
-Ensuite, il crée des types et concepts (ayant un nom, un type et des arguments) et qu'il associe avec ceux crée par analyse de la base de données: ces concepts sont primordiaux pour la production finale de texte et régissent la manière dont est interrogée la base de données.
-
-
-%Il se doit de compléter la grammaire (s'il en existe une) et d'enrichir le lexique pour répondre aux concepts que l'on souhaite expliquer; autrement dit, chaque base de données aura besoin de son propre lexique et éventuellement d'un ajustement de la grammaire pour obtenir un résultat satisfaisant.
-
-L'utilisateur peut alors sélectionner un scénario ou interroger la base de données avec les outils proposés par l'IHM. Ses actions vont donner aux programmes les paramètres nécessaires à la création d'une entrée Syntox, après la récupération des informations nécessaires via des requêtes SQL. Syntox est alors sollicité pour générer un texte final.
-
-A l'heure actuelle, on ne sait pas encore si le résultat final sera consultable uniquement via Syntox ou renvoyé à l'utilisateur via notre logiciel.
-
 	\subsubsection{Schéma de fonctionnement - Utilisateur}
 	
 	\includegraphics[scale=0.45]{FonctionnementUtilisateur.png}
 	
 	Le schéma ci-dessus décrit le fonctionnement du logiciel du point de vue d'un utilisateur classique.
 	
+	Après avoir choisi le mode d'utilisation "Classique", l'utilisateur choisit le projet sur lequel il souhaite travailler. Il choisit ensuite de travailler sur un scénario existant ou de créer un nouveau scénario. 
+	\begin{itemize}
+	\item S'il choisit "Scénario existant", il a accès à la liste des scénarios existants dans le projet sélectionné et peut générer une entrée Syntox à partir du scénario qu'il aura choisi.
+	\item En choisissant "Scénario personnalisé", il a la possibilité de manipuler des concepts et de former ainsi un scénario adapté à ses besoins. Une fois que son travail est terminé, il peut l'enregistrer. Son nouveau scénario devient disponible dans la liste des scénarios existants.
+	\end{itemize}
 
 	\subsubsection{Schéma de fonctionnement - Administrateur}
 	
+	Le schéma ci-dessous décrit le fonctionnement du logiciel du point de vue d'un administrateur.
+	
+	Après avoir choisi le mode "Administrateur", l'utilisateur administrateur choisit entre la création d'un nouveau projet et la modification d'un projet existant. 
+	\begin{itemize}
+	\item Dans le cas où il choisit de créer un nouveau projet, il commence par entrer les informations demandées, à savoir : le nom du projet et les informations nécessaires à la connexion à la base de données.
+	Ces informations sont ensuite utilisées pour créer de manière automatique les types de base contenus dans la base de données. L'administrateur peut alors commencer à créer du contenu pour son projet (nouveaux concepts et nouveaux types).
+	\item L'administrateur peut aussi choisir de modifier un des projets existants ; il charge alors le projet voulu, et le complète avec de nouveaux concepts et types.
+	\end{itemize}
+	Quand l'administrateur a fini de modifier / créer son projet, il l'enregistre et pourra y accéder plus tard via la liste des projets existants.
+	
 	\includegraphics[scale=0.53]{FonctionnementAdministrateur.png}
 	
-Le schéma ci-dessus décrit le fonctionnement du logiciel du point de vue d'un administrateur.
+
 	
 
 
