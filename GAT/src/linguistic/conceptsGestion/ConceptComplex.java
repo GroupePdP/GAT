@@ -36,7 +36,6 @@ public class ConceptComplex extends ConceptAbstract {
 		return this.arguments;
 	}
 
-	// qq peut expliquer comment fonctionne cette methode ?
 	public void setSyntoxInput(Map<String, Type> map){
 		this.syntox = map;
 	}
