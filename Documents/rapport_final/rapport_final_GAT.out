@@ -1,49 +1,49 @@
-\BOOKMARK [0][-]{chapter.1}{Pr\351sentation du sujet}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Pr\351sentation du domaine}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Pr\351sentation du projet}{chapter.1}% 3
-\BOOKMARK [0][-]{chapter.2}{Etude de l'existant et bibliographie}{}% 4
-\BOOKMARK [1][-]{section.2.1}{El\351ments bibliographiques}{chapter.2}% 5
-\BOOKMARK [2][-]{subsection.2.1.1}{EasyText}{section.2.1}% 6
-\BOOKMARK [1][-]{section.2.2}{Etude de l'existant}{chapter.2}% 7
-\BOOKMARK [2][-]{subsection.2.2.1}{Projet GAT-2}{section.2.2}% 8
-\BOOKMARK [2][-]{subsection.2.2.2}{Syntox}{section.2.2}% 9
-\BOOKMARK [0][-]{chapter.3}{Cahier des charges}{}% 10
-\BOOKMARK [1][-]{section.3.1}{Sc\351narios d'utilisation}{chapter.3}% 11
-\BOOKMARK [2][-]{subsection.3.1.1}{Sc\351narios utilisateur}{section.3.1}% 12
-\BOOKMARK [2][-]{subsection.3.1.2}{Sc\351narios administrateur}{section.3.1}% 13
-\BOOKMARK [1][-]{section.3.2}{Besoins fonctionnels}{chapter.3}% 14
-\BOOKMARK [2][-]{subsection.3.2.1}{Besoins utilisateur}{section.3.2}% 15
-\BOOKMARK [2][-]{subsection.3.2.2}{Besoins administrateur}{section.3.2}% 16
-\BOOKMARK [2][-]{subsection.3.2.3}{Besoins syst\350me}{section.3.2}% 17
-\BOOKMARK [1][-]{section.3.3}{Besoins non-fonctionnels}{chapter.3}% 18
-\BOOKMARK [2][-]{subsection.3.3.1}{G\351n\351ration d'une entr\351e Syntox}{section.3.3}% 19
-\BOOKMARK [2][-]{subsection.3.3.2}{Facilit\351 d'utilisation}{section.3.3}% 20
-\BOOKMARK [2][-]{subsection.3.3.3}{Portabilit\351}{section.3.3}% 21
-\BOOKMARK [2][-]{subsection.3.3.4}{Besoins relatifs aux bases de donn\351es utilis\351es}{section.3.3}% 22
-\BOOKMARK [0][-]{chapter.4}{Architecture et impl\351mentation}{}% 23
-\BOOKMARK [1][-]{section.4.1}{Choix du langage de programmation}{chapter.4}% 24
-\BOOKMARK [1][-]{section.4.2}{Sch\351mas de cas d'utilisation et de fonctionnement}{chapter.4}% 25
-\BOOKMARK [2][-]{subsection.4.2.1}{Diagramme de cas d'utilisation}{section.4.2}% 26
-\BOOKMARK [2][-]{subsection.4.2.2}{Sch\351mas de fonctionnement}{section.4.2}% 27
-\BOOKMARK [1][-]{section.4.3}{Diagramme de packages}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.4}{Base de donn\351es}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.5}{Package Linguistic}{chapter.4}% 30
-\BOOKMARK [2][-]{subsection.4.5.1}{Package concepts\137gestion}{section.4.5}% 31
-\BOOKMARK [2][-]{subsection.4.5.2}{Package types\137gestion}{section.4.5}% 32
-\BOOKMARK [2][-]{subsection.4.5.3}{Package graph\137concepts\137gestion}{section.4.5}% 33
-\BOOKMARK [1][-]{section.4.6}{Package Syntox}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.7}{Gestion des fichiers}{chapter.4}% 35
-\BOOKMARK [2][-]{subsection.4.7.1}{Pr\351sentation globale}{section.4.7}% 36
-\BOOKMARK [2][-]{subsection.4.7.2}{Impl\351mentation}{section.4.7}% 37
-\BOOKMARK [1][-]{section.4.8}{Core}{chapter.4}% 38
-\BOOKMARK [1][-]{section.4.9}{Diagrammes de s\351quence}{chapter.4}% 39
-\BOOKMARK [0][-]{chapter.5}{Pr\351sentation du logiciel fourni}{}% 40
-\BOOKMARK [0][-]{chapter.6}{Tests et r\351sultats}{}% 41
-\BOOKMARK [1][-]{section.6.1}{Tests effectu\351s}{chapter.6}% 42
-\BOOKMARK [2][-]{subsection.6.1.1}{Package Linguistique}{section.6.1}% 43
-\BOOKMARK [2][-]{subsection.6.1.2}{Core}{section.6.1}% 44
-\BOOKMARK [2][-]{subsection.6.1.3}{Database[Connection/Inspection]}{section.6.1}% 45
-\BOOKMARK [2][-]{subsection.6.1.4}{Syntox}{section.6.1}% 46
-\BOOKMARK [2][-]{subsection.6.1.5}{M\351moire et temps de calcul}{section.6.1}% 47
-\BOOKMARK [1][-]{section.6.2}{R\351sultats}{chapter.6}% 48
-\BOOKMARK [0][-]{chapter.7}{Conclusion et perspectives}{}% 49
+\BOOKMARK [0][-]{chapter.1}{Pr\351sentation du sujet}{}
+\BOOKMARK [1][-]{section.1.1}{Pr\351sentation du domaine}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{Pr\351sentation du projet}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{Etude de l'existant et bibliographie}{}
+\BOOKMARK [1][-]{section.2.1}{El\351ments bibliographiques}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.1.1}{EasyText}{section.2.1}
+\BOOKMARK [1][-]{section.2.2}{Etude de l'existant}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.2.1}{Projet GAT-2}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.2}{Syntox}{section.2.2}
+\BOOKMARK [0][-]{chapter.3}{Cahier des charges}{}
+\BOOKMARK [1][-]{section.3.1}{Sc\351narios d'utilisation}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.1.1}{Sc\351narios utilisateur}{section.3.1}
+\BOOKMARK [2][-]{subsection.3.1.2}{Sc\351narios administrateur}{section.3.1}
+\BOOKMARK [1][-]{section.3.2}{Besoins fonctionnels}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.2.1}{Besoins utilisateur}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{Besoins administrateur}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.3}{Besoins syst\350me}{section.3.2}
+\BOOKMARK [1][-]{section.3.3}{Besoins non-fonctionnels}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.3.1}{G\351n\351ration d'une entr\351e Syntox}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.2}{Facilit\351 d'utilisation}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.3}{Portabilit\351}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.4}{Besoins relatifs aux bases de donn\351es utilis\351es}{section.3.3}
+\BOOKMARK [0][-]{chapter.4}{Architecture et impl\351mentation}{}
+\BOOKMARK [1][-]{section.4.1}{Choix du langage de programmation}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{Sch\351mas de cas d'utilisation et de fonctionnement}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.2.1}{Diagramme de cas d'utilisation}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.2}{Sch\351mas de fonctionnement}{section.4.2}
+\BOOKMARK [1][-]{section.4.3}{Diagramme de packages}{chapter.4}
+\BOOKMARK [1][-]{section.4.4}{Base de donn\351es}{chapter.4}
+\BOOKMARK [1][-]{section.4.5}{Package Linguistic}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.5.1}{Package concepts\137gestion}{section.4.5}
+\BOOKMARK [2][-]{subsection.4.5.2}{Package types\137gestion}{section.4.5}
+\BOOKMARK [2][-]{subsection.4.5.3}{Package graph\137concepts\137gestion}{section.4.5}
+\BOOKMARK [1][-]{section.4.6}{Package syntox}{chapter.4}
+\BOOKMARK [1][-]{section.4.7}{Gestion des fichiers}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.7.1}{Pr\351sentation globale}{section.4.7}
+\BOOKMARK [2][-]{subsection.4.7.2}{Impl\351mentation}{section.4.7}
+\BOOKMARK [1][-]{section.4.8}{Core}{chapter.4}
+\BOOKMARK [1][-]{section.4.9}{Diagrammes de s\351quence}{chapter.4}
+\BOOKMARK [0][-]{chapter.5}{Pr\351sentation du logiciel fourni}{}
+\BOOKMARK [0][-]{chapter.6}{Tests et r\351sultats}{}
+\BOOKMARK [1][-]{section.6.1}{Tests effectu\351s}{chapter.6}
+\BOOKMARK [2][-]{subsection.6.1.1}{Package Linguistique}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.2}{Core}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.3}{Database[Connection/Inspection]}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.4}{Syntox}{section.6.1}
+\BOOKMARK [2][-]{subsection.6.1.5}{M\351moire et temps de calcul}{section.6.1}
+\BOOKMARK [1][-]{section.6.2}{R\351sultats}{chapter.6}
+\BOOKMARK [0][-]{chapter.7}{Conclusion et perspectives}{}

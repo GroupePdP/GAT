@@ -47,7 +47,7 @@
 \contentsline {subsection}{\numberline {4.5.1}Package \texttt {concepts\_gestion}}{24}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}Package \texttt {types\_gestion}}{25}{subsection.4.5.2}
 \contentsline {subsection}{\numberline {4.5.3}Package \texttt {graph\_concepts\_gestion}}{26}{subsection.4.5.3}
-\contentsline {section}{\numberline {4.6}Package Syntox}{28}{section.4.6}
+\contentsline {section}{\numberline {4.6}Package \texttt {syntox}}{28}{section.4.6}
 \contentsline {section}{\numberline {4.7}Gestion des fichiers}{29}{section.4.7}
 \contentsline {subsection}{\numberline {4.7.1}Pr\IeC {\'e}sentation globale}{30}{subsection.4.7.1}
 \contentsline {subsection}{\numberline {4.7.2}Impl\IeC {\'e}mentation}{30}{subsection.4.7.2}

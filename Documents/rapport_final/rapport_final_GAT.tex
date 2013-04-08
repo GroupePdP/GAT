@@ -550,7 +550,7 @@ Le package \texttt{linguistic} a été subdivisé en trois sous-packages : \text
 \includegraphics[scale=0.5]{DiagLinguistic_concepts_gestion.png}
 \end{center}
 
-Ce package contient la structure représentant un concept. Chaque \texttt{Concept} est défini par (au moins) un nom et un \texttt{Type}. Le \texttt{Concept} peut être simple ou complexe ; s'il est complexe, il possède également une liste d'arguments (qui sont des types, ce qui permet une indépendance des différents concepts). % voir parametre syntox et methode setSyntoxInput...
+Ce package contient la structure représentant un concept. Chaque \texttt{Concept} est défini par (au moins) un nom et un \texttt{Type}. Le \texttt{Concept} peut être simple ou complexe ; s'il est complexe, il possède également une liste d'arguments (qui sont des types, ce qui permet une indépendance des différents concepts).
 
 La classe \texttt{ConceptAbstract} permet de factoriser du code, notamment les accesseurs.
 La méthode \emph{generateSyntox()} sera analysée dans la partie "Package Syntox".
@@ -570,7 +570,7 @@ Les \texttt{Type} sont stockés dans un arbre de types, implémenté par la clas
 
 L'arbre de types \texttt{TypeTree} est composé de plusieurs \texttt{TypeTreeNode}, chacun correspondant à un \texttt{Type} précis et une liste de \texttt{Concept} ayant ce \texttt{Type}. Chaque \texttt{TypeTreeNode} comprend aussi une liste des \texttt{TypeTreeNode} qui sont "en-dessous" de lui dans l'arbre de types (et qui sont donc associés à ses "sous-types").
 
-Cette connaissance par chaque \texttt{TypeTreeNode} de ses fils permet au \texttt{TypeTree} de parcourir les \texttt{TypeTreeNode} à partir de la racine, ce qui sert notamment pour l'implémentation de la méthode \emph{getConceptsForType(Type t)}, qui retourne une liste des instances de \texttt{Concept} ayant le \texttt{Type} \emph{t} ou un de ses sous-types.
+Cette connaissance par chaque \texttt{TypeTreeNode} de ses fils permet au \texttt{TypeTree} de parcourir les \texttt{TypeTreeNode} à partir de la racine, ce qui sert notamment pour l'implémenta-tion de la méthode \emph{getConceptsForType(Type t)}, qui retourne une liste des instances de \texttt{Concept} ayant le \texttt{Type} \emph{t} ou un de ses sous-types.
 
 \bigskip
 
@@ -582,7 +582,7 @@ L'arbre de types et donc la classe \texttt{TypeManager} ne doivent avoir qu'une 
 
 \bigskip
 
-Le package \texttt{types\_gestion} comprend également une classe d'exception \texttt{IncompatibleTypesException}, qui permet de gérer l'incompatibilité de deux types.
+Le package \texttt{types\_gestion} comprend également une classe d'exception \texttt{Incompati}-\texttt{bleTypesException}, qui permet de gérer l'incompatibilité de deux types.
 
 \subsection{Package \texttt{graph\_concepts\_gestion}}
 
@@ -613,39 +613,39 @@ Les scénarios (qui seront plus tard enregistrés dans un fichier .XML) sont rep
 \bigskip
 Le pattern Singleton est ici réutilisé comme modèle pour la classe \texttt{GraphNodeFactory}, qui permet d'instancier la classe \texttt{GraphNodeDefault} en cachant l'implémentation du graphe de \texttt{Concept}.
 
-\section{Package Syntox}
+\section{Package \texttt{syntox}}
  
 \begin{center}
 \includegraphics[scale=0.6]{diversuml/SyntoxConnection.png}
 \end{center}
 
-Ce package contient les éléments permettant de communiquer avec le module Syntox accessible depuis internet. Le package Syntox comporte les éléments suivants : une classe SyntoxConnection, grammar.txt, lexicon.txt, postEdition.txt, headerPage.html et endingPage.html.
+Ce package contient les éléments permettant de communiquer avec le module \texttt{syntox} accessible depuis Internet. Le package \texttt{syntox} comporte les éléments suivants : une classe \texttt{SyntoxConnection}, et des fichiers de configuration grammar.txt, lexicon.txt, postEdition.txt, headerPage.html et endingPage.html.
 
 \bigskip
-La classe SyntoxConnection permet de coordonner les éléments présents dans le package afin de concevoir une page HTML, pdp.html, permettant d'établir la communication avec Syntox. Elle reçoit en entrée la requête Syntox au préalable formater par la méthode generateSyntox() des classes GraphConcepts et GraphNodeDefault du package linguistic. 
+La classe \texttt{SyntoxConnection} permet de coordonner les éléments présents dans le package afin de concevoir une page HTML, \emph{pdp.html}, permettant d'établir la communication avec le logiciel Syntox. Elle reçoit en entrée la requête Syntox au préalable formatée par la méthode \emph{generateSyntox()} des classes \texttt{GraphConcepts} et \texttt{GraphNodeDefault} du package \texttt{linguistic}. 
 
 \bigskip
-Les fichiers .txt comportent les autres éléments que le logiciel Syntox à besoin de posséder pour la génération du texte mais dont nous ne devons pas nous charger de générer. Parmi ces éléments nous avons la grammaire qui est stockée dans grammar.txt, le lexique dans le fichier lexicon.txt, et enfin les outils syntaxiques supplémentaires dans postEdition.txt. 
+Les fichiers \emph{.txt} comportent les autres éléments que le logiciel Syntox à besoin de posséder pour la génération du texte mais dont nous ne devons pas nous charger de générer. Parmi ces éléments nous avons la grammaire qui est stockée dans \emph{grammar.txt}, le lexique dans le fichier \emph{lexicon.txt}, et enfin les outils syntaxiques supplémentaires dans \emph{postEdition.txt}. 
 
 \bigskip
-De la même façon, les fichiers headerPage.html et endingPage.html contiennent les éléments nécessaires à la page HTML. C'est à dire l'entête de la page, qui comporte entre autre le descriptif de la page, l'ouverture du formulaire ainsi que la requête Syntox, et en bas de page, qui quant à elle contient les balises de fermetures du formulaire et du corps de la page. 
+De la même façon, les fichiers \emph{headerPage.html} et \emph{endingPage.html} contiennent les éléments nécessaires à la page HTML. C'est à dire l'entête de la page, qui comporte entre autres le descriptif de la page, l'ouverture du formulaire ainsi que la requête Syntox, et le bas de page, qui quant à lui contient les balises de fermeture du formulaire et du corps de la page. 
 
 \bigskip
    
-   L'utilisation de la méthode requestSyntox() de la classe SyntoxConnection permet la construction de la page HTML ainsi que le lancement automatique de cette dernière dans le navigateur par défaut de l'utilisateur. 
+   L'utilisation de la méthode \emph{requestSyntox()} de la classe \texttt{SyntoxConnection} permet la construction de la page HTML ainsi que le lancement automatique de cette dernière dans le navigateur par défaut de l'utilisateur. 
 \bigskip
-La méthode requestSyntox() fait appel à createFile(), une méthode qui va assembler chaque éléments nécessaires dans le fichier pdp.html. Nous avons dans l'ordre : 
+La méthode \emph{requestSyntox()} fait appel à \emph{createFile()}, une méthode qui va assembler chaque élément nécessaire dans le fichier \emph{pdp.html}. Nous avons dans l'ordre : 
 \begin{itemize}
-\item L'écriture de l'entête de la page HTML, headerPage.html. 
-\item La requête Syntox, contenu dans la variable inputText. 
-\item Respectivement l'ajout du contenu des fichiers grammar.txt, lexicon.txt et postEdition.txt afin de constituer le corps de la page. 
-\item Le contenu du pied de page, endingPage.html pour clôturer la création de la page. 
+\item L'écriture de l'entête de la page HTML, \emph{headerPage.html}. 
+\item La requête Syntox, contenu dans la variable \emph{inputText}. 
+\item Respectivement l'ajout du contenu des fichiers \emph{grammar.txt},  \emph{lexicon.txt} et \emph{postEdition.txt} afin de constituer le corps de la page. 
+\item Le contenu du pied de page, \emph{endingPage.html} pour clôturer la création de la page. 
 \end{itemize}
 \bigskip 
 Une fois la page HTML créée, cette dernière est ouverte dans le navigateur par défaut de l'utilisateur. La requête peut être modifiée avant de lancer la compilation du texte via le bouton. Notons que la requête appairait également dans notre application pour permettre, en cas d'échec d'ouverture du navigateur, de faire un copier/coller directement sur le site.
 
 \bigskip
-Nous avons choisi d'implémenter ce package de cette manière suite à un problème rencontré. En effet, nous ne réussissions pas à communiquer avec le formulaire présent sur la page internet. Les données devaient être mal envoyées et le formulaire ne se déclenchait pas. Toutefois, cette implémentation apporte certains avantages. En effet, la création de la page se fait indépendamment de la version en ligne, par conséquent nous n'avons pas besoin de posséder une connexion internet. De cette manière on peut concevoir la page pdp.html, la sauvegarder en dehors du répertoire et la lancer plus tard. En contre partie, les fichiers grammar.txt, lexicon.txt et postEdition.txt doivent être manuellement modifiés si ces derniers ont besoins d'être changés.
+Nous avons choisi d'implémenter ce package de cette manière suite à un problème rencontré. En effet, nous ne réussissions pas à communiquer avec le formulaire présent sur la page internet. Les données devaient être mal envoyées et le formulaire ne se déclenchait pas. Toutefois, cette implémentation apporte certains avantages. En effet, la création de la page se fait indépendamment de la version en ligne, par conséquent nous n'avons pas besoin de posséder une connexion internet. De cette manière on peut concevoir la page \emph{pdp.html}, la sauvegarder en dehors du répertoire et la lancer plus tard. En contrepartie, les fichiers \emph{grammar.txt}, \emph{lexicon.txt} et \emph{postEdition.txt} doivent être manuellement modifiés si ces derniers ont besoin d'être changés.
 
 \section{Gestion des fichiers}
 
@@ -662,26 +662,26 @@ le disque dur et de pouvoir y accéder pour le modifier: en effet, les projets, 
 et surtout, du fait de leur structure complexe, nécessitent un travail conséquent de la part de l'utilisateur, qui appréciera
 de ne pas avoir besoin de recommencer son travail à chaque démarrage du programme.
 
-	L'objet "Projet" regroupe tous les champs nécessaires au travail sur une base de donnée précise: scénarios, concepts et LinguisticFactory.
-Il a donc été décidé que chaque Projet serait stocké sur le disque sous forme d'un fichier regroupant tous ses champs.
+	La classe \texttt{Projet} regroupe tous les champs nécessaires au travail sur une base de donnée précise: scénarios, concepts et \texttt{LinguisticFactory}.
+Il a donc été décidé que chaque \texttt{Projet} serait stocké sur le disque sous forme d'un fichier regroupant tous ses champs.
 
-	Afin de faciliter la sérialisation des données, nous avons choisi d'utiliser la bibliothèque XStream.
+	Afin de faciliter la sérialisation des données, nous avons choisi d'utiliser la bibliothèque \texttt{XStream}.
 Cette bibliothèque permet d'exporter facilement les objets sur le disque dur sous forme de fichier XML, et de les charger de manière également
 intuitive.
 
-	Pour cela nous avons ajouté la bibliothèque simplifiée "xstream-1.4.4.jar", qui regroupe les fonctions principales dont nous
-aurons besoin afin de stocker et récupérer les objets de type Projet.
+	Pour cela nous avons ajouté la bibliothèque simplifiée \texttt{xstream-1.4.4.jar}, qui regroupe les fonctions principales dont nous
+aurons besoin afin de stocker et récupérer les objets de type \texttt{Projet}.
 
 \subsection{Implémentation}
 
-	Les fonctions nécessaires pour le chargement et enregistrement des données sont regroupées dans le package "fileManager".
-Ce paquet contient l'interface Storage.java et son implémentation LocalStorage.java.
+	Les fonctions nécessaires pour le chargement et enregistrement des données sont regroupées dans le package \texttt{fileManager}.
+Ce paquet contient l'interface \texttt{Storage} et son implémentation \texttt{LocalStorage}.
 
 	Nous avons choisi d'implémenter cette partie de la manière suivante:
 	\begin{itemize}
-	\item Une fonction de chargement : public Object load (String name)
-	\item Une fonction d'enregistrement : public boolean backup(String name, Object obj)
-	\item Une fonction d'affichage des fichiers XML du répertoire courant : public String[] projectsList()
+	\item Une fonction de chargement : \emph{public Object load (String name)}
+	\item Une fonction d'enregistrement : \emph{public boolean backup(String name, Object obj)}
+	\item Une fonction d'affichage des fichiers XML du répertoire courant : \emph{public String[] projectsList()}
 	\end{itemize}
 
 
@@ -690,25 +690,25 @@ au répertoire du programme): ../Projets
 
 	\paragraph{Enregistrement}
 
-La bibliothèque XStream permet donc l'enregistrement d'Objects sur le disque. Cette fonction se contente de créer un FileWriter du nom du paramètre "name"
-à l'emplacement ../Projets et d'appeler la fonction xstream.toXML sur l'argument de type "Object"(on doit donc effectuer un cast sur le Project): on obtient un fichier .XML dans le répertoire contenant
+La bibliothèque \texttt{XStream} permet donc l'enregistrement d'Objects sur le disque. Cette fonction se contente de créer un \texttt{FileWriter} du nom du paramètre \emph{name}
+à l'emplacement ../Projets et d'appeler la fonction \emph{xstream.toXML} sur l'argument de type \texttt{Object}(on doit donc effectuer un cast sur le \texttt{Project}): on obtient un fichier .XML dans le répertoire contenant
 toutes les informations nécessaire au travail sur le projet: les concepts existants, les scénarios déjà créés, et tous les types.
 
 	\paragraph{Chargement}
 
-La fonction "load" appelle simplement la fonction xstream.fromXML sur un fichier dont le nom est passé en paramètre de la fonction, et renvoie un Object,
-que l'on cast en Project et qui peut être ensuite utilisé et modifié dans le programme.
+La fonction \emph{load} appelle simplement la fonction \emph{xstream.fromXML} sur un fichier dont le nom est passé en paramètre de la fonction, et renvoie un \texttt{Object},
+que l'on cast en \texttt{Project} et qui peut être ensuite utilisé et modifié dans le programme.
 
 	\paragraph{Affichage du répertoire courant}
 
-Cette fonction renvoie un tableau de String dont les éléments sont les noms de fichiers .XML contenus dans le répertoire ../Projets, sans l'extension
+Cette fonction renvoie un tableau de \texttt{String} dont les éléments sont les noms de fichiers .XML contenus dans le répertoire ../Projets, sans l'extension
 de fichier. Cette fonction est utilisée dans la partie utilisateur du programme, au moment de choisir un projet existant.
 
 
 	\paragraph{Utilisation des fonctions de chargement et d'enregistrement}
 
 De part la manière de sauvegarder choisie, chaque modification (que ce soit un concept, un scénario ou un projet intégral) nécessite de sauvegarder
-l'intégralité du projet: toutes les fonctions de sauvegarde du programme appellent la fonction backup de la classe LocalStorage après avoir modifié
+l'intégralité du projet: toutes les fonctions de sauvegarde du programme appellent la fonction \emph{backup} de la classe \texttt{LocalStorage} après avoir modifié
 l'objet chargé dans le programme.
 
 On garantit ainsi l'intégrité du travail en cours par l'utilisateur au détriment éventuel du temps d'exécution: cependant, cette solution a été

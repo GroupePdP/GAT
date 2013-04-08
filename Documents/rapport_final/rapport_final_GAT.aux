@@ -3,21 +3,18 @@
 \catcode`;\active
 \catcode`!\active
 \catcode`?\active
-\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
-\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
-\global\let\oldcontentsline\contentsline
-\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
-\global\let\oldnewlabel\newlabel
-\gdef\newlabel#1#2{\newlabelxx{#1}#2}
-\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
-\AtEndDocument{\ifx\hyper@anchor\@undefined
-\let\contentsline\oldcontentsline
-\let\newlabel\oldnewlabel
-\fi}
-\fi}
-\global\let\hyper@last\relax 
-\gdef\HyperFirstAtBeginDocument#1{#1}
-\providecommand\HyField@AuxAddToFields[1]{}
+\ifx\hyper@anchor\@undefined
+\global \let \oldcontentsline\contentsline
+\gdef \contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global \let \oldnewlabel\newlabel
+\gdef \newlabel#1#2{\newlabelxx{#1}#2}
+\gdef \newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\let \contentsline\oldcontentsline
+\let \newlabel\oldnewlabel}
+\else
+\global \let \hyper@last\relax 
+\fi
+
 \select@language{french}
 \@writefile{toc}{\select@language{french}}
 \@writefile{lof}{\select@language{french}}
@@ -89,7 +86,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Package \texttt  {concepts\_gestion}}{24}{subsection.4.5.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Package \texttt  {types\_gestion}}{25}{subsection.4.5.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Package \texttt  {graph\_concepts\_gestion}}{26}{subsection.4.5.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Package Syntox}{28}{section.4.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Package \texttt  {syntox}}{28}{section.4.6}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.7}Gestion des fichiers}{29}{section.4.7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.7.1}Pr\IeC {\'e}sentation globale}{30}{subsection.4.7.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.7.2}Impl\IeC {\'e}mentation}{30}{subsection.4.7.2}}
