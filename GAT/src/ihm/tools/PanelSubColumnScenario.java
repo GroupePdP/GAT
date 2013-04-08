@@ -64,7 +64,6 @@ public class PanelSubColumnScenario extends JPanel{
 
 
 		JScrollPane conceptScroll = new JScrollPane(this.colList);
-		//conceptScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		this.main = conceptScroll;
 
 		this.add(conceptScroll, BorderLayout.CENTER);

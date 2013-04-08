@@ -50,7 +50,6 @@ public class BaseFactoryImpl implements BaseFactory{
 				{
 					String lineName = resultLine.getString(1);
 					String lineType = resultLine.getString(2);
-					//@TODO faire taille plus propre
 					int lineLength = 1; 
 					boolean pk = resultLine.getString(4) == "PRI";
 
@@ -83,7 +82,6 @@ public class BaseFactoryImpl implements BaseFactory{
 
 		}
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return newBase;

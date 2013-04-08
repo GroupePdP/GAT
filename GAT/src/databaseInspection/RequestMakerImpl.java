@@ -30,7 +30,6 @@ public class RequestMakerImpl implements RequestMaker{
 		return from;
 	}
 
-	//@TODO algo ni rapide ni meilleur solution 
 	private String getJoin (ArrayList<String> listTable){
 		for(String s : listTable)
 			System.out.println(s);

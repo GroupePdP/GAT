@@ -38,7 +38,10 @@ import javax.swing.border.Border;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import syntox.SyntoxConnection;
+
 import linguistic.Scenario;
+import linguistic.graphConceptsGestion.GraphConcepts;
 
 public class PanelExistingScenario extends JPanel{
 	
@@ -86,10 +89,18 @@ public class PanelExistingScenario extends JPanel{
 			}
 		});
 		
-		JPanel nextPanel = new PanelCenteredButton("Valider", new ActionListener(){
+		JPanel validate = new PanelCenteredButton("Valider", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				PanelResult pr = new PanelResult(currentFrame, thisPane, previous);
+				Scenario sc = (Scenario) scenarioList.getSelectedValue();
+				String result = "";
+				for(GraphConcepts gc : sc.getGraphList())
+				{
+					result += gc.generateSyntox()+"\n";
+				}
+				SyntoxConnection syntox = new SyntoxConnection(result);
+				syntox.requestSyntox();
+				PanelResult pr = new PanelResult(currentFrame, thisPane, previous, result);
 				currentFrame.setPane(pr);
 			}
 		});
@@ -97,7 +108,7 @@ public class PanelExistingScenario extends JPanel{
 		
 		southPanel.add(returnPanel);
 		southPanel.add(modPanel);
-		southPanel.add(nextPanel);
+		southPanel.add(validate);
 		
 		southPanel.setPreferredSize(new Dimension(currentFrame.getWidth(), currentFrame.getHeight()/100*13));
 		

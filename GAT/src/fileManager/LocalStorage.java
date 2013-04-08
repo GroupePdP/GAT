@@ -18,7 +18,6 @@ public class LocalStorage implements Storage{
 	}
 
 	public LocalStorage(String location){
-		//TODO refaire mieux teste si valide
 		this.backupDirectory = location;
 		this.xstream = new XStream (new DomDriver());
 	}

@@ -67,8 +67,10 @@ public class SyntoxConnection{
 		try {
 			URI uri = new URI("file://"+currentPath+"pdp.html");
 			Desktop.getDesktop().browse(uri);
-		} catch (URISyntaxException e) {
-		} catch (IOException e) {
+		} 
+		catch (URISyntaxException e) {
+		} 
+		catch (IOException e) {
 		}
 	}	
 }

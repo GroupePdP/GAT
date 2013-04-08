@@ -22,7 +22,8 @@ public class JoinTableImpl implements JoinTable{
 		this.keys1 = newKeys1;
 		this.keysN = newKeysN;
 	}
-	public JoinTableImpl(String newTable1, String newTableN, String newKeys1, String newKeysN){
+	public JoinTableImpl(String newTable1, String newTableN, 
+			String newKeys1, String newKeysN){
 		
 		this.table1 = newTable1;
 		this.tableN = newTableN;
@@ -42,7 +43,7 @@ public class JoinTableImpl implements JoinTable{
 	}
 	
 	private String ligneJointureSql(int i){
-		String sql =""; // ?????
+		String sql ="";
 		sql += (this.table1);
 		sql += (".");
 		sql += (this.keys1.get(i));
