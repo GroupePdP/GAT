@@ -64,11 +64,15 @@ public class SyntoxConnection{
 	
 	public void requestSyntox(){
 		this.createFile();
+		Desktop desktop = null; 
 		try {
 			URI uri = new URI("file://"+currentPath+"pdp.html");
-			Desktop.getDesktop().browse(uri);
-		} catch (URISyntaxException e) {
-		} catch (IOException e) {
+			desktop = Desktop.getDesktop();
+			desktop.browse(uri); 
+		} 
+		catch (URISyntaxException e) {
+		} 
+		catch (IOException e) {
 		}
 	}	
 }

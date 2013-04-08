@@ -28,28 +28,24 @@ import javax.swing.event.ListSelectionListener;
 import linguistic.conceptsGestion.Concept;
 import linguistic.typesGestion.Type;
 
-public class ConceptGraphic extends JPanel {
+public class ConceptGraphic extends JPanel{
 
 	Concept concept;
 	PanelInitProject currentPane;
-	
 	String name;
 	TypeGraphic type;
 	Vector<TypeGraphic> arguments = new Vector();
 	String description;
-	
 	JList argsJList;
 	JPanel menu;
 	JButton addArgument = new JButton("Ajouter argument");
 	JPanel valRetPane;
 	JButton validate = new JButton("Valider");
 	JButton ret = new JButton("Annuler");
-	
 	JPanel comboPane= new JPanel();
 	JComboBox typesCombo = new JComboBox();
-	
-	public ConceptGraphic(PanelInitProject pip, String name, TypeGraphic type)
-	{
+
+	public ConceptGraphic(PanelInitProject pip, String name, TypeGraphic type){
 		this.currentPane = pip;
 		this.type =  type;
 		this.name = name;
@@ -58,38 +54,36 @@ public class ConceptGraphic extends JPanel {
 
 	private void initMainColumn(){
 		JPanel main = new JPanel(new BorderLayout());
-		
+
 		// Initialisation de la JList
-		
 		this.argsJList = new JList(this.arguments);
 		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 		this.argsJList.setCellRenderer(centerRenderer);
 		JScrollPane scrollJList = new JScrollPane(this.argsJList);
-		scrollJList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		
-		this.argsJList.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
+		scrollJList.setVerticalScrollBarPolicy(
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+		this.argsJList.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent e){
 				if (e.getButton() == 3)
 				{
-					argsJList.setSelectedIndex(argsJList.locationToIndex(e.getPoint()));
+					argsJList.setSelectedIndex(
+							argsJList.locationToIndex(e.getPoint()));
 					JPopupMenu popup = initPopup();
 					popup.show(argsJList, e.getX(), e.getY());
 				}
 			}
 		});
-		
+
 		// Initialisation du menu
-		
 		this.menu = new JPanel();
 		this.menu.setLayout(new BoxLayout(menu, BoxLayout.Y_AXIS));
-		
-		
-		this.addArgument.addActionListener(new ActionListener() {
+
+		this.addArgument.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e){
 				comboPane.remove(typesCombo);
 				typesCombo= new JComboBox(currentPane.getTypesCol().getTypes());
 				typesCombo.setSelectedItem(null);
@@ -101,115 +95,110 @@ public class ConceptGraphic extends JPanel {
 				valRetPane.setVisible(true);
 			}
 		});
-		
+
 		this.validate.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				addArgument(currentPane.getTypesCol().getTypes().get(typesCombo.getSelectedIndex()));
-				valRetPane.setVisible(false);
-				typesCombo.setVisible(false);
-				addArgument.setVisible(true);
-			}
-		});
-		
-		this.ret.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				addArgument(currentPane.getTypesCol().getTypes().get(
+						typesCombo.getSelectedIndex()));
 				valRetPane.setVisible(false);
 				typesCombo.setVisible(false);
 				addArgument.setVisible(true);
 			}
 		});
 
-		
+		this.ret.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				valRetPane.setVisible(false);
+				typesCombo.setVisible(false);
+				addArgument.setVisible(true);
+			}
+		});
+
 		JPanel validatePane = new JPanel(new BorderLayout());
 		validatePane.add(this.validate, BorderLayout.CENTER);
-		
+
 		JPanel retPane = new JPanel(new BorderLayout());
 		retPane.add(this.ret, BorderLayout.CENTER);
-		
+
 		this.valRetPane = new JPanel();
 		this.valRetPane.setLayout(new BoxLayout(valRetPane, BoxLayout.X_AXIS));
 		this.valRetPane.add(retPane);
 		this.valRetPane.add(validatePane);
 		this.valRetPane.setVisible(false);
-		
+
 		this.typesCombo.setVisible(false);
-		
+
 		this.comboPane.setLayout(new BorderLayout());
 		this.comboPane.add(this.typesCombo , BorderLayout.CENTER);
-		
+
 		JPanel addArgPane = new JPanel(new BorderLayout());
 		addArgPane.add(this.addArgument, BorderLayout.CENTER);
-				
+
 		this.menu.add(addArgPane);
 		this.menu.add(this.comboPane);
 		this.menu.add(this.valRetPane);
-		
+
 		main.add(scrollJList, BorderLayout.CENTER);
 		main.add(this.menu, BorderLayout.SOUTH);	
-		
+
 		this.setLayout(new BorderLayout());
 		this.add(main, BorderLayout.CENTER);
 	}
-	
 
-	public void addArgument(TypeGraphic tg)
-	{
+
+	public void addArgument(TypeGraphic tg){
 		this.arguments.add(tg);
 		this.argsJList.setModel(new DefaultListModel());
 		this.argsJList.setListData(this.arguments);
 		this.invalidate();
 		this.validate();
 	}
-	
-	private void removeArgument(TypeGraphic tg)
-	{
+
+	private void removeArgument(TypeGraphic tg){
 		this.arguments.remove(tg);
 		this.argsJList.setModel(new DefaultListModel());
 		this.argsJList.setListData(this.arguments);
 		this.invalidate();
 		this.validate();
 	}
-	
+
 	@Override
-	public String toString() {
+	public String toString(){
 		return this.name;
 	}
-	
-	private JPopupMenu initPopup()
-	{
+
+	private JPopupMenu initPopup(){
 		JPopupMenu popup = new JPopupMenu();
 		JMenuItem suppr = new JMenuItem("Supprimer Concept");
 		suppr.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e){
 				removeArgument(arguments.remove(argsJList.getSelectedIndex()));
 			}
-			
 		});
-		
 		popup.add(suppr);
 		return popup;
 	}
-	
-	public String getDescription() {
+
+	public String getDescription(){
 		return description;
 	}
 
-	public void setDescription(String descr)
-	{
+	public void setDescription(String descr){
 		this.description = descr;
 	}
-	
-	public void setName(String name)
-	{
+
+	public void setName(String name){
 		this.name = name;
 	}
+
+	public TypeGraphic getType() {
+		return type;
+	}
+	
+	
 }

@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 
-public class BaseImpl implements Base
-{
+public class BaseImpl implements Base{
+	
 	private String name;
 	private Map<String,Table> listTable;
 	private ArrayList<JoinTable> listJoin;
@@ -42,10 +42,8 @@ public class BaseImpl implements Base
 		this.listJoin.add(newJoin);
 	}
 	
-	//TODO a suprimmer plus tard
 	@Override
-	public  Map<String,Table> getListTable()
-	{
+	public  Map<String,Table> getListTable(){
 		return this.listTable;	
 	}
 	

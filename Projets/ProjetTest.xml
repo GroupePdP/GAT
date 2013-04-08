@@ -1,0 +1,459 @@
+<core.Project>
+  <linguisticFactory>
+    <tm>
+      <tree>
+        <root>
+          <type class="linguistic.typesGestion.TypeImpl">
+            <name>object</name>
+            <description></description>
+          </type>
+          <childrenList>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>stade</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList>
+                <linguistic.conceptsGestion.ConceptComplex>
+                  <name>Stade</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../type"/>
+                  <arguments>
+                    <linguistic.typesGestion.TypeImpl>
+                      <name>stade.sta_nom</name>
+                      <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../../../../type"/>
+                      <description></description>
+                    </linguistic.typesGestion.TypeImpl>
+                    <linguistic.typesGestion.TypeImpl>
+                      <name>stade.sta_ville</name>
+                      <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../../../../type"/>
+                      <description></description>
+                    </linguistic.typesGestion.TypeImpl>
+                  </arguments>
+                </linguistic.conceptsGestion.ConceptComplex>
+                <linguistic.conceptsGestion.ConceptComplex>
+                  <name>Stade1</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../type"/>
+                  <arguments>
+                    <linguistic.typesGestion.TypeImpl reference="../../../linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl[2]"/>
+                    <linguistic.typesGestion.TypeImpl reference="../../../linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+                  </arguments>
+                </linguistic.conceptsGestion.ConceptComplex>
+              </conceptList>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>stade.sta_cap</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>stade.sta_id</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl" reference="../../linguistic.typesGestion.TypeTreeNode/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+              <childrenList/>
+              <conceptList>
+                <linguistic.conceptsGestion.ConceptSimple>
+                  <name>Chaban-delmas</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../../linguistic.typesGestion.TypeTreeNode/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+                </linguistic.conceptsGestion.ConceptSimple>
+                <linguistic.conceptsGestion.ConceptSimple>
+                  <name>Parc des Princes</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../../linguistic.typesGestion.TypeTreeNode/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+                </linguistic.conceptsGestion.ConceptSimple>
+                <linguistic.conceptsGestion.ConceptSimple>
+                  <name>Ernest-Wallon</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../../linguistic.typesGestion.TypeTreeNode/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+                </linguistic.conceptsGestion.ConceptSimple>
+              </conceptList>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl" reference="../../linguistic.typesGestion.TypeTreeNode/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl[2]"/>
+              <childrenList/>
+              <conceptList>
+                <linguistic.conceptsGestion.ConceptSimple>
+                  <name>Bordeaux</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../../linguistic.typesGestion.TypeTreeNode/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl[2]"/>
+                </linguistic.conceptsGestion.ConceptSimple>
+                <linguistic.conceptsGestion.ConceptSimple>
+                  <name>Paris</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../../linguistic.typesGestion.TypeTreeNode/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl[2]"/>
+                </linguistic.conceptsGestion.ConceptSimple>
+                <linguistic.conceptsGestion.ConceptSimple>
+                  <name>Toulouse</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../../linguistic.typesGestion.TypeTreeNode/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl[2]"/>
+                </linguistic.conceptsGestion.ConceptSimple>
+              </conceptList>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>joue</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>joue.nat_trans</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>joue.nat_drop</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>joue.nat_id</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>joue.nat_essai</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>joue.nat_penal</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>joue.mat_id</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>matchs</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList>
+                <linguistic.conceptsGestion.ConceptComplex>
+                  <name>Match</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../type"/>
+                  <arguments>
+                    <linguistic.typesGestion.TypeImpl reference="../../../../../linguistic.typesGestion.TypeTreeNode/type"/>
+                    <linguistic.typesGestion.TypeImpl>
+                      <name>nation</name>
+                      <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../../../../type"/>
+                      <description></description>
+                    </linguistic.typesGestion.TypeImpl>
+                    <linguistic.typesGestion.TypeImpl reference="../linguistic.typesGestion.TypeImpl[2]"/>
+                  </arguments>
+                </linguistic.conceptsGestion.ConceptComplex>
+              </conceptList>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>matchs.mat_id</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>matchs.mat_date</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>matchs.mat_stade</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl" reference="../../linguistic.typesGestion.TypeTreeNode[13]/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl[2]"/>
+              <childrenList/>
+              <conceptList>
+                <linguistic.conceptsGestion.ConceptComplex>
+                  <name>Nation</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../../linguistic.typesGestion.TypeTreeNode[13]/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl[2]"/>
+                  <arguments>
+                    <linguistic.typesGestion.TypeImpl>
+                      <name>nation.nat_nom</name>
+                      <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../../../../type"/>
+                      <description></description>
+                    </linguistic.typesGestion.TypeImpl>
+                  </arguments>
+                </linguistic.conceptsGestion.ConceptComplex>
+                <linguistic.conceptsGestion.ConceptComplex>
+                  <name>Nation1</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../../linguistic.typesGestion.TypeTreeNode[13]/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl[2]"/>
+                  <arguments>
+                    <linguistic.typesGestion.TypeImpl reference="../../../linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+                  </arguments>
+                </linguistic.conceptsGestion.ConceptComplex>
+              </conceptList>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>nation.nat_abr</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>nation.nat_id</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>nation.nat_poule</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl" reference="../../linguistic.typesGestion.TypeTreeNode[17]/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+              <childrenList/>
+              <conceptList>
+                <linguistic.conceptsGestion.ConceptSimple>
+                  <name>France</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../../linguistic.typesGestion.TypeTreeNode[17]/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+                </linguistic.conceptsGestion.ConceptSimple>
+                <linguistic.conceptsGestion.ConceptSimple>
+                  <name>Italie</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../../linguistic.typesGestion.TypeTreeNode[17]/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+                </linguistic.conceptsGestion.ConceptSimple>
+                <linguistic.conceptsGestion.ConceptSimple>
+                  <name>Angleterre</name>
+                  <type class="linguistic.typesGestion.TypeImpl" reference="../../../../linguistic.typesGestion.TypeTreeNode[17]/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+                </linguistic.conceptsGestion.ConceptSimple>
+              </conceptList>
+            </linguistic.typesGestion.TypeTreeNode>
+            <linguistic.typesGestion.TypeTreeNode>
+              <type class="linguistic.typesGestion.TypeImpl">
+                <name>joueur</name>
+                <surtype class="linguistic.typesGestion.TypeImpl" reference="../../../../type"/>
+                <description></description>
+              </type>
+              <childrenList/>
+              <conceptList/>
+            </linguistic.typesGestion.TypeTreeNode>
+          </childrenList>
+          <conceptList/>
+        </root>
+        <nodeMap>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[2]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[2]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[8]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[8]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[17]/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[21]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[13]/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl[2]"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[17]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[20]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[20]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[15]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[15]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[10]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[10]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[9]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[9]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[4]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[13]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[13]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[6]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[6]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[18]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[18]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[16]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[16]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[14]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[14]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[12]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[12]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[3]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[3]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[11]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[11]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[22]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[22]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[19]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[19]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[7]/type"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[7]"/>
+          </entry>
+          <entry>
+            <linguistic.typesGestion.TypeImpl reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode/conceptList/linguistic.conceptsGestion.ConceptComplex/arguments/linguistic.typesGestion.TypeImpl[2]"/>
+            <linguistic.typesGestion.TypeTreeNode reference="../../../root/childrenList/linguistic.typesGestion.TypeTreeNode[5]"/>
+          </entry>
+        </nodeMap>
+      </tree>
+    </tm>
+  </linguisticFactory>
+  <listScenario>
+    <linguistic.Scenario>
+      <name>ScenarioTest</name>
+      <graphList>
+        <linguistic.graphConceptsGestion.GraphConcepts>
+          <root class="linguistic.graphConceptsGestion.GraphNodeDefault">
+            <tag>false</tag>
+            <isReference>false</isReference>
+            <concept class="linguistic.conceptsGestion.ConceptComplex" reference="../../../../../../linguisticFactory/tm/tree/root/childrenList/linguistic.typesGestion.TypeTreeNode[13]/conceptList/linguistic.conceptsGestion.ConceptComplex"/>
+            <childrenList>
+              <linguistic.graphConceptsGestion.GraphNodeDefault>
+                <tag>true</tag>
+                <isReference>false</isReference>
+                <concept class="linguistic.conceptsGestion.ConceptComplex" reference="../../../../../../../../linguisticFactory/tm/tree/root/childrenList/linguistic.typesGestion.TypeTreeNode/conceptList/linguistic.conceptsGestion.ConceptComplex"/>
+                <childrenList>
+                  <linguistic.graphConceptsGestion.GraphNodeDefault>
+                    <tag>true</tag>
+                    <isReference>false</isReference>
+                    <concept class="linguistic.conceptsGestion.ConceptSimple" reference="../../../../../../../../../../linguisticFactory/tm/tree/root/childrenList/linguistic.typesGestion.TypeTreeNode[4]/conceptList/linguistic.conceptsGestion.ConceptSimple"/>
+                    <childrenList/>
+                  </linguistic.graphConceptsGestion.GraphNodeDefault>
+                  <linguistic.graphConceptsGestion.GraphNodeDefault>
+                    <tag>true</tag>
+                    <isReference>false</isReference>
+                    <concept class="linguistic.conceptsGestion.ConceptSimple" reference="../../../../../../../../../../linguisticFactory/tm/tree/root/childrenList/linguistic.typesGestion.TypeTreeNode[5]/conceptList/linguistic.conceptsGestion.ConceptSimple"/>
+                    <childrenList/>
+                  </linguistic.graphConceptsGestion.GraphNodeDefault>
+                </childrenList>
+              </linguistic.graphConceptsGestion.GraphNodeDefault>
+              <linguistic.graphConceptsGestion.GraphNodeDefault>
+                <tag>true</tag>
+                <isReference>false</isReference>
+                <concept class="linguistic.conceptsGestion.ConceptComplex" reference="../../../../../../../../linguisticFactory/tm/tree/root/childrenList/linguistic.typesGestion.TypeTreeNode[17]/conceptList/linguistic.conceptsGestion.ConceptComplex"/>
+                <childrenList>
+                  <linguistic.graphConceptsGestion.GraphNodeDefault>
+                    <tag>true</tag>
+                    <isReference>false</isReference>
+                    <concept class="linguistic.conceptsGestion.ConceptSimple" reference="../../../../../../../../../../linguisticFactory/tm/tree/root/childrenList/linguistic.typesGestion.TypeTreeNode[21]/conceptList/linguistic.conceptsGestion.ConceptSimple"/>
+                    <childrenList/>
+                  </linguistic.graphConceptsGestion.GraphNodeDefault>
+                </childrenList>
+              </linguistic.graphConceptsGestion.GraphNodeDefault>
+              <linguistic.graphConceptsGestion.GraphNodeDefault>
+                <tag>true</tag>
+                <isReference>false</isReference>
+                <concept class="linguistic.conceptsGestion.ConceptComplex" reference="../../../../../../../../linguisticFactory/tm/tree/root/childrenList/linguistic.typesGestion.TypeTreeNode[17]/conceptList/linguistic.conceptsGestion.ConceptComplex"/>
+                <childrenList>
+                  <linguistic.graphConceptsGestion.GraphNodeDefault>
+                    <tag>true</tag>
+                    <isReference>false</isReference>
+                    <concept class="linguistic.conceptsGestion.ConceptSimple" reference="../../../../../../../../../../linguisticFactory/tm/tree/root/childrenList/linguistic.typesGestion.TypeTreeNode[21]/conceptList/linguistic.conceptsGestion.ConceptSimple"/>
+                    <childrenList/>
+                  </linguistic.graphConceptsGestion.GraphNodeDefault>
+                </childrenList>
+              </linguistic.graphConceptsGestion.GraphNodeDefault>
+            </childrenList>
+          </root>
+        </linguistic.graphConceptsGestion.GraphConcepts>
+      </graphList>
+      <description></description>
+    </linguistic.Scenario>
+  </listScenario>
+  <infoDB>
+    <link>jdbc:mysql://dbserver/cpennaru</link>
+    <typeDataBase>mySQL</typeDataBase>
+    <user>cpennaru</user>
+    <passwordEncrypted>]WjgOKdfSci`</passwordEncrypted>
+  </infoDB>
+  <name>ProjetTest</name>
+</core.Project>

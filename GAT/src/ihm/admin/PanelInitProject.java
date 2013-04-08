@@ -135,7 +135,6 @@ public class PanelInitProject extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				saveProject();
 			}
 		});
@@ -144,7 +143,6 @@ public class PanelInitProject extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				currentFrame.setPane(previous);
 			}
 		});

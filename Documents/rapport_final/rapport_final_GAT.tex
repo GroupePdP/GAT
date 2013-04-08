@@ -419,6 +419,8 @@ que l'utilisation d'une base de données est superflue.
 
 \chapter{Architecture et implémentation}
 
+\section{Choix du langage de programmation}
+
 \section{Schémas de cas d'utilisation et de fonctionnement}
 
 % A REVOIR
@@ -427,7 +429,7 @@ que l'utilisation d'une base de données est superflue.
 
 \subsection{Diagramme de cas d'utilisation}
 
-	Ce diagramme présente les fonctionnalités accessibles à l'utilisateur classique et à l'administrateur. \bigskip
+	Ce diagramme présente les fonctionnalités accessibles à l'utilisateur classique et à l'administrateur via l'interface graphique. \bigskip
 
 	\includegraphics[scale=0.5]{cas_utilisation.png}
 
@@ -435,26 +437,32 @@ que l'utilisation d'une base de données est superflue.
 
 Ils schématisent les interactions entre le programme, l'utilisateur et l'administrateur, avec la base de données et Syntox.
 
-
-Avant tout, l'administrateur configure la connexion avec la base de données.
-
-Ensuite, il crée des types et concepts (ayant un nom, un type et des arguments) et qu'il associe avec ceux crée par analyse de la base de données: ces concepts sont primordiaux pour la production finale de texte et régissent la manière dont est interrogée la base de données.
-
-
-%Il se doit de compléter la grammaire (s'il en existe une) et d'enrichir le lexique pour répondre aux concepts que l'on souhaite expliquer; autrement dit, chaque base de données aura besoin de son propre lexique et éventuellement d'un ajustement de la grammaire pour obtenir un résultat satisfaisant.
-
-L'utilisateur peut alors sélectionner un scénario ou interroger la base de données avec les outils proposés par l'IHM. Ses actions vont donner aux programmes les paramètres nécessaires à la création d'une entrée Syntox, après la récupération des informations nécessaires via des requêtes SQL. Syntox est alors sollicité pour générer un texte final.
-
-A l'heure actuelle, on ne sait pas encore si le résultat final sera consultable uniquement via Syntox ou renvoyé à l'utilisateur via notre logiciel.
-
 	\subsubsection{Schéma de fonctionnement - Utilisateur}
-	Le schéma suivant décrit le fonctionnement du logiciel du point de vue d'un utilisateur classique.
+	
 	\includegraphics[scale=0.45]{FonctionnementUtilisateur.png}
 	
+	Le schéma ci-dessus décrit le fonctionnement du logiciel du point de vue d'un utilisateur classique.
+	
+	Après avoir choisi le mode d'utilisation "Classique", l'utilisateur choisit le projet sur lequel il souhaite travailler. Il choisit ensuite de travailler sur un scénario existant ou de créer un nouveau scénario. 
+	\begin{itemize}
+	\item S'il choisit "Scénario existant", il a accès à la liste des scénarios existants dans le projet sélectionné et peut générer une entrée Syntox à partir du scénario qu'il aura choisi.
+	\item En choisissant "Scénario personnalisé", il a la possibilité de manipuler des concepts et de former ainsi un scénario adapté à ses besoins. Une fois que son travail est terminé, il peut l'enregistrer. Son nouveau scénario devient disponible dans la liste des scénarios existants.
+	\end{itemize}
 
 	\subsubsection{Schéma de fonctionnement - Administrateur}
-	Le schéma suivant décrit le fonctionnement du logiciel du point de vue d'un administrateur.
-	\includegraphics[scale=0.45]{FonctionnementAdministrateur.png}
+	
+	Le schéma ci-dessous décrit le fonctionnement du logiciel du point de vue d'un administrateur.
+	
+	Après avoir choisi le mode "Administrateur", l'utilisateur administrateur choisit entre la création d'un nouveau projet et la modification d'un projet existant. 
+	\begin{itemize}
+	\item Dans le cas où il choisit de créer un nouveau projet, il commence par entrer les informations demandées, à savoir : le nom du projet et les informations nécessaires à la connexion à la base de données.
+	Ces informations sont ensuite utilisées pour créer de manière automatique les types de base contenus dans la base de données. L'administrateur peut alors commencer à créer du contenu pour son projet (nouveaux concepts et nouveaux types).
+	\item L'administrateur peut aussi choisir de modifier un des projets existants ; il charge alors le projet voulu, et le complète avec de nouveaux concepts et types.
+	\end{itemize}
+	Quand l'administrateur a fini de modifier / créer son projet, il l'enregistre et pourra y accéder plus tard via la liste des projets existants.
+	
+	\includegraphics[scale=0.53]{FonctionnementAdministrateur.png}
+	
 
 	
 
@@ -476,7 +484,6 @@ Chacun de ces packages comportera les classes nécessaires à son bon fonctionne
 
 
 
-\section{Structures de données utilisées}
 
 \section{Base de données}
 
@@ -543,10 +550,10 @@ Le package \texttt{linguistic} a été subdivisé en trois sous-packages : \text
 \includegraphics[scale=0.5]{DiagLinguistic_concepts_gestion.png}
 \end{center}
 
-Ce package contient la structure représentant un concept. Chaque Concept est défini par (au moins) un nom et un Type. Le Concept peut être simple ou complexe ; s'il est complexe, il possède également une liste d'arguments (qui sont des types, ce qui permet une indépendance des différents concepts). % voir parametre syntox et methode setSyntoxInput...
+Ce package contient la structure représentant un concept. Chaque \texttt{Concept} est défini par (au moins) un nom et un \texttt{Type}. Le \texttt{Concept} peut être simple ou complexe ; s'il est complexe, il possède également une liste d'arguments (qui sont des types, ce qui permet une indépendance des différents concepts). % voir parametre syntox et methode setSyntoxInput...
 
-La classe ConceptAbstract permet de factoriser du code, notamment les accesseurs.
-La méthode generateSyntox sera analysée dans la partie "Génération de l'entrée Syntox".
+La classe \texttt{ConceptAbstract} permet de factoriser du code, notamment les accesseurs.
+La méthode \emph{generateSyntox()} sera analysée dans la partie "Package Syntox".
 
 \subsection{Package \texttt{types\_gestion}}
 
@@ -554,28 +561,28 @@ La méthode generateSyntox sera analysée dans la partie "Génération de l'entr
 \includegraphics[scale=0.43]{DiagLinguistic_types_gestion.png}
 \end{center}
 
-Le package \texttt{types\_gestion} contient les classes gérant le système de typage des Concepts. Le coeur de ce package est donc bien sûr l'interface Type et la classe TypeImpl qui l'implémente.
-Chaque Type est défini par son nom et peut être relié à d'autres types par une relation surtype/sous-type.
+Le package \texttt{types\_gestion} contient les classes gérant le système de typage des \texttt{Concept}. Le coeur de ce package est donc bien sûr l'interface \texttt{Type} et la classe \texttt{TypeImpl} qui l'implémente.
+Chaque \texttt{Type} est défini par son nom et peut être relié à d'autres types par une relation surtype/sous-type.
 
 \bigskip
 
-Les Types sont stockés dans un arbre de types, implémenté par la classe TypeTree. Cet arbre de types contient une référence à la racine de l'arbre (qui correspond au Type racine), et une Map qui permet de faire la correspondance entre un Type stocké dans l'arbre et le noeud de l'arbre associé à ce Type. Nous avons choisi d'implémenter cette correspondance avec une Map car c'est une structure qui permet une indexation par les Types, et un accès rapide en lecture.
+Les \texttt{Type} sont stockés dans un arbre de types, implémenté par la classe \texttt{TypeTree}. Cet arbre de types contient une référence à la racine de l'arbre (qui correspond au Type racine), et une \texttt{Map} qui permet de faire la correspondance entre un \texttt{Type} stocké dans l'arbre et le noeud de l'arbre associé à ce \texttt{Type}. Nous avons choisi d'implémenter cette correspondance avec une \texttt{Map} car c'est une structure qui permet une indexation par les \texttt{Type}, et un accès rapide en lecture.
 
-L'arbre de types TypeTree est composé de plusieurs TypeTreeNode, chacun correspondant à un Type précis et une liste de Concept ayant ce Type. Chaque TypeTreeNode comprend aussi une liste des TypeTreeNode qui sont "en-dessous" de lui dans l'arbre de types (et qui sont donc associés à ses "sous-types").
+L'arbre de types \texttt{TypeTree} est composé de plusieurs \texttt{TypeTreeNode}, chacun correspondant à un \texttt{Type} précis et une liste de \texttt{Concept} ayant ce \texttt{Type}. Chaque \texttt{TypeTreeNode} comprend aussi une liste des \texttt{TypeTreeNode} qui sont "en-dessous" de lui dans l'arbre de types (et qui sont donc associés à ses "sous-types").
 
-Cette connaissance par chaque TypeTreeNode de ses fils permet au TypeTree de parcourir les TypeTreeNode à partir de la racine, ce qui sert notamment pour l'implémen-tation de la méthode getConceptsForType(Type t), qui retourne une liste des instances de Concept ayant le Type t ou un de ses sous-types.
-
-\bigskip
-
-La classe TypeManager est une classe qui permet de gérer la classe TypeTree et d'instancier la classe TypeImpl, elle se base sur le modèle du pattern Factory. En effet, l'instanciation de TypeImpl est faite par le TypeManager, qui crée et modifie dynamiquement l'arbre de types correspondant. Il est aussi responsable de la compatibilité de deux Type t1 et t2, c'est-à-dire la vérification que le Type t1 est un sous-type (strict ou non) du Type t2.
+Cette connaissance par chaque \texttt{TypeTreeNode} de ses fils permet au \texttt{TypeTree} de parcourir les \texttt{TypeTreeNode} à partir de la racine, ce qui sert notamment pour l'implémentation de la méthode \emph{getConceptsForType(Type t)}, qui retourne une liste des instances de \texttt{Concept} ayant le \texttt{Type} \emph{t} ou un de ses sous-types.
 
 \bigskip
 
-L'arbre de types et donc la classe TypeManager ne doivent avoir qu'une seule instance par Projet, nous avons donc mis en place la classe LinguisticFactory, qui se base sur le pattern Singleton, pour gérer la création de nouveaux Type et de nouveaux Concept. C'est cette classe qui sera utilisée lors de l'instanciation des Type et des Concept, et qui "cachera" à l'utilisateur le système de gestion et de stockage des Type et des Concept.
+La classe \texttt{TypeManager} est une classe qui permet de gérer la classe \texttt{TypeTree} et d'instancier la classe \texttt{TypeImpl}, elle se base sur le modèle du pattern Factory. En effet, l'instanciation de \texttt{TypeImpl} est faite par le \texttt{TypeManager}, qui crée et modifie dynamiquement l'arbre de types correspondant. Il est aussi responsable de la compatibilité de deux \texttt{Type} \emph{t1} et \emph{t2}, c'est-à-dire la vérification que le \texttt{Type} \emph{t1} est un sous-type (strict ou non) du \texttt{Type} \emph{t2}.
 
 \bigskip
 
-Le package \texttt{types\_gestion} comprend également une classe d'exception IncompatibleTypesException, qui permet de gérer l'incompatibilité de deux types.
+L'arbre de types et donc la classe \texttt{TypeManager} ne doivent avoir qu'une seule instance par \texttt{Projet}, nous avons donc mis en place la classe \texttt{LinguisticFactory}, qui se base sur le pattern Singleton, pour gérer la création de nouveaux \texttt{Type} et de nouveaux \texttt{Concept}. C'est cette classe qui sera utilisée lors de l'instanciation des \texttt{Type} et des \texttt{Concept}, et qui "cachera" à l'utilisateur le système de gestion et de stockage des \texttt{Type} et des \texttt{Concept}.
+
+\bigskip
+
+Le package \texttt{types\_gestion} comprend également une classe d'exception \texttt{IncompatibleTypesException}, qui permet de gérer l'incompatibilité de deux types.
 
 \subsection{Package \texttt{graph\_concepts\_gestion}}
 
@@ -583,36 +590,62 @@ Le package \texttt{types\_gestion} comprend également une classe d'exception In
 \includegraphics[scale=0.5]{DiagLinguistic_graph_concepts_gestion.png}
 \end{center}
 
-A la fin de la création et du remplissage d'un nouveau Scénario, les Concept manipulés par l'utilisateur sont stockés dans un graphe, implémenté à l'aide des classes GraphNodeDefault et GraphConcepts, et des interfaces GraphConceptsInterface et Graph-Node.
+A la fin de la création et du remplissage d'un nouveau scénario, les \texttt{Concept} manipulés par l'utilisateur sont stockés dans un graphe, implémenté à l'aide des classes \texttt{GraphNodeDefault} et \texttt{GraphConcepts}, et des interfaces \texttt{GraphConceptsInterface} et \texttt{GraphNode}.
 
-Chaque GraphConcepts est constitué d'un GraphNode racine. Un GraphNode est identifié par le Concept qu'il représente et la liste des GraphNode dont il est le "parent".
+Chaque \texttt{GraphConcepts} est constitué d'un \texttt{GraphNode} racine. Un \texttt{GraphNode} est identifié par le \texttt{Concept} qu'il représente et la liste des \texttt{GraphNode} dont il est le "parent".
 
 \bigskip
 
-Par construction, le graphe créé à partir des Concept manipulés par l'utilisateur est un graphe orienté acyclique (l'orientation se fait d'un GraphNode vers ses "fils", dont il possède la liste). Cependant, ce graphe doit être enregistré dans un fichier XML et il était plus simple pour cette utilisation d'avoir une structure purement arborescente. 
+Par construction, le graphe créé à partir des \texttt{Concept} manipulés par l'utilisateur est un graphe orienté acyclique (l'orientation se fait d'un \texttt{GraphNode} vers ses "fils", dont il possède la liste). Cependant, ce graphe doit être enregistré dans un fichier XML et il était plus simple pour cette utilisation d'avoir une structure purement arborescente. 
 
-Nous avons donc ajouté trois champs qui nous permettent d'avoir une structure d'arbre tout en conservant la possibilité d'avoir des références multiples à un même concept ; ces champs sont principalement utilisés dans la méthode addChild(GraphNode child, int index) de la classe GraphNodeDefault.
+Nous avons donc ajouté trois champs qui nous permettent d'avoir une structure d'arbre tout en conservant la possibilité d'avoir des références multiples à un même concept ; ces champs sont principalement utilisés dans la méthode \emph{addChild(GraphNode child, int index)} de la classe \texttt{GraphNodeDefault}.
 \begin{itemize}
-\item tag (boolean) : ce champ est modifié lors du parcours de la liste de GraphNode childrenList, il permet de savoir si le GraphNode que l'on veut ajouter a déjà été rencontré parmi les enfants du GraphNode considéré. Si cela est le cas, cela signifie que l'on va avoir une référence multiple au même GraphNode, et donc au même Concept.
-\item isReference (boolean) : ce champ a pour valeur \texttt{true} si d'autres GraphNode font référence au GraphNode considéré.
-\item reference (GraphNode) : ce champ contient le GraphNode auquel on fait référence, le cas échéant.
+\item \emph{tag} (\texttt{boolean}) : ce champ est modifié lors du parcours de la liste de \texttt{GraphNode} \emph{childrenList}, il permet de savoir si le \texttt{GraphNode} que l'on veut ajouter a déjà été rencontré parmi les enfants du \texttt{GraphNode} considéré. Si cela est le cas, cela signifie que l'on va avoir une référence multiple au même \texttt{GraphNode}, et donc au même \texttt{Concept}.
+\item \emph{isReference} (\texttt{boolean}) : ce champ a pour valeur \emph{true} si d'autres \texttt{GraphNode} font référence au \texttt{GraphNode} considéré.
+\item \emph{reference} (\texttt{GraphNode}) : ce champ contient le \texttt{GraphNode} auquel on fait référence, le cas échéant.
 \end{itemize}
 
-On a donc un arbre de GraphNode au lieu d'un graphe acyclique ; si deux GraphNode ayant trait au même Concept sont présents dans cet arbre, alors c'est que l'un fait référence à l'autre.
+On a donc un arbre de \texttt{GraphNode} au lieu d'un graphe acyclique ; si deux \texttt{GraphNode} ayant trait au même \texttt{Concept} sont présents dans cet arbre, alors c'est que l'un fait référence à l'autre.
 
 \bigskip 
-Les scénarios (qui seront plus tard enregistrés dans un fichier .XML) sont représentés par un nom et une liste de GraphConcepts.
+Les scénarios (qui seront plus tard enregistrés dans un fichier .XML) sont représentés par un nom et une liste de \texttt{GraphConcepts}.
 
 \bigskip
-Le pattern Singleton est ici réutilisé comme modèle pour la classe GraphNodeFactory, qui permet d'instancier la classe GraphNodeDefault en cachant l'implémentation du graphe de Concept.
+Le pattern Singleton est ici réutilisé comme modèle pour la classe \texttt{GraphNodeFactory}, qui permet d'instancier la classe \texttt{GraphNodeDefault} en cachant l'implémentation du graphe de \texttt{Concept}.
 
-\section{Génération de l'entrée Syntox}
-
+\section{Package Syntox}
+ 
 \begin{center}
 \includegraphics[scale=0.6]{diversuml/SyntoxConnection.png}
 \end{center}
 
+Ce package contient les éléments permettant de communiquer avec le module Syntox accessible depuis internet. Le package Syntox comporte les éléments suivants : une classe SyntoxConnection, grammar.txt, lexicon.txt, postEdition.txt, headerPage.html et endingPage.html.
 
+\bigskip
+La classe SyntoxConnection permet de coordonner les éléments présents dans le package afin de concevoir une page HTML, pdp.html, permettant d'établir la communication avec Syntox. Elle reçoit en entrée la requête Syntox au préalable formater par la méthode generateSyntox() des classes GraphConcepts et GraphNodeDefault du package linguistic. 
+
+\bigskip
+Les fichiers .txt comportent les autres éléments que le logiciel Syntox à besoin de posséder pour la génération du texte mais dont nous ne devons pas nous charger de générer. Parmi ces éléments nous avons la grammaire qui est stockée dans grammar.txt, le lexique dans le fichier lexicon.txt, et enfin les outils syntaxiques supplémentaires dans postEdition.txt. 
+
+\bigskip
+De la même façon, les fichiers headerPage.html et endingPage.html contiennent les éléments nécessaires à la page HTML. C'est à dire l'entête de la page, qui comporte entre autre le descriptif de la page, l'ouverture du formulaire ainsi que la requête Syntox, et en bas de page, qui quant à elle contient les balises de fermetures du formulaire et du corps de la page. 
+
+\bigskip
+   
+   L'utilisation de la méthode requestSyntox() de la classe SyntoxConnection permet la construction de la page HTML ainsi que le lancement automatique de cette dernière dans le navigateur par défaut de l'utilisateur. 
+\bigskip
+La méthode requestSyntox() fait appel à createFile(), une méthode qui va assembler chaque éléments nécessaires dans le fichier pdp.html. Nous avons dans l'ordre : 
+\begin{itemize}
+\item L'écriture de l'entête de la page HTML, headerPage.html. 
+\item La requête Syntox, contenu dans la variable inputText. 
+\item Respectivement l'ajout du contenu des fichiers grammar.txt, lexicon.txt et postEdition.txt afin de constituer le corps de la page. 
+\item Le contenu du pied de page, endingPage.html pour clôturer la création de la page. 
+\end{itemize}
+\bigskip 
+Une fois la page HTML créée, cette dernière est ouverte dans le navigateur par défaut de l'utilisateur. La requête peut être modifiée avant de lancer la compilation du texte via le bouton. Notons que la requête appairait également dans notre application pour permettre, en cas d'échec d'ouverture du navigateur, de faire un copier/coller directement sur le site.
+
+\bigskip
+Nous avons choisi d'implémenter ce package de cette manière suite à un problème rencontré. En effet, nous ne réussissions pas à communiquer avec le formulaire présent sur la page internet. Les données devaient être mal envoyées et le formulaire ne se déclenchait pas. Toutefois, cette implémentation apporte certains avantages. En effet, la création de la page se fait indépendamment de la version en ligne, par conséquent nous n'avons pas besoin de posséder une connexion internet. De cette manière on peut concevoir la page pdp.html, la sauvegarder en dehors du répertoire et la lancer plus tard. En contre partie, les fichiers grammar.txt, lexicon.txt et postEdition.txt doivent être manuellement modifiés si ces derniers ont besoins d'être changés.
 
 \section{Gestion des fichiers}
 
@@ -698,8 +731,6 @@ La fonction d'affichage du répertoire, quand à elle, est appelée au choix du 
 \includegraphics[scale=0.5]{diversuml/Core.png}
 \end{center}
 
-\section{Problèmes rencontrés et remarques}
-
 \section{Diagrammes de séquence}
 	Ce diagramme de séquence explicite les étapes de configuration de la base de données, du lexique et de la grammaire par l'administrateur. 
 
@@ -731,18 +762,76 @@ La fonction d'affichage du répertoire, quand à elle, est appelée au choix du 
 
 \chapter{Présentation du logiciel fourni}
 
-% Explications et présentation de l'IHM
-\begin{figure}
+Dans cette partie, nous allons présenter les fonctionnalités du logiciel que nous avons développé.
+
+Au lancement du logiciel, le menu principal s'affiche, offrant la possibilité à l'utilisateur soit de passer en mode "Utilisateur classique", soit en mode "Administrateur". \bigskip 
+
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{IHM/accueil.png}
-\caption{Ecran de connexion}
+\caption{Ecran d'accueil}
 \end{figure}
+
+\bigskip 
+
+Le mode "Administrateur" permet de créer ou de modifier des projets. Pour rappel, un projet regroupe des informations de connexion à une base de données, un ensemble de concepts et de types, ainsi que des scénarios, conçus à partir de ces mêmes objets.
+
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{IHM/selection_projet.png}
+\caption{Ecran du menu administrateur}
+\end{figure}
+
+Pour créer un nouveau projet, le logiciel demande à l'administrateur de fournir un certain nombre d'informations : 
+\begin{itemize}
+\item le nom du projet
+\item l'url d'une base de données MySQL valide
+\item les informations de connexion correspondant à cette base de données (identifiant et mot de passe)
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{IHM/creation_projet.png}
+\caption{Ecran de création d'un nouveau projet}
+\end{figure}
+
+L'administrateur arrive sur l'écran d'édition du projet.
+Cet écran possède deux onglets : un destiné à la création et à l'édition des concepts, l'autre à celles des types. Un certain nombre de types ont déjà été ajoutés automatiquement par le logiciel en inspectant la base de données qui a été fournie.
+
+Pour aider l'administrateur, plusieurs outils d'édition sont disponibles.
+Il peut ainsi créer des types du nom de son choix facilement et leur attribuer un surtype, ce surtype étant modifiable et supprimable à tout moment. 
+Il en va de même pour l'ajout des concepts, qui nécessite que l'administrateur fournisse son nom et son type. Il peut aussi leur ajouter des arguments, qui seront des types.
+
+La suppression, le renommage et l'édition de la description de ces types et concepts sont disponibles via un clic droit.
+
+A la fin de l'édition du projet, sa sauvegarde est possible via la commande "Enregistrer" du menu "Fichier". Les concepts et les types sont alors stockés dans un fichier .XML, qui correspond au projet. Ce fichier a pour nom le nom du projet.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{IHM/creation_types.png}
+\caption{Ecran de création des types}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{IHM/creation_concepts.png}
+\caption{Ecran de création des concepts}
+\end{figure}
+
+Si l'administrateur veut modifier un projet déjà créé, il peut le faire grâce au bouton "Modifier Projet", puis sélectionner le projet à modifier dans la liste des projets existants.
+
+Il se retrouve ensuite sur l'écran d'édition, décrit plus haut.
+
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.3]{IHM/selection_modifier_projet.png}
 \caption{Ecran d'ouverture d'un projet}
 \end{figure}
+
+Dans le cas où le bouton "Utilisateur" est sélectionné dans le menu principal, l'utilisateur
 
 \begin{figure}
 \centering
@@ -764,41 +853,15 @@ La fonction d'affichage du répertoire, quand à elle, est appelée au choix du 
 \includegraphics[scale=0.3]{IHM/remplissage_scenario.png}
 \caption{Ecran de création d'un nouveau scénario}
 \end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_5b.png}
-\caption{Ecran de connexion à la partie administrateur}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.3]{IHM/selection_projet.png}
-\caption{Ecran du menu administrateur}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.3]{IHM/creation_projet.png}
-\caption{Ecran de création d'un nouveau projet}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.3]{IHM/creation_types.png}
-\caption{Ecran de création des types}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.3]{IHM/creation_concepts.png}
-\caption{Ecran de création des concepts}
-\end{figure}
+
+
+
 \begin{figure}
 \centering
 \includegraphics[scale=0.3]{IHM/modifier_projet_admin.png}
 \caption{Ecran de choix du projet à modifier}
 \end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.25]{Generation.png}
-\caption{Ecran de choix des attributs}
-\end{figure}
+
 
 \chapter{Tests et résultats}
 \section{Tests effectués}

@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import linguistic.Scenario;
 import linguistic.typesGestion.LinguisticFactory;
 
-public class Project {
+public class Project{
 	
 	private LinguisticFactory linguisticFactory;
 	private ArrayList<Scenario> listScenario;
 	private InfoDb infoDB;
 	private String name;
 	
-	/** Constructeurs **/
+	/* Constructeurs */
 	
 	public Project (Scenario scenario){
 		this.listScenario = new ArrayList<Scenario>();
@@ -38,7 +38,7 @@ public class Project {
 		this.linguisticFactory = LinguisticFactory.getInstance();
 	}
 	
-	/** Acesseurs et modificateurs **/
+	/* Acesseurs et modificateurs */
 	
 	public LinguisticFactory getLinguisticFactory(){
 		return this.linguisticFactory;
@@ -52,23 +52,23 @@ public class Project {
 		this.name = nom;
 	}
 
-	public ArrayList<Scenario> getListScenario() {
+	public ArrayList<Scenario> getListScenario(){
 		return listScenario;
 	}
 
-	public void setListScenario(ArrayList<Scenario> listScenario) {
+	public void setListScenario(ArrayList<Scenario> listScenario){
 		this.listScenario = listScenario;
 	}
 
-	public InfoDb getInfoDb() {
+	public InfoDb getInfoDb(){
 		return infoDB;
 	}
 
-	public void setInfoDb(InfoDb dbConnection) {
+	public void setInfoDb(InfoDb dbConnection){
 		this.infoDB = dbConnection;
 	}
 	
-	/** Autres méthodes **/ 
+	/* Autres methodes */ 
 	
 	public String toStringDescr(){
 		String s = "Projet " + this.name + "\n" + "Scenarios:";

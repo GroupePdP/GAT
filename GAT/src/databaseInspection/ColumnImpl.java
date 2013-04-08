@@ -1,7 +1,7 @@
 package databaseInspection;
 
-public class ColumnImpl implements Column 
-{
+public class ColumnImpl implements Column{
+	
 	private String type;
 	private String name;
 	private int length;
