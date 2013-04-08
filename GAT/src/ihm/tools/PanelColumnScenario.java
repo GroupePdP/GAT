@@ -106,7 +106,6 @@ public class PanelColumnScenario extends JPanel{
 
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) {
-				// TODO Auto-generated method stub
 				if(arg0.getValueIsAdjusting())
 			      {
 					Concept tmp = (Concept)conceptListTest.getSelectedValue();
