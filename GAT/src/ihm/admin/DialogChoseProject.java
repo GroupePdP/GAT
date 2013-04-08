@@ -146,7 +146,6 @@ public class DialogChoseProject extends JDialog{
 			
 			@Override
 			public void itemStateChanged(ItemEvent arg0) {
-				// TODO Auto-generated method stub
 				if(combo.getSelectedItem() != null )
 					suppr.setEnabled(true);
 			}
@@ -167,7 +166,7 @@ public class DialogChoseProject extends JDialog{
 		PanelInitProject pip = new PanelInitProject(currentFrame,this.previous);
 
 		TypeTree treeTmp = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree();
-		for(Type t : treeTmp.getMap().keySet())
+		for(linguistic.typesGestion.Type t : treeTmp.getMap().keySet())
 		{
 			if(!t.getName().equals("object") && !pip.getTypesCol().typeAlreadyExists(t.getName()))
 			{
@@ -185,29 +184,29 @@ public class DialogChoseProject extends JDialog{
 		thisDiag.dispose();
 	}
 
-	private TypeGraphic addType(PanelInitProject pip, Type type)
+	private TypeGraphic addType(PanelInitProject pip, linguistic.typesGestion.Type t)
 	{
-		if(type.getSurtype() != null && !type.getSurtype().getName().equals("object"))
+		if(t.getSurtype() != null && !t.getSurtype().getName().equals("object"))
 		{
-			if(pip.getTypesCol().typeAlreadyExists(type.getSurtype().getName()))
+			if(pip.getTypesCol().typeAlreadyExists(t.getSurtype().getName()))
 			{
-				TypeGraphic tmp = new TypeGraphic(pip, type.getName(), pip.getTypesCol().getTypeByName(type.getSurtype().getName()));
-				tmp.setDescription(type.getDescription());
+				TypeGraphic tmp = new TypeGraphic(pip, t.getName(), pip.getTypesCol().getTypeByName(t.getSurtype().getName()));
+				tmp.setDescription(t.getDescription());
 				pip.getTypesCol().addTypeGraphic(tmp);
 				return tmp;
 			}
 			else
 			{
-				TypeGraphic tmp = new TypeGraphic(pip, type.getName(), addType(pip, type.getSurtype()));
-				tmp.setDescription(type.getDescription());
+				TypeGraphic tmp = new TypeGraphic(pip, t.getName(), addType(pip, t.getSurtype()));
+				tmp.setDescription(t.getDescription());
 				pip.getTypesCol().addTypeGraphic(tmp);
 				return tmp;
 			}
 		}
 		else
 		{
-			TypeGraphic tmp = new TypeGraphic(pip, type.getName());
-			tmp.setDescription(type.getDescription());
+			TypeGraphic tmp = new TypeGraphic(pip, t.getName());
+			tmp.setDescription(t.getDescription());
 			pip.getTypesCol().addTypeGraphic(tmp);
 			return tmp;
 		}
@@ -224,7 +223,7 @@ public class DialogChoseProject extends JDialog{
 		else
 		{
 			ConceptGraphic tmp = new ConceptGraphic(pip, concept.getName(), pip.getTypesCol().getTypeByName(concept.getType().getName()));
-			for(Type t : concept.getArguments())
+			for(linguistic.typesGestion.Type t : concept.getArguments())
 			{
 				tmp.addArgument(pip.getTypesCol().getTypeByName(t.getName()));
 			}
