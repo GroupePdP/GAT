@@ -219,6 +219,8 @@ public class ConceptsColumn extends JPanel{
 			}
 		});
 
+		JMenuItem conceptType = new JMenuItem("Type: "+concepts.get(conceptsJList.getSelectedIndex()).getType().toString()+"\n");
+		
 		JMenuItem suppr = new JMenuItem("Supprimer Concept");
 		suppr.addActionListener(new ActionListener(){
 
@@ -252,7 +254,7 @@ public class ConceptsColumn extends JPanel{
 				dd.setVisible(true);
 			}
 		});
-		
+		popup.add(conceptType);
 		popup.add(rename);
 		popup.add(descr);
 		popup.add(syntox);

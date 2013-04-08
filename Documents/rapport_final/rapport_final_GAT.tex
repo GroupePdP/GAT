@@ -631,10 +631,21 @@ Les fichiers .txt comportent les autres éléments que le logiciel Syntox à bes
 De la même façon, les fichiers headerPage.html et endingPage.html contiennent les éléments nécessaires à la page HTML. C'est à dire l'entête de la page, qui comporte entre autre le descriptif de la page, l'ouverture du formulaire ainsi que la requête Syntox, et en bas de page, qui quant à elle contient les balises de fermetures du formulaire et du corps de la page. 
 
 \bigskip
-L'utilisation de la méthode requestSyntox() de la classe SyntoxConnection permet la construction de la page HTML ainsi que le lancement automatique de cette dernière dans le navigateur par default de l'utilisateur. Cette méthode fait appel dans un premier temps à createFile() une méthode qui va assembler chaque éléments nécessaires dans le fichier pdp.html. Nous avons dans un premier temps l'écriture de l'entête de la page HTML, headerPage.html. La requête Syntox, contenu dans la variable inputText, est directement insérée à la suite. Puis respectivement le contenu des fichiers grammar.txt, lexicon.txt et postEdition.txt est ajouté afin de constituer le corps de la page. Pour finir, le contenu de endingPage.html est à son tour recopié pour clôturer la création de la page. 
-
    
+   L'utilisation de la méthode requestSyntox() de la classe SyntoxConnection permet la construction de la page HTML ainsi que le lancement automatique de cette dernière dans le navigateur par défaut de l'utilisateur. 
+\bigskip
+La méthode requestSyntox() fait appel à createFile(), une méthode qui va assembler chaque éléments nécessaires dans le fichier pdp.html. Nous avons dans l'ordre : 
+\begin{itemize}
+\item L'écriture de l'entête de la page HTML, headerPage.html. 
+\item La requête Syntox, contenu dans la variable inputText. 
+\item Respectivement l'ajout du contenu des fichiers grammar.txt, lexicon.txt et postEdition.txt afin de constituer le corps de la page. 
+\item Le contenu du pied de page, endingPage.html pour clôturer la création de la page. 
+\end{itemize}
+\bigskip 
+Une fois la page HTML créée, cette dernière est ouverte dans le navigateur par défaut de l'utilisateur. La requête peut être modifiée avant de lancer la compilation du texte via le bouton. Notons que la requête appairait également dans notre application pour permettre, en cas d'échec d'ouverture du navigateur, de faire un copier/coller directement sur le site.
 
+\bigskip
+Nous avons choisi d'implémenter ce package de cette manière suite à un problème rencontré. En effet, nous ne réussissions pas à communiquer avec le formulaire présent sur la page internet. Les données devaient être mal envoyées et le formulaire ne se déclenchait pas. Toutefois, cette implémentation apporte certains avantages. En effet, la création de la page se fait indépendamment de la version en ligne, par conséquent nous n'avons pas besoin de posséder une connexion internet. De cette manière on peut concevoir la page pdp.html, la sauvegarder en dehors du répertoire et la lancer plus tard. En contre partie, les fichiers grammar.txt, lexicon.txt et postEdition.txt doivent être manuellement modifiés si ces derniers ont besoins d'être changés.
 
 \section{Gestion des fichiers}
 
@@ -751,18 +762,76 @@ La fonction d'affichage du répertoire, quand à elle, est appelée au choix du 
 
 \chapter{Présentation du logiciel fourni}
 
-% Explications et présentation de l'IHM
-\begin{figure}
+Dans cette partie, nous allons présenter les fonctionnalités du logiciel que nous avons développé.
+
+Au lancement du logiciel, le menu principal s'affiche, offrant la possibilité à l'utilisateur soit de passer en mode "Utilisateur classique", soit en mode "Administrateur". \bigskip 
+
+\begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{IHM/accueil.png}
-\caption{Ecran de connexion}
+\caption{Ecran d'accueil}
 \end{figure}
+
+\bigskip 
+
+Le mode "Administrateur" permet de créer ou de modifier des projets. Pour rappel, un projet regroupe des informations de connexion à une base de données, un ensemble de concepts et de types, ainsi que des scénarios, conçus à partir de ces mêmes objets.
+
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{IHM/selection_projet.png}
+\caption{Ecran du menu administrateur}
+\end{figure}
+
+Pour créer un nouveau projet, le logiciel demande à l'administrateur de fournir un certain nombre d'informations : 
+\begin{itemize}
+\item le nom du projet
+\item l'url d'une base de données MySQL valide
+\item les informations de connexion correspondant à cette base de données (identifiant et mot de passe)
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{IHM/creation_projet.png}
+\caption{Ecran de création d'un nouveau projet}
+\end{figure}
+
+L'administrateur arrive sur l'écran d'édition du projet.
+Cet écran possède deux onglets : un destiné à la création et à l'édition des concepts, l'autre à celles des types. Un certain nombre de types ont déjà été ajoutés automatiquement par le logiciel en inspectant la base de données qui a été fournie.
+
+Pour aider l'administrateur, plusieurs outils d'édition sont disponibles.
+Il peut ainsi créer des types du nom de son choix facilement et leur attribuer un surtype, ce surtype étant modifiable et supprimable à tout moment. 
+Il en va de même pour l'ajout des concepts, qui nécessite que l'administrateur fournisse son nom et son type. Il peut aussi leur ajouter des arguments, qui seront des types.
+
+La suppression, le renommage et l'édition de la description de ces types et concepts sont disponibles via un clic droit.
+
+A la fin de l'édition du projet, sa sauvegarde est possible via la commande "Enregistrer" du menu "Fichier". Les concepts et les types sont alors stockés dans un fichier .XML, qui correspond au projet. Ce fichier a pour nom le nom du projet.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{IHM/creation_types.png}
+\caption{Ecran de création des types}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{IHM/creation_concepts.png}
+\caption{Ecran de création des concepts}
+\end{figure}
+
+Si l'administrateur veut modifier un projet déjà créé, il peut le faire grâce au bouton "Modifier Projet", puis sélectionner le projet à modifier dans la liste des projets existants.
+
+Il se retrouve ensuite sur l'écran d'édition, décrit plus haut.
+
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.3]{IHM/selection_modifier_projet.png}
 \caption{Ecran d'ouverture d'un projet}
 \end{figure}
+
+Dans le cas où le bouton "Utilisateur" est sélectionné dans le menu principal, l'utilisateur
 
 \begin{figure}
 \centering
@@ -784,41 +853,15 @@ La fonction d'affichage du répertoire, quand à elle, est appelée au choix du 
 \includegraphics[scale=0.3]{IHM/remplissage_scenario.png}
 \caption{Ecran de création d'un nouveau scénario}
 \end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{IHM_5b.png}
-\caption{Ecran de connexion à la partie administrateur}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.3]{IHM/selection_projet.png}
-\caption{Ecran du menu administrateur}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.3]{IHM/creation_projet.png}
-\caption{Ecran de création d'un nouveau projet}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.3]{IHM/creation_types.png}
-\caption{Ecran de création des types}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.3]{IHM/creation_concepts.png}
-\caption{Ecran de création des concepts}
-\end{figure}
+
+
+
 \begin{figure}
 \centering
 \includegraphics[scale=0.3]{IHM/modifier_projet_admin.png}
 \caption{Ecran de choix du projet à modifier}
 \end{figure}
-\begin{figure}
-\centering
-\includegraphics[scale=0.25]{Generation.png}
-\caption{Ecran de choix des attributs}
-\end{figure}
+
 
 \chapter{Tests et résultats}
 \section{Tests effectués}

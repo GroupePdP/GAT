@@ -14,7 +14,7 @@ public interface Factory {
 	public Type makeType(String name, Type surtype);
 	public Type makeType(String name);
 	public Type makeType(String name, Type surtype, String description);
-	public Type makeType(String name, String description); // Type "racine", qui n'a pas de surtype
+	public Type makeType(String name, String description);
 	
 	public Concept makeConcept(String name, Type type, List<Type> args);
 	public Concept makeConcept(String name, Type type);

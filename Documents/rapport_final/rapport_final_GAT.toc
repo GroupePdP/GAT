@@ -49,15 +49,15 @@
 \contentsline {subsection}{\numberline {4.5.3}Package \texttt {graph\_concepts\_gestion}}{26}{subsection.4.5.3}
 \contentsline {section}{\numberline {4.6}Package Syntox}{28}{section.4.6}
 \contentsline {section}{\numberline {4.7}Gestion des fichiers}{29}{section.4.7}
-\contentsline {subsection}{\numberline {4.7.1}Pr\IeC {\'e}sentation globale}{29}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.1}Pr\IeC {\'e}sentation globale}{30}{subsection.4.7.1}
 \contentsline {subsection}{\numberline {4.7.2}Impl\IeC {\'e}mentation}{30}{subsection.4.7.2}
 \contentsline {paragraph}{Enregistrement}{30}{section*.23}
 \contentsline {paragraph}{Chargement}{30}{section*.24}
-\contentsline {paragraph}{Affichage du r\IeC {\'e}pertoire courant}{30}{section*.25}
-\contentsline {paragraph}{Utilisation des fonctions de chargement et d'enregistrement}{30}{section*.26}
-\contentsline {section}{\numberline {4.8}Core}{31}{section.4.8}
+\contentsline {paragraph}{Affichage du r\IeC {\'e}pertoire courant}{31}{section*.25}
+\contentsline {paragraph}{Utilisation des fonctions de chargement et d'enregistrement}{31}{section*.26}
+\contentsline {section}{\numberline {4.8}Core}{32}{section.4.8}
 \contentsline {section}{\numberline {4.9}Diagrammes de s\IeC {\'e}quence}{32}{section.4.9}
-\contentsline {chapter}{\numberline {5}Pr\IeC {\'e}sentation du logiciel fourni}{36}{chapter.5}
+\contentsline {chapter}{\numberline {5}Pr\IeC {\'e}sentation du logiciel fourni}{37}{chapter.5}
 \contentsline {chapter}{\numberline {6}Tests et r\IeC {\'e}sultats}{44}{chapter.6}
 \contentsline {section}{\numberline {6.1}Tests effectu\IeC {\'e}s}{44}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}Package Linguistique}{44}{subsection.6.1.1}

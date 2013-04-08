@@ -195,4 +195,10 @@ public class ConceptGraphic extends JPanel{
 	public void setName(String name){
 		this.name = name;
 	}
+
+	public TypeGraphic getType() {
+		return type;
+	}
+	
+	
 }
