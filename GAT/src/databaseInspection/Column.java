@@ -1,7 +1,7 @@
 package databaseInspection;
 
-
-public interface Column {
+public interface Column{
+	
 	public String getName();
 	public String getType();
 	public int getLength();

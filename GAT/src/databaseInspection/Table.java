@@ -2,7 +2,7 @@ package databaseInspection;
 
 import java.util.Map;
 
-public interface Table {
+public interface Table{
 	
 	public String getName();
 	public Column getColumn(String key);
