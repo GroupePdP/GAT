@@ -616,19 +616,16 @@ Le pattern Singleton est ici réutilisé comme modèle pour la classe \texttt{Gr
 Ce package contient les éléments permettant de communiquer avec le module Syntox accessible depuis internet. Le package Syntox comporte les éléments suivants : une classe SyntoxConnection, grammar.txt, lexicon.txt, postEdition.txt, headerPage.html et endingPage.html.
 
 \bigskip
-La classe SyntoxConnection permet de coordonner les éléments présents dans le package afin de concevoir une page HTML, pdp.html, permettant d'établir la communication avec Syntox. Elle reçoit en entrée la requête Syntox au préalable formater par la méthode generateSyntox() des classes GraphConcepts et GraphNodeDefault du package linguistic. 
+La classe SyntoxConnection permet de coordonner les éléments présents dans le package afin de concevoir une page HTML, pdp.html, permettant d'établir la communication avec Syntox. Cette page contient un formulaire où la requête est écrite et un bouton qui se charge d'envoyer le formulaire, et ainsi réaliser la communication vers Syntox. L'objet de la classe SyntoxConnection reçoit en entrée la requête Syntox au préalable formatée par la méthode generateSyntox() des classes GraphConcepts et GraphNodeDefault du package linguistic. 
 
 \bigskip
-Les fichiers .txt comportent les autres éléments que le logiciel Syntox à besoin de posséder pour la génération du texte mais dont nous ne devons pas nous charger de générer. Parmi ces éléments nous avons la grammaire qui est stockée dans grammar.txt, le lexique dans le fichier lexicon.txt, et enfin les outils syntaxiques supplémentaires dans postEdition.txt. 
+Les fichiers .txt comportent les autres éléments que le logiciel Syntox à besoin de posséder pour la génération du texte mais que nous ne devons pas générer. Parmi ces éléments nous avons la grammaire qui est stockée dans grammar.txt, le lexique dans le fichier lexicon.txt, et enfin les outils syntaxiques supplémentaires dans postEdition.txt. 
 
 \bigskip
-De la même façon, les fichiers headerPage.html et endingPage.html contiennent les éléments nécessaires à la page HTML. C'est à dire l'entête de la page, qui comporte entre autre le descriptif de la page, l'ouverture du formulaire ainsi que la requête Syntox, et en bas de page, qui quant à elle contient les balises de fermetures du formulaire et du corps de la page. 
+De la même façon, les fichiers headerPage.html et endingPage.html contiennent l'entête et le bas de la page HTML. Le premier permet la mise en place du descriptif de la page, de l'ouverture du formulaire ainsi que de la requête Syntox, tandis que le second quant à lui permet la fermeture des balises et la création du bouton permettant l'exécution du formulaire. 
 
 \bigskip
-L'utilisation de la méthode requestSyntox() de la classe SyntoxConnection permet la construction de la page HTML ainsi que le lancement automatique de cette dernière dans le navigateur par default de l'utilisateur. Cette méthode fait appel dans un premier temps à createFile() une méthode qui va assembler chaque éléments nécessaires dans le fichier pdp.html. Nous avons dans un premier temps l'écriture de l'entête de la page HTML, headerPage.html. La requête Syntox, contenu dans la variable inputText, est directement insérée à la suite. Puis respectivement le contenu des fichiers grammar.txt, lexicon.txt et postEdition.txt est ajouté afin de constituer le corps de la page. Pour finir, le contenu de endingPage.html est à son tour recopié pour clôturer la création de la page. 
-
-\bigskip
-Blablabla    
+L'utilisation de la méthode requestSyntox() de la classe SyntoxConnection permet la construction de la page HTML ainsi que le lancement automatique de cette dernière dans le navigateur par défaut de l'utilisateur. Cette méthode fait appel à createFile(), une méthode qui va assembler chaque éléments nécessaires dans le fichier pdp.html. Nous avons dans un premier temps l'écriture de l'entête de la page HTML, headerPage.html. La requête Syntox, contenu dans la variable inputText, est directement insérée à la suite. Puis respectivement le contenu des fichiers grammar.txt, lexicon.txt et postEdition.txt est ajouté afin de constituer le corps de la page. Pour finir, le contenu de endingPage.html est à son tour recopié pour clôturer la création de la page.  
 
 
 \section{Gestion des fichiers}
