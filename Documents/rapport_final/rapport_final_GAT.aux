@@ -3,18 +3,21 @@
 \catcode`;\active
 \catcode`!\active
 \catcode`?\active
-\ifx\hyper@anchor\@undefined
-\global \let \oldcontentsline\contentsline
-\gdef \contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
-\global \let \oldnewlabel\newlabel
-\gdef \newlabel#1#2{\newlabelxx{#1}#2}
-\gdef \newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
-\AtEndDocument{\let \contentsline\oldcontentsline
-\let \newlabel\oldnewlabel}
-\else
-\global \let \hyper@last\relax 
-\fi
-
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
 \select@language{french}
 \@writefile{toc}{\select@language{french}}
 \@writefile{lof}{\select@language{french}}
@@ -71,13 +74,13 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Architecture et impl\IeC {\'e}mentation}{16}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Sch\IeC {\'e}mas de cas d'utilisation et de fonctionnement}{16}{section.4.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Diagramme de cas d'utilisation}{16}{subsection.4.1.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Sch\IeC {\'e}mas de fonctionnement}{16}{subsection.4.1.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Choix du langage de programmation}{16}{section.4.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Sch\IeC {\'e}mas de cas d'utilisation et de fonctionnement}{16}{section.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Diagramme de cas d'utilisation}{16}{subsection.4.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Sch\IeC {\'e}mas de fonctionnement}{16}{subsection.4.2.2}}
 \@writefile{toc}{\contentsline {subsubsection}{Sch\IeC {\'e}ma de fonctionnement - Utilisateur}{18}{section*.16}}
 \@writefile{toc}{\contentsline {subsubsection}{Sch\IeC {\'e}ma de fonctionnement - Administrateur}{19}{section*.17}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Diagramme de packages}{20}{section.4.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Structures de donn\IeC {\'e}es utilis\IeC {\'e}es}{20}{section.4.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Diagramme de packages}{20}{section.4.3}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.4}Base de donn\IeC {\'e}es}{20}{section.4.4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagramme du package databaseInspection partie structure\relax }}{21}{figure.caption.19}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Diagramme du package databaseInspection partie g\IeC {\'e}n\IeC {\'e}ration de la structure\relax }}{22}{figure.caption.20}}
@@ -86,17 +89,16 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Package \texttt  {concepts\_gestion}}{24}{subsection.4.5.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Package \texttt  {types\_gestion}}{25}{subsection.4.5.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Package \texttt  {graph\_concepts\_gestion}}{26}{subsection.4.5.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}G\IeC {\'e}n\IeC {\'e}ration de l'entr\IeC {\'e}e Syntox}{28}{section.4.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.7}Gestion des fichiers}{28}{section.4.7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.1}Pr\IeC {\'e}sentation globale}{28}{subsection.4.7.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.2}Impl\IeC {\'e}mentation}{29}{subsection.4.7.2}}
-\@writefile{toc}{\contentsline {paragraph}{Enregistrement}{29}{section*.23}}
-\@writefile{toc}{\contentsline {paragraph}{Chargement}{29}{section*.24}}
-\@writefile{toc}{\contentsline {paragraph}{Affichage du r\IeC {\'e}pertoire courant}{29}{section*.25}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Package Syntox}{28}{section.4.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Gestion des fichiers}{29}{section.4.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.1}Pr\IeC {\'e}sentation globale}{29}{subsection.4.7.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.2}Impl\IeC {\'e}mentation}{30}{subsection.4.7.2}}
+\@writefile{toc}{\contentsline {paragraph}{Enregistrement}{30}{section*.23}}
+\@writefile{toc}{\contentsline {paragraph}{Chargement}{30}{section*.24}}
+\@writefile{toc}{\contentsline {paragraph}{Affichage du r\IeC {\'e}pertoire courant}{30}{section*.25}}
 \@writefile{toc}{\contentsline {paragraph}{Utilisation des fonctions de chargement et d'enregistrement}{30}{section*.26}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.8}Core}{31}{section.4.8}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.9}Probl\IeC {\`e}mes rencontr\IeC {\'e}s et remarques}{31}{section.4.9}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.10}Diagrammes de s\IeC {\'e}quence}{31}{section.4.10}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.9}Diagrammes de s\IeC {\'e}quence}{32}{section.4.9}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Diagramme de s\IeC {\'e}quence Sc\IeC {\'e}nario 1\relax }}{33}{figure.caption.27}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Diagramme de s\IeC {\'e}quence Sc\IeC {\'e}nario 2\relax }}{34}{figure.caption.28}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Diagramme de s\IeC {\'e}quence Sc\IeC {\'e}nario 3\relax }}{35}{figure.caption.29}}
