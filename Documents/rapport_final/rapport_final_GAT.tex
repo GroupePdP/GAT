@@ -423,9 +423,6 @@ que l'utilisation d'une base de données est superflue.
 
 \section{Schémas de cas d'utilisation et de fonctionnement}
 
-% A REVOIR
-
-
 
 \subsection{Diagramme de cas d'utilisation}
 
@@ -472,18 +469,49 @@ Ils schématisent les interactions entre le programme, l'utilisateur et l'admini
 Le diagramme suivant présente la structure générale du logiciel.
 
 \begin{center}
-\includegraphics[scale=0.45]{DiagPackages.png}
+\includegraphics[scale=0.45]{diversuml/DiagPackages.png}
 \end{center}
 
 
-Notre programme se composera de cinq packages principaux: Database, Linguistic, FileManager, SyntoxConnection et IHM, correspondant aux différentes fonctionnalités du programme.
-Chacun de ces packages comportera les classes nécessaires à son bon fonctionnement.
+Notre programme se compose de sept packages: \texttt{core}, \texttt{databaseInspection} et \texttt{databaseConnection},  \texttt{linguistic}, \texttt{syntoxConnection}, \texttt{fileManager} et  \texttt{IHM}, correspondant aux différentes fonctionnalités du programme.
 
-% Expliquer le diagramme de packages
+Le package \texttt{core} correspond au coeur du programme et permet le lancement de l'application et l'instanciation initiale de l'interface graphique et des fonctionnalités du package \texttt{linguistic}.
 
+Les packages \texttt{databaseInspection} et \texttt{databaseConnection} s'occupent de la connexion à la base de données et de la récupération des données qui seront utilisées par le logiciel.
 
+Le package \texttt{linguistic} s'occupe de la gestion des concepts et des types, ainsi que du fonctionnement des graphes conceptuels.
 
+Le package \texttt{syntoxConnection} gère la connexion au logiciel Syntox.
 
+Le package \texttt{fileManager} gère le chargement et l'enregistrement des scénarios et des projets dans des fichiers.
+
+Le package \texttt{IHM} est dédié à l'interface graphique.
+
+\section{Core}
+
+\begin{center}
+\includegraphics[scale=0.5]{diversuml/Core.png}
+\end{center}
+
+    Le package \texttt{core} est utilisé par notre programme afin de centraliser toutes les données nécessaires à son exécution: gestion de la connexion à la base de données, chargement et enregistrement des projets et lancement du programme.
+
+\subsection{Implémentation}
+
+    Le package \texttt{core} est composé des cinq classes suivantes:
+
+    - Classe \texttt{Main} : se charge d'initialiser l'interface graphique et de créer l'objet central "Core"
+    - Classe \texttt{Project}: il s'agit de l'objet central que l'on manie dans le programme: il regroupe tous les scénarios, concepts, types, ainsi que les informations de connexion liées à la base de données associée.
+    - Classe \texttt{InfoDB}: cette classe implémente un objet gérant la connexion à la base de données (identifiant et mot de passe, ainsi que son URL)
+    - Classe \texttt{PasswordManager}: classe qui implémente un mécanisme basique de cryptage / décryptage des mots de passe associés à la base de données, dans l'unique but de ne pas les stocker en clair sur le disque dur.
+    - Classe \texttt{Core}: contient les constructeurs et les accesseurs de l'objet Core, qui sera un objet unique lors de l'exécution du programme. Cet objet contient une instance de \texttt{Project}, une instance de \texttt{LocalStorage} qui indique le répertoire de travail ou
+sauvegarde les projets ainsi qu'une référence à une instance de \texttt{GraphNodeFactory}.
+
+\subsection{Accès aux données, sauvegarde et chargement}
+
+    Lors de l'exécution du programme, un unique objet \texttt{Core} est créé au lancement. Cet objet permet de faciliter les communications entre l'implémentation et l'interface graphique, en regroupant toutes les fonctions d'accès et de
+modifications de l'objet \texttt{Project}. Il possède aussi les méthodes de sauvegarde et de chargement des fichiers XML des projets. De plus, il permet de se détacher de l'implémentation des objets Project et donc d'etre moins dépendant de son
+implémentation.
+    De plus, il permet de ne pas encombre l'objet \texttt{Project} d'une \texttt{GraphNodeFactory}, le limitant à une structure de données concrète contenant uniquement l'information utilisée par l'utilisateur.
 
 \section{Base de données}
 
@@ -724,12 +752,7 @@ si l'utilisateur ne quitte pas le projet en cours pour en changer).
 La fonction d'affichage du répertoire, quand à elle, est appelée au choix du projet, juste avant le chargement.
 
 
-\section{Core}
 
-
-\begin{center}
-\includegraphics[scale=0.5]{diversuml/Core.png}
-\end{center}
 
 
 \chapter{Présentation du logiciel fourni}

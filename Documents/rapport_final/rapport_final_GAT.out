@@ -26,23 +26,25 @@
 \BOOKMARK [2][-]{subsection.4.2.1}{Diagramme de cas d'utilisation}{section.4.2}% 26
 \BOOKMARK [2][-]{subsection.4.2.2}{Sch\351mas de fonctionnement}{section.4.2}% 27
 \BOOKMARK [1][-]{section.4.3}{Diagramme de packages}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.4}{Base de donn\351es}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.5}{Package linguistic}{chapter.4}% 30
-\BOOKMARK [2][-]{subsection.4.5.1}{Package concepts\137gestion}{section.4.5}% 31
-\BOOKMARK [2][-]{subsection.4.5.2}{Package types\137gestion}{section.4.5}% 32
-\BOOKMARK [2][-]{subsection.4.5.3}{Package graph\137concepts\137gestion}{section.4.5}% 33
-\BOOKMARK [1][-]{section.4.6}{Package syntox}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.7}{Gestion des fichiers}{chapter.4}% 35
-\BOOKMARK [2][-]{subsection.4.7.1}{Pr\351sentation globale}{section.4.7}% 36
-\BOOKMARK [2][-]{subsection.4.7.2}{Impl\351mentation}{section.4.7}% 37
-\BOOKMARK [1][-]{section.4.8}{Core}{chapter.4}% 38
-\BOOKMARK [0][-]{chapter.5}{Pr\351sentation du logiciel fourni}{}% 39
-\BOOKMARK [0][-]{chapter.6}{Tests et r\351sultats}{}% 40
-\BOOKMARK [1][-]{section.6.1}{Tests effectu\351s}{chapter.6}% 41
-\BOOKMARK [2][-]{subsection.6.1.1}{Package Linguistique}{section.6.1}% 42
-\BOOKMARK [2][-]{subsection.6.1.2}{Core}{section.6.1}% 43
-\BOOKMARK [2][-]{subsection.6.1.3}{Database[Connection/Inspection]}{section.6.1}% 44
-\BOOKMARK [2][-]{subsection.6.1.4}{Syntox}{section.6.1}% 45
-\BOOKMARK [2][-]{subsection.6.1.5}{M\351moire et temps de calcul}{section.6.1}% 46
-\BOOKMARK [1][-]{section.6.2}{R\351sultats}{chapter.6}% 47
-\BOOKMARK [0][-]{chapter.7}{Conclusion et perspectives}{}% 48
+\BOOKMARK [1][-]{section.4.4}{Core}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.4.4.1}{Impl\351mentation}{section.4.4}% 30
+\BOOKMARK [2][-]{subsection.4.4.2}{Acc\350s aux donn\351es, sauvegarde et chargement}{section.4.4}% 31
+\BOOKMARK [1][-]{section.4.5}{Base de donn\351es}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.6}{Package linguistic}{chapter.4}% 33
+\BOOKMARK [2][-]{subsection.4.6.1}{Package concepts\137gestion}{section.4.6}% 34
+\BOOKMARK [2][-]{subsection.4.6.2}{Package types\137gestion}{section.4.6}% 35
+\BOOKMARK [2][-]{subsection.4.6.3}{Package graph\137concepts\137gestion}{section.4.6}% 36
+\BOOKMARK [1][-]{section.4.7}{Package syntox}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.8}{Gestion des fichiers}{chapter.4}% 38
+\BOOKMARK [2][-]{subsection.4.8.1}{Pr\351sentation globale}{section.4.8}% 39
+\BOOKMARK [2][-]{subsection.4.8.2}{Impl\351mentation}{section.4.8}% 40
+\BOOKMARK [0][-]{chapter.5}{Pr\351sentation du logiciel fourni}{}% 41
+\BOOKMARK [0][-]{chapter.6}{Tests et r\351sultats}{}% 42
+\BOOKMARK [1][-]{section.6.1}{Tests effectu\351s}{chapter.6}% 43
+\BOOKMARK [2][-]{subsection.6.1.1}{Package Linguistique}{section.6.1}% 44
+\BOOKMARK [2][-]{subsection.6.1.2}{Core}{section.6.1}% 45
+\BOOKMARK [2][-]{subsection.6.1.3}{Database[Connection/Inspection]}{section.6.1}% 46
+\BOOKMARK [2][-]{subsection.6.1.4}{Syntox}{section.6.1}% 47
+\BOOKMARK [2][-]{subsection.6.1.5}{M\351moire et temps de calcul}{section.6.1}% 48
+\BOOKMARK [1][-]{section.6.2}{R\351sultats}{chapter.6}% 49
+\BOOKMARK [0][-]{chapter.7}{Conclusion et perspectives}{}% 50
