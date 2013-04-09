@@ -515,51 +515,52 @@ implémentation.
 
 \section{Base de données}
 
-\subsubsection*{Package databaseInspection}
+\subsubsection*{Package \texttt{databaseInspection}}
+
+    Ce paquet contient les classes nécessaires à la création dynamique de requetes SQL sur une base de données, dans le cadre de la récupération des informations nécessaires à l'expression des concepts.
 
 \begin{itemize}
-\item Interface Base: Cette interface sera implémentée par BaseImpl. Elle contient les tables et leurs relations(jointure).
-\item Interface Table: Cette interface sera implémentée par TableImpl. Elle représente une table et contient les liste de ces colonnes.
-\item Interface Column: Cette interface sera implémentée par ColumnImpl. Elle représente une colonne d'une table.
-\item Interface JoinTable: Cette interface sera implémentée par JoinTableImpl. Elle représente la liaison entre deux table.
-\item Interface BaseFactory: Cette interface sera implémentée par BaseFactoryImpl. elle construit un objet Base à partir d'une base de données SQL.
-\item Interface RequestMaker: Cette interface sera implémentée par RequestMakerImpl. Elle construit une requête SQL.
-\item Interface AgloTable: Cette interface sera implémentée par AgloTableImpl. Elle calcule la jointure minimal entre plusieurs table.
+\item Interface \texttt{Base}: Cette interface est implémentée par \texttt{BaseImpl}. Elle contient les tables et leurs relations (jointure).
+\item Interface \texttt{Table}: Cette interface est implémentée par \texttt{TableImpl}. Elle représente une table et contient les listes de ses colonnes.
+\item Interface \texttt{Column}: Cette interface est implémentée par \texttt{ColumnImpl}. Elle représente une colonne d'une table.
+\item Interface \texttt{JoinTable}: Cette interface est implémentée par \texttt{JoinTableImpl}. Elle représente la liaison entre deux tables.
+\item Interface \texttt{BaseFactory}: Cette interface est implémentée par \texttt{BaseFactoryImpl}. elle construit un objet \texttt{Base} à partir d'une base de données SQL.
+\item Interface \texttt{RequestMaker}: Cette interface est implémentée par \texttt{RequestMakerImpl}. Elle construit une requête SQL.
+\item Interface \texttt{AgloTable}: Cette interface est implémentée par \texttt{AgloTableImpl}. Elle calcule la jointure minimale entre plusieurs tables.
 \end{itemize}
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale=0.4]{bduml/structDataBase.png}
-\caption{Diagramme du package databaseInspection partie structure}
-\end{center}
-\end{figure}
+    De manière générale, les gestionnaires de bases de données relationnelles (SGBDR) enregistrant l'information des clés étrangères dans des tables séparées de la base, on a préféré créer un objet JoinTableImpl qui s'occupe de faire les liens entre deux tables via les clés étrangères.
+    La classe \texttt{BaseFactory}, à partir de la connexion à la base de données effectuée, se charge de récupérer le schéma de la base de données afin dans l'enregistrer en tant qu'objet utilisable par le programme.
+    L'objet \texttt{RequestMaker} permet quant à lui de créer les requêtes SQL nécessaires à l'interrogation de la base de données: à partir des fonctions qu'il implémente, il permet de générer automatiquement des requêtes SQL simples afin de récupérer une certaine colonne d'une table choisie. Il se base sur l'interface \texttt{AlgoTable} pour pouvoir générer une jointure minimale.
 
-\begin{figure}[h!]
-\begin{center}
+\paragraph{Perspectives}
+
+    \texttt{AlgoTable} ne fonctionne pas comme elle le devrait: il reste une anomalie liée à une copie d'objet par référence qui empêche son exécution.
+
+\bigskip
+
+\includegraphics[scale=0.43]{bduml/structDataBase.png}
+
 \includegraphics[scale=0.5]{bduml/baseFactory.png}
-\caption{Diagramme du package databaseInspection partie génération de la structure}
-\end{center}
-\end{figure}
 
-\begin{figure}[h!]
-\begin{center}
+\bigskip
+
 \includegraphics[scale=0.5]{bduml/cookingRequeste.png}
-\caption{Diagramme du package databaseInspection partie génération de requête sql}
-\end{center}
-\end{figure}
 
 
-\subsubsection*{Package databaseConnection}
+
+\subsubsection*{Package \texttt{databaseConnection}}
 
 \begin{center}
 \includegraphics[scale=0.5]{bduml/databaseConnection.png}
 \end{center}
 
 
-\begin{itemize}
-\item Interface DBConnexion: Cette interface sera implémentée par DBConnexionImpl. Elle contient les outils nécessaire à la connexion aux bases de données.
-\end{itemize}
+L'interface \texttt{DBConnection} est implémentée par la classe \texttt{DBConnexionImpl}. Elle contient les outils nécessaires à la connexion aux bases de données.
 
+
+    Il s'agit d'un objet simple permettant de factoriser les codes autour de JDBC (Java DataBase Connectivity). Il permet également de limiter les accès à la base de données à des SELECT (pas de modification ni de la structure ni des informations de la base).
+    Il possède les fonctions de connexion, déconnexion, accès au nom de la base de données utilisée, et exécution de requêtes SQL de type SELECT.
 
 
 \section{Package \texttt{linguistic}}
@@ -973,6 +974,8 @@ Nous avons choisi de tester particulièrement les classes présentes dans les fi
 \section{Résultats}
 
 \chapter{Conclusion et perspectives}
+    On peut noter de manière positive que le diagramme ne possède pas de cycles. Il serait possible de supprimer le DAG en créant une nouvelle classe séparant le controleur de l'IHM. Ainsi, on briserait les dépendances entre l'interface graphique et les paquets LinguisticFactory et databaseInspection.
+    De plus, il faudrait envisager regrouper les paquets databaseInspection et databaseConnection sous un seul et meme paquet.
 
 
 \bibliographystyle{plain}

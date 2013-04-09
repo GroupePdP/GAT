@@ -46,6 +46,7 @@
 \contentsline {subsection}{\numberline {4.4.1}Impl\IeC {\'e}mentation}{21}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Acc\IeC {\`e}s aux donn\IeC {\'e}es, sauvegarde et chargement}{22}{subsection.4.4.2}
 \contentsline {section}{\numberline {4.5}Base de donn\IeC {\'e}es}{22}{section.4.5}
+\contentsline {paragraph}{Perspectives}{23}{section*.19}
 \contentsline {section}{\numberline {4.6}Package \texttt {linguistic}}{25}{section.4.6}
 \contentsline {subsection}{\numberline {4.6.1}Package \texttt {concepts\_gestion}}{26}{subsection.4.6.1}
 \contentsline {subsection}{\numberline {4.6.2}Package \texttt {types\_gestion}}{27}{subsection.4.6.2}
@@ -54,10 +55,10 @@
 \contentsline {section}{\numberline {4.8}Gestion des fichiers}{31}{section.4.8}
 \contentsline {subsection}{\numberline {4.8.1}Pr\IeC {\'e}sentation globale}{32}{subsection.4.8.1}
 \contentsline {subsection}{\numberline {4.8.2}Impl\IeC {\'e}mentation}{32}{subsection.4.8.2}
-\contentsline {paragraph}{Enregistrement}{32}{section*.23}
-\contentsline {paragraph}{Chargement}{32}{section*.24}
-\contentsline {paragraph}{Affichage du r\IeC {\'e}pertoire courant}{33}{section*.25}
-\contentsline {paragraph}{Utilisation des fonctions de chargement et d'enregistrement}{33}{section*.26}
+\contentsline {paragraph}{Enregistrement}{32}{section*.21}
+\contentsline {paragraph}{Chargement}{32}{section*.22}
+\contentsline {paragraph}{Affichage du r\IeC {\'e}pertoire courant}{33}{section*.23}
+\contentsline {paragraph}{Utilisation des fonctions de chargement et d'enregistrement}{33}{section*.24}
 \contentsline {chapter}{\numberline {5}Pr\IeC {\'e}sentation du logiciel fourni}{34}{chapter.5}
 \contentsline {chapter}{\numberline {6}Tests et r\IeC {\'e}sultats}{42}{chapter.6}
 \contentsline {section}{\numberline {6.1}Tests effectu\IeC {\'e}s}{42}{section.6.1}

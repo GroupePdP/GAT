@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  9 APR 2013 10:43
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  9 APR 2013 11:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -660,121 +660,108 @@ File: diversuml/Core.png Graphic file (type png)
 Package pdftex.def Info: diversuml/Core.png used on input line 493.
 (pdftex.def)             Requested size: 443.15454pt x 334.7498pt.
  [20 <./diversuml/DiagPackages.png>] [21 <./diversuml/Core.png>]
-Overfull \hbox (9.67647pt too wide) in paragraph at lines 523--524
-[]\OT1/cmr/m/n/12 Interface Col-umn : Cette in-ter-face sera impl^^Sement^^See 
-par Colum-n-Impl. Elle repr^^Sesente
- []
-
-<bduml/structDataBase.png, id=416, 1143.27126pt x 649.42625pt>
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 518.
+ [22] <bduml/structDataBase.png, id=422, 1143.27126pt x 649.42625pt>
 File: bduml/structDataBase.png Graphic file (type png)
 
 <use bduml/structDataBase.png>
-Package pdftex.def Info: bduml/structDataBase.png used on input line 532.
-(pdftex.def)             Requested size: 457.3004pt x 259.7659pt.
+Package pdftex.def Info: bduml/structDataBase.png used on input line 542.
+(pdftex.def)             Requested size: 491.59706pt x 279.24785pt.
 
-Overfull \hbox (10.3949pt too wide) in paragraph at lines 532--533
- [] 
+Overfull \hbox (62.31638pt too wide) in paragraph at lines 542--543
+[][] 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<bduml/baseFactory.png, id=417, 736.7525pt x 467.7475pt>
+<bduml/baseFactory.png, id=423, 736.7525pt x 467.7475pt>
 File: bduml/baseFactory.png Graphic file (type png)
 
 <use bduml/baseFactory.png>
-Package pdftex.def Info: bduml/baseFactory.png used on input line 539.
+Package pdftex.def Info: bduml/baseFactory.png used on input line 544.
 (pdftex.def)             Requested size: 368.37535pt x 233.87317pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<bduml/cookingRequeste.png, id=418, 958.58125pt x 572.1375pt>
+ [23 <./bduml/structDataBase.png>]
+<bduml/cookingRequeste.png, id=429, 958.58125pt x 572.1375pt>
 File: bduml/cookingRequeste.png Graphic file (type png)
 
 <use bduml/cookingRequeste.png>
-Package pdftex.def Info: bduml/cookingRequeste.png used on input line 546.
+Package pdftex.def Info: bduml/cookingRequeste.png used on input line 548.
 (pdftex.def)             Requested size: 479.28946pt x 286.06804pt.
 
-Overfull \hbox (32.38396pt too wide) in paragraph at lines 546--547
- [] 
+Overfull \hbox (50.00877pt too wide) in paragraph at lines 548--549
+[][] 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<bduml/databaseConnection.png, id=419, 558.085pt x 484.81125pt>
+<bduml/databaseConnection.png, id=430, 558.085pt x 484.81125pt>
 File: bduml/databaseConnection.png Graphic file (type png)
 
 <use bduml/databaseConnection.png>
 Package pdftex.def Info: bduml/databaseConnection.png used on input line 555.
 (pdftex.def)             Requested size: 279.04182pt x 242.40503pt.
- [22] [23 <./bduml/structDataBase.png> <./bduml/databaseConnection.png>] [24 <.
-/bduml/baseFactory.png>]
+ [24 <./bduml/baseFactory.png> <./bduml/cookingRequeste.png>]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 565.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 566.
 
-<DiagLinguisticPackages.png, id=438, 490.83376pt x 338.26375pt>
+<DiagLinguisticPackages.png, id=436, 490.83376pt x 338.26375pt>
 File: DiagLinguisticPackages.png Graphic file (type png)
 
 <use DiagLinguisticPackages.png>
-Package pdftex.def Info: DiagLinguisticPackages.png used on input line 572.
+Package pdftex.def Info: DiagLinguisticPackages.png used on input line 573.
 (pdftex.def)             Requested size: 245.41628pt x 169.13145pt.
- [25 <./bduml/cookingRequeste.png>]
+ [25 <./bduml/databaseConnection.png>]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 575.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 576.
 
-<DiagLinguistic_concepts_gestion.png, id=444, 847.165pt x 543.02875pt>
+<DiagLinguistic_concepts_gestion.png, id=442, 847.165pt x 543.02875pt>
 File: DiagLinguistic_concepts_gestion.png Graphic file (type png)
 
 <use DiagLinguistic_concepts_gestion.png>
 Package pdftex.def Info: DiagLinguistic_concepts_gestion.png used on input line
- 578.
+ 579.
 (pdftex.def)             Requested size: 423.58145pt x 271.5137pt.
 
-<DiagLinguistic_types_gestion.png, id=445, 1214.5375pt x 735.74875pt>
+<DiagLinguistic_types_gestion.png, id=443, 1214.5375pt x 735.74875pt>
 File: DiagLinguistic_types_gestion.png Graphic file (type png)
 
 <use DiagLinguistic_types_gestion.png>
-Package pdftex.def Info: DiagLinguistic_types_gestion.png used on input line 58
-9.
+Package pdftex.def Info: DiagLinguistic_types_gestion.png used on input line 59
+0.
 (pdftex.def)             Requested size: 522.24095pt x 316.3658pt.
 
-Overfull \hbox (75.33545pt too wide) in paragraph at lines 589--590
+Overfull \hbox (75.33545pt too wide) in paragraph at lines 590--591
  [] 
  []
 
 [26 <./DiagLinguisticPackages.png> <./DiagLinguistic_concepts_gestion.png>]
 [27 <./DiagLinguistic_types_gestion.png>]
-<DiagLinguistic_graph_concepts_gestion.png, id=454, 818.05624pt x 591.20876pt>
+<DiagLinguistic_graph_concepts_gestion.png, id=452, 818.05624pt x 591.20876pt>
 File: DiagLinguistic_graph_concepts_gestion.png Graphic file (type png)
 
 <use DiagLinguistic_graph_concepts_gestion.png>
 Package pdftex.def Info: DiagLinguistic_graph_concepts_gestion.png used on inpu
-t line 618.
+t line 619.
 (pdftex.def)             Requested size: 409.02711pt x 295.60365pt.
  [28 <./DiagLinguistic_graph_concepts_gestion.png>]
-Overfull \hbox (0.24371pt too wide) in paragraph at lines 642--643
+Overfull \hbox (0.24371pt too wide) in paragraph at lines 643--644
 []\OT1/cmr/m/n/12 Le pat-tern Sin-gle-ton est ici r^^Seutilis^^Se comme mod^^Re
 le pour la classe \OT1/cmtt/m/n/12 GraphNodeFactory\OT1/cmr/m/n/12 ,
  []
 
-<diversuml/SyntoxConnection.png, id=459, 363.3575pt x 286.06876pt>
+<diversuml/SyntoxConnection.png, id=457, 363.3575pt x 286.06876pt>
 File: diversuml/SyntoxConnection.png Graphic file (type png)
 
 <use diversuml/SyntoxConnection.png>
-Package pdftex.def Info: diversuml/SyntoxConnection.png used on input line 647.
+Package pdftex.def Info: diversuml/SyntoxConnection.png used on input line 648.
 
 (pdftex.def)             Requested size: 218.01617pt x 171.64258pt.
  [29] [30 <./diversuml/SyntoxConnection.png>] <diversuml/fileManager.png, id=46
-9, 521.95pt x 434.62375pt>
+7, 521.95pt x 434.62375pt>
 File: diversuml/fileManager.png Graphic file (type png)
 
 <use diversuml/fileManager.png>
-Package pdftex.def Info: diversuml/fileManager.png used on input line 682.
+Package pdftex.def Info: diversuml/fileManager.png used on input line 683.
 (pdftex.def)             Requested size: 287.07338pt x 239.0438pt.
  [31 <./diversuml/fileManager.png>] [32]
-Overfull \hbox (2.05455pt too wide) in paragraph at lines 738--741
+Overfull \hbox (2.05455pt too wide) in paragraph at lines 739--742
  []\OT1/cmr/bx/n/12 Utilisation des fonc-tions de charge-ment et d'en-reg-istre
 ment[] \OT1/cmr/m/n/12 De part la mani^^Rere
  []
@@ -783,84 +770,84 @@ ment[] \OT1/cmr/m/n/12 De part la mani^^Rere
 Chapitre 5.
 [34
 
-] <IHM/accueil.png, id=490, 1286.8075pt x 726.715pt>
+] <IHM/accueil.png, id=488, 1286.8075pt x 726.715pt>
 File: IHM/accueil.png Graphic file (type png)
  <use IHM/accueil.png>
-Package pdftex.def Info: IHM/accueil.png used on input line 811.
+Package pdftex.def Info: IHM/accueil.png used on input line 812.
 (pdftex.def)             Requested size: 386.04523pt x 218.01617pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<IHM/selection_projet.png, id=491, 1284.8pt x 721.69624pt>
+<IHM/selection_projet.png, id=489, 1284.8pt x 721.69624pt>
 File: IHM/selection_projet.png Graphic file (type png)
 
 <use IHM/selection_projet.png>
-Package pdftex.def Info: IHM/selection_projet.png used on input line 817.
+Package pdftex.def Info: IHM/selection_projet.png used on input line 818.
 (pdftex.def)             Requested size: 385.44298pt x 216.51054pt.
 
-<IHM/creation_projet.png, id=492, 1285.80376pt x 724.7075pt>
+<IHM/creation_projet.png, id=490, 1285.80376pt x 724.7075pt>
 File: IHM/creation_projet.png Graphic file (type png)
 
 <use IHM/creation_projet.png>
-Package pdftex.def Info: IHM/creation_projet.png used on input line 823.
+Package pdftex.def Info: IHM/creation_projet.png used on input line 824.
 (pdftex.def)             Requested size: 385.74411pt x 217.41393pt.
 
-<IHM/creation_types.png, id=493, 1285.80376pt x 722.7pt>
+<IHM/creation_types.png, id=491, 1285.80376pt x 722.7pt>
 File: IHM/creation_types.png Graphic file (type png)
 
 <use IHM/creation_types.png>
-Package pdftex.def Info: IHM/creation_types.png used on input line 829.
+Package pdftex.def Info: IHM/creation_types.png used on input line 830.
 (pdftex.def)             Requested size: 385.74411pt x 216.81166pt.
 
-<IHM/creation_concepts.png, id=494, 1284.8pt x 722.7pt>
+<IHM/creation_concepts.png, id=492, 1284.8pt x 722.7pt>
 File: IHM/creation_concepts.png Graphic file (type png)
 
 <use IHM/creation_concepts.png>
-Package pdftex.def Info: IHM/creation_concepts.png used on input line 835.
+Package pdftex.def Info: IHM/creation_concepts.png used on input line 836.
 (pdftex.def)             Requested size: 385.44298pt x 216.81166pt.
 
-<IHM/selection_modifier_projet.png, id=495, 1286.8075pt x 721.69624pt>
+<IHM/selection_modifier_projet.png, id=493, 1286.8075pt x 721.69624pt>
 File: IHM/selection_modifier_projet.png Graphic file (type png)
 
 <use IHM/selection_modifier_projet.png>
 Package pdftex.def Info: IHM/selection_modifier_projet.png used on input line 8
-41.
+42.
 (pdftex.def)             Requested size: 386.04523pt x 216.51054pt.
 
-<IHM/choix_scenario.png, id=496, 1285.80376pt x 723.70375pt>
+<IHM/choix_scenario.png, id=494, 1285.80376pt x 723.70375pt>
 File: IHM/choix_scenario.png Graphic file (type png)
 
 <use IHM/choix_scenario.png>
-Package pdftex.def Info: IHM/choix_scenario.png used on input line 847.
+Package pdftex.def Info: IHM/choix_scenario.png used on input line 848.
 (pdftex.def)             Requested size: 385.74411pt x 217.1128pt.
 
-<IHM/selection_scenario.png, id=497, 1284.8pt x 722.7pt>
+<IHM/selection_scenario.png, id=495, 1284.8pt x 722.7pt>
 File: IHM/selection_scenario.png Graphic file (type png)
 
 <use IHM/selection_scenario.png>
-Package pdftex.def Info: IHM/selection_scenario.png used on input line 853.
+Package pdftex.def Info: IHM/selection_scenario.png used on input line 854.
 (pdftex.def)             Requested size: 385.44298pt x 216.81166pt.
 
-<IHM/affichage_resultat.png, id=498, 1284.8pt x 725.71124pt>
+<IHM/affichage_resultat.png, id=496, 1284.8pt x 725.71124pt>
 File: IHM/affichage_resultat.png Graphic file (type png)
 
 <use IHM/affichage_resultat.png>
-Package pdftex.def Info: IHM/affichage_resultat.png used on input line 859.
+Package pdftex.def Info: IHM/affichage_resultat.png used on input line 860.
 (pdftex.def)             Requested size: 385.44298pt x 217.71504pt.
 
-<IHM/remplissage_scenario.png, id=499, 1287.81125pt x 724.7075pt>
+<IHM/remplissage_scenario.png, id=497, 1287.81125pt x 724.7075pt>
 File: IHM/remplissage_scenario.png Graphic file (type png)
 
 <use IHM/remplissage_scenario.png>
-Package pdftex.def Info: IHM/remplissage_scenario.png used on input line 865.
+Package pdftex.def Info: IHM/remplissage_scenario.png used on input line 866.
 (pdftex.def)             Requested size: 386.34636pt x 217.41393pt.
 
-<IHM/modifier_projet_admin.png, id=500, 1286.8075pt x 723.70375pt>
+<IHM/modifier_projet_admin.png, id=498, 1286.8075pt x 723.70375pt>
 File: IHM/modifier_projet_admin.png Graphic file (type png)
 
 <use IHM/modifier_projet_admin.png>
-Package pdftex.def Info: IHM/modifier_projet_admin.png used on input line 871.
+Package pdftex.def Info: IHM/modifier_projet_admin.png used on input line 872.
 (pdftex.def)             Requested size: 386.04523pt x 217.1128pt.
  [35] [36 <./IHM/accueil.png> <./IHM/selection_projet.png>] [37 <./IHM/creation
 _projet.png> <./IHM/creation_types.png>]
@@ -869,90 +856,90 @@ _projet.png> <./IHM/creation_types.png>]
 hage_resultat.png> <./IHM/remplissage_scenario.png>] [41 <./IHM/modifier_projet
 _admin.png>]
 Chapitre 6.
-<resultatTest1.png, id=541, 806.03174pt x 186.88pt>
+<resultatTest1.png, id=539, 806.03174pt x 186.88pt>
 File: resultatTest1.png Graphic file (type png)
  <use resultatTest1.png>
-Package pdftex.def Info: resultatTest1.png used on input line 888.
+Package pdftex.def Info: resultatTest1.png used on input line 889.
 (pdftex.def)             Requested size: 322.40698pt x 74.75067pt.
 
-Overfull \hbox (6.19064pt too wide) in paragraph at lines 884--891
+Overfull \hbox (6.19064pt too wide) in paragraph at lines 885--892
 \OT1/cmr/m/n/12 nor-male-ment pas des ^^Sel^^Sements soule-vant des probl^^Reme
 s. Toute-fois nous nous sommes
  []
 
-<resultatTest6.png, id=542, 807.50664pt x 172.28pt>
+<resultatTest6.png, id=540, 807.50664pt x 172.28pt>
 File: resultatTest6.png Graphic file (type png)
  <use resultatTest6.png>
-Package pdftex.def Info: resultatTest6.png used on input line 895.
+Package pdftex.def Info: resultatTest6.png used on input line 896.
 (pdftex.def)             Requested size: 322.99692pt x 68.91077pt.
 
 [42
 
  <./resultatTest1.png>]
-Overfull \hbox (2.96506pt too wide) in paragraph at lines 899--900
+Overfull \hbox (2.96506pt too wide) in paragraph at lines 900--901
 []\OT1/cmtt/m/n/12 TypeTreeTest \OT1/cmr/m/n/12 et \OT1/cmtt/m/n/12 TypeTreeNod
 eTest \OT1/cmr/m/n/12 : Nous avons fait le choix de tester l'int^^Segralit^^Se
  []
 
-<resultatTest8.png, id=549, 807.50664pt x 170.82pt>
+<resultatTest8.png, id=547, 807.50664pt x 170.82pt>
 File: resultatTest8.png Graphic file (type png)
  <use resultatTest8.png>
-Package pdftex.def Info: resultatTest8.png used on input line 909.
+Package pdftex.def Info: resultatTest8.png used on input line 910.
 (pdftex.def)             Requested size: 322.99692pt x 68.32678pt.
 
-<resultatTest7.png, id=550, 806.76918pt x 170.82pt>
+<resultatTest7.png, id=548, 806.76918pt x 170.82pt>
 File: resultatTest7.png Graphic file (type png)
  <use resultatTest7.png>
-Package pdftex.def Info: resultatTest7.png used on input line 914.
+Package pdftex.def Info: resultatTest7.png used on input line 915.
 (pdftex.def)             Requested size: 322.70195pt x 68.32678pt.
 
-<resultatTest5.png, id=551, 807.50664pt x 170.82pt>
+<resultatTest5.png, id=549, 807.50664pt x 170.82pt>
 File: resultatTest5.png Graphic file (type png)
  <use resultatTest5.png>
-Package pdftex.def Info: resultatTest5.png used on input line 923.
+Package pdftex.def Info: resultatTest5.png used on input line 924.
 (pdftex.def)             Requested size: 322.99692pt x 68.32678pt.
 
 [43 <./resultatTest6.png> <./resultatTest8.png> <./resultatTest7.png> <./result
-atTest5.png>] <resultatTest4.png, id=561, 808.24408pt x 180.31pt>
+atTest5.png>] <resultatTest4.png, id=558, 808.24408pt x 180.31pt>
 File: resultatTest4.png Graphic file (type png)
 
 <use resultatTest4.png>
-Package pdftex.def Info: resultatTest4.png used on input line 935.
+Package pdftex.def Info: resultatTest4.png used on input line 936.
 (pdftex.def)             Requested size: 323.2919pt x 72.12271pt.
- <resultatTest2.png, id=562, 806.76918pt x 156.22pt>
+ <resultatTest2.png, id=559, 806.76918pt x 156.22pt>
 File: resultatTest2.png Graphic file (type png)
 
 <use resultatTest2.png>
-Package pdftex.def Info: resultatTest2.png used on input line 949.
+Package pdftex.def Info: resultatTest2.png used on input line 950.
 (pdftex.def)             Requested size: 322.70195pt x 62.4869pt.
- <resultatTest3.png, id=563, 808.24408pt x 179.58pt>
+ <resultatTest3.png, id=560, 808.24408pt x 179.58pt>
 File: resultatTest3.png Graphic file (type png)
 
 <use resultatTest3.png>
-Package pdftex.def Info: resultatTest3.png used on input line 955.
+Package pdftex.def Info: resultatTest3.png used on input line 956.
 (pdftex.def)             Requested size: 323.2919pt x 71.83072pt.
  [44 <./resultatTest4.png> <./resultatTest2.png> <./resultatTest3.png>] [45]
 Chapitre 7.
 (./rapport_final_GAT.bbl [46
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 981.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 984.
  [47
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 981.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 984.
  (./rapport_final_GAT.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 981.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 981.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 984.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 984.
 Package rerunfilecheck Info: File `rapport_final_GAT.out' has not changed.
 (rerunfilecheck)             Checksum: 736DFD9D9DD681B20DAA6E46336A2606;3624.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 981.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 984.
  ) 
 Here is how much of TeX's memory you used:
- 7828 strings out of 495059
- 117007 string characters out of 3182030
+ 7827 strings out of 495059
+ 116983 string characters out of 3182030
  205326 words of memory out of 3000000
- 10719 multiletter control sequences out of 15000+200000
+ 10720 multiletter control sequences out of 15000+200000
  10329 words of font info for 38 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  36i,10n,38p,1698b,489s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -963,10 +950,10 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on rapport_final_GAT.pdf (48 pages, 1145934 bytes).
+Output written on rapport_final_GAT.pdf (48 pages, 1147861 bytes).
 PDF statistics:
- 651 PDF objects out of 1000 (max. 8388607)
- 553 compressed objects within 6 object streams
- 176 named destinations out of 1000 (max. 500000)
+ 648 PDF objects out of 1000 (max. 8388607)
+ 550 compressed objects within 6 object streams
+ 174 named destinations out of 1000 (max. 500000)
  576 words of extra memory for PDF output out of 10000 (max. 10000000)
 
