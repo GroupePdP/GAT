@@ -3,12 +3,12 @@ package ihm.tools;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 public class PanelBasicMenu extends JPanel{
+
+	private static final long serialVersionUID = 1L;
 
 	public PanelBasicMenu (JPanel[] buttons){
 		

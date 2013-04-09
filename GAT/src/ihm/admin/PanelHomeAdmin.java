@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 public class PanelHomeAdmin extends JPanel{
 
+	private static final long serialVersionUID = 1L;
 	MainFrame currentFrame;
 	PanelHome previous;
 	PanelHomeAdmin thisPane;

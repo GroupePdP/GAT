@@ -31,6 +31,8 @@ import databaseInspection.Column;
 import databaseInspection.Table;
 
 public class DialogInitNewProject extends JDialog{
+	
+	private static final long serialVersionUID = 1L;
 	JDialog thisDiag = this;
 	MainFrame currentFrame;
 

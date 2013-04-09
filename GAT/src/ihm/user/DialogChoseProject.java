@@ -23,6 +23,8 @@ import javax.swing.JPanel;
 import core.Project;
 
 public class DialogChoseProject extends JDialog{
+
+	private static final long serialVersionUID = 1L;
 	JDialog thisDiag = this;
 	MainFrame currentFrame;
 	PanelHome previous;
@@ -31,7 +33,7 @@ public class DialogChoseProject extends JDialog{
 	JButton ok;
 	JButton ret;
 	
-	Vector<String> vecProjectList = new Vector();
+	Vector<String> vecProjectList = new Vector<String>();
 	
 	public DialogChoseProject(MainFrame mf, PanelHome prev)
 	{
@@ -58,23 +60,19 @@ public class DialogChoseProject extends JDialog{
 		
 		subGlobalPane.add(projectLabelPanel);
 		this.combo = new JComboBox(vecProjectList);
+		
 		this.combo.addItemListener(new ItemListener(){
-			
 			@Override
 			public void itemStateChanged(ItemEvent arg0) {
-				// TODO Auto-generated method stub
 			}
 		});
+		
 		combo.setSelectedItem(null);
 		combo.setPreferredSize(new Dimension(200,20));
-		
-		
 		
 		subGlobalPane.add(this.combo);
 		
 		centSub.add(subGlobalPane);
-		
-		JPanel buttons = new JPanel();
 		
 		JPanel southPanel = new JPanel();
 		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.X_AXIS));
@@ -84,13 +82,13 @@ public class DialogChoseProject extends JDialog{
 		
 		JPanel retPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		this.ret = new JButton("Retour");
+		
 		this.ret.addActionListener(new ActionListener(){
-
 			public void actionPerformed(ActionEvent arg0) {
 				thisDiag.dispose();
 			}
-			
 		});
+		
 		this.ret.setPreferredSize(buttSize);
 		retPanel.add(this.ret);
 		
@@ -100,19 +98,18 @@ public class DialogChoseProject extends JDialog{
 
 			public void actionPerformed(ActionEvent e) {
 				
-				Project p = (Project) currentFrame.getCore().getLocalStorage().load((String) combo.getSelectedItem());
+				Project p = (Project) currentFrame.getCore().getLocalStorage().
+						load((String) combo.getSelectedItem());
 				currentFrame.getCore().setProject(p);
 				currentFrame.getCore().getProject().setName(p.getName());
 				PanelHomeUser phu = new PanelHomeUser(currentFrame, previous, p);
 				currentFrame.setPane(phu);
 				thisDiag.dispose();
 			}
-			
 		});
+		
 		this.ok.setPreferredSize(buttSize);
 		okPanel.add(this.ok);
-		
-		
 		
 		buttPanel.add(retPanel);
 		buttPanel.add(okPanel);
@@ -124,6 +121,7 @@ public class DialogChoseProject extends JDialog{
 		this.add(overGlobal);
 		this.pack();
 		Point loc = this.currentFrame.getLocationOnScreen();
-		this.setLocation(loc.x+mf.getWidth()/2-this.getWidth()/2, loc.y+mf.getHeight()/2-this.getHeight()/2);
+		this.setLocation(loc.x+mf.getWidth()/2-this.getWidth()/2,
+				loc.y+mf.getHeight()/2-this.getHeight()/2);
 	}
 }

@@ -1,10 +1,8 @@
 package ihm.user;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,12 +19,12 @@ import ihm.tools.PanelCenteredButton;
 
 public class PanelResult extends JPanel{
 
+	private static final long serialVersionUID = 1L;
 	MainFrame currentFrame;
 	JPanel previous;
 	JPanel menuUser;
 	
-	public PanelResult(MainFrame mf, JPanel prev, JPanel menu, String result)
-	{
+	public PanelResult(MainFrame mf, JPanel prev, JPanel menu, String result){
 		this.currentFrame = mf ;
 		this.previous = prev;
 		this.menuUser = menu;
@@ -36,23 +34,28 @@ public class PanelResult extends JPanel{
 		JPanel southPane = new JPanel();
 		southPane.setLayout(new BoxLayout(southPane, BoxLayout.X_AXIS));
 		
-		PanelCenteredButton returnPanel = new PanelCenteredButton("Retour", new ActionListener(){
+		PanelCenteredButton returnPanel = new PanelCenteredButton(
+				"Retour", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(previous);
 			}
 		});
+		
 		southPane.add(returnPanel);
 		
-		PanelCenteredButton menuPanel = new PanelCenteredButton("Menu", new ActionListener(){
+		PanelCenteredButton menuPanel = new PanelCenteredButton(
+				"Menu", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				currentFrame.setPane(menuUser);
 			}
 		});
+		
 		southPane.add(menuPanel);
 		
-		PanelCenteredButton savePanel = new PanelCenteredButton("Sauvegarder", new ActionListener(){
+		PanelCenteredButton savePanel = new PanelCenteredButton(
+				"Sauvegarder", new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				;
@@ -78,20 +81,23 @@ public class PanelResult extends JPanel{
 		generatedTArea.setLineWrap(true);
 		generatedTArea.setEditable(false);
 		JScrollPane descrScroll = new JScrollPane(generatedTArea);
-		descrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		descrScroll.setPreferredSize(new Dimension(currentFrame.getWidth()/100*80,500));
+		descrScroll.setVerticalScrollBarPolicy(
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		descrScroll.setPreferredSize(new Dimension(
+				currentFrame.getWidth()/100*80,500));
 		centerSubCenterP.add(descrScroll);
 		
 		subCenterPanel.add(northSubCenterP, BorderLayout.NORTH);
 		subCenterPanel.add(centerSubCenterP, BorderLayout.CENTER);
-		JPanel containsCenterPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); 
+		JPanel containsCenterPanel = new JPanel(new FlowLayout(
+				FlowLayout.CENTER));
 		containsCenterPanel.add(subCenterPanel);
 		Border borderP = BorderFactory.createEmptyBorder(30,0,0,0);
 		containsCenterPanel.setBorder(borderP);
 		centerPanel.add(containsCenterPanel);
 		
-		
-		southPane.setPreferredSize(new Dimension(currentFrame.getWidth(), currentFrame.getHeight()/100*13));
+		southPane.setPreferredSize(new Dimension(currentFrame.getWidth(), 
+				currentFrame.getHeight()/100*13));
 		this.add(centerPanel, BorderLayout.CENTER);
 		this.add(southPane, BorderLayout.SOUTH);
 	}

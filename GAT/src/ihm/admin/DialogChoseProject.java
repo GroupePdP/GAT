@@ -21,13 +21,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import linguistic.conceptsGestion.Concept;
-import linguistic.typesGestion.Type;
 import linguistic.typesGestion.TypeTree;
 import linguistic.typesGestion.TypeTreeNode;
 import core.Project;
 
 public class DialogChoseProject extends JDialog{
 
+	private static final long serialVersionUID = 1L;
 	JDialog thisDiag = this;
 	MainFrame currentFrame;
 	PanelHomeAdmin previous;
@@ -38,7 +38,7 @@ public class DialogChoseProject extends JDialog{
 	JButton ret;
 	JButton suppr;
 
-	Vector<String> vecProjectList = new Vector();
+	Vector<String> vecProjectList = new Vector<String>();
 
 	public DialogChoseProject(MainFrame mf, final PanelHomeAdmin prev){
 		this.currentFrame = mf;
@@ -69,8 +69,6 @@ public class DialogChoseProject extends JDialog{
 
 		subGlobalPane.add(this.comboPane);
 		centSub.add(subGlobalPane);
-
-		JPanel buttons = new JPanel();
 
 		JPanel southPanel = new JPanel();
 		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.X_AXIS));

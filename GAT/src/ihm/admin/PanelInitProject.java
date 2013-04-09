@@ -3,7 +3,6 @@ package ihm.admin;
 import ihm.MainFrame;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -16,7 +15,6 @@ import java.util.List;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -31,6 +29,7 @@ import linguistic.typesGestion.Type;
 
 public class PanelInitProject extends JPanel{
 
+	private static final long serialVersionUID = 1L;
 	MainFrame currentFrame;
 	PanelHomeAdmin previous;
 	
@@ -40,9 +39,7 @@ public class PanelInitProject extends JPanel{
 	JTextArea currentDescription =  new JTextArea("");
 	JPanel descrPanel;
 	
-	
-	public PanelInitProject(MainFrame mf, PanelHomeAdmin prev)
-	{
+	public PanelInitProject(MainFrame mf, PanelHomeAdmin prev){
 		this.currentFrame = mf;
 		this.setPreferredSize(currentFrame.getSize());
 		this.previous = prev;
@@ -51,16 +48,13 @@ public class PanelInitProject extends JPanel{
 		this.add(initCenterPane(), BorderLayout.CENTER);
 	}
 	
-	
-	
-	private JPanel initCenterPane()
-	{
+	private JPanel initCenterPane(){
+		
 		JPanel tmp = new JPanel(new GridBagLayout());
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
-		
 		
 		gbc.gridwidth = GridBagConstraints.RELATIVE;
 		gbc.gridheight = GridBagConstraints.REMAINDER;
@@ -81,13 +75,12 @@ public class PanelInitProject extends JPanel{
 		gbc.gridy = 0;
 		
 		tmp.add(initDescPane(), gbc);
-		
 		return tmp;
 	}
 	
 	
-	private JTabbedPane initTabbedPane()
-	{
+	private JTabbedPane initTabbedPane(){
+		
 		JTabbedPane tabbedPane = new JTabbedPane();
 		this.conceptsCol = new ConceptsColumn(currentFrame, this);
 		this.typesCol = new TypesColumn(currentFrame, this);
@@ -103,8 +96,7 @@ public class PanelInitProject extends JPanel{
 		return tabbedPane;
 	}
 	
-	private JPanel initDescPane()
-	{
+	private JPanel initDescPane(){
 		
 		JPanel descrPane = new JPanel(new BorderLayout());
 
@@ -114,14 +106,18 @@ public class PanelInitProject extends JPanel{
 		this.currentDescription.setLineWrap(true);
 		this.currentDescription.setEditable(false);
 		JScrollPane descrScroll = new JScrollPane(this.currentDescription);
-		descrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		descrScroll.setVerticalScrollBarPolicy(
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		descrPane.add(description, BorderLayout.NORTH);
 		descrPane.add(descrScroll, BorderLayout.CENTER);
-		descrPane.setBorder(BorderFactory.createEmptyBorder((currentFrame.getHeight())/15,20,(currentFrame.getHeight())/15,20));
+		descrPane.setBorder(BorderFactory.
+				createEmptyBorder((currentFrame.getHeight())/15,20,
+						(currentFrame.getHeight())/15,20));
 		this.descrPanel = descrPane;
 		
-		descrPane.setPreferredSize(new Dimension((int)currentFrame.getWidth()/10*3, descrPane.getHeight()));
+		descrPane.setPreferredSize(new Dimension(
+				(int)currentFrame.getWidth()/10*3, descrPane.getHeight()));
 		return descrPane;
 	}
 	
@@ -131,53 +127,48 @@ public class PanelInitProject extends JPanel{
 		JMenu fileMenu = new JMenu("Fichier");
 
 		JMenuItem save = new JMenuItem("Enregistrer Projet en cours");
-		save.addActionListener(new ActionListener() {
+		save.addActionListener(new ActionListener(){
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e){
 				saveProject();
 			}
 		});
+		
 		JMenuItem quit = new JMenuItem("Quitter");
-		quit.addActionListener(new ActionListener() {
+		quit.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e){
 				currentFrame.setPane(previous);
 			}
 		});
 
 		fileMenu.add(save);
 		fileMenu.add(quit);
-		
 		menuBar.add(fileMenu);
-		
 		return menuBar;
 	}
 
 
-	public ConceptsColumn getConceptsCol() {
+	public ConceptsColumn getConceptsCol(){
 		return conceptsCol;
 	}
 
-
-	public TypesColumn getTypesCol() {
+	public TypesColumn getTypesCol(){
 		return typesCol;
 	}
 
-
-	public JTextArea getCurrentDescription() {
+	public JTextArea getCurrentDescription(){
 		return currentDescription;
 	}
 
-
-	public void setCurrentDescription(String description) {
+	public void setCurrentDescription(String description){
 		this.currentDescription.setText(description);
 		this.currentDescription.invalidate();
 		this.currentDescription.validate();
 		this.repaint();
 	}
-	
 	
 	private void saveProject(){
 		for(TypeGraphic tg : this.typesCol.getTypes())
@@ -188,51 +179,56 @@ public class PanelInitProject extends JPanel{
 			Type typeTmp = getTypeForTypeGraphic(cg.type);
 			if(!conceptAlreadyExists(typeTmp, cg.toString()))
 			{
-				if(cg.arguments.size()!=0)
+				if(cg.arguments.size() != 0)
 				{
 					List<Type> tmp = getTypeList(cg.arguments);
-					currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(cg.toString(),typeTmp , tmp, cg.getDescription());
+					currentFrame.getCore().getProject().
+					getLinguisticFactory().makeConcept(
+							cg.toString(),typeTmp , tmp, cg.getDescription());
 				}
 				else
-					currentFrame.getCore().getProject().getLinguisticFactory().makeConcept(cg.toString(), typeTmp, cg.getDescription());
+					currentFrame.getCore().getProject().
+					getLinguisticFactory().makeConcept(
+							cg.toString(), typeTmp, cg.getDescription());
 			}
 		}
 		
-		currentFrame.getCore().backupProject(currentFrame.getCore().getProject().getName());
+		currentFrame.getCore().backupProject(
+				currentFrame.getCore().getProject().getName());
 	}
 
-
-	private Type recMakeType(TypeGraphic type)
-	{
-		Iterator it = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getMap().keySet().iterator();
+	private Type recMakeType(TypeGraphic type){
+		
+		Iterator<Type> it = currentFrame.getCore().getProject().
+				getLinguisticFactory().getTypeManager().getTypeTree().
+				getMap().keySet().iterator();
 		for(;it.hasNext();)
 		{
 			Type tmpType = (Type)it.next();
 			if(tmpType.getName().equals(type.toString()))
-			{
 				return tmpType;
-			}
 		}
 
 		if (type.getSurType() == null)
-		{
-			return currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().makeType(type.toString(),type.getDescription());
-		}
+			return currentFrame.getCore().getProject().
+					getLinguisticFactory().getTypeManager().
+					makeType(type.toString(),type.getDescription());
 		else
-		{
-			return currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().makeType(type.toString() , recMakeType(type.getSurType()), type.getDescription());
-		}
-
+			return currentFrame.getCore().getProject().
+					getLinguisticFactory().getTypeManager().
+					makeType(type.toString(), recMakeType(
+							type.getSurType()), type.getDescription());
 	}
 	
-	public List<Type> getTypeList(Vector<TypeGraphic> vecTypeGraphic)
-	{
-		List<Type> result = new ArrayList();
-
+	public List<Type> getTypeList(Vector<TypeGraphic> vecTypeGraphic){
+		
+		List<Type> result = new ArrayList<Type>();
 		for(TypeGraphic tg : vecTypeGraphic)
 		{
 			String typeName = tg.toString();
-			Iterator ti = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getMap().keySet().iterator();
+			Iterator<Type> ti = currentFrame.getCore().getProject().
+					getLinguisticFactory().getTypeManager().
+					getTypeTree().getMap().keySet().iterator();
 			for(;ti.hasNext();)
 			{
 				Type tmpType = (Type)ti.next();
@@ -242,15 +238,16 @@ public class PanelInitProject extends JPanel{
 					break;
 				}
 			}
-
 		}
 		return result;
 	}
 	
-	public Type getTypeForTypeGraphic(TypeGraphic typeGraphic)
-	{
+	public Type getTypeForTypeGraphic(TypeGraphic typeGraphic){
+		
 		Type result= null;
-		Iterator it = currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getMap().keySet().iterator();
+		Iterator<Type> it = currentFrame.getCore().getProject().
+				getLinguisticFactory().getTypeManager().
+				getTypeTree().getMap().keySet().iterator();
 		for(;it.hasNext();)
 		{
 			Type tmpType = (Type)it.next();
@@ -260,18 +257,18 @@ public class PanelInitProject extends JPanel{
 				return result;
 			}
 		}
-		
 		return result;
 	}
 	
-	public boolean conceptAlreadyExists(Type t, String conceptName)
-	{
-		for(Concept c : currentFrame.getCore().getProject().getLinguisticFactory().getTypeManager().getTypeTree().getConceptsForType(t))
+	public boolean conceptAlreadyExists(Type t, String conceptName){
+		
+		for(Concept c : currentFrame.getCore().getProject().
+				getLinguisticFactory().getTypeManager().
+				getTypeTree().getConceptsForType(t))
 		{
 			if(c.getName().equals(conceptName))
 				return true;
 		}
-		
 		return false;
 	}
 }

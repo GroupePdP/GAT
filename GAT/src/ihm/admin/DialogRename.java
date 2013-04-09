@@ -14,6 +14,8 @@ import javax.swing.JTextField;
 
 public class DialogRename extends JDialog{
 
+	private static final long serialVersionUID = 1L;
+
 	JTextField nameTextField = new JTextField(16);
 
 	JButton validate = new JButton("Valider");

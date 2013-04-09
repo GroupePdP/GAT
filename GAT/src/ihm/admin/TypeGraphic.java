@@ -1,10 +1,6 @@
 package ihm.admin;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -12,20 +8,16 @@ import java.util.Vector;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class TypeGraphic extends JPanel{
 
+	private static final long serialVersionUID = 1L;
 	PanelInitProject currentPane;
-	
 	String name;
 	TypeGraphic surType = null;
 	String description = "";
-	
-	
 	
 	JTextField surTypeTextField = new JTextField();
 	
@@ -42,18 +34,14 @@ public class TypeGraphic extends JPanel{
 	JButton validate = new JButton("Valider");
 	JButton ret = new JButton("Annuler");
 	
-	
-	
-	public TypeGraphic(PanelInitProject pip, String name)
-	{
+	public TypeGraphic(PanelInitProject pip, String name){
 		this.setLayout(new BorderLayout());
 		this.currentPane = pip;
 		this.name = name;
 		initMenu();
 	}
 
-	public TypeGraphic(PanelInitProject pip, String name, TypeGraphic surType)
-	{
+	public TypeGraphic(PanelInitProject pip, String name, TypeGraphic surType){
 		this.currentPane = pip;
 		this.name = name;
 		this.surType = surType;
@@ -61,73 +49,62 @@ public class TypeGraphic extends JPanel{
 		this.surTypeTextField.setText(surType.toString());
 	}
 
-	private void initMenu()
-	{
+	private void initMenu(){
 		this.setLayout(new BorderLayout());
 		
-		
-		this.addSurType.addActionListener(new ActionListener() {
+		this.addSurType.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e){
 				resetComboBox();
 				comboPane.setVisible(true);
-
-				
 				addSurType.setVisible(false);
 				valRetPane.setVisible(true);
 			}
 		});
-		this.addSurType.setVisible(false);
 		
-		this.modSurType.addActionListener(new ActionListener() {
+		this.addSurType.setVisible(false);
+		this.modSurType.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e){
 				resetComboBox();
 				comboPane.setVisible(true);
-				
 				suppr.setVisible(true);
 				modSurType.setVisible(false);
 				valRetPane.setVisible(true);
 			}
 		});
-		this.modSurType.setVisible(false);
 		
-		this.suppr.addActionListener(new ActionListener() {
+		this.modSurType.setVisible(false);
+		this.suppr.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e){
 				surType = null;
 				surTypeTextField.setText("");
 				selectMenuToShow();
 			}
 		});
-		this.suppr.setVisible(false);
 		
-		this.validate.addActionListener(new ActionListener() {
+		this.suppr.setVisible(false);
+		this.validate.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e){
 				surType = (TypeGraphic) typeCombo.getSelectedItem();
 				surTypeTextField.setText(surType.toString());
 				selectMenuToShow();
 			}
 		});
 
-		this.ret.addActionListener(new ActionListener() {
+		this.ret.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e){
 				selectMenuToShow();
 			}
 		});
-		
 		
 		JPanel validatePane = new JPanel(new BorderLayout());
 		validatePane.add(this.validate, BorderLayout.CENTER);
@@ -136,11 +113,11 @@ public class TypeGraphic extends JPanel{
 		retPane.add(this.ret, BorderLayout.CENTER);
 		
 		this.valRetPane = new JPanel();
-		this.valRetPane.setLayout(new BoxLayout(this.valRetPane, BoxLayout.X_AXIS));
+		this.valRetPane.setLayout(new BoxLayout(
+				this.valRetPane, BoxLayout.X_AXIS));
 		this.valRetPane.add(retPane);
 		this.valRetPane.add(validatePane);
 		this.valRetPane.setVisible(false);
-
 
 		JPanel addSurTypePane = new JPanel(new BorderLayout());
 		addSurTypePane.add(this.addSurType, BorderLayout.CENTER);
@@ -176,8 +153,8 @@ public class TypeGraphic extends JPanel{
 	}
 
 	
-	public void selectMenuToShow()
-	{
+	public void selectMenuToShow(){
+		
 		this.valRetPane.setVisible(false);
 		this.suppr.setVisible(false);
 		this.comboPane.setVisible(false);
@@ -199,9 +176,9 @@ public class TypeGraphic extends JPanel{
 		this.currentPane.repaint();
 	}
 	
-	private void resetComboBox()
-	{
-		Vector<TypeGraphic> tmp = new Vector();
+	private void resetComboBox(){
+		
+		Vector<TypeGraphic> tmp = new Vector<TypeGraphic>();
 		for (TypeGraphic tg : currentPane.getTypesCol().getTypes())
 		{
 			if (! tg.toString().equals(this.name))
@@ -224,25 +201,23 @@ public class TypeGraphic extends JPanel{
 	}
 	
 	@Override
-	public String toString() {
+	public String toString(){
 		return this.name;
 	}
 
-	public TypeGraphic getSurType() {
+	public TypeGraphic getSurType(){
 		return surType;
 	}
 	
-	public void setDescription(String descr)
-	{
+	public void setDescription(String descr){
 		this.description = descr;
 	}
 
-	public String getDescription() {
+	public String getDescription(){
 		return description;
 	}
 
-	public void setName(String name)
-	{
+	public void setName(String name){
 		this.name = name;
 	}
 }

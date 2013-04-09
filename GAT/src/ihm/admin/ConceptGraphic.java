@@ -1,13 +1,10 @@
 package ihm.admin;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
@@ -21,20 +18,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
 import linguistic.conceptsGestion.Concept;
-import linguistic.typesGestion.Type;
 
 public class ConceptGraphic extends JPanel{
 
+	private static final long serialVersionUID = 1L;
+	
 	Concept concept;
 	PanelInitProject currentPane;
 	String name;
 	TypeGraphic type;
-	Vector<TypeGraphic> arguments = new Vector();
+	Vector<TypeGraphic> arguments = new Vector<TypeGraphic>();
 	String description;
 	JList argsJList;
 	JPanel menu;
@@ -148,7 +142,6 @@ public class ConceptGraphic extends JPanel{
 		this.add(main, BorderLayout.CENTER);
 	}
 
-
 	public void addArgument(TypeGraphic tg){
 		this.arguments.add(tg);
 		this.argsJList.setModel(new DefaultListModel());
@@ -196,7 +189,7 @@ public class ConceptGraphic extends JPanel{
 		this.name = name;
 	}
 
-	public TypeGraphic getType() {
+	public TypeGraphic getType(){
 		return type;
 	}
 	

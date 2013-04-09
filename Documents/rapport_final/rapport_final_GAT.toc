@@ -43,7 +43,7 @@
 \contentsline {subsubsection}{Sch\IeC {\'e}ma de fonctionnement - Administrateur}{18}{section*.17}
 \contentsline {section}{\numberline {4.3}Diagramme de packages}{20}{section.4.3}
 \contentsline {section}{\numberline {4.4}Base de donn\IeC {\'e}es}{20}{section.4.4}
-\contentsline {section}{\numberline {4.5}Package Linguistic}{23}{section.4.5}
+\contentsline {section}{\numberline {4.5}Package \texttt {linguistic}}{23}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}Package \texttt {concepts\_gestion}}{24}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}Package \texttt {types\_gestion}}{25}{subsection.4.5.2}
 \contentsline {subsection}{\numberline {4.5.3}Package \texttt {graph\_concepts\_gestion}}{26}{subsection.4.5.3}

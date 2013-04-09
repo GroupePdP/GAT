@@ -30,18 +30,16 @@ import javax.swing.event.ListSelectionListener;
 
 public class TypesColumn extends JPanel{
 
+	private static final long serialVersionUID = 1L;
 	MainFrame currentFrame;
-	
 	PanelInitProject currentPane;
-	
 	Dimension size;
-	
 	TypeGraphic currentTypePanel= null;
-	
+
 	JPanel displayArea = new JPanel();
-	Vector<TypeGraphic> types = new Vector();
+	Vector<TypeGraphic> types = new Vector<TypeGraphic>();
 	JList typesJList;
-	
+
 	JPanel menu = new JPanel();
 	JButton addType = new JButton("Ajouter Type");
 	JButton validate = new JButton("Valider");
@@ -50,10 +48,9 @@ public class TypesColumn extends JPanel{
 	JLabel surTypeLabel = new JLabel("Sur-type: ");
 	JTextField typeName = new JTextField(12);
 	JComboBox surTypeCombo= new JComboBox();
-	
-	
-	public TypesColumn(MainFrame currentFrame, PanelInitProject pip)
-	{
+
+	public TypesColumn(MainFrame currentFrame, PanelInitProject pip){
+
 		this.currentFrame = currentFrame;
 		this.currentPane = pip;
 		this.setLayout(new GridLayout(1,2));
@@ -63,34 +60,33 @@ public class TypesColumn extends JPanel{
 	private void initMainColumn(){
 
 		JPanel main = new JPanel(new BorderLayout());
-		
+
 		// Initialisation de la JList
-		
 		this.typesJList = new JList(this.types);
 		this.typesJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		DefaultListCellRenderer centerRenderer = new DefaultListCellRenderer();
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 		this.typesJList.setCellRenderer(centerRenderer);
 		JScrollPane scrollJList = new JScrollPane(this.typesJList);
-		scrollJList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollJList.setVerticalScrollBarPolicy(
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		this.typesJList.addListSelectionListener(new ListSelectionListener(){
 
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) 
 			{
-				// TODO Auto-generated method stub
 				if(arg0.getValueIsAdjusting())
-			      {
-					setCurrentTypePanel(types.get(typesJList.getSelectedIndex()));
-			      }
+					setCurrentTypePanel(types.get(
+							typesJList.getSelectedIndex()));
 			}
 		});
-		
+
 		this.typesJList.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				if (e.getButton() == 3)
 				{
-					typesJList.setSelectedIndex(typesJList.locationToIndex(e.getPoint()));
+					typesJList.setSelectedIndex(
+							typesJList.locationToIndex(e.getPoint()));
 					JPopupMenu popup = initPopup();
 					popup.show(typesJList, e.getX(), e.getY());
 				}
@@ -98,17 +94,14 @@ public class TypesColumn extends JPanel{
 		});
 
 		// Initialisation du menu
-		
 		this.menu = new JPanel();
 		this.menu.setLayout(new BoxLayout(menu, BoxLayout.Y_AXIS));
 		this.menu.setVisible(false);
-		
-		
-		this.addType.addActionListener(new ActionListener() {
+
+		this.addType.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e){
 				menu.remove(surTypeCombo);
 				surTypeCombo= new JComboBox(types);
 				surTypeCombo.setSelectedItem(null);
@@ -124,35 +117,30 @@ public class TypesColumn extends JPanel{
 				ret.setVisible(true);
 			}
 		});
-		
-		this.validate.addActionListener(new ActionListener() {
-			
+
+		this.validate.addActionListener(new ActionListener(){
+
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e){
 				menu.setVisible(false);
 				addType.setVisible(true);
 				validate.setVisible(false);
 				ret.setVisible(false);
 				TypeGraphic tmp;
 				if((TypeGraphic)surTypeCombo.getSelectedItem() != null)
-				{
-					tmp = new TypeGraphic(currentPane, typeName.getText(), (TypeGraphic)surTypeCombo.getSelectedItem());
-				}
+					tmp = new TypeGraphic(currentPane, typeName.getText(), 
+							(TypeGraphic)surTypeCombo.getSelectedItem());
 				else
-				{
 					tmp=new TypeGraphic(currentPane, typeName.getText());
-				}
 				addTypeGraphic(tmp);
 			}
 		});
 		this.validate.setVisible(false);
-		
-		this.ret.addActionListener(new ActionListener() {
+
+		this.ret.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e){
 				menu.setVisible(false);
 				addType.setVisible(true);
 				validate.setVisible(false);
@@ -160,26 +148,26 @@ public class TypesColumn extends JPanel{
 			}
 		});
 		this.ret.setVisible(false);
-		
+
 		this.menu.add(this.typeLabel);
 		this.menu.add(this.typeName);
 		this.menu.add(this.surTypeLabel);
 		this.menu.add(this.surTypeCombo);
-		
+
 		JPanel validatePane = new JPanel(new BorderLayout());
 		validatePane.add(this.validate, BorderLayout.CENTER);
-		
+
 		JPanel retPane = new JPanel(new BorderLayout());
 		retPane.add(this.ret, BorderLayout.CENTER);
-		
+
 		JPanel addConceptPane = new JPanel(new BorderLayout());
 		addConceptPane.add(this.addType, BorderLayout.CENTER);
-		
+
 		JPanel valRetPane = new JPanel();
 		valRetPane.setLayout(new BoxLayout(valRetPane, BoxLayout.X_AXIS));
 		valRetPane.add(retPane);
 		valRetPane.add(validatePane);
-		
+
 		JPanel tmp = new JPanel();
 		tmp.setLayout(new BoxLayout(tmp,BoxLayout.Y_AXIS));
 		tmp.add(menu);
@@ -187,20 +175,17 @@ public class TypesColumn extends JPanel{
 		tmp.add(valRetPane);
 		main.add(scrollJList, BorderLayout.CENTER);
 		main.add(tmp, BorderLayout.SOUTH);
-	
+
 		this.add(main);
-		
+
 		this.displayArea.setLayout(new BoxLayout(this.displayArea, BoxLayout.X_AXIS));
 		this.add(this.displayArea);
-
 	}
-	
-	public void setCurrentTypePanel(TypeGraphic cg)
-	{
+
+	public void setCurrentTypePanel(TypeGraphic cg){
+
 		if(this.currentTypePanel != null)
-		{
 			this.currentTypePanel.setVisible(false);
-		}
 		this.currentTypePanel = cg;
 		this.currentTypePanel.selectMenuToShow();
 		this.currentTypePanel.setVisible(true);
@@ -210,13 +195,13 @@ public class TypesColumn extends JPanel{
 		this.validate();
 		this.repaint();
 	}
-	
-	public Vector<TypeGraphic> getTypes() {
+
+	public Vector<TypeGraphic> getTypes(){
 		return types;
 	}
-	
-	public void addTypeGraphic(TypeGraphic cg)
-	{
+
+	public void addTypeGraphic(TypeGraphic cg){
+
 		cg.setVisible(false);
 		cg.selectMenuToShow();
 		this.setCurrentTypePanel(cg);
@@ -228,9 +213,8 @@ public class TypesColumn extends JPanel{
 		this.validate();
 		this.repaint();
 	}
-	
-	public void removeTypeGraphic(TypeGraphic cg)
-	{
+
+	public void removeTypeGraphic(TypeGraphic cg){
 		this.types.remove(cg);
 		this.typesJList.setModel(new DefaultListModel());
 		this.typesJList.setListData(this.types);
@@ -239,92 +223,79 @@ public class TypesColumn extends JPanel{
 		this.invalidate();
 		this.validate();
 	}
-	
-	private JPopupMenu initPopup()
-	{
+
+	private JPopupMenu initPopup(){
 		JPopupMenu popup = new JPopupMenu();
-		
+
 		JMenuItem rename = new JMenuItem("Renommer Type");
 		rename.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				DialogRename dd = new DialogRename(currentPane, types.get(typesJList.getSelectedIndex()));
-				
+			public void actionPerformed(ActionEvent e){
+				DialogRename dd = new DialogRename(currentPane, 
+						types.get(typesJList.getSelectedIndex()));
+
 				Point loc = currentFrame.getLocationOnScreen();
-				dd.setLocation(loc.x+currentFrame.getWidth()/2-dd.getWidth()/2, loc.y+currentFrame.getHeight()/2-dd.getHeight()/2);
+				dd.setLocation(loc.x+currentFrame.getWidth()/2-dd.getWidth()/2,
+						loc.y+currentFrame.getHeight()/2-dd.getHeight()/2);
 				dd.setVisible(true);
 			}
-			
 		});
-		
-		
+
 		JMenuItem suppr = new JMenuItem("Supprimer Type");
 		suppr.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e){
 				removeTypeGraphic(types.remove(typesJList.getSelectedIndex()));
 				currentPane.setCurrentDescription("");
 			}
-			
 		});
 
 		JMenuItem descr = new JMenuItem("Editer Description");
 		descr.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				DialogDescription dd = new DialogDescription(currentPane, types.get(typesJList.getSelectedIndex()));
-				
+			public void actionPerformed(ActionEvent e){
+				DialogDescription dd = new DialogDescription(
+						currentPane, types.get(typesJList.getSelectedIndex()));
+
 				Point loc = currentFrame.getLocationOnScreen();
-				dd.setLocation(loc.x+currentFrame.getWidth()/2-dd.getWidth()/2, loc.y+currentFrame.getHeight()/2-dd.getHeight()/2);
+				dd.setLocation(loc.x+currentFrame.getWidth()/2-dd.getWidth()/2,
+						loc.y+currentFrame.getHeight()/2-dd.getHeight()/2);
 				dd.setVisible(true);
 			}
-			
 		});
+
 		popup.add(rename);
 		popup.add(descr);
 		popup.add(suppr);
 		return popup;
 	}
-	
-	public boolean typeAlreadyExists(String typeName)
-	{
+
+	public boolean typeAlreadyExists(String typeName){
 		for(TypeGraphic tg : types)
 		{
 			if(tg.toString().equals(typeName))
-			{
 				return true;
-			}
 		}
-		
 		return false;
 	}
-	
-	public TypeGraphic getTypeByName(String typeName)
-	{
-		
-		
+
+	public TypeGraphic getTypeByName(String typeName){
 		for(TypeGraphic tg : types)
 		{
 			if(tg.toString().equals(typeName))
 				return tg;
 		}
-		
 		return null;
 	}
-	
-	public void renameTypeGraphic(String newName, TypeGraphic tg)
-	{
+
+	public void renameTypeGraphic(String newName, TypeGraphic tg){
 		tg.name = newName;
 		this.typesJList.setModel(new DefaultListModel());
 		this.typesJList.setListData(this.types);
 		this.invalidate();
 		this.validate();
 	}
-	
 }

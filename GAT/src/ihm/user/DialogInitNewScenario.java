@@ -16,10 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -27,6 +24,7 @@ import linguistic.Scenario;
 
 public class DialogInitNewScenario extends JDialog{
 
+	private static final long serialVersionUID = 1L;
 	JDialog thisDiag = this;
 	MainFrame currentFrame;
 	
@@ -34,8 +32,8 @@ public class DialogInitNewScenario extends JDialog{
 	
 	JLabel error = new JLabel("Nom de scenario incorrect");
 	
-	public DialogInitNewScenario(MainFrame mf, final PanelHomeUser prev)
-	{
+	public DialogInitNewScenario(MainFrame mf, final PanelHomeUser prev){
+		
 		this.currentFrame = mf;
 		this.setTitle("Creation d'un nouveau scenario");
 		this.setSize(new Dimension(250,150));
@@ -54,32 +52,34 @@ public class DialogInitNewScenario extends JDialog{
 		JPanel subGlobalPane = new JPanel();
 		subGlobalPane.setLayout(new BoxLayout(subGlobalPane, BoxLayout.Y_AXIS));
 		
-		JPanel newScenarioLabelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel newScenarioLabelPanel = new JPanel(
+				new FlowLayout(FlowLayout.LEFT));
 		JLabel newScenarioLabel = new JLabel("Nom du nouveau scenario :");
 		newScenarioLabelPanel.add(newScenarioLabel);
 		
-		JPanel newScenarioTextAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		this.newScenarioTextArea.getDocument().addDocumentListener(new DocumentListener() {
+		JPanel newScenarioTextAreaPanel = new JPanel(
+				new FlowLayout(FlowLayout.LEFT));
+		this.newScenarioTextArea.getDocument().
+		addDocumentListener(new DocumentListener(){
 			
 			@Override
-			public void changedUpdate(DocumentEvent arg0) {
-				// TODO Auto-generated method stub
+			public void changedUpdate(DocumentEvent arg0){
 				error.setVisible(false);
 			}
 
 			@Override
-			public void insertUpdate(DocumentEvent e) {
-				// TODO Auto-generated method stub
+			public void insertUpdate(DocumentEvent e){
 				error.setVisible(false);
 			}
 
 			@Override
-			public void removeUpdate(DocumentEvent e) {
-				// TODO Auto-generated method stub
+			public void removeUpdate(DocumentEvent e){
 				error.setVisible(false);
 			}
 		});
-		this.newScenarioTextArea.setBorder(BorderFactory.createLoweredBevelBorder());
+		
+		this.newScenarioTextArea.setBorder(
+				BorderFactory.createLoweredBevelBorder());
 		newScenarioTextAreaPanel.add(this.newScenarioTextArea);
 		
 		this.error.setForeground(Color.RED);
@@ -92,8 +92,6 @@ public class DialogInitNewScenario extends JDialog{
 		subGlobalPane.add(errorPanel);
 		centSub.add(subGlobalPane);
 		
-		JPanel buttons = new JPanel();
-		
 		JPanel southPanel = new JPanel();
 		southPanel.setLayout(new BorderLayout());
 		
@@ -104,7 +102,7 @@ public class DialogInitNewScenario extends JDialog{
 		JButton ret = new JButton("Retour");
 		ret.addActionListener(new ActionListener(){
 
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg0){
 				thisDiag.dispose();
 			}
 			
@@ -115,15 +113,15 @@ public class DialogInitNewScenario extends JDialog{
 		JButton ok = new JButton("Valider");
 		ok.addActionListener(new ActionListener(){
 
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e){
 				
 				String scenarioName = newScenarioTextArea.getText();
-				
 				
 				if(scenarioName.length() != 0)
 				{
 					Scenario s = new Scenario(scenarioName);
-					PanelNewScenario pns = new PanelNewScenario(currentFrame,s,prev);
+					PanelNewScenario pns = new PanelNewScenario(
+							currentFrame,s,prev);
 					currentFrame.setPane(pns);
 					thisDiag.dispose();
 				}
@@ -134,8 +132,8 @@ public class DialogInitNewScenario extends JDialog{
 					thisDiag.invalidate();
 				}
 			}
-			
 		});
+		
 		ok.setPreferredSize(buttSize);
 		retPanel.add(ok);
 		

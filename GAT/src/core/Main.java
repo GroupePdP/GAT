@@ -11,7 +11,7 @@ public class Main {
 				substring(0, System.getProperty("user.dir").length() -4)
 				+ File.separator + "Projets";
 		Core core = new Core(emplacement);
-		MainFrame mf = new MainFrame(core); 
+		new MainFrame(core); 
 	}
 }
 

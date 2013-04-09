@@ -10,12 +10,10 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -24,7 +22,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -32,15 +29,13 @@ import javax.swing.event.ListSelectionListener;
 import linguistic.Scenario;
 import linguistic.conceptsGestion.Concept;
 import linguistic.conceptsGestion.ConceptComplex;
-import linguistic.conceptsGestion.ConceptSimple;
 import linguistic.graphConceptsGestion.GraphConcepts;
 import linguistic.graphConceptsGestion.GraphNode;
 import linguistic.typesGestion.LinguisticFactory;
-import linguistic.typesGestion.Type;
-import linguistic.typesGestion.TypeImpl;
 
 public class PanelColumnScenario extends JPanel{
 
+	private static final long serialVersionUID = 1L;
 	JPanel thisPane;
 	PanelMiller currentPanel;
 	Dimension thisColumnSize;
@@ -65,8 +60,7 @@ public class PanelColumnScenario extends JPanel{
 	ArrayList<PanelSubColumnScenario> list;
 
 	public PanelColumnScenario(Dimension columnSize, PanelMiller curr, 
-			Scenario s, PanelHomeUser p)
-	{
+			Scenario s, PanelHomeUser p){
 		this.thisPane = this;
 		this.currentPanel=curr;
 		this.thisColumnSize= columnSize;
@@ -115,13 +109,14 @@ public class PanelColumnScenario extends JPanel{
 					if(tmp instanceof ConceptComplex)
 					{
 						Iterator it = list.iterator();
-
 						for(;it.hasNext();)
 						{
-							PanelSubColumnScenario tmpCol = (PanelSubColumnScenario) it.next();
+							PanelSubColumnScenario tmpCol =
+									(PanelSubColumnScenario) it.next();
 							tmpCol.setVisibleAll(false);
 						}
-						list.get(conceptListTest.getSelectedIndex()).setVisible(true);
+						list.get(conceptListTest.getSelectedIndex()).
+						setVisible(true);
 					}
 				}
 			}
@@ -134,7 +129,8 @@ public class PanelColumnScenario extends JPanel{
 		conceptListTest.setCellRenderer(centerRenderer);
 
 		JScrollPane conceptScroll = new JScrollPane(conceptListTest);
-		conceptScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		conceptScroll.setVerticalScrollBarPolicy(
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		this.main = conceptScroll;
 		newCol.add(conceptScroll, BorderLayout.CENTER);
 
@@ -142,7 +138,7 @@ public class PanelColumnScenario extends JPanel{
 		this.addConceptButton.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e){
 				addConceptButton.setVisible(false);
 				validateButton.setVisible(true);
 				combo.setVisible(true);
@@ -150,11 +146,12 @@ public class PanelColumnScenario extends JPanel{
 			}
 
 		});
+		
 		this.validateButton.setPreferredSize(new Dimension(200,30));
 		this.validateButton.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e){
 				addConceptButton.setVisible(true);
 				validateButton.setVisible(false);
 				combo.setVisible(false);
@@ -166,7 +163,6 @@ public class PanelColumnScenario extends JPanel{
 				list.add(newCol);
 
 				addConcept(c);
-
 				columnMenu.repaint();
 			}
 		});

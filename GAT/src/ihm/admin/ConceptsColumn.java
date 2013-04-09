@@ -28,10 +28,11 @@ import javax.swing.event.ListSelectionListener;
 
 public class ConceptsColumn extends JPanel{
 
+	private static final long serialVersionUID = 1L;
 	MainFrame currentFrame;
 	PanelInitProject currentPane;
 	ConceptGraphic currentConceptPanel;
-	Vector<ConceptGraphic> concepts = new Vector();
+	Vector<ConceptGraphic> concepts = new Vector<ConceptGraphic>();
 	JList conceptsJList;
 
 	JPanel displayArea = new JPanel();

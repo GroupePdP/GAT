@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 
 public class PanelCenteredButton extends JPanel{
 	
+	private static final long serialVersionUID = 1L;
+
 	public PanelCenteredButton(String buttname, ActionListener listener){
 		
 		JButton usrButton = new JButton(buttname);

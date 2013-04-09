@@ -3,7 +3,6 @@ package ihm.admin;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +17,7 @@ import javax.swing.JTextArea;
 
 public class DialogDescription extends JDialog{
 
+	private static final long serialVersionUID = 1L;
 	JButton validate = new JButton("Valider");
 	JTextArea descrArea;
 
@@ -42,7 +42,8 @@ public class DialogDescription extends JDialog{
 		this.descrArea.setLineWrap(true);
 		this.descrArea.setEditable(true);
 		JScrollPane descrScroll = new JScrollPane(this.descrArea);
-		descrScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		descrScroll.setVerticalScrollBarPolicy(
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		descrScroll.setPreferredSize(new Dimension(main.getWidth(), 60));
 		this.descrArea.setText(descr);
 
