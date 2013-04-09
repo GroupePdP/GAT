@@ -44,6 +44,16 @@
 \tableofcontents
 \newpage
 
+\chapter*{Remerciements}
+
+
+A M. Clément, pour sa disponibilité et sa réactivité. \\
+
+A M. Baldacci, pour son soutien, son sens des relations humaines, et son infinie patience. \\
+
+A M. Narbel, pour ses cours et son aide.
+
+
 \chapter{Présentation du sujet}
 
 \section{Présentation du domaine}
@@ -421,6 +431,12 @@ que l'utilisation d'une base de données est superflue.
 
 \section{Choix du langage de programmation}
 
+Nous avons choisi d'implémenter notre logiciel en langage Java. 
+L'utilisation d'un langage objet nous semblait indispensable, afin de pouvoir gérer notamment le système de concepts et de types. Le langage Java nous a paru adapté, en raison de la facilité qu'il apporte dans la sauvegarde et du chargement de fichiers (XStream), dans la gestion des fonctionnalités liées à la base de données et dans la mise en place d'une interface graphique complexe.
+
+De plus, ce langage est maîtrisé par l'ensemble du groupe.
+
+
 \section{Schémas de cas d'utilisation et de fonctionnement}
 
 
@@ -436,15 +452,17 @@ Ils schématisent les interactions entre le programme, l'utilisateur et l'admini
 
 	\subsubsection{Schéma de fonctionnement - Utilisateur}
 	
-	\includegraphics[scale=0.45]{FonctionnementUtilisateur.png}
-	
-	Le schéma ci-dessus décrit le fonctionnement du logiciel du point de vue d'un utilisateur classique.
+		Le schéma ci-dessous décrit le fonctionnement du logiciel du point de vue d'un utilisateur classique.
 	
 	Après avoir choisi le mode d'utilisation "Classique", l'utilisateur choisit le projet sur lequel il souhaite travailler. Il choisit ensuite de travailler sur un scénario existant ou de créer un nouveau scénario. 
 	\begin{itemize}
 	\item S'il choisit "Scénario existant", il a accès à la liste des scénarios existants dans le projet sélectionné et peut générer une entrée Syntox à partir du scénario qu'il aura choisi.
 	\item En choisissant "Scénario personnalisé", il a la possibilité de manipuler des concepts et de former ainsi un scénario adapté à ses besoins. Une fois que son travail est terminé, il peut l'enregistrer. Son nouveau scénario devient disponible dans la liste des scénarios existants.
 	\end{itemize}
+	
+	\includegraphics[scale=0.45]{FonctionnementUtilisateur.png}
+	
+
 
 	\subsubsection{Schéma de fonctionnement - Administrateur}
 	
@@ -760,12 +778,12 @@ La fonction d'affichage du répertoire, quand à elle, est appelée au choix du 
 
 Dans cette partie, nous allons présenter les fonctionnalités du logiciel que nous avons développé.
 
-Au lancement du logiciel, le menu principal s'affiche, offrant la possibilité à l'utilisateur soit de passer en mode "Utilisateur classique", soit en mode "Administrateur".
+Au lancement du logiciel, le menu principal s'affiche, offrant la possibilité à l'utilisateur soit de passer en mode "Utilisateur classique", soit en mode "Administrateur"(voir figure 5.1).
  \bigskip 
 
-Le mode "Administrateur" permet de créer ou de modifier des projets. Pour rappel, un projet regroupe des informations de connexion à une base de données, un ensemble de concepts et de types, ainsi que des scénarios, conçus à partir de ces mêmes objets.
+Le mode "Administrateur" permet de créer ou de modifier des projets (figure 5.2). Pour rappel, un projet regroupe des informations de connexion à une base de données, un ensemble de concepts et de types, ainsi que des scénarios, conçus à partir de ces mêmes objets.
 
-Pour créer un nouveau projet, le logiciel demande à l'administrateur de fournir un certain nombre d'informations : 
+Pour créer un nouveau projet, le logiciel demande à l'administrateur de fournir un certain nombre d'informations (figure 5.3): 
 \begin{itemize}
 \item le nom du projet
 \item l'url d'une base de données MySQL valide
@@ -774,7 +792,7 @@ Pour créer un nouveau projet, le logiciel demande à l'administrateur de fourni
 
 \bigskip
 
-L'administrateur arrive sur l'écran d'édition du projet.
+L'administrateur arrive sur l'écran d'édition du projet (figures 5.4 et 5.5).
 Cet écran possède deux onglets : un destiné à la création et à l'édition des concepts, l'autre à celles des types. Un certain nombre de types ont déjà été ajoutés automatiquement par le logiciel en inspectant la base de données qui a été fournie.
 
 \bigskip
@@ -783,27 +801,27 @@ Pour aider l'administrateur, plusieurs outils d'édition sont disponibles.
 Il peut ainsi créer des types du nom de son choix facilement et leur attribuer un surtype, ce surtype étant modifiable et supprimable à tout moment. 
 Il en va de même pour l'ajout des concepts, qui nécessite que l'administrateur fournisse son nom et son type. Il peut aussi leur ajouter des arguments, qui seront des types.
 
-La suppression, le renommage et l'édition de la description de ces types et concepts sont disponibles via un clic droit.
+La suppression, le renommage et l'édition de la description de ces types et concepts sont disponibles via un clic droit (figure 5.6).
 
 \bigskip
 
 A la fin de l'édition du projet, sa sauvegarde est possible via la commande "Enregistrer" du menu "Fichier". Les concepts et les types sont alors stockés dans un fichier .XML, qui correspond au projet. Ce fichier a pour nom le nom du projet.
 
-Si l'administrateur veut modifier un projet déjà créé, il peut le faire grâce au bouton "Modifier Projet", puis sélectionner le projet à modifier dans la liste des projets existants.
+Si l'administrateur veut modifier un projet déjà créé, il peut le faire grâce au bouton "Modifier Projet", puis sélectionner le projet à modifier dans la liste des projets existants (figure 5.7).
 
 Il se retrouve ensuite sur l'écran d'édition, décrit plus haut.
 
 \bigskip
 
-Dans le cas où le bouton "Utilisateur" est sélectionné dans le menu principal, l'utilisateur peut accéder à un menu lui permettant soit d'utiliser un scénario déjà existant dans le projet qu'il a sélectionné préalablement (dans une liste présentant tous les projets existants), soit d'en créer un lui-même.
+Dans le cas où le bouton "Utilisateur" est sélectionné dans le menu principal, l'utilisateur peut accéder à un menu lui permettant soit d'utiliser un scénario déjà existant dans le projet qu'il a sélectionné préalablement (dans une liste présentant tous les projets existants), soit d'en créer un lui-même (figure 5.8).
 
-Grâce au menu "Scénarios existants", l'utilisateur a donc accès à la liste des scénarios déjà présents dans le projet. Il peut, s'il le souhaite, supprimer un scénario de la liste en faisant un clic droit ou tout simplement en choisir un et cliquer sur valider.
+Grâce au menu "Scénarios existants", l'utilisateur a donc accès à la liste des scénarios déjà présents dans le projet. Il peut, s'il le souhaite, supprimer un scénario de la liste en faisant un clic droit ou tout simplement en choisir un et cliquer sur valider (figure 5.9).
 
-L'entrée Syntox correspondant au scénario qu'il a choisit s'affiche alors, et une page permettant de visualiser le texte généré par cette entrée Syntox est ouverte sur le navigateur par défaut de l'utilisateur.
+L'entrée Syntox correspondant au scénario qu'il a choisit s'affiche alors, et une page permettant de visualiser le texte généré par cette entrée Syntox est ouverte sur le navigateur par défaut de l'utilisateur(figure 5.10).
 
 \bigskip
 
-Le menu "Scénario personnalisé" permet quant à lui à l'utilisateur de créer un scénario à partir des concepts présents dans le projet. Une première colonne affiche les racines de chacun des arbres conceptuels du scénario, ces arbres correspondent en fait à chaque phrase que contiendra ce même scénario. L'utilisateur peut donc former les phrases qu'il désire, en précisant au fur et à mesure leurs attributs.
+Le menu "Scénario personnalisé" permet quant à lui à l'utilisateur de créer un scénario à partir des concepts présents dans le projet. Une première colonne affiche les racines de chacun des arbres conceptuels du scénario, ces arbres correspondent en fait à chaque phrase que contiendra ce même scénario. L'utilisateur peut donc former les phrases qu'il désire, en précisant au fur et à mesure leurs attributs (figure 5.11).
 
 Une fois le scénario terminé, l'utilisateur peut enregistrer son travail via le menu "Fichier" présent dans la barre de menu.
 
@@ -821,26 +839,32 @@ Une fois le scénario terminé, l'utilisateur peut enregistrer son travail via l
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.3]{IHM/creation_projet.png}
+\includegraphics[scale=0.3]{IHM/creation_projet2.png}
 \caption{Ecran de création d'un nouveau projet}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.3]{IHM/creation_types.png}
+\includegraphics[scale=0.3]{IHM/creation_types2.png}
 \caption{Ecran de création des types}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.3]{IHM/creation_concepts.png}
+\includegraphics[scale=0.3]{IHM/creation_concepts2.png}
 \caption{Ecran de création des concepts}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.3]{IHM/selection_modifier_projet.png}
-\caption{Ecran d'ouverture d'un projet}
+\includegraphics[scale=0.3]{IHM/outils_edition.png}
+\caption{Modifications possibles lors de la création des concepts}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{IHM/modifier_projet_admin.png}
+\caption{Ecran de choix du projet à modifier}
 \end{figure}
 
 \begin{figure}
@@ -857,7 +881,7 @@ Une fois le scénario terminé, l'utilisateur peut enregistrer son travail via l
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.3]{IHM/affichage_resultat.png}
+\includegraphics[scale=0.3]{IHM/resultat.png}
 \caption{Ecran affichant le texte généré}
 \end{figure}
 
@@ -867,11 +891,7 @@ Une fois le scénario terminé, l'utilisateur peut enregistrer son travail via l
 \caption{Ecran de création d'un nouveau scénario}
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.3]{IHM/modifier_projet_admin.png}
-\caption{Ecran de choix du projet à modifier}
-\end{figure}
+
 
 
 \chapter{Tests et résultats}
@@ -965,19 +985,28 @@ Nous avons choisi de tester particulièrement les classes présentes dans les fi
 	\item La conservation des informations saisies pour la base de données au moyen de la méthode \emph{initBase}. 
 	\item L'ajout et la suppression de scénarios relatifs à un \texttt{Projet}.
 	\end{itemize}
-	
-\subsection{Database[Connection/Inspection]}
-\subsection{Syntox}
-
-\subsection{Mémoire et temps de calcul}
-	
-\section{Résultats}
 
 \chapter{Conclusion et perspectives}
-    On peut noter de manière positive que le diagramme ne possède pas de cycles. Il serait possible de supprimer le DAG en créant une nouvelle classe séparant le controleur de l'IHM. Ainsi, on briserait les dépendances entre l'interface graphique et les paquets LinguisticFactory et databaseInspection.
-    De plus, il faudrait envisager regrouper les paquets databaseInspection et databaseConnection sous un seul et meme paquet.
+
+\section{Conclusion}
+
+    L'objectif de notre projet de programmation était de créer un logiciel capable de générer automatiquement un texte à partir d'informations récupérées dans une base de données. La principale difficulté était d'obtenir un résultat qu'un simple texte à trous ne serait pas capable de produire (de par ses contraintes dans la forme et l'ordre de ses arguments, par exemple). Pour cela nous avions à disposition le logiciel Syntox, créé par Lionel Clément, capable de produire des phrases grammaticalement correctes à partir d'une grammaire et d'un lexique. Notre programme devait donc être capable de produire une entrée normalisée pour ce logiciel, et d'en récupérer le résultat.
+   
+    Afin de remplir cet objectif, le logiciel que nous avons produit propose les outils nécessaires à l'utilisateur pour créer intuitivement l'ensemble des éléments nécessaires à l'élaboration d'une requête Syntox qui produit un texte exprimant les informations choisies par l'utilisateur. Pour cela, l'utilisateur peut créer des concepts et leurs types, qu'il articule de la manière dont il le souhaite, et qu'il regroupe à l'envi sous forme de scénarios. Chacun de ces scénarios est interprétable par le programme, afin de générer une requête Syntox. Le logiciel est également capable de remplir automatiquement le formulaire pour le logiciel Syntox en l'affichant dans une page web.
+
+\section{Perspectives}
+
+    Cependant, il reste certaines fonctionnalités à améliorer ou à ajouter. On peut par exemple citer la connexion au logiciel Syntox: on souhaitait initialement récupérer directement le résultat (texte généré) et l'enregistrer dans un fichier texte, cependant, nous n'avons pas totalement réussi à communiquer avec le formulaire en ligne et à l'exécuter sans intervention de l'utilisateur.
+    Dans la partie base de données, nous n'avons pas eu le temps de rendre parfaitement fonctionnel la génération automatique de requêtes SQL. Bien que cette partie du logiciel soit implémentée, elle n'offre pas toutes les fonctionnalités dont a besoin l'utilisateur. Par exemple, elle n'est pas capable de cibler suffisamment précisement les données dans une table. De plus, il pourrait être intéressant de réfléchir à une solution permettant de sauvegarder les opérations effectuées sur la base de données lors de l'exécution du programme.
+    Concernant le stockage des données sensibles concernant les informations de connexion à la base de données, il pourrait se révéler important dans le futur de songer à une solution plus sécurisée.
+    Du côté de l'architecture du programme, on peut noter de manière positive que le diagramme des packages ne possède pas de cycles. Il serait possible de supprimer le graphe acyclique orienté en créant une nouvelle classe séparant le contrôleur de l'interface graphique. Ainsi, on briserait les dépendances entre l'interface graphique et les paquets \texttt{linguistic} et \texttt{databaseInspection}. De plus, il faudrait envisager regrouper les paquets \texttt{database}-\texttt{Inspection} et \texttt{databaseConnection} sous un seul et même paquet.
 
 \includegraphics[scale=0.5]{diversuml/DiagPackagesOpti.png}
+
+    Enfin, certaines fonctionnalités de l'interface graphique ne fonctionnent pas correctement.
+
+    Cependant, la structure de notre logiciel permettra facilement de continuer son développement afin de corriger les fonctionnalités déficientes. De plus nous avons tenté de le rendre le plus maintenable et extensible possible. Ainsi, il sera facile de palier les manques que nous n'avons pas pu ou n'avons pas eu le temps d'implémenter.
+
 
 \bibliographystyle{plain}
 \bibliography{biblio}
