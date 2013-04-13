@@ -1,0 +1,174 @@
+\documentclass[8pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{subfig}
+\usepackage{caption}
+
+\setbeamertemplate{navigation symbols}{}
+
+\usetheme{Warsaw}
+\usecolortheme[RGB={32,69,96}]{structure}
+\beamersetuncovermixins{\opaqueness<1>{75}}{\opaqueness<2->{55}}
+\addtobeamertemplate{footline}{\hfill\insertframenumber/\inserttotalframenumber\hspace{2em}\null}
+
+
+\newcommand {\framedgraphic}[2] {
+    \begin{frame}{#1}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}
+        \end{center}
+    \end{frame}
+}
+
+\title{Soutenance projet de programmation}
+\subtitle{Génération Automatique de Texte}
+\author{Benoît Barthés \\ Alexis Boumera \\ Baptiste Guiomar \\ Claire Pennarun \\ Adrien Wintringer}
+\date{Mardi 16 Avril 2013}
+
+\begin{document} 
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section*{Introduction}
+\begin{frame}\frametitle{Introduction}
+\end{frame}
+
+
+\section{Déroulement du logiciel}
+
+\subsection{Administrateur}
+
+\subsubsection{Base de données}
+\begin{frame}{Base de données}
+\begin{block}{Création de projet}
+\begin{center}
+\includegraphics[scale=0.2]{db_connection.png}
+\end{center}
+\end{block}
+\end{frame}
+
+\begin{frame}{Base de données}
+\begin{block}{Organisation de la base de données}
+\begin{center}
+\includegraphics[scale=0.3]{db_presentation.png}
+\end{center}
+\end{block}
+\end{frame}
+
+\subsubsection{Base de données}
+\begin{frame}{Base de données}
+\begin{block}{Création de types}
+\begin{center}
+\includegraphics[scale=0.2]{creation_types.png}
+\end{center}
+\end{block}
+\end{frame}
+
+
+\subsubsection{Concepts et système de typage}
+\begin{frame}{Concepts et système de typage}
+\begin{columns}
+
+\begin{column}{6cm}
+\begin{itemize}
+\item Types :
+\\ Endroit pour ajouter du blabla qui parle des types !
+\item Concepts
+\item Scénarios
+\end{itemize}
+\end{column}
+
+\begin{column}{6cm}
+\includegraphics[scale=0.135]{creation_types.png}
+\captionof{figure}[]{Fenêtre création de types}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Concepts et système de typage}
+\begin{columns}
+
+\begin{column}{6cm}
+\begin{itemize}
+\item Types
+\item Concepts:
+\\ Endroit pour ajouter du blabla qui parle des concepts !
+\item Scénarios
+\end{itemize}
+\end{column}
+
+\begin{column}{6cm}
+\includegraphics[scale=0.135]{creation_concepts.png}
+\captionof{figure}[]{Fenêtre création de concepts}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Concepts et système de typage}
+\begin{columns}
+
+\begin{column}{6cm}
+\begin{itemize}
+\item Types
+\item Concepts
+\item Scénarios :
+\\ Endroit pour ajouter du blabla qui parle des scénarios !
+\end{itemize}
+\end{column}
+
+
+\begin{column}{6cm}
+\includegraphics[scale=0.135]{creation_scenario.png}
+\captionof{figure}[]{Fenêtre création de scénarios}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+\subsubsection{Sauvegarde}
+\begin{frame}{Sauvegarde}
+\end{frame}
+
+
+\subsection{Utilisateur}
+
+\subsubsection{Scénarios et graphes conceptuels}
+\begin{frame}{Scénarios et graphes conceptuels}
+\end{frame}
+
+\subsubsection{Connexion à Syntox}
+\begin{frame}{Connexion à Syntox}
+\begin{block}{Schéma de fonctionnement}
+\begin{center}
+\includegraphics[scale=0.35]{syntox_connection.jpg}
+\end{center}
+Problème rencontré :
+\begin{itemize}
+\item Le résultat était incorrect.  \\
+L'action du formulaire ne semblait pas s'activer.
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+\section{Architecture}
+
+
+
+\section{Test}
+\begin{frame}
+\end{frame}
+
+
+\begin{frame}{Conclusion}
+\section*{Conclusion}
+\end{frame}
+
+
+\end{document}
