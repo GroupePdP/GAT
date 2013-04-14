@@ -1,12 +1,12 @@
-\beamer@endinputifotherversion {3.10pt}
+\beamer@endinputifotherversion {3.07pt}
 \beamer@sectionintoc {2}{D\IeC {\'e}roulement du logiciel}{3}{0}{1}
 \beamer@subsectionintoc {2}{1}{Administrateur}{3}{0}{1}
-\beamer@subsubsectionintoc {2}{1}{1}{Base de donn\IeC {\'e}es}{3}{0}{1}
-\beamer@subsubsectionintoc {2}{1}{2}{Base de donn\IeC {\'e}es}{5}{0}{1}
-\beamer@subsubsectionintoc {2}{1}{3}{Concepts et syst\IeC {\`e}me de typage}{6}{0}{1}
-\beamer@subsubsectionintoc {2}{1}{4}{Sauvegarde}{9}{0}{1}
+\beamer@subsubsectionintoc {0}{2}{1}{1}{3}{1}{Base de donn\IeC {\'e}es}
+\beamer@subsubsectionintoc {0}{2}{1}{2}{5}{1}{Base de donn\IeC {\'e}es}
+\beamer@subsubsectionintoc {0}{2}{1}{3}{6}{1}{Concepts et syst\IeC {\`e}me de typage}
+\beamer@subsubsectionintoc {0}{2}{1}{4}{9}{1}{Sauvegarde}
 \beamer@subsectionintoc {2}{2}{Utilisateur}{10}{0}{1}
-\beamer@subsubsectionintoc {2}{2}{1}{Sc\IeC {\'e}narios et graphes conceptuels}{10}{0}{1}
-\beamer@subsubsectionintoc {2}{2}{2}{Connexion \IeC {\`a} Syntox}{11}{0}{1}
-\beamer@sectionintoc {3}{Architecture}{12}{0}{2}
-\beamer@sectionintoc {4}{Test}{12}{0}{3}
+\beamer@subsubsectionintoc {0}{2}{2}{1}{10}{1}{Graphes conceptuels}
+\beamer@subsubsectionintoc {0}{2}{2}{2}{21}{1}{Connexion \IeC {\`a} Syntox}
+\beamer@sectionintoc {3}{Architecture}{22}{0}{2}
+\beamer@sectionintoc {4}{Test}{22}{0}{3}

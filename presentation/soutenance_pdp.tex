@@ -10,7 +10,7 @@
 \usecolortheme[RGB={32,69,96}]{structure}
 \beamersetuncovermixins{\opaqueness<1>{75}}{\opaqueness<2->{55}}
 \addtobeamertemplate{footline}{\hfill\insertframenumber/\inserttotalframenumber\hspace{2em}\null}
-\beamertemplatetransparentcovered
+%\beamertemplatetransparentcovered
 
 
 \newcommand {\framedgraphic}[2] {
@@ -108,9 +108,37 @@
 
 \subsection{Utilisateur}
 
-\subsubsection{Scénarios et graphes conceptuels}
-\begin{frame}{Scénarios et graphes conceptuels}
+\subsubsection{Graphes conceptuels}
+\begin{frame}{Graphes conceptuels}
+
+\only<1-4>{
+\uncover<1-4>{Point technique : rajout d'un noeud dans le graphe conceptuel}
+
+\uncover<2-4>{\bigskip Problème : besoin d'une structure arborescente}
+\uncover<3-4>{\\ MAIS plusieurs noeuds peuvent référencer le même Concept}
+
+\uncover<4>{\bigskip Solution proposée : 
+	\begin{itemize}
+	\item utilisation d'un tag
+	\item création d'une référence
+	\end{itemize}
+}
+}
+
+\only<5->{
+\uncover<5->{addChild(GraphNode child, int index) sur un GraphNode parent}
+\begin{itemize} 
+\item \uncover<6->{on vérifie la compatibilité de child et parent}
+\item \uncover<7->{si le noeud child est tagué}
+				\uncover<8->{\\ on en crée une copie, qui en contient une référence}
+				\uncover<9->{\\ on signale que child possède une référence}
+\item  \uncover<10->{sinon, on met un tag dessus et on l'ajoute}
+\end{itemize}
+
+\uncover<11->{\bigskip Remarque : pas besoin de regarder les "enfants" du noeud à rajouter}
+}
 \end{frame}
+
 
 \subsubsection{Connexion à Syntox}
 \begin{frame}{Connexion à Syntox}

@@ -1,0 +1,43 @@
+	public void addChild(GraphNode child,int index) throws IncompatibleTypesException{
+		List<Type> list = getConcept().getArguments();
+		Type t = list.get(index);
+		Concept c = child.getConcept();
+		Type tChild = c.getType();
+
+		if (LinguisticFactory.getInstance().getTypeManager()
+				.isCompatible(tChild,t)){ // on verifie la compatibilite de tChild et t
+			if(child.isTagged()){
+				GraphNode childReference = new GraphNodeDefault(child);
+				childReference.setReference(child);
+				child.setIsReference(true);
+				if(getChildrenList().size()<=index)
+					getChildrenList().add(index,childReference);
+				getChildrenList().set(index,childReference);
+			}
+			else // child n'est pas tague
+			{
+				child.setTag(true);
+				if(getChildrenList().size()<=index)
+					getChildrenList().add(index,child);
+				getChildrenList().set(index,child);
+			}
+		}
+		else
+			throw new IncompatibleTypesException(tChild, t);
+	}
+
+
+Point technique : rajout d'un noeud dans le graphe conceptuel
+Problème : besoin de stocker le graphe conceptuel dans un fichier .xml -> structure arborescente
+MAIS plusieurs noeuds peuvent référencer le même Concept : si simplement copies -> pb au chargement et à la modification d'un noeud -> les autres noeuds ne se modifient pas.
+Donc solution proposée :
+
+utilisation d'un tag : si tag, alors noeud déjà présent dans le graphe (on est en train de rajouter un concept qui existe déjà -> on doit créer un lien entre les deux, une référence
+
+addChild(GraphNode child, int index) sur un GraphNode parent
+- on verifie la compatibilité de child et parent
+- si le noeud child est tagué : on en crée une copie, qui en contient une référence
+				on signale que child possède une référence (en cas de modification, il faut qu'elle se propage)
+- sinon, on met un tag dessus (pour les prochains passages) et on l'ajoute.
+
+Remarque : pas besoin de regarder les "enfants" du noeud à rajouter (en pratique, le cas des copies survient sur des concepts simples).
