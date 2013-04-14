@@ -142,19 +142,53 @@
 
 \subsubsection{Connexion à Syntox}
 \begin{frame}{Connexion à Syntox}
-\begin{block}{Schéma de fonctionnement}
+\begin{block}{Fonctionnement souhaité}
 \begin{center}
 \includegraphics[scale=0.35]{syntox_connection.jpg}
 \end{center}
-Problème rencontré :
-\begin{itemize}
-\item Le résultat était incorrect.  \\
-L'action du formulaire ne semblait pas s'activer.
-\end{itemize}
+Problème technique: \\ Le texte généré par Syntox n'était pas obtenu, l'action du formulaire ne semblait pas se déclencher. \\
 \end{block}
 \end{frame}
 
+\begin{frame}{Connexion à Syntox}
+\begin{block}{Étude d'un nouveau procédé}
+Rappel des besoins:
+\begin{itemize}
+\item communiquer avec Syntox,
+\item lui fournir la requête générée par le GraphConcept,
+\item récupérer et afficher le résultat.
+\end{itemize}
+Idée: déclencher de manière sûr l'action du formulaire. 
+\end{block}
+\end{frame}
 
+\begin{frame}{Connexion à Syntox}
+\begin{block}{Solution élaborée}
+Création de la page HTML "pdp.html" en local.
+\begin{center}
+\includegraphics[scale=0.35]{syntox_connection2.png}
+\end{center}
+Les champs masquées (Grammaire, lexique et élément d'éditions) de la page originale en ligne sont transformés en fichier.
+\\ Une fois générée, la page est automatique lancée depuis le navigateur par défaut de l'utilisateur.
+\end{block}
+\end{frame}
+
+\begin{frame}{Connexion à Syntox}
+\begin{block}{Avantages et inconvénients de cette solution}
+Avantages:
+\begin{itemize}
+\item page en local, non-nécessité d'avoir internet pour la créer,
+\item la requête peut être modifiée avant d'être lancé à Syntox,
+\item les fichiers, grammaire, lexique et éléments d'éditions peuvent être édités.
+\end{itemize}
+Inconvénients:
+\begin{itemize}
+\item l'utilisateur doit lui même appuyer sur le bouton pour générer l'action du formulaire,
+\item la mise à jour des fichiers doit se faire manuellement,
+\item un navigateur internet désigné par défaut doit être présent.
+\end{itemize}
+\end{block}
+\end{frame}
 
 \section{Architecture}
 
@@ -171,3 +205,4 @@ L'action du formulaire ne semblait pas s'activer.
 
 
 \end{document}
+ 
