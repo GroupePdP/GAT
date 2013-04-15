@@ -10,4 +10,4 @@
 \beamer@subsubsectionintoc {2}{2}{2}{Connexion \IeC {\`a} Syntox}{25}{0}{1}
 \beamer@sectionintoc {3}{Architecture}{34}{0}{2}
 \beamer@sectionintoc {4}{Tests}{35}{0}{3}
-\beamer@sectionintoc {5}{Conclusion et perspectives}{36}{0}{4}
+\beamer@sectionintoc {5}{Conclusion et perspectives}{42}{0}{4}
