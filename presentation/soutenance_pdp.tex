@@ -1,4 +1,4 @@
-\documentclass[8pt]{beamer}
+\documentclass[11pt]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 %\usepackage{subfig}
@@ -21,8 +21,8 @@
     \end{frame}
 }
 
-\title{Soutenance projet de programmation}
-\subtitle{Génération Automatique de Texte}
+\title{Génération Automatique de Texte}
+\subtitle{Soutenance projet de programmation}
 \author{B. Barthés \\ A. Boumera \\ B. Guiomar \\ C. Pennarun \\ A. Wintringer}
 \date{Mardi 16 Avril 2013}
 
@@ -33,8 +33,14 @@
 
 \section*{Introduction}
 \begin{frame}\frametitle{Introduction}
-\end{frame}
+	\setbeamercovered{transparent}
+\begin{itemize}
+\uncover<1>{\item Génération Automatique de Texte}
+\uncover<2>{\item Existant}
+\uncover<3>{\item Objectifs du projet}
+\end{itemize}
 
+\end{frame}
 
 \section{Déroulement du logiciel}
 
@@ -72,25 +78,29 @@
 \begin{columns}
 
 \begin{column}{6cm}
+
 \setbeamercovered{transparent}
 \begin{itemize}[<+->]
 \item Types
-\\ \only<1>{Blabla types}
+\\ \only<1>{Définis par un nom et un surtype}
 \item Concepts
-\\ \only<2>{Blabla concepts}
+\\ \only<2>{Définis par un nom, un type et des types arguments}
 \item Scénarios
-\\ \only<3>{Blabla scénarios}
+\\ \only<3>{Liste de graphes de concepts}
+\item Projet
+\\ \only<4>{Défini par un nom, des scénarios, l'ensemble des types et des concepts et les informations de la base de données}
 \end{itemize}
+
 \end{column}
 
 \begin{column}{6cm}
 \only<1>{\includegraphics[scale=0.135]{creation_types.png}
-\captionof{figure}[]{Fenêtre création de types}}
+\captionof{figure}{Fenêtre création de types}}
 
 \only<2>{\includegraphics[scale=0.135]{creation_concepts.png}
-\captionof{figure}[]{Fenêtre création de concepts}}
+\captionof{figure}{Fenêtre création de concepts}}
 
-\only<3>{\includegraphics[scale=0.135]{creation_scenario.png}
+\only<3->{\includegraphics[scale=0.135]{creation_scenario.png}
 \captionof{figure}[]{Fenêtre création de scénarios}}
 \end{column}
 
@@ -103,13 +113,20 @@
 
 \subsubsection{Sauvegarde}
 \begin{frame}{Sauvegarde}
+\setbeamercovered{transparent}
+\begin{itemize}[<+->]
+\item Enregistrement de l'objet Projet
+\item Utilisation de la bibliothèque xstream pour l'enregistrement des fichiers en .xml
+\end{itemize}
 \end{frame}
 
 
 \subsection{Utilisateur}
 
 \subsubsection{Graphes conceptuels}
+
 \begin{frame}{Graphes conceptuels}
+\setbeamercovered{transparent}
 
 \only<1-4>{
 \uncover<1-4>{Point technique : rajout d'un noeud dans le graphe conceptuel}
@@ -126,13 +143,13 @@
 }
 
 \only<5->{
-\uncover<5->{addChild(GraphNode child, int index) sur un GraphNode parent}
+\uncover<5->{Ajout d'un GraphNode child sur un GraphNode parent}
 \begin{itemize} 
-\item \uncover<6->{on vérifie la compatibilité de child et parent}
-\item \uncover<7->{si le noeud child est tagué}
+\uncover<6->{\item on vérifie la compatibilité de child et parent}
+\uncover<7->{si le noeud child est tagué}
 				\uncover<8->{\\ on en crée une copie, qui en contient une référence}
 				\uncover<9->{\\ on signale que child possède une référence}
-\item  \uncover<10->{sinon, on met un tag dessus et on l'ajoute}
+ \uncover<10->{\item sinon, on met un tag dessus et on l'ajoute}
 \end{itemize}
 
 \uncover<11->{\bigskip Remarque : pas besoin de regarder les "enfants" du noeud à rajouter}
@@ -151,37 +168,39 @@ Problème technique: \\ Le texte généré par Syntox n'était pas obtenu, l'act
 \end{frame}
 
 \begin{frame}{Connexion à Syntox}
-\begin{block}{Étude d'un nouveau procédé}
-Rappel des besoins:
+\setbeamercovered{transparent}
+\uncover<1->{Génération de la requête par le graphe conceptuel}
+
+\uncover<2->{\bigskip
+Rappel des besoins:}
 \begin{itemize}
-\item communiquer avec Syntox,
-\item lui fournir la requête générée par le GraphConcept,
-\item récupérer et afficher le résultat.
+\uncover<3->{\item communiquer avec Syntox,}
+\uncover<4->{\item soumettre la requête,}
+\uncover<5->{\item récupérer et afficher le résultat.}
 \end{itemize}
-Idée: déclencher de manière sûre l'action du formulaire. 
-\end{block}
+\uncover<6->{\bigskip Idée: déclencher de manière sûre l'action du formulaire.}
 \end{frame}
 
 \begin{frame}{Connexion à Syntox}
-\begin{block}{Solution élaborée}
-Création de la page HTML "pdp.html" en local.
+\begin{block}{Solution élaborée - Création de la page "pdp.html" en local}
+
 \begin{center}
-%\includegraphics[scale=0.35]{syntox_connection2.png}
+\includegraphics[scale=0.3]{syntox_connection2.png}
 \end{center}
-Les champs masqués (Grammaire, lexique et éléments d'édition) de la page originale en ligne sont transformés en fichier.
-\\ Une fois générée, la page est automatiquement lancée depuis le navigateur par défaut de l'utilisateur.
+Transformation en fichier des champs masqués (Grammaire, lexique et éléments d'édition)
+\\ Lancement automatique depuis le navigateur par défaut
 \end{block}
 \end{frame}
 
 \begin{frame}{Connexion à Syntox}
-\begin{block}{Avantages et inconvénients de cette solution}
-Avantages:
+\begin{block}{Avantages}
 \begin{itemize}
 \item page en local, pas besoin d'avoir Internet pour la créer,
 \item la requête peut être modifiée avant d'être envoyée à Syntox,
 \item les fichiers de grammaire, lexique et éléments d'édition peuvent être édités.
 \end{itemize}
-Inconvénients:
+\end{block}
+\begin{block}{Inconvénients}
 \begin{itemize}
 \item l'utilisateur doit lui même appuyer sur le bouton pour générer l'action du formulaire,
 \item la mise à jour des fichiers doit se faire manuellement,
@@ -191,16 +210,21 @@ Inconvénients:
 \end{frame}
 
 \section{Architecture}
+\begin{frame}{Architecture}
+\begin{block}{Diagramme de packages}
+\begin{center}
+\includegraphics[scale=0.4]{DiagPackages.png}
+\end{center}
+\end{block}
+\end{frame}
 
-
-
-\section{Test}
-\begin{frame}
+\section{Tests}
+\begin{frame}{Tests}
 \end{frame}
 
 
-\begin{frame}{Conclusion}
-\section*{Conclusion}
+\section{Conclusion et perspectives}
+\begin{frame}{Conclusion et perspectives}
 \end{frame}
 
 
