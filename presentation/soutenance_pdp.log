@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  15 APR 2013 15:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.23)  15 APR 2013 15:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1489,11 +1489,12 @@ Overfull \hbox (12.23445pt too wide) has occurred while \output is active
 
 [33
 
-] <DiagPackages.png, id=510, 614.295pt x 325.215pt>
+] <DiagPackages.png, id=510, 637.38126pt x 372.39125pt>
 File: DiagPackages.png Graphic file (type png)
- <use DiagPackages.png>
+
+<use DiagPackages.png>
 Package pdftex.def Info: DiagPackages.png used on input line 219.
-(pdftex.def)             Requested size: 245.71364pt x 130.0837pt.
+(pdftex.def)             Requested size: 254.94798pt x 148.95386pt.
 
 Overfull \hbox (12.23445pt too wide) has occurred while \output is active
  [][]  
@@ -1545,7 +1546,7 @@ Here is how much of TeX's memory you used:
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf/fonts/type1/
 public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmss8.pfb>
-Output written on soutenance_pdp.pdf (36 pages, 253182 bytes).
+Output written on soutenance_pdp.pdf (36 pages, 254064 bytes).
 PDF statistics:
  576 PDF objects out of 1000 (max. 8388607)
  502 compressed objects within 6 object streams
